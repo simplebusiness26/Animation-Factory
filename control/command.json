@@ -1,4 +1,7 @@
 {
-  "action": "ping",
-  "request_id": "earth-needs-help-e001-s001-own-list-002"
+  "action": "run_kernel",
+  "path": "kernels/earth-needs-help-e001-s001",
+  "owner": "simplebusiness",
+  "accelerator": "NvidiaTeslaT4",
+  "request_id": "earth-needs-help-e001-s001-run-004"
 }
