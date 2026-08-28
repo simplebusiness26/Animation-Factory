@@ -42,6 +42,14 @@ class Opportunity:
     reasons: list[str]
 
 
+def normalize_ref(value: Any) -> str:
+    ref = str(value or "").strip().rstrip("/")
+    marker = "/competitions/"
+    if marker in ref:
+        ref = ref.split(marker, 1)[1]
+    return ref.split("/", 1)[0].strip()
+
+
 def _fetch_group(group: str) -> list[dict[str, Any]]:
     proc = subprocess.run(
         [
@@ -62,7 +70,6 @@ def _fetch_group(group: str) -> list[dict[str, Any]]:
         check=False,
     )
     if proc.returncode != 0:
-        # Older Kaggle CLI builds may not support newer groups such as community.
         if group != "general":
             return []
         raise RuntimeError((proc.stderr or proc.stdout).strip())
@@ -80,9 +87,11 @@ def run_kaggle_rows() -> list[dict[str, Any]]:
     rows = _fetch_group("general") + _fetch_group("community")
     deduped: dict[str, dict[str, Any]] = {}
     for row in rows:
-        ref = str(row.get("ref") or "").strip()
+        ref = normalize_ref(row.get("ref"))
         if ref:
-            deduped[ref] = row
+            cleaned = dict(row)
+            cleaned["ref"] = ref
+            deduped[ref] = cleaned
     return list(deduped.values())
 
 
@@ -104,8 +113,6 @@ def parse_reward(text: Any) -> tuple[float, str]:
     elif "€" in value or "eur" in lower:
         currency = "€"
     else:
-        # Kaggle's legacy CSV can expose plain numeric rewards; treat as cash but
-        # preserve the fact that the currency is unspecified.
         currency = "cash"
     return amount, currency
 
@@ -138,11 +145,31 @@ def to_int(value: Any) -> int:
 
 def preliminary_score(prize: float, teams: int, days_left: float) -> tuple[float, list[str]]:
     reasons: list[str] = []
-    teams = max(teams, 1)
     prize_score = min(35.0, max(0.0, 7.0 * math.log10(max(prize, 1.0))))
-    crowd_score = max(0.0, 25.0 - 8.0 * math.log10(teams + 1.0))
-    prize_per_team = prize / teams
-    efficiency_score = min(25.0, 8.0 * math.log10(prize_per_team + 1.0))
+
+    if teams <= 0:
+        # A zero from Kaggle can mean the count is unavailable, so do not treat it
+        # as a one-team contest and massively inflate the expected-value score.
+        crowd_score = 10.0
+        efficiency_score = 10.0
+        reasons.append("team count unavailable — verify before pursuing")
+    else:
+        crowd_score = max(0.0, 25.0 - 8.0 * math.log10(teams + 1.0))
+        prize_per_team = prize / teams
+        efficiency_score = min(25.0, 8.0 * math.log10(prize_per_team + 1.0))
+        if teams <= 50:
+            reasons.append(f"low crowd ({teams} teams)")
+        elif teams >= 1000:
+            reasons.append(f"very crowded ({teams} teams)")
+        else:
+            reasons.append(f"{teams} teams")
+
+        if prize_per_team >= 1000:
+            reasons.append(f"strong prize/team ({prize_per_team:,.0f})")
+        elif prize_per_team >= 100:
+            reasons.append(f"reasonable prize/team ({prize_per_team:,.0f})")
+        else:
+            reasons.append(f"weak prize/team ({prize_per_team:,.0f})")
 
     if 21 <= days_left <= 90:
         time_score = 15.0
@@ -156,20 +183,6 @@ def preliminary_score(prize: float, teams: int, days_left: float) -> tuple[float
         time_score = 7.0
     else:
         time_score = 0.0
-
-    if teams <= 50:
-        reasons.append(f"low crowd ({teams} teams)")
-    elif teams >= 1000:
-        reasons.append(f"very crowded ({teams} teams)")
-    else:
-        reasons.append(f"{teams} teams")
-
-    if prize_per_team >= 1000:
-        reasons.append(f"strong prize/team ({prize_per_team:,.0f})")
-    elif prize_per_team >= 100:
-        reasons.append(f"reasonable prize/team ({prize_per_team:,.0f})")
-    else:
-        reasons.append(f"weak prize/team ({prize_per_team:,.0f})")
 
     if days_left < 3:
         reasons.append("almost no time left")
@@ -202,7 +215,7 @@ def build_opportunities(rows: list[dict[str, Any]]) -> list[Opportunity]:
         verdict = "HUNT" if score >= 70 else "INVESTIGATE" if score >= 58 else "WATCH" if score >= 45 else "PASS"
         results.append(
             Opportunity(
-                ref=str(row.get("ref") or ""),
+                ref=normalize_ref(row.get("ref")),
                 deadline=deadline.isoformat(),
                 category=str(row.get("category") or "unknown"),
                 reward=str(row.get("reward") or ""),
