@@ -1,0 +1,28 @@
+{
+  "slug": "arc-prize-2026-paper-track",
+  "stage1_score": 82.4,
+  "reward": "450,000 Usd",
+  "teams": 157,
+  "days_left": 73.9,
+  "task_type": "unknown",
+  "compute_fit": 55.0,
+  "time_fit": 90.0,
+  "crowd_fit": 51.6,
+  "data_fit": 90.0,
+  "documentation_fit": 40.0,
+  "dependency_penalty": 0.0,
+  "eligibility_penalty": 0.0,
+  "final_score": 68.6,
+  "verdict": "MAYBE",
+  "files_count": 1,
+  "total_data_bytes": 150,
+  "pages_found": [],
+  "flags": [
+    "installed Kaggle CLI cannot expose competition pages"
+  ],
+  "reasons": [
+    "task type unclear from available documentation",
+    "dataset footprint about 0.0 GB",
+    "documentation depth limited by current CLI version"
+  ]
+}

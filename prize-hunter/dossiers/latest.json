@@ -1,0 +1,145 @@
+{
+  "generated_at": "2026-08-28T01:51:41.840679+00:00",
+  "dossiers": [
+    {
+      "slug": "arc-prize-2026-paper-track",
+      "stage1_score": 82.4,
+      "reward": "450,000 Usd",
+      "teams": 157,
+      "days_left": 73.9,
+      "task_type": "unknown",
+      "compute_fit": 55.0,
+      "time_fit": 90.0,
+      "crowd_fit": 51.6,
+      "data_fit": 90.0,
+      "documentation_fit": 40.0,
+      "dependency_penalty": 0.0,
+      "eligibility_penalty": 0.0,
+      "final_score": 68.6,
+      "verdict": "MAYBE",
+      "files_count": 1,
+      "total_data_bytes": 150,
+      "pages_found": [],
+      "flags": [
+        "installed Kaggle CLI cannot expose competition pages"
+      ],
+      "reasons": [
+        "task type unclear from available documentation",
+        "dataset footprint about 0.0 GB",
+        "documentation depth limited by current CLI version"
+      ]
+    },
+    {
+      "slug": "pokemon-tcg-ai-battle-challenge-strategy",
+      "stage1_score": 71.6,
+      "reward": "240,000 Usd",
+      "teams": 522,
+      "days_left": 16.9,
+      "task_type": "agent/simulation",
+      "compute_fit": 60.0,
+      "time_fit": 65.0,
+      "crowd_fit": 40.2,
+      "data_fit": 90.0,
+      "documentation_fit": 40.0,
+      "dependency_penalty": 0.0,
+      "eligibility_penalty": 0.0,
+      "final_score": 61.7,
+      "verdict": "MAYBE",
+      "files_count": 8,
+      "total_data_bytes": 641480184,
+      "pages_found": [],
+      "flags": [
+        "installed Kaggle CLI cannot expose competition pages"
+      ],
+      "reasons": [
+        "agent/simulation workload",
+        "dataset footprint about 0.6 GB",
+        "documentation depth limited by current CLI version"
+      ]
+    },
+    {
+      "slug": "arc-prize-2026-arc-agi-2",
+      "stage1_score": 71.0,
+      "reward": "700,000 Usd",
+      "teams": 1663,
+      "days_left": 66.9,
+      "task_type": "reasoning/research",
+      "compute_fit": 40.0,
+      "time_fit": 90.0,
+      "crowd_fit": 29.1,
+      "data_fit": 90.0,
+      "documentation_fit": 40.0,
+      "dependency_penalty": 0.0,
+      "eligibility_penalty": 0.0,
+      "final_score": 58.6,
+      "verdict": "MAYBE",
+      "files_count": 6,
+      "total_data_bytes": 6912541,
+      "pages_found": [],
+      "flags": [
+        "installed Kaggle CLI cannot expose competition pages"
+      ],
+      "reasons": [
+        "frontier reasoning research",
+        "dataset footprint about 0.0 GB",
+        "documentation depth limited by current CLI version"
+      ]
+    },
+    {
+      "slug": "arc-prize-2026-arc-agi-3",
+      "stage1_score": 70.2,
+      "reward": "850,000 Usd",
+      "teams": 2577,
+      "days_left": 66.9,
+      "task_type": "reasoning/research",
+      "compute_fit": 40.0,
+      "time_fit": 90.0,
+      "crowd_fit": 25.0,
+      "data_fit": 90.0,
+      "documentation_fit": 40.0,
+      "dependency_penalty": 0.0,
+      "eligibility_penalty": 0.0,
+      "final_score": 57.8,
+      "verdict": "MAYBE",
+      "files_count": 148,
+      "total_data_bytes": 48969679,
+      "pages_found": [],
+      "flags": [
+        "installed Kaggle CLI cannot expose competition pages"
+      ],
+      "reasons": [
+        "frontier reasoning research",
+        "dataset footprint about 0.0 GB",
+        "documentation depth limited by current CLI version"
+      ]
+    },
+    {
+      "slug": "ai-4-s-open-innovation-artificial-intelligence-for-life-scien",
+      "stage1_score": 65.4,
+      "reward": "22,200 Usd",
+      "teams": 0,
+      "days_left": 43.6,
+      "task_type": "unknown",
+      "compute_fit": 55.0,
+      "time_fit": 80.0,
+      "crowd_fit": 50.0,
+      "data_fit": 90.0,
+      "documentation_fit": 40.0,
+      "dependency_penalty": 0.0,
+      "eligibility_penalty": 0.0,
+      "final_score": 62.6,
+      "verdict": "MAYBE",
+      "files_count": 1,
+      "total_data_bytes": 2402,
+      "pages_found": [],
+      "flags": [
+        "installed Kaggle CLI cannot expose competition pages"
+      ],
+      "reasons": [
+        "task type unclear from available documentation",
+        "dataset footprint about 0.0 GB",
+        "documentation depth limited by current CLI version"
+      ]
+    }
+  ]
+}

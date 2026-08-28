@@ -1,0 +1,28 @@
+{
+  "slug": "ai-4-s-open-innovation-artificial-intelligence-for-life-scien",
+  "stage1_score": 65.4,
+  "reward": "22,200 Usd",
+  "teams": 0,
+  "days_left": 43.6,
+  "task_type": "unknown",
+  "compute_fit": 55.0,
+  "time_fit": 80.0,
+  "crowd_fit": 50.0,
+  "data_fit": 90.0,
+  "documentation_fit": 40.0,
+  "dependency_penalty": 0.0,
+  "eligibility_penalty": 0.0,
+  "final_score": 62.6,
+  "verdict": "MAYBE",
+  "files_count": 1,
+  "total_data_bytes": 2402,
+  "pages_found": [],
+  "flags": [
+    "installed Kaggle CLI cannot expose competition pages"
+  ],
+  "reasons": [
+    "task type unclear from available documentation",
+    "dataset footprint about 0.0 GB",
+    "documentation depth limited by current CLI version"
+  ]
+}
