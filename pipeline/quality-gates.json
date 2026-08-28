@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "shot_gate": {
+    "score_scale": [1, 5],
+    "minimum_category_score": 4,
+    "minimum_average_score": 4.2,
+    "categories": [
+      "character_identity_continuity",
+      "anatomy_object_integrity",
+      "motion_stability",
+      "background_set_stability",
+      "composition_readability",
+      "story_performance_accuracy",
+      "technical_cleanliness"
+    ],
+    "critical_blockers": [
+      "wrong_recurring_character_identity",
+      "wrong_colour_costume_scale_or_signature_feature",
+      "extra_or_missing_limbs",
+      "severe_face_deformation",
+      "character_or_object_melting",
+      "major_unplanned_duplication",
+      "major_background_morphing",
+      "planned_action_not_readable_or_wrong",
+      "watermark_or_accidental_text",
+      "unsafe_or_frightening_unintended_imagery",
+      "corrupt_frozen_or_unusable_output"
+    ]
+  },
+  "final_episode_gate": {
+    "required_checks": [
+      "story_complete_and_understandable",
+      "character_visual_continuity",
+      "voice_continuity",
+      "location_and_prop_continuity",
+      "pacing_and_comic_timing",
+      "dialogue_intelligibility",
+      "audio_balance",
+      "no_missing_or_duplicate_shots",
+      "clean_beginning_and_ending",
+      "runtime_aspect_ratio_and_export_match_production"
+    ]
+  },
+  "repair_policy": {
+    "target_smallest_failed_unit": true,
+    "repair_order": [
+      "editorial_trim_or_retime",
+      "prompt_adjustment",
+      "reduce_motion",
+      "strengthen_reference_constraint",
+      "replace_reference_still",
+      "regenerate_failed_shot"
+    ],
+    "do_not_regenerate_passed_shots": true
+  }
+}
