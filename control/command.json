@@ -1,5 +1,5 @@
 {
-  "action": "kernel_output",
-  "kernel": "simplebusiness/earth-needs-help-episode-001-production-stills",
-  "request_id": "earth-needs-help-e001-stills-diagnostic-007"
+  "action": "kernel_status",
+  "kernel": "simplebusiness/enh-e001-stills-r1-7887180",
+  "request_id": "earth-needs-help-e001-stills-retry1-status-008"
 }
