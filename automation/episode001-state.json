@@ -2,17 +2,15 @@
   "episode": "001",
   "title": "The Great Earth Emergency",
   "phase": "awaiting_stills",
-  "stills_kernel": "simplebusiness/enh-e001-stills-r2-7887392",
-  "stills_attempts": 2,
+  "stills_kernel": "simplebusiness/enh-e001-stills-r3-7887657",
+  "stills_attempts": 3,
   "motion_kernel": "simplebusiness/earth-needs-help-episode-001-motion",
   "motion_attempts": 0,
-  "last_status": "STILLS_RETRY_2_SUPERSEDED_BY_ENCODER_FIX",
+  "last_status": "STILLS_RETRY_3_SUBMITTED",
   "last_error": null,
-  "updated_at": "2026-08-28T03:27:00Z",
+  "updated_at": "2026-08-28T03:27:39Z",
   "release_tag": "earth-needs-help-e001",
   "stills_submit_failures": 0,
   "motion_submit_failures": 0,
-  "assembly_attempts": 0,
-  "force_stills_retry": true,
-  "force_stills_retry_reason": "Retry 2 was submitted before the SDXL ViT-H encoder and per-shot fallback fix; submit a fresh patched retry without waiting for the known-old code path."
+  "assembly_attempts": 0
 }
