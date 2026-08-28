@@ -29,7 +29,9 @@ jobs:
           cache: pip
 
       - name: Install Kaggle CLI
-        run: pip install -r requirements.txt
+        run: |
+          pip install -r requirements.txt
+          pip install --upgrade "git+https://github.com/Kaggle/kaggle-cli.git@659469c4185cfca0fb3be01edad6f50277528d9d"
 
       - name: Stage 1 - scan and rank active competitions
         run: python prize_hunter.py
