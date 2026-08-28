@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 """Generate Earth Needs Help Episode 001 still frames 002-009 on a Kaggle T4.
 
-This version hard-anchors generation to BOTH canonical sources:
-1) the approved red-alert spaceship frame, and
-2) the approved five-character turnaround sheet.
+Hard-anchors generation to the approved red-alert spaceship frame and, when
+valid, the approved five-character turnaround sheet. The original exported
+JPEG payloads contain a known three-byte DQT defect; this runner repairs that
+specific defect before Pillow loads them. If the turnaround sheet remains
+unreadable, the canonical bridge frame is used as the IP-Adapter visual lock
+instead of failing the production run or substituting different characters.
 """
 from __future__ import annotations
 
@@ -64,12 +67,53 @@ def fetch_b64(url: str, filename: str) -> Path:
     return path
 
 
-def character_strip(sheet, include_child: bool):
-    """Crop the useful front/three-quarter part of each canonical row.
+def repair_known_jpeg_dqt(path: Path) -> bool:
+    """Repair the known exported-JPEG DQT defect without altering image pixels.
 
-    The compact reference is 480x320 with five character rows. We avoid the
-    expression-head side of the sheet so the adapter sees one identity per row.
+    These canonical exports declare a 67-byte second quantisation-table segment,
+    but the following SOF marker begins three bytes early. Filling only those
+    missing coefficients restores the JPEG structure. Any other layout is left
+    untouched so an unexpected/corrupt asset fails visibly rather than being
+    silently rewritten.
     """
+    data = path.read_bytes()
+    first_dqt = data.find(b'\xff\xdb')
+    second_dqt = data.find(b'\xff\xdb', first_dqt + 2) if first_dqt >= 0 else -1
+    if second_dqt < 0 or second_dqt + 4 > len(data):
+        return False
+
+    declared_length = int.from_bytes(data[second_dqt + 2:second_dqt + 4], 'big')
+    declared_end = second_dqt + 2 + declared_length
+    sof_positions = [p for p in (data.find(b'\xff\xc0', second_dqt), data.find(b'\xff\xc2', second_dqt)) if p >= 0]
+    if not sof_positions:
+        return False
+    sof = min(sof_positions)
+    missing = declared_end - sof
+    if not 1 <= missing <= 8 or sof == 0:
+        return False
+
+    fill = bytes([data[sof - 1]]) * missing
+    path.write_bytes(data[:sof] + fill + data[sof:])
+    return True
+
+
+def load_canonical_image(path: Path):
+    from PIL import Image
+    try:
+        image = Image.open(path).convert('RGB')
+        image.load()
+        return image, False
+    except Exception as first_error:
+        repaired = repair_known_jpeg_dqt(path)
+        if not repaired:
+            raise first_error
+        image = Image.open(path).convert('RGB')
+        image.load()
+        return image, True
+
+
+def character_strip(sheet, include_child: bool):
+    """Crop the useful front/three-quarter part of each canonical row."""
     from PIL import Image
     rows = 5 if include_child else 4
     row_h = sheet.height // 5
@@ -90,16 +134,24 @@ def main() -> int:
     install()
 
     import torch
-    from PIL import Image, ImageOps
+    from PIL import ImageOps
     from diffusers import StableDiffusionXLImg2ImgPipeline
 
     reference_path = fetch_b64(BRIDGE_STILL_URL, 'reference.jpg')
     character_path = fetch_b64(CHARACTER_LOCK_URL, 'character-lock.jpg')
 
-    ref = Image.open(reference_path).convert('RGB')
+    ref, reference_repaired = load_canonical_image(reference_path)
     size = (768, 432)
-    ref = ImageOps.fit(ref, size, method=Image.Resampling.LANCZOS)
-    sheet = Image.open(character_path).convert('RGB')
+    ref = ImageOps.fit(ref, size, method=ImageOps.Image.Resampling.LANCZOS if hasattr(ImageOps, 'Image') else 1)
+
+    sheet = None
+    sheet_error = None
+    sheet_repaired = False
+    try:
+        sheet, sheet_repaired = load_canonical_image(character_path)
+    except Exception as exc:
+        sheet_error = f'{type(exc).__name__}: {exc}'
+        print(f'Character turnaround unavailable; using canonical bridge frame as visual lock: {sheet_error}')
 
     pipe = StableDiffusionXLImg2ImgPipeline.from_pretrained(
         'stabilityai/stable-diffusion-xl-base-1.0',
@@ -120,7 +172,10 @@ def main() -> int:
     manifest = {
         'show':'Earth Needs Help',
         'episode':'001',
-        'reference_mode':'scene1 + canonical character sheet + IP-Adapter',
+        'reference_mode':'canonical bridge frame + canonical turnaround when readable; bridge-frame fallback otherwise',
+        'reference_repaired':reference_repaired,
+        'character_sheet_repaired':sheet_repaired,
+        'character_sheet_error':sheet_error,
         'gpu': torch.cuda.get_device_name(0) if torch.cuda.is_available() else None,
         'shots':[],
     }
@@ -131,7 +186,7 @@ def main() -> int:
         output_path = WORK / output_name
         generator = torch.Generator(device='cpu').manual_seed(5200 + index)
         include_child = shot['id'] not in {'002','003'}
-        adapter_ref = character_strip(sheet, include_child=include_child)
+        adapter_ref = character_strip(sheet, include_child=include_child) if sheet is not None else ref
         try:
             result = pipe(
                 prompt=prompt,
