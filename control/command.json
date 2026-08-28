@@ -1,6 +1,7 @@
 {
   "action": "run_kernel",
-  "request_id": "gpu-smoke-001",
+  "request_id": "gpu-smoke-002",
+  "owner": "simplebusiness",
   "path": "kernels/smoke-test",
   "accelerator": "NvidiaTeslaT4"
 }
