@@ -128,21 +128,35 @@ jobs:
           snapshot="$(mktemp -d)"
           mkdir -p "$snapshot/automation"
           if [ -f automation/episode001-state.json ]; then
-            cp automation/episode001-state.json "$snapshot/automation/episode001-state.json"
+            cp -f automation/episode001-state.json "$snapshot/automation/episode001-state.json"
           fi
           if [ -d automation/logs ]; then
-            cp -a automation/logs "$snapshot/automation/logs"
+            mkdir -p "$snapshot/automation/logs"
+            cp -a automation/logs/. "$snapshot/automation/logs/"
           fi
-          still_parent="$snapshot/shows/earth-needs-help/episodes/001-great-earth-emergency/assets"
-          mkdir -p "$still_parent"
+          snapshot_stills="$snapshot/shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills"
           if [ -d shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills ]; then
-            cp -a shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills "$still_parent/stills"
+            mkdir -p "$snapshot_stills"
+            cp -a shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/. "$snapshot_stills/"
           fi
 
           for attempt in 1 2 3; do
             git fetch origin main
             git reset --hard origin/main
-            cp -a "$snapshot"/. .
+
+            if [ -f "$snapshot/automation/episode001-state.json" ]; then
+              mkdir -p automation
+              cp -f "$snapshot/automation/episode001-state.json" automation/episode001-state.json
+            fi
+            if [ -d "$snapshot/automation/logs" ]; then
+              mkdir -p automation/logs
+              cp -a "$snapshot/automation/logs/." automation/logs/
+            fi
+            if [ -d "$snapshot_stills" ]; then
+              mkdir -p shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills
+              cp -a "$snapshot_stills/." shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/
+            fi
+
             git add automation/episode001-state.json automation/logs/ \
               shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/ 2>/dev/null || true
             if git diff --cached --quiet; then
