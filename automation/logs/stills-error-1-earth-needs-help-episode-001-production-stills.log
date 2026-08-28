@@ -1,0 +1,42 @@
+[{"stream_name":"stdout","time":7.125796489,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.9/5.9 MB 43.9 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":7.285914493,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.1/12.1 MB 83.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":7.323196429,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 389.2/389.2 kB 29.4 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":7.358852255,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 516.0/516.0 kB 38.5 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":7.398618575,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 795.8/795.8 kB 44.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":7.473124963,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 63.4 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":7.507126485,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 125.3/125.3 kB 10.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":7.584618006,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 81.4 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":27.725559925,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":27.725617234,"data":"google-adk 1.29.0 requires google-cloud-bigquery-storage\u003e=2.0.0, which is not installed.\n"}
+,{"stream_name":"stdout","time":59.450577349,"data":"Character turnaround unavailable; using canonical bridge frame as visual lock: OSError: broken data stream when reading image file\n"}
+,{"stream_name":"stderr","time":59.450861155,"data":"/usr/local/lib/python3.12/dist-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.\n"}
+,{"stream_name":"stderr","time":59.450902552,"data":"  deprecate(\"torch_dtype\", \"1.0.0\", _TORCH_DTYPE_DEPRECATION_MESSAGE)\n"}
+,{"stream_name":"stderr","time":59.976506081,"data":"\rFetching 19 files:   0%|          | 0/19 [00:00\u003c?, ?it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":59.976535773,"data":"WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":82.779904335,"data":"\rFetching 19 files:  16%|█▌        | 3/19 [00:00\u003c00:00, 18.55it/s]\rFetching 19 files:  58%|█████▊    | 11/19 [00:00\u003c00:00, 47.04it/s]\rFetching 19 files:  89%|████████▉ | 17/19 [00:02\u003c00:00,  4.79it/s]\rFetching 19 files:  95%|█████████▍| 18/19 [00:19\u003c00:00,  4.79it/s]\rFetching 19 files: 100%|██████████| 19/19 [00:22\u003c00:00,  1.97s/it]\rFetching 19 files: 100%|██████████| 19/19 [00:22\u003c00:00,  1.20s/it]\n"}
+,{"stream_name":"stderr","time":84.112349912,"data":"\rLoading pipeline components...:   0%|          | 0/7 [00:00\u003c?, ?it/s]\rLoading pipeline components...:  29%|██▊       | 2/7 [00:01\u003c00:02,  1.67it/s]\n"}
+,{"stream_name":"stderr","time":84.193557351,"data":"\rLoading weights:   0%|          | 0/196 [00:00\u003c?, ?it/s]\u001b[A\rLoading weights: 100%|██████████| 196/196 [00:00\u003c00:00, 2443.22it/s]\n"}
+,{"stream_name":"stderr","time":84.660554511,"data":"\rLoading pipeline components...:  43%|████▎     | 3/7 [00:01\u003c00:01,  2.27it/s]\n"}
+,{"stream_name":"stderr","time":84.761746552,"data":"\rLoading weights:   0%|          | 0/517 [00:00\u003c?, ?it/s]\u001b[A\n"}
+,{"stream_name":"stderr","time":84.864255189,"data":"\rLoading weights:  47%|████▋     | 245/517 [00:00\u003c00:00, 2445.81it/s]\u001b[A\n"}
+,{"stream_name":"stderr","time":84.873703526,"data":"\rLoading weights:  95%|█████████▍| 490/517 [00:00\u003c00:00, 2413.18it/s]\u001b[A\rLoading weights: 100%|██████████| 517/517 [00:00\u003c00:00, 2438.17it/s]\n"}
+,{"stream_name":"stderr","time":85.166015883,"data":"\rLoading pipeline components...:  71%|███████▏  | 5/7 [00:02\u003c00:00,  2.58it/s]\rLoading pipeline components...:  86%|████████▌ | 6/7 [00:02\u003c00:00,  2.88it/s]\rLoading pipeline components...: 100%|██████████| 7/7 [00:02\u003c00:00,  2.94it/s]\n"}
+,{"stream_name":"stderr","time":117.939150287,"data":"\rLoading weights:   0%|          | 0/776 [00:00\u003c?, ?it/s]\rLoading weights:  34%|███▍      | 267/776 [00:00\u003c00:00, 2666.36it/s]\rLoading weights:  69%|██████▉   | 534/776 [00:00\u003c00:00, 2634.59it/s]\rLoading weights: 100%|██████████| 776/776 [00:00\u003c00:00, 2653.79it/s]\n"}
+,{"stream_name":"stderr","time":118.471143573,"data":"There are modules in UNet2DConditionModel that should be kept in float32: []. Casting directly with `to()` can lead to inconsistent results; set `torch_dtype` in `from_pretrained()` instead to keep these modules in float32.\n"}
+,{"stream_name":"stderr","time":118.592773779,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":118.592813104,"data":"  File \"/kaggle/src/script.py\", line 216, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":118.593018683,"data":"    raise SystemExit(main())\n"}
+,{"stream_name":"stderr","time":118.59307553,"data":"                     ^^^^^^\n"}
+,{"stream_name":"stderr","time":118.593129113,"data":"  File \"/kaggle/src/script.py\", line 170, in main\n"}
+,{"stream_name":"stderr","time":118.593357921,"data":"    pipe.enable_vae_tiling()\n"}
+,{"stream_name":"stderr","time":118.593406607,"data":"    ^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":118.593448467,"data":"  File \"/usr/local/lib/python3.12/dist-packages/diffusers/configuration_utils.py\", line 175, in __getattr__\n"}
+,{"stream_name":"stderr","time":118.59365972,"data":"    raise AttributeError(f\"'{type(self).__name__}' object has no attribute '{name}'\")\n"}
+,{"stream_name":"stderr","time":118.593984559,"data":"AttributeError: 'StableDiffusionXLImg2ImgPipeline' object has no attribute 'enable_vae_tiling'\n"}
+,{"stream_name":"stderr","time":123.667646124,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":123.667680578,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":123.969318756,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":123.969346917,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":125.43541378,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":126.634431561,"data":"[NbConvertApp] Writing 314443 bytes to __results__.html\n"}
+]
