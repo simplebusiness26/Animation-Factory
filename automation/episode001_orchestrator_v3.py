@@ -6,8 +6,9 @@ compact JPEGs before upload so the Kaggle kernel source stays comfortably
 below API source-size limits while retaining enough detail for image-to-video.
 
 A persisted force_stills_retry flag can deliberately supersede an in-flight
-kernel that is known to contain obsolete/broken code. This is used only when a
-root cause is already identified and patched, avoiding wasted retry time.
+kernel that is known to contain obsolete/broken code. A completed episode whose
+GitHub Release was not confirmed is automatically rebuilt from the completed
+motion kernel on the next cycle so release publication can retry.
 """
 from __future__ import annotations
 
@@ -21,14 +22,12 @@ from PIL import Image, ImageOps
 import episode001_orchestrator as base
 import episode001_orchestrator_v2 as v2
 
-# Recovery budget is deliberately larger than the original pilot defaults.
-# Submission-layer failures are counted separately by v2 and do not consume
-# these actual render-attempt budgets.
 base.MAX_STILLS_ATTEMPTS = 6
 base.MAX_MOTION_ATTEMPTS = 5
 
 TARGET_SIZE = (704, 400)
 TARGET_SOURCE_BYTES = 750_000
+FINAL_MP4 = base.DIST_DIR / "earth-needs-help-e001-final.mp4"
 
 
 def encode_stills(root: Path, quality: int) -> tuple[dict[str, str], int]:
@@ -92,12 +91,12 @@ def compact_motion_folder(kernel_ref: str, attempt: int) -> Path:
     return root
 
 
-# retry_motion resolves this function from the v2 module at runtime.
 v2.build_motion_retry_folder = compact_motion_folder
 
 
 def run_controller() -> int:
     state = base.load_state()
+
     if bool(state.pop("force_stills_retry", False)):
         reason = str(state.pop("force_stills_retry_reason", "Known-bad stills attempt was superseded after a root-cause fix."))
         state["last_status"] = "STILLS_SUPERSEDED_RETRY_REQUESTED"
@@ -106,6 +105,17 @@ def run_controller() -> int:
         base.save_state(state)
         print(json.dumps(state, indent=2))
         return 0 if state.get("phase") != "failed" else 1
+
+    # A GitHub Actions workspace is ephemeral. If rendering completed in an
+    # earlier run but release publication was never confirmed, regenerate the
+    # final MP4 from the already-complete motion kernel and let the workflow
+    # retry artifact/release publication in this run.
+    if state.get("phase") == "complete" and not bool(state.get("release_published")) and not FINAL_MP4.is_file():
+        state["phase"] = "awaiting_motion"
+        state["last_status"] = "FINAL_RELEASE_REBUILD_REQUIRED"
+        state["last_error"] = None
+        base.save_state(state)
+
     return v2.main()
 
 
