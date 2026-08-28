@@ -36,8 +36,8 @@ jobs:
       - name: Stage 1 - scan and rank active competitions
         run: python prize_hunter.py
 
-      - name: Stage 2 - build top competition dossiers
-        run: python prize_dossier.py --top 5
+      - name: Stage 2 - build public competition dossiers
+        run: python prize_dossier_v2.py --top 5
 
       - name: Commit Prize Hunter reports and dossiers
         run: |
@@ -45,7 +45,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          # Bring in any Animation Factory commits that landed while this scan ran.
           git pull --rebase --autostash origin main
 
           git add prize-hunter/latest.md prize-hunter/latest.json prize-hunter/feed.json prize-hunter/history/ prize-hunter/dossiers/
@@ -56,7 +55,6 @@ jobs:
 
           git commit -m "Prize Hunter daily scan and dossiers"
 
-          # A busy repo can receive another commit between pull and push. Retry safely.
           for attempt in 1 2 3; do
             if git push origin main; then
               exit 0
