@@ -1,0 +1,42 @@
+name: Validate Animation Factory skills
+
+on:
+  push:
+    paths:
+      - 'AGENTS.md'
+      - '.agents/skills/**'
+      - 'pipeline/**'
+      - 'shows/**/show-bible.md'
+      - 'shows/**/character-bible.md'
+      - 'shows/**/style-bible.md'
+      - 'shows/**/episodes/**/production.json'
+  pull_request:
+    paths:
+      - 'AGENTS.md'
+      - '.agents/skills/**'
+      - 'pipeline/**'
+      - 'shows/**/show-bible.md'
+      - 'shows/**/character-bible.md'
+      - 'shows/**/style-bible.md'
+      - 'shows/**/episodes/**/production.json'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate production skills and canon
+        run: python pipeline/validate_skills.py
+      - name: Smoke-test context loader
+        run: >-
+          python pipeline/skill_loader.py
+          --show earth-needs-help
+          --episode 001-great-earth-emergency
+          --stage video-prompt-engineer
+          > /tmp/animation-factory-context.json
