@@ -1,4 +1,6 @@
 {
-  "action": "ping",
-  "request_id": "chat-control-proof-20260828-0200"
+  "action": "run_kernel",
+  "path": "kernels/earth-needs-help-e001-s001",
+  "accelerator": "NvidiaTeslaT4",
+  "request_id": "earth-needs-help-e001-s001-run-001"
 }
