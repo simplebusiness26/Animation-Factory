@@ -105,6 +105,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
+          set -euo pipefail
           tag="earth-needs-help-e001"
           title="Earth Needs Help — Episode 001: The Great Earth Emergency"
           video="dist/earth-needs-help-e001-final.mp4"
@@ -116,6 +117,17 @@ jobs:
               --title "$title" \
               --notes "Animation Factory autonomous final export. Includes voices, original generated music/SFX, and technical QA report."
           fi
+          python - <<'PY'
+          import json
+          import time
+          from pathlib import Path
+          p = Path('automation/episode001-state.json')
+          state = json.loads(p.read_text(encoding='utf-8'))
+          state['release_published'] = True
+          state['release_published_at'] = time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
+          state['last_status'] = 'FINAL_RELEASE_PUBLISHED'
+          p.write_text(json.dumps(state, indent=2) + '\n', encoding='utf-8')
+          PY
 
       - name: Persist controller state and canonical stills
         if: always()
