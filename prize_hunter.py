@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """Kaggle Prize Hunter.
 
-Scans currently available Kaggle competitions and ranks cash-prize opportunities by
-preliminary expected-value signals. It does not enter competitions or submit entries.
-Those remain explicit approval-gated actions.
+Scans active Kaggle competitions and ranks cash-prize opportunities by preliminary
+expected-value signals. It does not enter competitions or submit entries.
 """
 
 from __future__ import annotations
@@ -23,7 +22,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parent
 OUT_DIR = ROOT / "prize-hunter"
 HISTORY_DIR = OUT_DIR / "history"
-MONEY_RE = re.compile(r"([\$£€])\s*([0-9][0-9,]*(?:\.[0-9]+)?)")
+NUMBER_RE = re.compile(r"([0-9][0-9,]*(?:\.[0-9]+)?)")
 
 
 @dataclass
@@ -43,13 +42,16 @@ class Opportunity:
     reasons: list[str]
 
 
-def run_kaggle_rows() -> list[dict[str, Any]]:
-    """Read competition rows from Kaggle CLI 1.8.x CSV output."""
+def _fetch_group(group: str) -> list[dict[str, Any]]:
     proc = subprocess.run(
         [
             "kaggle",
             "competitions",
             "list",
+            "--group",
+            group,
+            "--sort-by",
+            "prize",
             "-v",
             "--page-size",
             "100",
@@ -60,27 +62,52 @@ def run_kaggle_rows() -> list[dict[str, Any]]:
         check=False,
     )
     if proc.returncode != 0:
+        # Older Kaggle CLI builds may not support newer groups such as community.
+        if group != "general":
+            return []
         raise RuntimeError((proc.stderr or proc.stdout).strip())
 
     raw = proc.stdout.strip()
-    # Kaggle may emit an upgrade warning before the CSV header. Locate the header.
     lines = raw.splitlines()
-    header_index = next((i for i, line in enumerate(lines) if line.startswith("ref,")), None)
+    header_index = next((i for i, line in enumerate(lines) if line.lstrip("\ufeff").startswith("ref,")), None)
     if header_index is None:
         raise RuntimeError(f"Could not find Kaggle CSV header in output: {raw[:1200]}")
+    lines[header_index] = lines[header_index].lstrip("\ufeff")
+    return [dict(r) for r in csv.DictReader(io.StringIO("\n".join(lines[header_index:])))]
 
-    csv_text = "\n".join(lines[header_index:])
-    rows = list(csv.DictReader(io.StringIO(csv_text)))
-    return [dict(row) for row in rows]
+
+def run_kaggle_rows() -> list[dict[str, Any]]:
+    rows = _fetch_group("general") + _fetch_group("community")
+    deduped: dict[str, dict[str, Any]] = {}
+    for row in rows:
+        ref = str(row.get("ref") or "").strip()
+        if ref:
+            deduped[ref] = row
+    return list(deduped.values())
 
 
 def parse_reward(text: Any) -> tuple[float, str]:
     value = str(text or "").strip()
-    match = MONEY_RE.search(value)
+    lower = value.lower()
+    if not value or any(word in lower for word in ("swag", "knowledge", "medal", "points")):
+        return 0.0, ""
+
+    match = NUMBER_RE.search(value)
     if not match:
         return 0.0, ""
-    symbol, amount = match.groups()
-    return float(amount.replace(",", "")), symbol
+
+    amount = float(match.group(1).replace(",", ""))
+    if "$" in value or "usd" in lower:
+        currency = "$"
+    elif "£" in value or "gbp" in lower:
+        currency = "£"
+    elif "€" in value or "eur" in lower:
+        currency = "€"
+    else:
+        # Kaggle's legacy CSV can expose plain numeric rewards; treat as cash but
+        # preserve the fact that the currency is unspecified.
+        currency = "cash"
+    return amount, currency
 
 
 def parse_deadline(value: Any) -> datetime | None:
@@ -112,18 +139,11 @@ def to_int(value: Any) -> int:
 def preliminary_score(prize: float, teams: int, days_left: float) -> tuple[float, list[str]]:
     reasons: list[str] = []
     teams = max(teams, 1)
-
-    # 0-35: size of the prize, with diminishing returns.
     prize_score = min(35.0, max(0.0, 7.0 * math.log10(max(prize, 1.0))))
-
-    # 0-25: fewer existing teams means a less crowded field.
     crowd_score = max(0.0, 25.0 - 8.0 * math.log10(teams + 1.0))
-
-    # 0-25: prize-per-team is a crude but useful expected-value signal.
     prize_per_team = prize / teams
     efficiency_score = min(25.0, 8.0 * math.log10(prize_per_team + 1.0))
 
-    # 0-15: enough time to work, without over-rewarding far-future contests.
     if 21 <= days_left <= 90:
         time_score = 15.0
     elif 8 <= days_left < 21:
@@ -160,19 +180,16 @@ def preliminary_score(prize: float, teams: int, days_left: float) -> tuple[float
     else:
         reasons.append(f"long runway ({days_left:.0f} days)")
 
-    score = round(prize_score + crowd_score + efficiency_score + time_score, 1)
-    return score, reasons
+    return round(prize_score + crowd_score + efficiency_score + time_score, 1), reasons
 
 
 def build_opportunities(rows: list[dict[str, Any]]) -> list[Opportunity]:
     now = datetime.now(timezone.utc)
     results: list[Opportunity] = []
-
     for row in rows:
         prize, currency = parse_reward(row.get("reward"))
         if prize <= 0:
             continue
-
         deadline = parse_deadline(row.get("deadline"))
         if deadline is None:
             continue
@@ -183,7 +200,6 @@ def build_opportunities(rows: list[dict[str, Any]]) -> list[Opportunity]:
         teams = to_int(row.get("teamCount"))
         score, reasons = preliminary_score(prize, teams, days_left)
         verdict = "HUNT" if score >= 70 else "INVESTIGATE" if score >= 58 else "WATCH" if score >= 45 else "PASS"
-
         results.append(
             Opportunity(
                 ref=str(row.get("ref") or ""),
@@ -201,24 +217,23 @@ def build_opportunities(rows: list[dict[str, Any]]) -> list[Opportunity]:
                 reasons=reasons,
             )
         )
-
     results.sort(key=lambda x: (x.score, x.prize_value), reverse=True)
     return results
 
 
-def markdown_report(opportunities: list[Opportunity], limit: int = 15) -> str:
+def markdown_report(opportunities: list[Opportunity], raw_count: int, limit: int = 15) -> str:
     generated = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     lines = [
         "# Kaggle Prize Hunter",
         "",
         f"Generated: **{generated}**",
+        f"Competition feed checked: **{raw_count}** active listings.",
         "",
         "Preliminary ranking only. Top candidates still need a rules/data/compute/eligibility dossier before we decide whether they are suitable to pursue.",
         "",
     ]
-
     if not opportunities:
-        lines += ["No active cash-prize competitions were found.", ""]
+        lines += ["No active cash-prize competitions were identified in the CLI feed.", ""]
         return "\n".join(lines)
 
     lines += [
@@ -248,17 +263,18 @@ def markdown_report(opportunities: list[Opportunity], limit: int = 15) -> str:
     return "\n".join(lines)
 
 
-def write_reports(opportunities: list[Opportunity], report: str) -> None:
+def write_reports(rows: list[dict[str, Any]], opportunities: list[Opportunity], report: str) -> None:
     OUT_DIR.mkdir(exist_ok=True)
     HISTORY_DIR.mkdir(exist_ok=True)
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
+        "feed_count": len(rows),
         "count": len(opportunities),
         "opportunities": [asdict(o) for o in opportunities],
     }
     (OUT_DIR / "latest.md").write_text(report + "\n", encoding="utf-8")
     (OUT_DIR / "latest.json").write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
-
+    (OUT_DIR / "feed.json").write_text(json.dumps(rows, indent=2) + "\n", encoding="utf-8")
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     (HISTORY_DIR / f"{stamp}.json").write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
 
@@ -271,14 +287,16 @@ def main() -> int:
 
     rows = run_kaggle_rows()
     opportunities = build_opportunities(rows)
-    report = markdown_report(opportunities, max(1, min(args.limit, 30)))
-    write_reports(opportunities, report)
+    report = markdown_report(opportunities, len(rows), max(1, min(args.limit, 30)))
+    write_reports(rows, opportunities, report)
     if args.stdout:
         print(report)
     else:
-        print(f"Prize Hunter ranked {len(opportunities)} active cash-prize competitions.")
+        print(f"Prize Hunter checked {len(rows)} listings and ranked {len(opportunities)} cash-prize competitions.")
         if opportunities:
             print(f"Leader: {opportunities[0].ref} ({opportunities[0].score:.1f}/100)")
+        else:
+            print("Reward samples:", [str(r.get("reward")) for r in rows[:10]])
     return 0
 
 
