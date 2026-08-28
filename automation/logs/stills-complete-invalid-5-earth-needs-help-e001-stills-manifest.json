@@ -1,0 +1,56 @@
+{
+  "show": "Earth Needs Help",
+  "episode": "001",
+  "reference_mode": "approved canonical bridge + strict text continuity lock; adapter-free recovery path",
+  "reference_repaired": true,
+  "gpu": "Tesla T4",
+  "shots": [
+    {
+      "id": "002",
+      "success": true,
+      "file": "earth-needs-help-e001-s002.png"
+    },
+    {
+      "id": "003",
+      "success": true,
+      "file": "earth-needs-help-e001-s003.png"
+    },
+    {
+      "id": "004",
+      "success": true,
+      "file": "earth-needs-help-e001-s004.png"
+    },
+    {
+      "id": "005",
+      "success": true,
+      "file": "earth-needs-help-e001-s005.png"
+    },
+    {
+      "id": "006a",
+      "success": true,
+      "file": "earth-needs-help-e001-s006a.png"
+    },
+    {
+      "id": "006b",
+      "success": true,
+      "file": "earth-needs-help-e001-s006b.png"
+    },
+    {
+      "id": "007",
+      "success": true,
+      "file": "earth-needs-help-e001-s007.png"
+    },
+    {
+      "id": "008",
+      "success": true,
+      "file": "earth-needs-help-e001-s008.png"
+    },
+    {
+      "id": "009",
+      "success": true,
+      "file": "earth-needs-help-e001-s009.png"
+    }
+  ],
+  "elapsed_seconds": 220.34
+}
+
