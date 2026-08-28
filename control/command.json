@@ -1,5 +1,4 @@
 {
-  "action": "kernel_output",
-  "kernel": "simplebusiness/earth-needs-help-episode-001-shot-001",
-  "request_id": "earth-needs-help-e001-s001-output-002"
+  "action": "ping",
+  "request_id": "earth-needs-help-e001-s001-own-list-002"
 }
