@@ -89,7 +89,7 @@ jobs:
           retention-days: 14
 
       - name: Upload final episode artifact
-        if: steps.state.outputs.phase == 'complete'
+        if: steps.state.outputs.phase == 'complete' && hashFiles('dist/earth-needs-help-e001-final.mp4') != ''
         uses: actions/upload-artifact@v4
         with:
           name: earth-needs-help-episode-001
@@ -100,7 +100,7 @@ jobs:
           retention-days: 30
 
       - name: Publish final MP4 to GitHub Release
-        if: steps.state.outputs.phase == 'complete'
+        if: steps.state.outputs.phase == 'complete' && hashFiles('dist/earth-needs-help-e001-final.mp4') != ''
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
@@ -121,17 +121,42 @@ jobs:
         if: always()
         shell: bash
         run: |
+          set -euo pipefail
           git config user.name "animation-factory-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git fetch origin main
-          git reset --mixed origin/main
-          git add automation/episode001-state.json automation/logs/ \
-            shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/ || true
-          if ! git diff --cached --quiet; then
-            git commit -m "Update autonomous Episode 001 production state [skip ci]"
-            git pull --rebase origin main
-            git push origin HEAD:main
+
+          snapshot="$(mktemp -d)"
+          mkdir -p "$snapshot/automation"
+          if [ -f automation/episode001-state.json ]; then
+            cp automation/episode001-state.json "$snapshot/automation/episode001-state.json"
           fi
+          if [ -d automation/logs ]; then
+            cp -a automation/logs "$snapshot/automation/logs"
+          fi
+          still_parent="$snapshot/shows/earth-needs-help/episodes/001-great-earth-emergency/assets"
+          mkdir -p "$still_parent"
+          if [ -d shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills ]; then
+            cp -a shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills "$still_parent/stills"
+          fi
+
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git reset --hard origin/main
+            cp -a "$snapshot"/. .
+            git add automation/episode001-state.json automation/logs/ \
+              shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/ 2>/dev/null || true
+            if git diff --cached --quiet; then
+              echo "No production-state changes to persist."
+              exit 0
+            fi
+            git commit -m "Update autonomous Episode 001 production state [skip ci]"
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "State push raced with another commit; retrying on latest main ($attempt/3)."
+          done
+          echo "Could not persist production state after three race-safe attempts."
+          exit 1
 
       - name: Stop only on terminal failure
         if: steps.state.outputs.phase == 'failed'
