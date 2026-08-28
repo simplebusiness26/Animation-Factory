@@ -1,0 +1,160 @@
+{
+  "show": "Earth Needs Help",
+  "episode": "001",
+  "reference_mode": "canonical bridge frame + optional ViT-H IP-Adapter; automatic img2img fallback",
+  "reference_repaired": true,
+  "character_sheet_repaired": false,
+  "character_sheet_error": "OSError: broken data stream when reading image file",
+  "image_encoder_error": null,
+  "ip_adapter_ready": true,
+  "ip_adapter_error": null,
+  "gpu": "Tesla T4",
+  "shots": [
+    {
+      "id": "002",
+      "success": false,
+      "attempts": [
+        {
+          "mode": "ip-adapter",
+          "status": "failed",
+          "error": "AttributeError: 'tuple' object has no attribute 'shape'"
+        },
+        {
+          "mode": "canonical-img2img",
+          "status": "failed",
+          "error": "ValueError: <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'> has the config param `encoder_hid_dim_type` set to 'ip_image_proj' which requires the keyword argument `image_embeds` to be passed in `added_cond_kwargs`"
+        }
+      ]
+    },
+    {
+      "id": "003",
+      "success": false,
+      "attempts": [
+        {
+          "mode": "ip-adapter",
+          "status": "failed",
+          "error": "AttributeError: 'tuple' object has no attribute 'shape'"
+        },
+        {
+          "mode": "canonical-img2img",
+          "status": "failed",
+          "error": "ValueError: <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'> has the config param `encoder_hid_dim_type` set to 'ip_image_proj' which requires the keyword argument `image_embeds` to be passed in `added_cond_kwargs`"
+        }
+      ]
+    },
+    {
+      "id": "004",
+      "success": false,
+      "attempts": [
+        {
+          "mode": "ip-adapter",
+          "status": "failed",
+          "error": "AttributeError: 'tuple' object has no attribute 'shape'"
+        },
+        {
+          "mode": "canonical-img2img",
+          "status": "failed",
+          "error": "ValueError: <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'> has the config param `encoder_hid_dim_type` set to 'ip_image_proj' which requires the keyword argument `image_embeds` to be passed in `added_cond_kwargs`"
+        }
+      ]
+    },
+    {
+      "id": "005",
+      "success": false,
+      "attempts": [
+        {
+          "mode": "ip-adapter",
+          "status": "failed",
+          "error": "AttributeError: 'tuple' object has no attribute 'shape'"
+        },
+        {
+          "mode": "canonical-img2img",
+          "status": "failed",
+          "error": "ValueError: <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'> has the config param `encoder_hid_dim_type` set to 'ip_image_proj' which requires the keyword argument `image_embeds` to be passed in `added_cond_kwargs`"
+        }
+      ]
+    },
+    {
+      "id": "006a",
+      "success": false,
+      "attempts": [
+        {
+          "mode": "ip-adapter",
+          "status": "failed",
+          "error": "AttributeError: 'tuple' object has no attribute 'shape'"
+        },
+        {
+          "mode": "canonical-img2img",
+          "status": "failed",
+          "error": "ValueError: <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'> has the config param `encoder_hid_dim_type` set to 'ip_image_proj' which requires the keyword argument `image_embeds` to be passed in `added_cond_kwargs`"
+        }
+      ]
+    },
+    {
+      "id": "006b",
+      "success": false,
+      "attempts": [
+        {
+          "mode": "ip-adapter",
+          "status": "failed",
+          "error": "AttributeError: 'tuple' object has no attribute 'shape'"
+        },
+        {
+          "mode": "canonical-img2img",
+          "status": "failed",
+          "error": "ValueError: <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'> has the config param `encoder_hid_dim_type` set to 'ip_image_proj' which requires the keyword argument `image_embeds` to be passed in `added_cond_kwargs`"
+        }
+      ]
+    },
+    {
+      "id": "007",
+      "success": false,
+      "attempts": [
+        {
+          "mode": "ip-adapter",
+          "status": "failed",
+          "error": "AttributeError: 'tuple' object has no attribute 'shape'"
+        },
+        {
+          "mode": "canonical-img2img",
+          "status": "failed",
+          "error": "ValueError: <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'> has the config param `encoder_hid_dim_type` set to 'ip_image_proj' which requires the keyword argument `image_embeds` to be passed in `added_cond_kwargs`"
+        }
+      ]
+    },
+    {
+      "id": "008",
+      "success": false,
+      "attempts": [
+        {
+          "mode": "ip-adapter",
+          "status": "failed",
+          "error": "AttributeError: 'tuple' object has no attribute 'shape'"
+        },
+        {
+          "mode": "canonical-img2img",
+          "status": "failed",
+          "error": "ValueError: <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'> has the config param `encoder_hid_dim_type` set to 'ip_image_proj' which requires the keyword argument `image_embeds` to be passed in `added_cond_kwargs`"
+        }
+      ]
+    },
+    {
+      "id": "009",
+      "success": false,
+      "attempts": [
+        {
+          "mode": "ip-adapter",
+          "status": "failed",
+          "error": "AttributeError: 'tuple' object has no attribute 'shape'"
+        },
+        {
+          "mode": "canonical-img2img",
+          "status": "failed",
+          "error": "ValueError: <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'> has the config param `encoder_hid_dim_type` set to 'ip_image_proj' which requires the keyword argument `image_embeds` to be passed in `added_cond_kwargs`"
+        }
+      ]
+    }
+  ],
+  "elapsed_seconds": 202.91
+}
+
