@@ -60,12 +60,16 @@ jobs:
           else
             printf '## ❌ Kaggle Worker\n\nThe worker stopped before producing a result file.\n' > results/latest.md
           fi
+          cp results/latest.md /tmp/animation-factory-latest.md
           git config user.name "animation-factory-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin main
+          git reset --hard origin/main
+          cp /tmp/animation-factory-latest.md results/latest.md
           git add results/latest.md
           if ! git diff --cached --quiet; then
             git commit -m "Record Kaggle worker result [skip ci]"
-            git push
+            git push origin HEAD:main
           fi
 
       - name: Fail workflow when worker failed
