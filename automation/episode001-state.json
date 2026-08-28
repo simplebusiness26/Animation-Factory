@@ -6,11 +6,13 @@
   "stills_attempts": 2,
   "motion_kernel": "simplebusiness/earth-needs-help-episode-001-motion",
   "motion_attempts": 0,
-  "last_status": "STILLS_RUNNING",
+  "last_status": "STILLS_RETRY_2_SUPERSEDED_BY_ENCODER_FIX",
   "last_error": null,
-  "updated_at": "2026-08-28T03:26:23Z",
+  "updated_at": "2026-08-28T03:27:00Z",
   "release_tag": "earth-needs-help-e001",
   "stills_submit_failures": 0,
   "motion_submit_failures": 0,
-  "assembly_attempts": 0
+  "assembly_attempts": 0,
+  "force_stills_retry": true,
+  "force_stills_retry_reason": "Retry 2 was submitted before the SDXL ViT-H encoder and per-shot fallback fix; submit a fresh patched retry without waiting for the known-old code path."
 }
