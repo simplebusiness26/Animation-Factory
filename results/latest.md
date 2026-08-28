@@ -1,3 +1,8 @@
-## ❌ Kaggle Worker
+## ✅ Kaggle Worker
 
-`ValueError`: KAGGLE_OWNER is not configured. Add it as a GitHub Actions repository variable.
+Notebook search for **earth-needs-help-episode001-shot001**:
+
+```text
+Warning: Looks like you're using an outdated `kaggle`` version (installed: {current_version}), please consider upgrading to the latest version ({latest_version_str})
+Not found
+```
