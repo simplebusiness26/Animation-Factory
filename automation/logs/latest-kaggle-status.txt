@@ -1,2 +1,2 @@
 Warning: Looks like you're using an outdated `kaggle`` version (installed: {current_version}), please consider upgrading to the latest version ({latest_version_str})
-simplebusiness/earth-needs-help-episode-001-production-stills has status "KernelWorkerStatus.ERROR"
+simplebusiness/enh-e001-stills-r1-7887180 has status "KernelWorkerStatus.ERROR"

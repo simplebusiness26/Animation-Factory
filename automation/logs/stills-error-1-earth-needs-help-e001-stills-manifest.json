@@ -1,0 +1,60 @@
+{
+  "show": "Earth Needs Help",
+  "episode": "001",
+  "reference_mode": "canonical bridge frame + canonical turnaround when readable; bridge-frame fallback otherwise",
+  "reference_repaired": true,
+  "character_sheet_repaired": false,
+  "character_sheet_error": "OSError: broken data stream when reading image file",
+  "ip_adapter_ready": true,
+  "ip_adapter_error": null,
+  "gpu": "Tesla T4",
+  "shots": [
+    {
+      "id": "002",
+      "success": false,
+      "error": "RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)"
+    },
+    {
+      "id": "003",
+      "success": false,
+      "error": "RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)"
+    },
+    {
+      "id": "004",
+      "success": false,
+      "error": "RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)"
+    },
+    {
+      "id": "005",
+      "success": false,
+      "error": "RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)"
+    },
+    {
+      "id": "006a",
+      "success": false,
+      "error": "RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)"
+    },
+    {
+      "id": "006b",
+      "success": false,
+      "error": "RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)"
+    },
+    {
+      "id": "007",
+      "success": false,
+      "error": "RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)"
+    },
+    {
+      "id": "008",
+      "success": false,
+      "error": "RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)"
+    },
+    {
+      "id": "009",
+      "success": false,
+      "error": "RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)"
+    }
+  ],
+  "elapsed_seconds": 174.17
+}
+
