@@ -40,7 +40,7 @@ jobs:
       - name: Execute Kaggle command
         id: worker
         continue-on-error: true
-        run: python worker.py
+        run: python worker_v2.py
 
       - name: Upload Kaggle output
         if: always()
