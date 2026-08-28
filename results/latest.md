@@ -1,8 +1,8 @@
 ## ✅ Kaggle Worker
 
-Kaggle kernels search for **enh-e001**:
+Status for **simplebusiness/enh-e001-stills-r5-7888245**:
 
 ```text
 Warning: Looks like you're using an outdated `kaggle`` version (installed: {current_version}), please consider upgrading to the latest version ({latest_version_str})
-Not found
+simplebusiness/enh-e001-stills-r5-7888245 has status "KernelWorkerStatus.COMPLETE"
 ```
