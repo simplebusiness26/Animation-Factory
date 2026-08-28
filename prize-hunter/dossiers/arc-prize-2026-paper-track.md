@@ -1,27 +1,31 @@
 # Prize Dossier — arc-prize-2026-paper-track
 
-**Verdict:** MAYBE
-**Final suitability:** 68.1/100
+**Verdict:** REVIEW
+**Final suitability:** 30.1/100
 **Stage 1 score:** 82.4/100
 **Prize:** 450,000 Usd
 **Teams:** 157
 **Days left:** 74
-**Task type:** unknown
+**Task type:** paper/writeup backed by ARC prediction submission
 
 ## Feasibility
 
-- Compute fit: **55/100**
+- Compute fit: **35/100**
 - Time fit: **90/100**
 - Crowd fit: **52/100**
 - Data fit: **90/100**
 - Documentation confidence: **35/100**
-- Public pages read: **none**
+- Public pages read by runner: **none**
 - Competition files visible: **1**
 - Visible data size: **0.00 GB**
+- Web-reviewed evidence applied: **yes**
 
 ## Flags
 
 - ⚠️ public Kaggle pages could not be read automatically
+- ⚠️ requires a qualifying ARC-AGI-2 or ARC-AGI-3 submission
+- ⚠️ paper team must match the ARC-AGI-2/3 submission team
+- ⚠️ official eligibility rules require review before entry
 
 ## Reasons
 
@@ -29,8 +33,11 @@
 - dataset footprint about 0.0 GB
 - documentation confidence reduced
 - inspected metadata for 14 top discussion topics
+- The paper award is not a standalone route: the writeup must document a solution for ARC-AGI-2 or ARC-AGI-3.
+- The paper-track rules require the team to match the team making the underlying ARC submission.
+- The advertised $450,000 includes $75,000 in fixed paper prizes plus up to $375,000 in discretionary high-rubric awards.
 
 ## Entry gate
 
-This dossier is analysis only. Joining, accepting rules, or submitting remains approval-gated and must satisfy the official eligibility rules.
+This dossier is analysis only. Joining, accepting rules, or submitting remains approval-gated. Any age, residency, guardian-consent, licensing, team, or other eligibility requirement must be satisfied through the official competition process; Prize Hunter never bypasses it.
 
