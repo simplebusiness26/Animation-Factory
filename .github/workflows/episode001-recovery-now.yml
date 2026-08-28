@@ -5,6 +5,9 @@ on:
     branches: [main]
     paths:
       - .github/workflows/episode001-recovery-now.yml
+      - automation/episode001_orchestrator_v3.py
+      - kernels/episode-motion-runner/bootstrap.py
+      - shows/earth-needs-help/episodes/001-great-earth-emergency/episode001-motion-job.json
   workflow_dispatch:
 
 permissions:
@@ -32,7 +35,7 @@ jobs:
       - run: |
           pip install -r requirements.txt
           pip install Pillow
-      - name: Recover R5 and advance production
+      - name: Recover and advance production
         run: python automation/episode001_orchestrator_v3.py
       - name: Persist recovered state and stills
         shell: bash
@@ -55,6 +58,6 @@ jobs:
           if [ -d "$snapshot/stills" ]; then mkdir -p shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills; cp -a "$snapshot/stills/." shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/; fi
           git add automation/episode001-state.json automation/logs/ shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/ 2>/dev/null || true
           if ! git diff --cached --quiet; then
-            git commit -m "Recover successful Episode 001 stills and advance production [skip ci]"
+            git commit -m "Advance recovered Episode 001 production state [skip ci]"
             git push origin HEAD:main
           fi
