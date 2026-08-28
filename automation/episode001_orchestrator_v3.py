@@ -4,6 +4,10 @@
 Extends the self-healing v2 controller. Motion input stills are re-encoded as
 compact JPEGs before upload so the Kaggle kernel source stays comfortably
 below API source-size limits while retaining enough detail for image-to-video.
+
+A persisted force_stills_retry flag can deliberately supersede an in-flight
+kernel that is known to contain obsolete/broken code. This is used only when a
+root cause is already identified and patched, avoiding wasted retry time.
 """
 from __future__ import annotations
 
@@ -91,5 +95,19 @@ def compact_motion_folder(kernel_ref: str, attempt: int) -> Path:
 # retry_motion resolves this function from the v2 module at runtime.
 v2.build_motion_retry_folder = compact_motion_folder
 
+
+def run_controller() -> int:
+    state = base.load_state()
+    if bool(state.pop("force_stills_retry", False)):
+        reason = str(state.pop("force_stills_retry_reason", "Known-bad stills attempt was superseded after a root-cause fix."))
+        state["last_status"] = "STILLS_SUPERSEDED_RETRY_REQUESTED"
+        state["last_error"] = None
+        v2.retry_stills(state, reason)
+        base.save_state(state)
+        print(json.dumps(state, indent=2))
+        return 0 if state.get("phase") != "failed" else 1
+    return v2.main()
+
+
 if __name__ == "__main__":
-    raise SystemExit(v2.main())
+    raise SystemExit(run_controller())
