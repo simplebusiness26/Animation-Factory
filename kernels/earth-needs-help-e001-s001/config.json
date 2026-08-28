@@ -1,0 +1,8 @@
+{
+  "show": "Earth Needs Help",
+  "episode": "001",
+  "shot": "001",
+  "duration_seconds": 7,
+  "seed": 1234,
+  "negative_prompt": "blurry, distorted, deformed, extra limbs, duplicate characters, wrong colours, changed costume, text, watermark, scary, horror, violent, inconsistent face, melted anatomy, extreme camera motion, background morphing"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "__OWNER__/earth-needs-help-episode001-shot001",
+  "title": "Earth Needs Help Episode 001 Shot 001",
+  "code_file": "main.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}
