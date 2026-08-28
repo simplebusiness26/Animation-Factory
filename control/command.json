@@ -1,5 +1,6 @@
 {
-  "action": "kernel_status",
-  "request_id": "gpu-smoke-status-001",
-  "kernel": "simplebusiness/animation-factory-bridge-smoke-test"
+  "action": "kernel_output",
+  "request_id": "gpu-smoke-output-001",
+  "kernel": "simplebusiness/animation-factory-bridge-smoke-test",
+  "file_pattern": "animation-factory-smoke-test.json"
 }
