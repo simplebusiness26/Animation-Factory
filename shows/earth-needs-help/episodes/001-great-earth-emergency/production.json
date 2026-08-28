@@ -1,0 +1,40 @@
+{
+  "show": "Earth Needs Help",
+  "episode_id": "001",
+  "slug": "great-earth-emergency",
+  "title": "The Great Earth Emergency",
+  "target_runtime_seconds": 80,
+  "aspect_ratio": "16:9",
+  "status": "planned",
+  "generation_strategy": "reference-image-to-video-per-shot",
+  "video_backend": {
+    "provider": "kaggle",
+    "accelerator": "NvidiaTeslaT4",
+    "preferred_model": "LTX-Video-2B-distilled",
+    "fallback_models": [
+      "Stable-Video-Diffusion",
+      "CogVideoX-small-if-compatible"
+    ]
+  },
+  "global_negative_prompt": "blurry, distorted, deformed, extra limbs, duplicate characters, wrong colours, changed costume, text, watermark, scary, horror, violent, inconsistent face, melted anatomy, extreme camera motion, background morphing",
+  "shots": [
+    {"id":"001","duration_seconds":7,"location":"spaceship-bridge","still_status":"ready","motion_status":"pending","characters":["captain-pip","bloop","zig","momo"]},
+    {"id":"002","duration_seconds":7,"location":"spaceship-bridge","still_status":"pending","motion_status":"pending","characters":["captain-pip","bloop","zig","momo"]},
+    {"id":"003","duration_seconds":8,"location":"park","still_status":"pending","motion_status":"pending","characters":["captain-pip","bloop","zig","momo"]},
+    {"id":"004","duration_seconds":9,"location":"park","still_status":"pending","motion_status":"pending","characters":["captain-pip","bloop","zig","momo","human-child"]},
+    {"id":"005","duration_seconds":8,"location":"park-tree","still_status":"pending","motion_status":"pending","characters":["captain-pip","bloop","zig","momo","human-child"]},
+    {"id":"006a","duration_seconds":6,"location":"park-tree","still_status":"pending","motion_status":"pending","characters":["captain-pip","bloop","zig","momo","human-child"]},
+    {"id":"006b","duration_seconds":7,"location":"park-tree","still_status":"pending","motion_status":"pending","characters":["captain-pip","bloop","zig","momo","human-child"]},
+    {"id":"007","duration_seconds":10,"location":"park-tree","still_status":"pending","motion_status":"pending","characters":["captain-pip","bloop","zig","momo","human-child"]},
+    {"id":"008","duration_seconds":10,"location":"park","still_status":"pending","motion_status":"pending","characters":["captain-pip","bloop","zig","momo","human-child"]},
+    {"id":"009","duration_seconds":8,"location":"park","still_status":"pending","motion_status":"pending","characters":["captain-pip","bloop","zig","momo","human-child","pigeon"]}
+  ],
+  "audio": {
+    "strategy": "narrator-led-with-short-character-lines",
+    "tts": "open-source/free",
+    "lip_sync_required": false,
+    "music": "light-heroic-to-playful",
+    "sfx": ["alarm","spaceship-whoosh","boing","leaf-rustle","gadget-whirr","comic-sting"]
+  },
+  "next_action": "build-kaggle-image-to-video-kernel-and-generate-shot-001"
+}
