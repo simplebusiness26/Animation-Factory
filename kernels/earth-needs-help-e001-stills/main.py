@@ -5,8 +5,8 @@ Hard-anchors generation to the approved red-alert spaceship frame and, when
 valid, the approved five-character turnaround sheet. The original exported
 JPEG payloads contain a known three-byte DQT defect; this runner repairs that
 specific defect before Pillow loads them. If the turnaround sheet remains
-unreadable, the canonical bridge frame is used as the IP-Adapter visual lock
-instead of failing the production run or substituting different characters.
+unreadable, the canonical bridge frame is used as the visual lock instead of
+failing the production run or substituting different characters.
 """
 from __future__ import annotations
 
@@ -68,14 +68,6 @@ def fetch_b64(url: str, filename: str) -> Path:
 
 
 def repair_known_jpeg_dqt(path: Path) -> bool:
-    """Repair the known exported-JPEG DQT defect without altering image pixels.
-
-    These canonical exports declare a 67-byte second quantisation-table segment,
-    but the following SOF marker begins three bytes early. Filling only those
-    missing coefficients restores the JPEG structure. Any other layout is left
-    untouched so an unexpected/corrupt asset fails visibly rather than being
-    silently rewritten.
-    """
     data = path.read_bytes()
     first_dqt = data.find(b'\xff\xdb')
     second_dqt = data.find(b'\xff\xdb', first_dqt + 2) if first_dqt >= 0 else -1
@@ -113,7 +105,6 @@ def load_canonical_image(path: Path):
 
 
 def character_strip(sheet, include_child: bool):
-    """Crop the useful front/three-quarter part of each canonical row."""
     from PIL import Image
     rows = 5 if include_child else 4
     row_h = sheet.height // 5
@@ -134,7 +125,7 @@ def main() -> int:
     install()
 
     import torch
-    from PIL import ImageOps
+    from PIL import Image, ImageOps
     from diffusers import StableDiffusionXLImg2ImgPipeline
 
     reference_path = fetch_b64(BRIDGE_STILL_URL, 'reference.jpg')
@@ -142,7 +133,7 @@ def main() -> int:
 
     ref, reference_repaired = load_canonical_image(reference_path)
     size = (768, 432)
-    ref = ImageOps.fit(ref, size, method=ImageOps.Image.Resampling.LANCZOS if hasattr(ImageOps, 'Image') else 1)
+    ref = ImageOps.fit(ref, size, method=Image.Resampling.LANCZOS)
 
     sheet = None
     sheet_error = None
@@ -159,15 +150,27 @@ def main() -> int:
         variant='fp16',
         use_safetensors=True,
     )
-    pipe.load_ip_adapter(
-        'h94/IP-Adapter',
-        subfolder='sdxl_models',
-        weight_name='ip-adapter-plus_sdxl_vit-h.safetensors',
-    )
-    pipe.set_ip_adapter_scale(0.88)
+
+    ip_adapter_ready = True
+    ip_adapter_error = None
+    try:
+        pipe.load_ip_adapter(
+            'h94/IP-Adapter',
+            subfolder='sdxl_models',
+            weight_name='ip-adapter-plus_sdxl_vit-h.safetensors',
+        )
+        pipe.set_ip_adapter_scale(0.88)
+    except Exception as exc:
+        ip_adapter_ready = False
+        ip_adapter_error = f'{type(exc).__name__}: {exc}'
+        print(f'IP-Adapter unavailable; continuing with canonical img2img reference lock: {ip_adapter_error}')
+
     pipe.enable_model_cpu_offload()
     pipe.enable_attention_slicing()
-    pipe.enable_vae_tiling()
+    if hasattr(pipe, 'enable_vae_tiling'):
+        pipe.enable_vae_tiling()
+    elif hasattr(pipe, 'vae') and hasattr(pipe.vae, 'enable_tiling'):
+        pipe.vae.enable_tiling()
 
     manifest = {
         'show':'Earth Needs Help',
@@ -176,6 +179,8 @@ def main() -> int:
         'reference_repaired':reference_repaired,
         'character_sheet_repaired':sheet_repaired,
         'character_sheet_error':sheet_error,
+        'ip_adapter_ready':ip_adapter_ready,
+        'ip_adapter_error':ip_adapter_error,
         'gpu': torch.cuda.get_device_name(0) if torch.cuda.is_available() else None,
         'shots':[],
     }
@@ -188,18 +193,20 @@ def main() -> int:
         include_child = shot['id'] not in {'002','003'}
         adapter_ref = character_strip(sheet, include_child=include_child) if sheet is not None else ref
         try:
-            result = pipe(
-                prompt=prompt,
-                negative_prompt=NEGATIVE,
-                image=ref,
-                ip_adapter_image=adapter_ref,
-                strength=float(shot['strength']),
-                guidance_scale=7.5,
-                num_inference_steps=30,
-                generator=generator,
-                width=size[0],
-                height=size[1],
-            ).images[0]
+            kwargs = {
+                'prompt': prompt,
+                'negative_prompt': NEGATIVE,
+                'image': ref,
+                'strength': float(shot['strength']),
+                'guidance_scale': 7.5,
+                'num_inference_steps': 30,
+                'generator': generator,
+                'width': size[0],
+                'height': size[1],
+            }
+            if ip_adapter_ready:
+                kwargs['ip_adapter_image'] = adapter_ref
+            result = pipe(**kwargs).images[0]
             result.save(output_path)
             manifest['shots'].append({'id':shot['id'],'success':True,'file':output_name})
         except Exception as exc:
@@ -209,7 +216,8 @@ def main() -> int:
     manifest_path = WORK / 'earth-needs-help-e001-stills-manifest.json'
     manifest_path.write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8')
     print(json.dumps(manifest, indent=2))
-    return 0 if any(s.get('success') for s in manifest['shots']) else 1
+    success_count = sum(1 for s in manifest['shots'] if s.get('success'))
+    return 0 if success_count == len(SHOTS) else 1
 
 
 if __name__ == '__main__':
