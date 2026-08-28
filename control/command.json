@@ -1,6 +1,4 @@
 {
-  "action": "search_kernels",
-  "query": "earth-needs-help-episode001-shot001",
-  "limit": 10,
-  "request_id": "earth-needs-help-e001-s001-discover-001"
+  "action": "ping",
+  "request_id": "earth-needs-help-e001-s001-own-list-001"
 }
