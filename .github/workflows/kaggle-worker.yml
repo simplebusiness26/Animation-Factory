@@ -1,0 +1,60 @@
+name: Kaggle Worker
+
+on:
+  issues:
+    types: [opened, edited, reopened]
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  run:
+    if: startsWith(github.event.issue.title, '[KAGGLE]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+      KAGGLE_OWNER: ${{ vars.KAGGLE_OWNER }}
+      GH_TOKEN: ${{ github.token }}
+      ISSUE_NUMBER: ${{ github.event.issue.number }}
+
+    steps:
+      - name: Checkout bridge
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install Kaggle CLI
+        run: pip install -r requirements.txt
+
+      - name: Execute Kaggle command
+        id: worker
+        continue-on-error: true
+        run: python worker.py
+
+      - name: Return result to command issue
+        if: always()
+        run: |
+          if [ -f result.md ]; then
+            gh issue comment "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY" --body-file result.md
+          else
+            gh issue comment "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY" --body "## ❌ Kaggle Worker\n\nThe worker stopped before it could create a result report. Open the Actions run for diagnostics."
+          fi
+
+      - name: Upload Kaggle output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kaggle-output
+          path: artifacts/
+          if-no-files-found: ignore
+          retention-days: 7
+
+      - name: Fail workflow when worker failed
+        if: steps.worker.outcome == 'failure'
+        run: exit 1
