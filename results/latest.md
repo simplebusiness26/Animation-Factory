@@ -1,17 +1,12 @@
 ## ✅ Kaggle Worker
 
-Downloaded output for **simplebusiness/animation-factory-bridge-smoke-test** into the GitHub Actions artifact.
+Kaggle authentication is working. Request ID: `chat-control-proof-20260828-0200`.
 
 ```text
 Warning: Looks like you're using an outdated `kaggle`` version (installed: {current_version}), please consider upgrading to the latest version ({latest_version_str})
-Output file downloaded to /home/runner/work/Animation-Factory/Animation-Factory/artifacts/animation-factory-bridge-smoke-test/animation-factory-smoke-test.json
-Kernel log downloaded to /home/runner/work/Animation-Factory/Animation-Factory/artifacts/animation-factory-bridge-smoke-test/animation-factory-bridge-smoke-test.log
+Kaggle CLI 1.8.4
+Warning: Looks like you're using an outdated `kaggle`` version (installed: {current_version}), please consider upgrading to the latest version ({latest_version_str})
+ref                                                 title                                author           lastRunTime                 totalVotes  
+--------------------------------------------------  -----------------------------------  ---------------  --------------------------  ----------  
+simplebusiness/animation-factory-bridge-smoke-test  Animation Factory Bridge Smoke Test  Simple Business  2026-08-28 01:05:04.143000           0
 ```
-
-Files:
-```text
-artifacts/animation-factory-bridge-smoke-test/animation-factory-bridge-smoke-test.log
-artifacts/animation-factory-bridge-smoke-test/animation-factory-smoke-test.json
-```
-
-Downloaded files are attached to the workflow run as the `kaggle-output` artifact.
