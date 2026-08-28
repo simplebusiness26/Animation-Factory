@@ -1,14 +1,36 @@
-# Animation Factory — Kaggle Worker
+# Animation Factory — Kaggle Worker + Production Skills
 
-This repository contains a secure bridge that lets ChatGPT control approved Kaggle operations indirectly through the connected GitHub account.
+Animation Factory is a zero-cost-first animated-video production system. The repository combines a secure GitHub-to-Kaggle bridge with reusable production skills, show canon, episode plans, and automated quality gates.
 
-## Control flow
+## Production architecture
+
+`Episode brief -> production skills -> approved reference still -> Kaggle generation -> shot QA -> targeted repair -> audio/edit -> final QA -> release`
+
+The governing instructions are in `AGENTS.md`. Focused skills live in `.agents/skills/`, the machine-readable execution order is `pipeline/skills.json`, and quality rules are in `pipeline/quality-gates.json`.
+
+For an agent stage, `pipeline/skill_loader.py` builds a context packet containing the correct skill, show bible, character bible, style bible, episode production data, and current episode files. `pipeline/validate_skills.py` and the `validate-skills.yml` workflow prevent broken skill/canon configuration from silently entering the production path.
+
+### Current specialist skills
+
+- Episode Director
+- Scriptwriter
+- Shot Planner
+- Character Continuity
+- Visual Director
+- Video Prompt Engineer
+- Audio Director
+- Editor
+- Episode QA / automatic targeted repair
+
+The system preserves approved work. A failed shot should be repaired or regenerated individually instead of restarting the whole episode.
+
+## Kaggle control flow
 
 ChatGPT -> `control/command.json` -> GitHub Actions -> Kaggle CLI/API -> Kaggle notebook/GPU -> `results/latest.md` + workflow artifact
 
 Only users with repository push access can change the command file. The worker does not accept arbitrary shell commands.
 
-## One-time setup
+## One-time Kaggle setup
 
 In this repository, open **Settings -> Secrets and variables -> Actions**.
 
@@ -17,7 +39,7 @@ In this repository, open **Settings -> Secrets and variables -> Actions**.
 
 Do not commit either value into this repository.
 
-## Supported commands
+## Supported bridge commands
 
 Commands are written into `control/command.json`. Include a new `request_id` each time so GitHub receives a new commit.
 
@@ -109,3 +131,7 @@ Downloaded files are uploaded as a temporary GitHub Actions artifact named `kagg
 ## First GPU test
 
 The included `kernels/smoke-test` script writes a small JSON report showing whether Kaggle assigned a GPU and which GPU it sees. The worker uses a T4 request for the first test rather than P100 because current Kaggle CLI documentation warns that the default Kaggle image can fail CUDA workloads on P100.
+
+## Current show
+
+`shows/earth-needs-help/` contains the show canon and Episode 001 production pack. Episode 001 is wired to load the video-prompt skill, generate Shot 001, run shot-level QA, and repair failures before progressing.
