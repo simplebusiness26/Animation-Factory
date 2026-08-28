@@ -39,6 +39,9 @@ jobs:
       - name: Stage 2 - build public competition dossiers
         run: python prize_dossier_v2.py --top 5
 
+      - name: Stage 2B - merge verified web evidence
+        run: python prize_dossier_merge.py
+
       - name: Commit Prize Hunter reports and dossiers
         run: |
           set -e
