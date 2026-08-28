@@ -24,6 +24,7 @@ import episode001_orchestrator_v2 as v2
 
 base.MAX_STILLS_ATTEMPTS = 6
 base.MAX_MOTION_ATTEMPTS = 5
+base.MOTION_RUNNER = base.ROOT / "kernels" / "episode-motion-runner" / "bootstrap.py"
 
 TARGET_SIZE = (704, 400)
 TARGET_SOURCE_BYTES = 750_000
@@ -31,14 +32,7 @@ FINAL_MP4 = base.DIST_DIR / "earth-needs-help-e001-final.mp4"
 
 
 def robust_stage_generated_stills(downloaded: Path) -> list[Path]:
-    """Stage the completed still batch, using Kaggle's repaired bridge as Shot 001.
-
-    The original repository Shot 001 JPEG payload is structurally malformed.
-    The still-generation kernel repairs that canonical bridge before rendering
-    and returns it as reference.jpg. Prefer that valid repaired copy so a good
-    002-009 batch is never rejected just because the historical local export is
-    broken.
-    """
+    """Stage the completed still batch, using Kaggle's repaired bridge as Shot 001."""
     base.STILLS_DIR.mkdir(parents=True, exist_ok=True)
     staged: list[Path] = []
 
@@ -92,7 +86,7 @@ def encode_stills(root: Path, quality: int) -> tuple[dict[str, str], int]:
 
 def compact_motion_folder(kernel_ref: str, attempt: int) -> Path:
     if not base.MOTION_RUNNER.is_file():
-        raise RuntimeError("Episode motion runner is missing")
+        raise RuntimeError("Episode motion bootstrap is missing")
     root = Path(tempfile.mkdtemp(prefix="e001-motion-compact-"))
     shutil.copy2(base.MOTION_RUNNER, root / "main.py")
 
