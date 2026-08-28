@@ -1,0 +1,12 @@
+{
+  "episode": "001",
+  "title": "The Great Earth Emergency",
+  "phase": "awaiting_stills",
+  "stills_kernel": "simplebusiness/earth-needs-help-episode-001-production-stills",
+  "stills_attempts": 0,
+  "motion_kernel": "simplebusiness/earth-needs-help-episode-001-motion",
+  "motion_attempts": 0,
+  "last_status": "STILLS_QUEUED",
+  "last_error": null,
+  "release_tag": "earth-needs-help-e001"
+}
