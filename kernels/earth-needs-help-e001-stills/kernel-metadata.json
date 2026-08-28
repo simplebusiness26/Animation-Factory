@@ -1,0 +1,14 @@
+{
+  "id": "__OWNER__/earth-needs-help-episode-001-stills",
+  "title": "Earth Needs Help Episode 001 Production Stills",
+  "code_file": "main.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}
