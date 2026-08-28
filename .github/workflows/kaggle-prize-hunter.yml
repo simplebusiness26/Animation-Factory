@@ -38,7 +38,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add prize-hunter/latest.md prize-hunter/latest.json prize-hunter/history/
+          git add prize-hunter/latest.md prize-hunter/latest.json prize-hunter/feed.json prize-hunter/history/
           if git diff --cached --quiet; then
             echo "No Prize Hunter changes to commit."
           else
