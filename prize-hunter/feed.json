@@ -5,7 +5,8 @@
     "category": "Featured",
     "reward": "850,000 Usd",
     "teamCount": "2577",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "arc-prize-2026-arc-agi-2",
@@ -13,7 +14,8 @@
     "category": "Featured",
     "reward": "700,000 Usd",
     "teamCount": "1663",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "arc-prize-2026-paper-track",
@@ -21,7 +23,8 @@
     "category": "Featured",
     "reward": "450,000 Usd",
     "teamCount": "157",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "pokemon-tcg-ai-battle-challenge-strategy",
@@ -29,7 +32,8 @@
     "category": "Featured",
     "reward": "240,000 Usd",
     "teamCount": "522",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "rsna-knee-abnormality-detection",
@@ -37,7 +41,8 @@
     "category": "Research",
     "reward": "77,000 Usd",
     "teamCount": "2545",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "biohub-cell-tracking-during-development",
@@ -45,7 +50,8 @@
     "category": "Research",
     "reward": "60,000 Usd",
     "teamCount": "2805",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "ai-agent-security-multi-step-tool-attacks",
@@ -53,7 +59,8 @@
     "category": "Featured",
     "reward": "50,000 Usd",
     "teamCount": "4147",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "kaggriculture",
@@ -61,7 +68,8 @@
     "category": "Featured",
     "reward": "50,000 Usd",
     "teamCount": "6659",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "pokemon-tcg-ai-battle",
@@ -69,7 +77,8 @@
     "category": "Featured",
     "reward": "Knowledge",
     "teamCount": "6807",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "digit-recognizer",
@@ -77,7 +86,8 @@
     "category": "Getting Started",
     "reward": "Knowledge",
     "teamCount": "820",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "titanic",
@@ -85,7 +95,8 @@
     "category": "Getting Started",
     "reward": "Knowledge",
     "teamCount": "9818",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "house-prices-advanced-regression-techniques",
@@ -93,7 +104,8 @@
     "category": "Getting Started",
     "reward": "Knowledge",
     "teamCount": "3381",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "home-data-for-ml-course",
@@ -101,7 +113,8 @@
     "category": "Getting Started",
     "reward": "Knowledge",
     "teamCount": "4020",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "connectx",
@@ -109,7 +122,8 @@
     "category": "Getting Started",
     "reward": "Knowledge",
     "teamCount": "199",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "nlp-getting-started",
@@ -117,7 +131,8 @@
     "category": "Getting Started",
     "reward": "Knowledge",
     "teamCount": "496",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "tpu-getting-started",
@@ -125,7 +140,8 @@
     "category": "Getting Started",
     "reward": "Knowledge",
     "teamCount": "73",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "contradictory-my-dear-watson",
@@ -133,7 +149,8 @@
     "category": "Getting Started",
     "reward": "Knowledge",
     "teamCount": "49",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "store-sales-time-series-forecasting",
@@ -141,7 +158,8 @@
     "category": "Getting Started",
     "reward": "Knowledge",
     "teamCount": "683",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "spaceship-titanic",
@@ -149,7 +167,8 @@
     "category": "Getting Started",
     "reward": "Knowledge",
     "teamCount": "1651",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "playground-series-s6e8",
@@ -157,7 +176,8 @@
     "category": "Playground",
     "reward": "Swag",
     "teamCount": "3117",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "banana",
@@ -165,7 +185,8 @@
     "category": "Community",
     "reward": "400,000 Usd",
     "teamCount": "826",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "ai-mathematical-olympiad-proof-pilot",
@@ -173,7 +194,8 @@
     "category": "Community",
     "reward": "210,000 Usd",
     "teamCount": "6",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "drw-crypto-market-prediction",
@@ -181,7 +203,8 @@
     "category": "Community",
     "reward": "25,000 Usd",
     "teamCount": "1091",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "WiDSWorldWide_GlobalDathon26",
@@ -189,7 +212,8 @@
     "category": "Community",
     "reward": "25,000 Usd",
     "teamCount": "1754",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "ai-4-s-open-innovation-artificial-intelligence-for-life-scien",
@@ -197,7 +221,8 @@
     "category": "Community",
     "reward": "22,200 Usd",
     "teamCount": "0",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "next-2024-hackathon",
@@ -205,7 +230,8 @@
     "category": "Community",
     "reward": "20,000 Usd",
     "teamCount": "27",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "the-uncharted-data-challenge",
@@ -213,7 +239,8 @@
     "category": "Community",
     "reward": "20,000 Usd",
     "teamCount": "70",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "skill-lift",
@@ -221,7 +248,8 @@
     "category": "Community",
     "reward": "20,000 Usd",
     "teamCount": "312",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "smartphone-decimeter-2023",
@@ -229,7 +257,8 @@
     "category": "Community",
     "reward": "15,000 Usd",
     "teamCount": "279",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "flag-os-open-computing-global-challenge-season-2",
@@ -237,7 +266,8 @@
     "category": "Community",
     "reward": "14,925 Usd",
     "teamCount": "0",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "rohlik-orders-forecasting-challenge",
@@ -245,7 +275,8 @@
     "category": "Community",
     "reward": "12,000 Usd",
     "teamCount": "1017",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "rohlik-sales-forecasting-challenge-v2",
@@ -253,7 +284,8 @@
     "category": "Community",
     "reward": "10,000 Usd",
     "teamCount": "777",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "detect-ai-vs-human-generated-images",
@@ -261,7 +293,8 @@
     "category": "Community",
     "reward": "10,000 Usd",
     "teamCount": "554",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "el-hackathon-2025",
@@ -269,7 +302,8 @@
     "category": "Community",
     "reward": "10,000 Usd",
     "teamCount": "355",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "mencoba-kompetisi",
@@ -277,7 +311,8 @@
     "category": "Community",
     "reward": "10,000 Usd",
     "teamCount": "0",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "croo-ai-agent-hackathon-10-k-usd-prize-pool",
@@ -285,7 +320,8 @@
     "category": "Community",
     "reward": "10,000 Usd",
     "teamCount": "32",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "scripture-in-new-frontiers",
@@ -293,7 +329,8 @@
     "category": "Community",
     "reward": "10,000 Usd",
     "teamCount": "72",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "cuhk-x-competition-small-model-track",
@@ -301,7 +338,8 @@
     "category": "Community",
     "reward": "10,000 Usd",
     "teamCount": "252",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "cuhk-x-competition-large-model-track",
@@ -309,7 +347,8 @@
     "category": "Community",
     "reward": "10,000 Usd",
     "teamCount": "158",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   },
   {
     "ref": "atomcamp-build-with-gemma",
@@ -317,6 +356,7 @@
     "category": "Community",
     "reward": "10,000 Usd",
     "teamCount": "0",
-    "userHasEntered": "False"
+    "userHasEntered": "False",
+    "userRank": "0"
   }
 ]

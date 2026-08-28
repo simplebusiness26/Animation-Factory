@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-28T01:51:41.840679+00:00",
+  "generated_at": "2026-08-28T01:55:44.821190+00:00",
   "dossiers": [
     {
       "slug": "arc-prize-2026-paper-track",
@@ -12,21 +12,22 @@
       "time_fit": 90.0,
       "crowd_fit": 51.6,
       "data_fit": 90.0,
-      "documentation_fit": 40.0,
+      "documentation_fit": 50.0,
       "dependency_penalty": 0.0,
       "eligibility_penalty": 0.0,
-      "final_score": 68.6,
+      "final_score": 69.6,
       "verdict": "MAYBE",
       "files_count": 1,
       "total_data_bytes": 150,
       "pages_found": [],
       "flags": [
-        "installed Kaggle CLI cannot expose competition pages"
+        "competition pages unavailable through CLI"
       ],
       "reasons": [
         "task type unclear from available documentation",
         "dataset footprint about 0.0 GB",
-        "documentation depth limited by current CLI version"
+        "rules/overview could not be inspected automatically",
+        "reviewed metadata for 14 top discussion topics"
       ]
     },
     {
@@ -40,21 +41,22 @@
       "time_fit": 65.0,
       "crowd_fit": 40.2,
       "data_fit": 90.0,
-      "documentation_fit": 40.0,
+      "documentation_fit": 50.0,
       "dependency_penalty": 0.0,
       "eligibility_penalty": 0.0,
-      "final_score": 61.7,
+      "final_score": 62.7,
       "verdict": "MAYBE",
       "files_count": 8,
       "total_data_bytes": 641480184,
       "pages_found": [],
       "flags": [
-        "installed Kaggle CLI cannot expose competition pages"
+        "competition pages unavailable through CLI"
       ],
       "reasons": [
         "agent/simulation workload",
         "dataset footprint about 0.6 GB",
-        "documentation depth limited by current CLI version"
+        "rules/overview could not be inspected automatically",
+        "reviewed metadata for 21 top discussion topics"
       ]
     },
     {
@@ -68,21 +70,22 @@
       "time_fit": 90.0,
       "crowd_fit": 29.1,
       "data_fit": 90.0,
-      "documentation_fit": 40.0,
+      "documentation_fit": 50.0,
       "dependency_penalty": 0.0,
       "eligibility_penalty": 0.0,
-      "final_score": 58.6,
+      "final_score": 59.6,
       "verdict": "MAYBE",
       "files_count": 6,
       "total_data_bytes": 6912541,
       "pages_found": [],
       "flags": [
-        "installed Kaggle CLI cannot expose competition pages"
+        "competition pages unavailable through CLI"
       ],
       "reasons": [
         "frontier reasoning research",
         "dataset footprint about 0.0 GB",
-        "documentation depth limited by current CLI version"
+        "rules/overview could not be inspected automatically",
+        "reviewed metadata for 21 top discussion topics"
       ]
     },
     {
@@ -96,21 +99,22 @@
       "time_fit": 90.0,
       "crowd_fit": 25.0,
       "data_fit": 90.0,
-      "documentation_fit": 40.0,
+      "documentation_fit": 50.0,
       "dependency_penalty": 0.0,
       "eligibility_penalty": 0.0,
-      "final_score": 57.8,
+      "final_score": 58.8,
       "verdict": "MAYBE",
       "files_count": 148,
       "total_data_bytes": 48969679,
       "pages_found": [],
       "flags": [
-        "installed Kaggle CLI cannot expose competition pages"
+        "competition pages unavailable through CLI"
       ],
       "reasons": [
         "frontier reasoning research",
         "dataset footprint about 0.0 GB",
-        "documentation depth limited by current CLI version"
+        "rules/overview could not be inspected automatically",
+        "reviewed metadata for 21 top discussion topics"
       ]
     },
     {
@@ -124,21 +128,22 @@
       "time_fit": 80.0,
       "crowd_fit": 50.0,
       "data_fit": 90.0,
-      "documentation_fit": 40.0,
+      "documentation_fit": 50.0,
       "dependency_penalty": 0.0,
       "eligibility_penalty": 0.0,
-      "final_score": 62.6,
+      "final_score": 63.6,
       "verdict": "MAYBE",
       "files_count": 1,
       "total_data_bytes": 2402,
       "pages_found": [],
       "flags": [
-        "installed Kaggle CLI cannot expose competition pages"
+        "competition pages unavailable through CLI"
       ],
       "reasons": [
         "task type unclear from available documentation",
         "dataset footprint about 0.0 GB",
-        "documentation depth limited by current CLI version"
+        "rules/overview could not be inspected automatically",
+        "reviewed metadata for 1 top discussion topics"
       ]
     }
   ]

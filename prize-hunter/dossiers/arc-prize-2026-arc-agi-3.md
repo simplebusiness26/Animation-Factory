@@ -1,7 +1,7 @@
 # Prize Dossier — arc-prize-2026-arc-agi-3
 
 **Stage 2 verdict:** MAYBE
-**Final suitability:** 57.8/100
+**Final suitability:** 58.8/100
 **Stage 1 opportunity score:** 70.2/100
 **Prize:** 850,000 Usd
 **Teams:** 2577
@@ -14,20 +14,21 @@
 - Time fit: **90/100**
 - Crowd fit: **25/100**
 - Data fit: **90/100**
-- Documentation confidence: **40/100**
+- Documentation confidence: **50/100**
 - Competition files visible: **148**
 - Visible data size: **0.05 GB**
 - Pages inspected: **none**
 
 ## Flags
 
-- ⚠️ installed Kaggle CLI cannot expose competition pages
+- ⚠️ competition pages unavailable through CLI
 
 ## Why
 
 - frontier reasoning research
 - dataset footprint about 0.0 GB
-- documentation depth limited by current CLI version
+- rules/overview could not be inspected automatically
+- reviewed metadata for 21 top discussion topics
 
 ## Gate
 

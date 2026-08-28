@@ -1,7 +1,7 @@
 # Prize Dossier — pokemon-tcg-ai-battle-challenge-strategy
 
 **Stage 2 verdict:** MAYBE
-**Final suitability:** 61.7/100
+**Final suitability:** 62.7/100
 **Stage 1 opportunity score:** 71.6/100
 **Prize:** 240,000 Usd
 **Teams:** 522
@@ -14,20 +14,21 @@
 - Time fit: **65/100**
 - Crowd fit: **40/100**
 - Data fit: **90/100**
-- Documentation confidence: **40/100**
+- Documentation confidence: **50/100**
 - Competition files visible: **8**
 - Visible data size: **0.60 GB**
 - Pages inspected: **none**
 
 ## Flags
 
-- ⚠️ installed Kaggle CLI cannot expose competition pages
+- ⚠️ competition pages unavailable through CLI
 
 ## Why
 
 - agent/simulation workload
 - dataset footprint about 0.6 GB
-- documentation depth limited by current CLI version
+- rules/overview could not be inspected automatically
+- reviewed metadata for 21 top discussion topics
 
 ## Gate
 

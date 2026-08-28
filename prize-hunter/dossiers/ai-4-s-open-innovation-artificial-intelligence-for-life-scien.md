@@ -1,7 +1,7 @@
 # Prize Dossier — ai-4-s-open-innovation-artificial-intelligence-for-life-scien
 
 **Stage 2 verdict:** MAYBE
-**Final suitability:** 62.6/100
+**Final suitability:** 63.6/100
 **Stage 1 opportunity score:** 65.4/100
 **Prize:** 22,200 Usd
 **Teams:** unknown
@@ -14,20 +14,21 @@
 - Time fit: **80/100**
 - Crowd fit: **50/100**
 - Data fit: **90/100**
-- Documentation confidence: **40/100**
+- Documentation confidence: **50/100**
 - Competition files visible: **1**
 - Visible data size: **0.00 GB**
 - Pages inspected: **none**
 
 ## Flags
 
-- ⚠️ installed Kaggle CLI cannot expose competition pages
+- ⚠️ competition pages unavailable through CLI
 
 ## Why
 
 - task type unclear from available documentation
 - dataset footprint about 0.0 GB
-- documentation depth limited by current CLI version
+- rules/overview could not be inspected automatically
+- reviewed metadata for 1 top discussion topics
 
 ## Gate
 

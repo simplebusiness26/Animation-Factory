@@ -9,20 +9,21 @@
   "time_fit": 65.0,
   "crowd_fit": 40.2,
   "data_fit": 90.0,
-  "documentation_fit": 40.0,
+  "documentation_fit": 50.0,
   "dependency_penalty": 0.0,
   "eligibility_penalty": 0.0,
-  "final_score": 61.7,
+  "final_score": 62.7,
   "verdict": "MAYBE",
   "files_count": 8,
   "total_data_bytes": 641480184,
   "pages_found": [],
   "flags": [
-    "installed Kaggle CLI cannot expose competition pages"
+    "competition pages unavailable through CLI"
   ],
   "reasons": [
     "agent/simulation workload",
     "dataset footprint about 0.6 GB",
-    "documentation depth limited by current CLI version"
+    "rules/overview could not be inspected automatically",
+    "reviewed metadata for 21 top discussion topics"
   ]
 }

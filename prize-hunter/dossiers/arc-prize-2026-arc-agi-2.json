@@ -9,20 +9,21 @@
   "time_fit": 90.0,
   "crowd_fit": 29.1,
   "data_fit": 90.0,
-  "documentation_fit": 40.0,
+  "documentation_fit": 50.0,
   "dependency_penalty": 0.0,
   "eligibility_penalty": 0.0,
-  "final_score": 58.6,
+  "final_score": 59.6,
   "verdict": "MAYBE",
   "files_count": 6,
   "total_data_bytes": 6912541,
   "pages_found": [],
   "flags": [
-    "installed Kaggle CLI cannot expose competition pages"
+    "competition pages unavailable through CLI"
   ],
   "reasons": [
     "frontier reasoning research",
     "dataset footprint about 0.0 GB",
-    "documentation depth limited by current CLI version"
+    "rules/overview could not be inspected automatically",
+    "reviewed metadata for 21 top discussion topics"
   ]
 }
