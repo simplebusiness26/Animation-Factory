@@ -1,0 +1,60 @@
+name: Episode 001 Recovery Now
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/episode001-recovery-now.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: earth-needs-help-e001-recovery-now
+  cancel-in-progress: true
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+      KAGGLE_OWNER: ${{ vars.KAGGLE_OWNER }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: |
+          pip install -r requirements.txt
+          pip install Pillow
+      - name: Recover R5 and advance production
+        run: python automation/episode001_orchestrator_v3.py
+      - name: Persist recovered state and stills
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "animation-factory-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          snapshot="$(mktemp -d)"
+          mkdir -p "$snapshot/automation"
+          cp -f automation/episode001-state.json "$snapshot/automation/episode001-state.json"
+          if [ -d automation/logs ]; then mkdir -p "$snapshot/automation/logs"; cp -a automation/logs/. "$snapshot/automation/logs/"; fi
+          if [ -d shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills ]; then
+            mkdir -p "$snapshot/stills"
+            cp -a shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/. "$snapshot/stills/"
+          fi
+          git fetch origin main
+          git reset --hard origin/main
+          cp -f "$snapshot/automation/episode001-state.json" automation/episode001-state.json
+          if [ -d "$snapshot/automation/logs" ]; then mkdir -p automation/logs; cp -a "$snapshot/automation/logs/." automation/logs/; fi
+          if [ -d "$snapshot/stills" ]; then mkdir -p shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills; cp -a "$snapshot/stills/." shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/; fi
+          git add automation/episode001-state.json automation/logs/ shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/ 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -m "Recover successful Episode 001 stills and advance production [skip ci]"
+            git push origin HEAD:main
+          fi
