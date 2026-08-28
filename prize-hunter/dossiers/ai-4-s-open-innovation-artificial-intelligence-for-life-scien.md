@@ -1,36 +1,36 @@
 # Prize Dossier — ai-4-s-open-innovation-artificial-intelligence-for-life-scien
 
-**Stage 2 verdict:** MAYBE
-**Final suitability:** 63.6/100
-**Stage 1 opportunity score:** 65.4/100
+**Verdict:** MAYBE
+**Final suitability:** 62.1/100
+**Stage 1 score:** 65.4/100
 **Prize:** 22,200 Usd
 **Teams:** unknown
 **Days left:** 44
-**Task:** unknown
+**Task type:** unknown
 
 ## Feasibility
 
-- Compute fit for our Kaggle T4 environment: **55/100**
+- Compute fit: **55/100**
 - Time fit: **80/100**
 - Crowd fit: **50/100**
 - Data fit: **90/100**
-- Documentation confidence: **50/100**
+- Documentation confidence: **35/100**
+- Public pages read: **none**
 - Competition files visible: **1**
 - Visible data size: **0.00 GB**
-- Pages inspected: **none**
 
 ## Flags
 
-- ⚠️ competition pages unavailable through CLI
+- ⚠️ public Kaggle pages could not be read automatically
 
-## Why
+## Reasons
 
-- task type unclear from available documentation
+- task type not confidently classified
 - dataset footprint about 0.0 GB
-- rules/overview could not be inspected automatically
-- reviewed metadata for 1 top discussion topics
+- documentation confidence reduced
+- inspected metadata for 1 top discussion topics
 
-## Gate
+## Entry gate
 
-GO means worth pursuing further — it is **not** permission to join, accept rules, or submit. Eligibility and official rules must still be checked before entry.
+This dossier is analysis only. Joining, accepting rules, or submitting remains approval-gated and must satisfy the official eligibility rules.
 

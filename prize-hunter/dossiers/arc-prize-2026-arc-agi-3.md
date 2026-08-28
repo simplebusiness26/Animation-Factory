@@ -1,36 +1,36 @@
 # Prize Dossier — arc-prize-2026-arc-agi-3
 
-**Stage 2 verdict:** MAYBE
-**Final suitability:** 58.8/100
-**Stage 1 opportunity score:** 70.2/100
+**Verdict:** MAYBE
+**Final suitability:** 57.3/100
+**Stage 1 score:** 70.2/100
 **Prize:** 850,000 Usd
 **Teams:** 2577
 **Days left:** 67
-**Task:** reasoning/research
+**Task type:** reasoning/research
 
 ## Feasibility
 
-- Compute fit for our Kaggle T4 environment: **40/100**
+- Compute fit: **40/100**
 - Time fit: **90/100**
 - Crowd fit: **25/100**
 - Data fit: **90/100**
-- Documentation confidence: **50/100**
+- Documentation confidence: **35/100**
+- Public pages read: **none**
 - Competition files visible: **148**
 - Visible data size: **0.05 GB**
-- Pages inspected: **none**
 
 ## Flags
 
-- ⚠️ competition pages unavailable through CLI
+- ⚠️ public Kaggle pages could not be read automatically
 
-## Why
+## Reasons
 
 - frontier reasoning research
 - dataset footprint about 0.0 GB
-- rules/overview could not be inspected automatically
-- reviewed metadata for 21 top discussion topics
+- documentation confidence reduced
+- inspected metadata for 21 top discussion topics
 
-## Gate
+## Entry gate
 
-GO means worth pursuing further — it is **not** permission to join, accept rules, or submit. Eligibility and official rules must still be checked before entry.
+This dossier is analysis only. Joining, accepting rules, or submitting remains approval-gated and must satisfy the official eligibility rules.
 

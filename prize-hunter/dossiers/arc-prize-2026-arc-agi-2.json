@@ -1,29 +1,29 @@
 {
   "slug": "arc-prize-2026-arc-agi-2",
-  "stage1_score": 71.0,
   "reward": "700,000 Usd",
   "teams": 1663,
   "days_left": 66.9,
+  "stage1_score": 71.0,
   "task_type": "reasoning/research",
   "compute_fit": 40.0,
   "time_fit": 90.0,
   "crowd_fit": 29.1,
   "data_fit": 90.0,
-  "documentation_fit": 50.0,
+  "documentation_fit": 35.0,
   "dependency_penalty": 0.0,
   "eligibility_penalty": 0.0,
-  "final_score": 59.6,
+  "final_score": 58.1,
   "verdict": "MAYBE",
+  "public_pages_read": [],
   "files_count": 6,
   "total_data_bytes": 6912541,
-  "pages_found": [],
   "flags": [
-    "competition pages unavailable through CLI"
+    "public Kaggle pages could not be read automatically"
   ],
   "reasons": [
     "frontier reasoning research",
     "dataset footprint about 0.0 GB",
-    "rules/overview could not be inspected automatically",
-    "reviewed metadata for 21 top discussion topics"
+    "documentation confidence reduced",
+    "inspected metadata for 21 top discussion topics"
   ]
 }

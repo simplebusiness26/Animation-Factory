@@ -1,29 +1,29 @@
 {
   "slug": "arc-prize-2026-paper-track",
-  "stage1_score": 82.4,
   "reward": "450,000 Usd",
   "teams": 157,
   "days_left": 73.9,
+  "stage1_score": 82.4,
   "task_type": "unknown",
   "compute_fit": 55.0,
   "time_fit": 90.0,
   "crowd_fit": 51.6,
   "data_fit": 90.0,
-  "documentation_fit": 50.0,
+  "documentation_fit": 35.0,
   "dependency_penalty": 0.0,
   "eligibility_penalty": 0.0,
-  "final_score": 69.6,
+  "final_score": 68.1,
   "verdict": "MAYBE",
+  "public_pages_read": [],
   "files_count": 1,
   "total_data_bytes": 150,
-  "pages_found": [],
   "flags": [
-    "competition pages unavailable through CLI"
+    "public Kaggle pages could not be read automatically"
   ],
   "reasons": [
-    "task type unclear from available documentation",
+    "task type not confidently classified",
     "dataset footprint about 0.0 GB",
-    "rules/overview could not be inspected automatically",
-    "reviewed metadata for 14 top discussion topics"
+    "documentation confidence reduced",
+    "inspected metadata for 14 top discussion topics"
   ]
 }

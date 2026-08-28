@@ -1,149 +1,149 @@
 {
-  "generated_at": "2026-08-28T01:55:44.821190+00:00",
+  "generated_at": "2026-08-28T01:57:47.798689+00:00",
   "dossiers": [
     {
       "slug": "arc-prize-2026-paper-track",
-      "stage1_score": 82.4,
       "reward": "450,000 Usd",
       "teams": 157,
       "days_left": 73.9,
+      "stage1_score": 82.4,
       "task_type": "unknown",
       "compute_fit": 55.0,
       "time_fit": 90.0,
       "crowd_fit": 51.6,
       "data_fit": 90.0,
-      "documentation_fit": 50.0,
+      "documentation_fit": 35.0,
       "dependency_penalty": 0.0,
       "eligibility_penalty": 0.0,
-      "final_score": 69.6,
+      "final_score": 68.1,
       "verdict": "MAYBE",
+      "public_pages_read": [],
       "files_count": 1,
       "total_data_bytes": 150,
-      "pages_found": [],
       "flags": [
-        "competition pages unavailable through CLI"
+        "public Kaggle pages could not be read automatically"
       ],
       "reasons": [
-        "task type unclear from available documentation",
+        "task type not confidently classified",
         "dataset footprint about 0.0 GB",
-        "rules/overview could not be inspected automatically",
-        "reviewed metadata for 14 top discussion topics"
+        "documentation confidence reduced",
+        "inspected metadata for 14 top discussion topics"
       ]
     },
     {
       "slug": "pokemon-tcg-ai-battle-challenge-strategy",
-      "stage1_score": 71.6,
       "reward": "240,000 Usd",
       "teams": 522,
       "days_left": 16.9,
-      "task_type": "agent/simulation",
-      "compute_fit": 60.0,
+      "stage1_score": 71.6,
+      "task_type": "unknown",
+      "compute_fit": 55.0,
       "time_fit": 65.0,
       "crowd_fit": 40.2,
       "data_fit": 90.0,
-      "documentation_fit": 50.0,
+      "documentation_fit": 35.0,
       "dependency_penalty": 0.0,
       "eligibility_penalty": 0.0,
-      "final_score": 62.7,
+      "final_score": 59.9,
       "verdict": "MAYBE",
+      "public_pages_read": [],
       "files_count": 8,
       "total_data_bytes": 641480184,
-      "pages_found": [],
       "flags": [
-        "competition pages unavailable through CLI"
+        "public Kaggle pages could not be read automatically"
       ],
       "reasons": [
-        "agent/simulation workload",
+        "task type not confidently classified",
         "dataset footprint about 0.6 GB",
-        "rules/overview could not be inspected automatically",
-        "reviewed metadata for 21 top discussion topics"
+        "documentation confidence reduced",
+        "inspected metadata for 21 top discussion topics"
       ]
     },
     {
       "slug": "arc-prize-2026-arc-agi-2",
-      "stage1_score": 71.0,
       "reward": "700,000 Usd",
       "teams": 1663,
       "days_left": 66.9,
+      "stage1_score": 71.0,
       "task_type": "reasoning/research",
       "compute_fit": 40.0,
       "time_fit": 90.0,
       "crowd_fit": 29.1,
       "data_fit": 90.0,
-      "documentation_fit": 50.0,
+      "documentation_fit": 35.0,
       "dependency_penalty": 0.0,
       "eligibility_penalty": 0.0,
-      "final_score": 59.6,
+      "final_score": 58.1,
       "verdict": "MAYBE",
+      "public_pages_read": [],
       "files_count": 6,
       "total_data_bytes": 6912541,
-      "pages_found": [],
       "flags": [
-        "competition pages unavailable through CLI"
+        "public Kaggle pages could not be read automatically"
       ],
       "reasons": [
         "frontier reasoning research",
         "dataset footprint about 0.0 GB",
-        "rules/overview could not be inspected automatically",
-        "reviewed metadata for 21 top discussion topics"
+        "documentation confidence reduced",
+        "inspected metadata for 21 top discussion topics"
       ]
     },
     {
       "slug": "arc-prize-2026-arc-agi-3",
-      "stage1_score": 70.2,
       "reward": "850,000 Usd",
       "teams": 2577,
       "days_left": 66.9,
+      "stage1_score": 70.2,
       "task_type": "reasoning/research",
       "compute_fit": 40.0,
       "time_fit": 90.0,
       "crowd_fit": 25.0,
       "data_fit": 90.0,
-      "documentation_fit": 50.0,
+      "documentation_fit": 35.0,
       "dependency_penalty": 0.0,
       "eligibility_penalty": 0.0,
-      "final_score": 58.8,
+      "final_score": 57.3,
       "verdict": "MAYBE",
+      "public_pages_read": [],
       "files_count": 148,
       "total_data_bytes": 48969679,
-      "pages_found": [],
       "flags": [
-        "competition pages unavailable through CLI"
+        "public Kaggle pages could not be read automatically"
       ],
       "reasons": [
         "frontier reasoning research",
         "dataset footprint about 0.0 GB",
-        "rules/overview could not be inspected automatically",
-        "reviewed metadata for 21 top discussion topics"
+        "documentation confidence reduced",
+        "inspected metadata for 21 top discussion topics"
       ]
     },
     {
       "slug": "ai-4-s-open-innovation-artificial-intelligence-for-life-scien",
-      "stage1_score": 65.4,
       "reward": "22,200 Usd",
       "teams": 0,
       "days_left": 43.6,
+      "stage1_score": 65.4,
       "task_type": "unknown",
       "compute_fit": 55.0,
       "time_fit": 80.0,
       "crowd_fit": 50.0,
       "data_fit": 90.0,
-      "documentation_fit": 50.0,
+      "documentation_fit": 35.0,
       "dependency_penalty": 0.0,
       "eligibility_penalty": 0.0,
-      "final_score": 63.6,
+      "final_score": 62.1,
       "verdict": "MAYBE",
+      "public_pages_read": [],
       "files_count": 1,
       "total_data_bytes": 2402,
-      "pages_found": [],
       "flags": [
-        "competition pages unavailable through CLI"
+        "public Kaggle pages could not be read automatically"
       ],
       "reasons": [
-        "task type unclear from available documentation",
+        "task type not confidently classified",
         "dataset footprint about 0.0 GB",
-        "rules/overview could not be inspected automatically",
-        "reviewed metadata for 1 top discussion topics"
+        "documentation confidence reduced",
+        "inspected metadata for 1 top discussion topics"
       ]
     }
   ]
