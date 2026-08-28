@@ -30,6 +30,45 @@ TARGET_SOURCE_BYTES = 750_000
 FINAL_MP4 = base.DIST_DIR / "earth-needs-help-e001-final.mp4"
 
 
+def robust_stage_generated_stills(downloaded: Path) -> list[Path]:
+    """Stage the completed still batch, using Kaggle's repaired bridge as Shot 001.
+
+    The original repository Shot 001 JPEG payload is structurally malformed.
+    The still-generation kernel repairs that canonical bridge before rendering
+    and returns it as reference.jpg. Prefer that valid repaired copy so a good
+    002-009 batch is never rejected just because the historical local export is
+    broken.
+    """
+    base.STILLS_DIR.mkdir(parents=True, exist_ok=True)
+    staged: list[Path] = []
+
+    shot1_target = base.STILLS_DIR / "earth-needs-help-e001-s001.png"
+    repaired_refs = list(downloaded.rglob("reference.jpg")) + list(downloaded.rglob("reference.png"))
+    if repaired_refs:
+        base.normalize_image(repaired_refs[0], shot1_target)
+        if not base.valid_image(shot1_target):
+            raise RuntimeError("Repaired canonical Shot 001 bridge failed validation")
+        staged.append(shot1_target)
+    else:
+        staged.append(base.make_shot1_still())
+
+    for shot in base.SHOTS[1:]:
+        sid = shot["id"]
+        candidates = list(downloaded.rglob(f"*s{sid}.png")) + list(downloaded.rglob(f"*s{sid}.jpg"))
+        if not candidates:
+            raise RuntimeError(f"Stills kernel completed but Shot {sid} output was missing")
+        target = base.STILLS_DIR / f"earth-needs-help-e001-s{sid}.png"
+        base.normalize_image(candidates[0], target)
+        if not base.valid_image(target):
+            raise RuntimeError(f"Shot {sid} still failed validation")
+        staged.append(target)
+
+    return staged
+
+
+base.stage_generated_stills = robust_stage_generated_stills
+
+
 def encode_stills(root: Path, quality: int) -> tuple[dict[str, str], int]:
     still_dir = root / "stills"
     if still_dir.exists():
@@ -106,10 +145,6 @@ def run_controller() -> int:
         print(json.dumps(state, indent=2))
         return 0 if state.get("phase") != "failed" else 1
 
-    # A GitHub Actions workspace is ephemeral. If rendering completed in an
-    # earlier run but release publication was never confirmed, regenerate the
-    # final MP4 from the already-complete motion kernel and let the workflow
-    # retry artifact/release publication in this run.
     if state.get("phase") == "complete" and not bool(state.get("release_published")) and not FINAL_MP4.is_file():
         state["phase"] = "awaiting_motion"
         state["last_status"] = "FINAL_RELEASE_REBUILD_REQUIRED"
