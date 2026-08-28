@@ -1,6 +1,6 @@
 [
   {
-    "ref": "https://www.kaggle.com/competitions/arc-prize-2026-arc-agi-3",
+    "ref": "arc-prize-2026-arc-agi-3",
     "deadline": "2026-11-02 23:59:00",
     "category": "Featured",
     "reward": "850,000 Usd",
@@ -8,7 +8,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/arc-prize-2026-arc-agi-2",
+    "ref": "arc-prize-2026-arc-agi-2",
     "deadline": "2026-11-02 23:59:00",
     "category": "Featured",
     "reward": "700,000 Usd",
@@ -16,7 +16,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/arc-prize-2026-paper-track",
+    "ref": "arc-prize-2026-paper-track",
     "deadline": "2026-11-09 23:59:00",
     "category": "Featured",
     "reward": "450,000 Usd",
@@ -24,7 +24,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/pokemon-tcg-ai-battle-challenge-strategy",
+    "ref": "pokemon-tcg-ai-battle-challenge-strategy",
     "deadline": "2026-09-13 23:59:00",
     "category": "Featured",
     "reward": "240,000 Usd",
@@ -32,7 +32,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/rsna-knee-abnormality-detection",
+    "ref": "rsna-knee-abnormality-detection",
     "deadline": "2026-10-22 23:59:00",
     "category": "Research",
     "reward": "77,000 Usd",
@@ -40,7 +40,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/biohub-cell-tracking-during-development",
+    "ref": "biohub-cell-tracking-during-development",
     "deadline": "2026-09-29 23:59:00",
     "category": "Research",
     "reward": "60,000 Usd",
@@ -48,7 +48,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/ai-agent-security-multi-step-tool-attacks",
+    "ref": "ai-agent-security-multi-step-tool-attacks",
     "deadline": "2026-09-01 23:59:00",
     "category": "Featured",
     "reward": "50,000 Usd",
@@ -56,7 +56,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/kaggriculture",
+    "ref": "kaggriculture",
     "deadline": "2026-09-30 23:59:00",
     "category": "Featured",
     "reward": "50,000 Usd",
@@ -64,7 +64,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/pokemon-tcg-ai-battle",
+    "ref": "pokemon-tcg-ai-battle",
     "deadline": "2026-08-31 23:59:00",
     "category": "Featured",
     "reward": "Knowledge",
@@ -72,7 +72,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/digit-recognizer",
+    "ref": "digit-recognizer",
     "deadline": "2030-01-01 00:00:00",
     "category": "Getting Started",
     "reward": "Knowledge",
@@ -80,7 +80,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/titanic",
+    "ref": "titanic",
     "deadline": "2030-01-01 00:00:00",
     "category": "Getting Started",
     "reward": "Knowledge",
@@ -88,7 +88,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques",
+    "ref": "house-prices-advanced-regression-techniques",
     "deadline": "2030-01-01 00:00:00",
     "category": "Getting Started",
     "reward": "Knowledge",
@@ -96,7 +96,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/home-data-for-ml-course",
+    "ref": "home-data-for-ml-course",
     "deadline": "2030-01-01 23:59:00",
     "category": "Getting Started",
     "reward": "Knowledge",
@@ -104,7 +104,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/connectx",
+    "ref": "connectx",
     "deadline": "2030-01-01 00:00:00",
     "category": "Getting Started",
     "reward": "Knowledge",
@@ -112,7 +112,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/nlp-getting-started",
+    "ref": "nlp-getting-started",
     "deadline": "2030-01-01 00:00:00",
     "category": "Getting Started",
     "reward": "Knowledge",
@@ -120,7 +120,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/tpu-getting-started",
+    "ref": "tpu-getting-started",
     "deadline": "2030-06-03 23:59:00",
     "category": "Getting Started",
     "reward": "Knowledge",
@@ -128,7 +128,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/contradictory-my-dear-watson",
+    "ref": "contradictory-my-dear-watson",
     "deadline": "2030-07-01 23:59:00",
     "category": "Getting Started",
     "reward": "Knowledge",
@@ -136,7 +136,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/store-sales-time-series-forecasting",
+    "ref": "store-sales-time-series-forecasting",
     "deadline": "2030-06-30 23:59:00",
     "category": "Getting Started",
     "reward": "Knowledge",
@@ -144,7 +144,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/spaceship-titanic",
+    "ref": "spaceship-titanic",
     "deadline": "2030-01-01 00:00:00",
     "category": "Getting Started",
     "reward": "Knowledge",
@@ -152,7 +152,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/playground-series-s6e8",
+    "ref": "playground-series-s6e8",
     "deadline": "2026-08-31 23:59:00",
     "category": "Playground",
     "reward": "Swag",
@@ -160,7 +160,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/banana",
+    "ref": "banana",
     "deadline": "2025-09-08 06:59:00",
     "category": "Community",
     "reward": "400,000 Usd",
@@ -168,7 +168,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/ai-mathematical-olympiad-proof-pilot",
+    "ref": "ai-mathematical-olympiad-proof-pilot",
     "deadline": "2026-06-25 10:00:00",
     "category": "Community",
     "reward": "210,000 Usd",
@@ -176,7 +176,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/drw-crypto-market-prediction",
+    "ref": "drw-crypto-market-prediction",
     "deadline": "2025-07-25 05:00:00",
     "category": "Community",
     "reward": "25,000 Usd",
@@ -184,7 +184,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/WiDSWorldWide_GlobalDathon26",
+    "ref": "WiDSWorldWide_GlobalDathon26",
     "deadline": "2026-05-01 23:59:00",
     "category": "Community",
     "reward": "25,000 Usd",
@@ -192,7 +192,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/ai-4-s-open-innovation-artificial-intelligence-for-life-scien",
+    "ref": "ai-4-s-open-innovation-artificial-intelligence-for-life-scien",
     "deadline": "2026-10-10 15:59:59",
     "category": "Community",
     "reward": "22,200 Usd",
@@ -200,7 +200,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/next-2024-hackathon",
+    "ref": "next-2024-hackathon",
     "deadline": "2024-04-10 21:30:00",
     "category": "Community",
     "reward": "20,000 Usd",
@@ -208,7 +208,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/the-uncharted-data-challenge",
+    "ref": "the-uncharted-data-challenge",
     "deadline": "2026-05-02 23:59:00",
     "category": "Community",
     "reward": "20,000 Usd",
@@ -216,7 +216,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/skill-lift",
+    "ref": "skill-lift",
     "deadline": "2026-08-13 06:55:00",
     "category": "Community",
     "reward": "20,000 Usd",
@@ -224,7 +224,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/smartphone-decimeter-2023",
+    "ref": "smartphone-decimeter-2023",
     "deadline": "2024-05-23 23:59:00",
     "category": "Community",
     "reward": "15,000 Usd",
@@ -232,7 +232,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/flag-os-open-computing-global-challenge-season-2",
+    "ref": "flag-os-open-computing-global-challenge-season-2",
     "deadline": "2026-12-30 16:00:00",
     "category": "Community",
     "reward": "14,925 Usd",
@@ -240,7 +240,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/rohlik-orders-forecasting-challenge",
+    "ref": "rohlik-orders-forecasting-challenge",
     "deadline": "2024-08-23 21:55:00",
     "category": "Community",
     "reward": "12,000 Usd",
@@ -248,7 +248,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/rohlik-sales-forecasting-challenge-v2",
+    "ref": "rohlik-sales-forecasting-challenge-v2",
     "deadline": "2025-02-14 23:00:00",
     "category": "Community",
     "reward": "10,000 Usd",
@@ -256,7 +256,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/detect-ai-vs-human-generated-images",
+    "ref": "detect-ai-vs-human-generated-images",
     "deadline": "2025-03-07 23:59:00",
     "category": "Community",
     "reward": "10,000 Usd",
@@ -264,7 +264,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/el-hackathon-2025",
+    "ref": "el-hackathon-2025",
     "deadline": "2025-05-17 18:29:00",
     "category": "Community",
     "reward": "10,000 Usd",
@@ -272,7 +272,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/mencoba-kompetisi",
+    "ref": "mencoba-kompetisi",
     "deadline": "2025-04-11 04:50:00",
     "category": "Community",
     "reward": "10,000 Usd",
@@ -280,7 +280,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/croo-ai-agent-hackathon-10-k-usd-prize-pool",
+    "ref": "croo-ai-agent-hackathon-10-k-usd-prize-pool",
     "deadline": "2026-07-12 16:00:00",
     "category": "Community",
     "reward": "10,000 Usd",
@@ -288,7 +288,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/scripture-in-new-frontiers",
+    "ref": "scripture-in-new-frontiers",
     "deadline": "2026-08-01 04:59:00",
     "category": "Community",
     "reward": "10,000 Usd",
@@ -296,7 +296,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/cuhk-x-competition-small-model-track",
+    "ref": "cuhk-x-competition-small-model-track",
     "deadline": "2026-09-15 15:55:00",
     "category": "Community",
     "reward": "10,000 Usd",
@@ -304,7 +304,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/cuhk-x-competition-large-model-track",
+    "ref": "cuhk-x-competition-large-model-track",
     "deadline": "2026-09-15 15:55:00",
     "category": "Community",
     "reward": "10,000 Usd",
@@ -312,7 +312,7 @@
     "userHasEntered": "False"
   },
   {
-    "ref": "https://www.kaggle.com/competitions/atomcamp-build-with-gemma",
+    "ref": "atomcamp-build-with-gemma",
     "deadline": "2026-07-30 11:30:00",
     "category": "Community",
     "reward": "10,000 Usd",

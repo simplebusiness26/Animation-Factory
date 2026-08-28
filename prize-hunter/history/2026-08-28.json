@@ -1,48 +1,10 @@
 {
-  "generated_at": "2026-08-28T01:45:20.592989+00:00",
+  "generated_at": "2026-08-28T01:46:38.727916+00:00",
   "feed_count": 40,
   "count": 12,
   "opportunities": [
     {
-      "ref": "https://www.kaggle.com/competitions/ai-4-s-open-innovation-artificial-intelligence-for-life-scien",
-      "deadline": "2026-10-10T15:59:59+00:00",
-      "category": "Community",
-      "reward": "22,200 Usd",
-      "prize_value": 22200.0,
-      "currency": "$",
-      "team_count": 0,
-      "days_left": 43.6,
-      "score": 93.0,
-      "verdict": "HUNT",
-      "user_has_entered": false,
-      "user_rank": 0,
-      "reasons": [
-        "low crowd (1 teams)",
-        "strong prize/team (22,200)",
-        "44 days left"
-      ]
-    },
-    {
-      "ref": "https://www.kaggle.com/competitions/flag-os-open-computing-global-challenge-season-2",
-      "deadline": "2026-12-30T16:00:00+00:00",
-      "category": "Community",
-      "reward": "14,925 Usd",
-      "prize_value": 14925.0,
-      "currency": "$",
-      "team_count": 0,
-      "days_left": 124.6,
-      "score": 86.8,
-      "verdict": "HUNT",
-      "user_has_entered": false,
-      "user_rank": 0,
-      "reasons": [
-        "low crowd (1 teams)",
-        "strong prize/team (14,925)",
-        "long runway (125 days)"
-      ]
-    },
-    {
-      "ref": "https://www.kaggle.com/competitions/arc-prize-2026-paper-track",
+      "ref": "arc-prize-2026-paper-track",
       "deadline": "2026-11-09T23:59:00+00:00",
       "category": "Featured",
       "reward": "450,000 Usd",
@@ -61,7 +23,7 @@
       ]
     },
     {
-      "ref": "https://www.kaggle.com/competitions/pokemon-tcg-ai-battle-challenge-strategy",
+      "ref": "pokemon-tcg-ai-battle-challenge-strategy",
       "deadline": "2026-09-13T23:59:00+00:00",
       "category": "Featured",
       "reward": "240,000 Usd",
@@ -80,7 +42,7 @@
       ]
     },
     {
-      "ref": "https://www.kaggle.com/competitions/arc-prize-2026-arc-agi-2",
+      "ref": "arc-prize-2026-arc-agi-2",
       "deadline": "2026-11-02T23:59:00+00:00",
       "category": "Featured",
       "reward": "700,000 Usd",
@@ -99,7 +61,7 @@
       ]
     },
     {
-      "ref": "https://www.kaggle.com/competitions/arc-prize-2026-arc-agi-3",
+      "ref": "arc-prize-2026-arc-agi-3",
       "deadline": "2026-11-02T23:59:00+00:00",
       "category": "Featured",
       "reward": "850,000 Usd",
@@ -118,7 +80,25 @@
       ]
     },
     {
-      "ref": "https://www.kaggle.com/competitions/cuhk-x-competition-large-model-track",
+      "ref": "ai-4-s-open-innovation-artificial-intelligence-for-life-scien",
+      "deadline": "2026-10-10T15:59:59+00:00",
+      "category": "Community",
+      "reward": "22,200 Usd",
+      "prize_value": 22200.0,
+      "currency": "$",
+      "team_count": 0,
+      "days_left": 43.6,
+      "score": 65.4,
+      "verdict": "INVESTIGATE",
+      "user_has_entered": false,
+      "user_rank": 0,
+      "reasons": [
+        "team count unavailable \u2014 verify before pursuing",
+        "44 days left"
+      ]
+    },
+    {
+      "ref": "cuhk-x-competition-large-model-track",
       "deadline": "2026-09-15T15:55:00+00:00",
       "category": "Community",
       "reward": "10,000 Usd",
@@ -137,7 +117,7 @@
       ]
     },
     {
-      "ref": "https://www.kaggle.com/competitions/rsna-knee-abnormality-detection",
+      "ref": "rsna-knee-abnormality-detection",
       "deadline": "2026-10-22T23:59:00+00:00",
       "category": "Research",
       "reward": "77,000 Usd",
@@ -156,7 +136,7 @@
       ]
     },
     {
-      "ref": "https://www.kaggle.com/competitions/biohub-cell-tracking-during-development",
+      "ref": "biohub-cell-tracking-during-development",
       "deadline": "2026-09-29T23:59:00+00:00",
       "category": "Research",
       "reward": "60,000 Usd",
@@ -175,7 +155,25 @@
       ]
     },
     {
-      "ref": "https://www.kaggle.com/competitions/cuhk-x-competition-small-model-track",
+      "ref": "flag-os-open-computing-global-challenge-season-2",
+      "deadline": "2026-12-30T16:00:00+00:00",
+      "category": "Community",
+      "reward": "14,925 Usd",
+      "prize_value": 14925.0,
+      "currency": "$",
+      "team_count": 0,
+      "days_left": 124.6,
+      "score": 59.2,
+      "verdict": "INVESTIGATE",
+      "user_has_entered": false,
+      "user_rank": 0,
+      "reasons": [
+        "team count unavailable \u2014 verify before pursuing",
+        "long runway (125 days)"
+      ]
+    },
+    {
+      "ref": "cuhk-x-competition-small-model-track",
       "deadline": "2026-09-15T15:55:00+00:00",
       "category": "Community",
       "reward": "10,000 Usd",
@@ -194,7 +192,7 @@
       ]
     },
     {
-      "ref": "https://www.kaggle.com/competitions/kaggriculture",
+      "ref": "kaggriculture",
       "deadline": "2026-09-30T23:59:00+00:00",
       "category": "Featured",
       "reward": "50,000 Usd",
@@ -213,7 +211,7 @@
       ]
     },
     {
-      "ref": "https://www.kaggle.com/competitions/ai-agent-security-multi-step-tool-attacks",
+      "ref": "ai-agent-security-multi-step-tool-attacks",
       "deadline": "2026-09-01T23:59:00+00:00",
       "category": "Featured",
       "reward": "50,000 Usd",
