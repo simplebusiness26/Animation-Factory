@@ -1,27 +1,32 @@
 name: Kaggle Worker
 
 on:
-  issues:
-    types: [opened, edited, reopened]
+  push:
+    branches: [main]
+    paths:
+      - control/command.json
+  workflow_dispatch:
 
 permissions:
-  contents: read
-  issues: write
+  contents: write
+
+concurrency:
+  group: kaggle-worker
+  cancel-in-progress: false
 
 jobs:
   run:
-    if: startsWith(github.event.issue.title, '[KAGGLE]')
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
       KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
       KAGGLE_OWNER: ${{ vars.KAGGLE_OWNER }}
-      GH_TOKEN: ${{ github.token }}
-      ISSUE_NUMBER: ${{ github.event.issue.number }}
 
     steps:
       - name: Checkout bridge
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -37,15 +42,6 @@ jobs:
         continue-on-error: true
         run: python worker.py
 
-      - name: Return result to command issue
-        if: always()
-        run: |
-          if [ -f result.md ]; then
-            gh issue comment "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY" --body-file result.md
-          else
-            gh issue comment "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY" --body "## ❌ Kaggle Worker\n\nThe worker stopped before it could create a result report. Open the Actions run for diagnostics."
-          fi
-
       - name: Upload Kaggle output
         if: always()
         uses: actions/upload-artifact@v4
@@ -54,6 +50,23 @@ jobs:
           path: artifacts/
           if-no-files-found: ignore
           retention-days: 7
+
+      - name: Publish latest result
+        if: always()
+        run: |
+          mkdir -p results
+          if [ -f result.md ]; then
+            cp result.md results/latest.md
+          else
+            printf '## ❌ Kaggle Worker\n\nThe worker stopped before producing a result file.\n' > results/latest.md
+          fi
+          git config user.name "animation-factory-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/latest.md
+          if ! git diff --cached --quiet; then
+            git commit -m "Record Kaggle worker result [skip ci]"
+            git push
+          fi
 
       - name: Fail workflow when worker failed
         if: steps.worker.outcome == 'failure'
