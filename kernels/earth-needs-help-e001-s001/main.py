@@ -7,7 +7,18 @@ import json
 import subprocess
 import sys
 import time
+import urllib.request
 from pathlib import Path
+
+ASSET_BASE = "https://raw.githubusercontent.com/simplebusiness26/Animation-Factory/main/kernels/earth-needs-help-e001-s001"
+WORK = Path("/kaggle/working")
+OUTPUT = WORK / "earth-needs-help-e001-s001.mp4"
+REPORT = WORK / "earth-needs-help-e001-s001-report.json"
+
+
+def fetch_text(name: str) -> str:
+    with urllib.request.urlopen(f"{ASSET_BASE}/{name}", timeout=60) as response:
+        return response.read().decode("utf-8")
 
 
 def pip_install() -> None:
@@ -24,7 +35,7 @@ def pip_install() -> None:
             "accelerate",
             "safetensors",
             "imageio[ffmpeg]",
-            "Pillow",
+            "Pillow<12",
         ],
         check=True,
     )
@@ -37,25 +48,12 @@ from PIL import Image, ImageOps
 from diffusers import I2VGenXLPipeline
 from diffusers.utils import export_to_video
 
-ROOT = Path(__file__).resolve().parent
-WORK = Path("/kaggle/working")
-OUTPUT = WORK / "earth-needs-help-e001-s001.mp4"
-REPORT = WORK / "earth-needs-help-e001-s001-report.json"
 
-
-def find_still() -> Path:
-    for name in ("input-still.jpg", "input-still.jpeg", "input-still.png"):
-        path = ROOT / name
-        if path.exists():
-            return path
-
-    embedded = ROOT / "input-still.b64"
-    if embedded.exists():
-        decoded = WORK / "input-still.jpg"
-        decoded.write_bytes(base64.b64decode(embedded.read_text(encoding="utf-8").strip()))
-        return decoded
-
-    raise FileNotFoundError("Shot still not found in kernel bundle")
+def fetch_still() -> Path:
+    encoded = fetch_text("input-still.b64").strip()
+    path = WORK / "input-still.jpg"
+    path.write_bytes(base64.b64decode(encoded))
+    return path
 
 
 def fit_image(path: Path) -> Image.Image:
@@ -69,20 +67,20 @@ def fit_image(path: Path) -> Image.Image:
 
 def main() -> int:
     started = time.time()
-    config = json.loads((ROOT / "config.json").read_text(encoding="utf-8"))
-    prompt = (ROOT / "prompt.txt").read_text(encoding="utf-8").strip()
-    still = find_still()
-
     report = {
         "show": "Earth Needs Help",
         "episode": "001",
         "shot": "001",
         "gpu": torch.cuda.get_device_name(0) if torch.cuda.is_available() else None,
-        "input": still.name,
         "success": False,
     }
 
     try:
+        config = json.loads(fetch_text("config.json"))
+        prompt = fetch_text("prompt.txt").strip()
+        still = fetch_still()
+        report["input"] = still.name
+
         pipeline = I2VGenXLPipeline.from_pretrained(
             "ali-vilab/i2vgen-xl",
             torch_dtype=torch.float16,
@@ -91,13 +89,13 @@ def main() -> int:
         pipeline.enable_model_cpu_offload()
         pipeline.enable_attention_slicing()
 
-        generator = torch.manual_seed(int(config.get("seed", 1234)))
+        generator = torch.Generator(device="cpu").manual_seed(int(config.get("seed", 1234)))
         frames = pipeline(
             prompt=prompt,
             image=fit_image(still),
-            num_inference_steps=50,
+            num_inference_steps=35,
             negative_prompt=config.get("negative_prompt", ""),
-            guidance_scale=9.0,
+            guidance_scale=8.0,
             generator=generator,
         ).frames[0]
 
