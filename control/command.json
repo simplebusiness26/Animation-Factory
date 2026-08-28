@@ -1,4 +1,4 @@
 {
-  "action": "idle",
-  "request_id": "bridge-install-001"
+  "action": "ping",
+  "request_id": "auth-test-001"
 }
