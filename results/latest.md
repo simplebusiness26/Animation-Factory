@@ -1,19 +1,8 @@
 ## ✅ Kaggle Worker
 
-Downloaded output for **simplebusiness/earth-needs-help-episode-001-production-stills**.
+Status for **simplebusiness/enh-e001-stills-r1-7887180**:
 
 ```text
 Warning: Looks like you're using an outdated `kaggle`` version (installed: {current_version}), please consider upgrading to the latest version ({latest_version_str})
-Output file downloaded to /home/runner/work/Animation-Factory/Animation-Factory/artifacts/earth-needs-help-episode-001-production-stills/character-lock.jpg
-Output file downloaded to /home/runner/work/Animation-Factory/Animation-Factory/artifacts/earth-needs-help-episode-001-production-stills/reference.jpg
-Kernel log downloaded to /home/runner/work/Animation-Factory/Animation-Factory/artifacts/earth-needs-help-episode-001-production-stills/earth-needs-help-episode-001-production-stills.log
+simplebusiness/enh-e001-stills-r1-7887180 has status "KernelWorkerStatus.RUNNING"
 ```
-
-Files:
-```text
-artifacts/earth-needs-help-episode-001-production-stills/reference.jpg
-artifacts/earth-needs-help-episode-001-production-stills/earth-needs-help-episode-001-production-stills.log
-artifacts/earth-needs-help-episode-001-production-stills/character-lock.jpg
-```
-
-Downloaded files are attached to the workflow run as the `kaggle-output` artifact.
