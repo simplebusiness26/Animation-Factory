@@ -17,6 +17,12 @@ from PIL import Image, ImageOps
 import episode001_orchestrator as base
 import episode001_orchestrator_v2 as v2
 
+# Recovery budget is deliberately larger than the original pilot defaults.
+# Submission-layer failures are counted separately by v2 and do not consume
+# these actual render-attempt budgets.
+base.MAX_STILLS_ATTEMPTS = 6
+base.MAX_MOTION_ATTEMPTS = 5
+
 TARGET_SIZE = (704, 400)
 TARGET_SOURCE_BYTES = 750_000
 
