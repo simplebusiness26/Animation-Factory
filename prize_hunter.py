@@ -9,6 +9,8 @@ Those remain explicit approval-gated actions.
 from __future__ import annotations
 
 import argparse
+import csv
+import io
 import json
 import math
 import re
@@ -41,14 +43,14 @@ class Opportunity:
     reasons: list[str]
 
 
-def run_kaggle_json() -> list[dict[str, Any]]:
+def run_kaggle_rows() -> list[dict[str, Any]]:
+    """Read competition rows from Kaggle CLI 1.8.x CSV output."""
     proc = subprocess.run(
         [
             "kaggle",
             "competitions",
             "list",
-            "--format",
-            "json",
+            "-v",
             "--page-size",
             "100",
         ],
@@ -60,16 +62,16 @@ def run_kaggle_json() -> list[dict[str, Any]]:
     if proc.returncode != 0:
         raise RuntimeError((proc.stderr or proc.stdout).strip())
 
-    # Some Kaggle CLI versions print upgrade notices before structured output.
     raw = proc.stdout.strip()
-    start = raw.find("[")
-    end = raw.rfind("]")
-    if start < 0 or end < start:
-        raise RuntimeError(f"Could not find JSON in Kaggle CLI output: {raw[:1000]}")
-    data = json.loads(raw[start : end + 1])
-    if not isinstance(data, list):
-        raise RuntimeError("Kaggle competitions list did not return an array")
-    return data
+    # Kaggle may emit an upgrade warning before the CSV header. Locate the header.
+    lines = raw.splitlines()
+    header_index = next((i for i, line in enumerate(lines) if line.startswith("ref,")), None)
+    if header_index is None:
+        raise RuntimeError(f"Could not find Kaggle CSV header in output: {raw[:1200]}")
+
+    csv_text = "\n".join(lines[header_index:])
+    rows = list(csv.DictReader(io.StringIO(csv_text)))
+    return [dict(row) for row in rows]
 
 
 def parse_reward(text: Any) -> tuple[float, str]:
@@ -94,6 +96,17 @@ def parse_deadline(value: Any) -> datetime | None:
         return dt.astimezone(timezone.utc)
     except ValueError:
         return None
+
+
+def to_bool(value: Any) -> bool:
+    return str(value or "").strip().lower() in {"true", "1", "yes"}
+
+
+def to_int(value: Any) -> int:
+    try:
+        return int(float(str(value or "0").strip()))
+    except ValueError:
+        return 0
 
 
 def preliminary_score(prize: float, teams: int, days_left: float) -> tuple[float, list[str]]:
@@ -167,7 +180,7 @@ def build_opportunities(rows: list[dict[str, Any]]) -> list[Opportunity]:
         if days_left <= 0:
             continue
 
-        teams = int(row.get("teamCount") or 0)
+        teams = to_int(row.get("teamCount"))
         score, reasons = preliminary_score(prize, teams, days_left)
         verdict = "HUNT" if score >= 70 else "INVESTIGATE" if score >= 58 else "WATCH" if score >= 45 else "PASS"
 
@@ -183,8 +196,8 @@ def build_opportunities(rows: list[dict[str, Any]]) -> list[Opportunity]:
                 days_left=round(days_left, 1),
                 score=score,
                 verdict=verdict,
-                user_has_entered=bool(row.get("userHasEntered") or False),
-                user_rank=int(row.get("userRank") or 0),
+                user_has_entered=to_bool(row.get("userHasEntered")),
+                user_rank=to_int(row.get("userRank")),
                 reasons=reasons,
             )
         )
@@ -200,7 +213,7 @@ def markdown_report(opportunities: list[Opportunity], limit: int = 15) -> str:
         "",
         f"Generated: **{generated}**",
         "",
-        "Preliminary ranking only. Top candidates still need a rules/data/compute dossier before we decide to enter.",
+        "Preliminary ranking only. Top candidates still need a rules/data/compute/eligibility dossier before we decide whether they are suitable to pursue.",
         "",
     ]
 
@@ -229,7 +242,7 @@ def markdown_report(opportunities: list[Opportunity], limit: int = 15) -> str:
         "",
         "## Safety rails",
         "",
-        "Prize Hunter may discover and analyse competitions automatically. Joining a competition, accepting rules, spending paid resources, or submitting an entry remains approval-gated.",
+        "Prize Hunter may discover and analyse competitions automatically. Entering, accepting rules, spending paid resources, or submitting an entry remains approval-gated and must satisfy the competition's eligibility requirements.",
         "",
     ]
     return "\n".join(lines)
@@ -256,7 +269,7 @@ def main() -> int:
     parser.add_argument("--stdout", action="store_true")
     args = parser.parse_args()
 
-    rows = run_kaggle_json()
+    rows = run_kaggle_rows()
     opportunities = build_opportunities(rows)
     report = markdown_report(opportunities, max(1, min(args.limit, 30)))
     write_reports(opportunities, report)
