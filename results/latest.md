@@ -1,15 +1,19 @@
 ## ✅ Kaggle Worker
 
-Submitted Kaggle kernel **simplebusiness/earth-needs-help-episode-001-production-stills**.
+Downloaded output for **simplebusiness/earth-needs-help-episode-001-production-stills**.
 
-Push response:
 ```text
 Warning: Looks like you're using an outdated `kaggle`` version (installed: {current_version}), please consider upgrading to the latest version ({latest_version_str})
-Kernel version 4 successfully pushed.  Please check progress at https://www.kaggle.com/code/simplebusiness/earth-needs-help-episode-001-production-stills
+Output file downloaded to /home/runner/work/Animation-Factory/Animation-Factory/artifacts/earth-needs-help-episode-001-production-stills/character-lock.jpg
+Output file downloaded to /home/runner/work/Animation-Factory/Animation-Factory/artifacts/earth-needs-help-episode-001-production-stills/reference.jpg
+Kernel log downloaded to /home/runner/work/Animation-Factory/Animation-Factory/artifacts/earth-needs-help-episode-001-production-stills/earth-needs-help-episode-001-production-stills.log
 ```
 
-Current status:
+Files:
 ```text
-Warning: Looks like you're using an outdated `kaggle`` version (installed: {current_version}), please consider upgrading to the latest version ({latest_version_str})
-simplebusiness/earth-needs-help-episode-001-production-stills has status "KernelWorkerStatus.QUEUED"
+artifacts/earth-needs-help-episode-001-production-stills/reference.jpg
+artifacts/earth-needs-help-episode-001-production-stills/earth-needs-help-episode-001-production-stills.log
+artifacts/earth-needs-help-episode-001-production-stills/character-lock.jpg
 ```
+
+Downloaded files are attached to the workflow run as the `kaggle-output` artifact.
