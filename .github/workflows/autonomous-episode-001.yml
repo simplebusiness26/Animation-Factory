@@ -16,6 +16,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: autonomous-earth-needs-help-e001
@@ -173,16 +174,24 @@ jobs:
               shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/ 2>/dev/null || true
             if git diff --cached --quiet; then
               echo "No production-state changes to persist."
-              exit 0
+              break
             fi
             git commit -m "Update autonomous Episode 001 production state [skip ci]"
             if git push origin HEAD:main; then
-              exit 0
+              break
             fi
             echo "State push raced with another commit; retrying on latest main ($attempt/3)."
           done
-          echo "Could not persist production state after three race-safe attempts."
-          exit 1
+
+      - name: Self-requeue while production is active
+        if: steps.state.outputs.phase != 'complete' && steps.state.outputs.phase != 'failed'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          echo "Production still active; scheduling the next controller cycle."
+          sleep 480
+          gh workflow run autonomous-episode-001.yml --ref main
 
       - name: Stop only on terminal failure
         if: steps.state.outputs.phase == 'failed'
