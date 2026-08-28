@@ -1,7 +1,5 @@
 {
-  "action": "run_kernel",
-  "request_id": "gpu-smoke-002",
-  "owner": "simplebusiness",
-  "path": "kernels/smoke-test",
-  "accelerator": "NvidiaTeslaT4"
+  "action": "kernel_status",
+  "request_id": "gpu-smoke-status-001",
+  "kernel": "simplebusiness/animation-factory-bridge-smoke-test"
 }
