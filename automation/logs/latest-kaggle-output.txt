@@ -1,5 +1,5 @@
 Warning: Looks like you're using an outdated `kaggle`` version (installed: {current_version}), please consider upgrading to the latest version ({latest_version_str})
-Output file downloaded to /tmp/stills-error-3-j8numski/character-lock.jpg
-Output file downloaded to /tmp/stills-error-3-j8numski/earth-needs-help-e001-stills-manifest.json
-Output file downloaded to /tmp/stills-error-3-j8numski/reference.jpg
-Kernel log downloaded to /tmp/stills-error-3-j8numski/enh-e001-stills-r3-7887657.log
+Output file downloaded to /tmp/stills-error-4-pr4dnpm5/character-lock.jpg
+Output file downloaded to /tmp/stills-error-4-pr4dnpm5/earth-needs-help-e001-stills-manifest.json
+Output file downloaded to /tmp/stills-error-4-pr4dnpm5/reference.jpg
+Kernel log downloaded to /tmp/stills-error-4-pr4dnpm5/enh-e001-stills-r4-7887907.log
