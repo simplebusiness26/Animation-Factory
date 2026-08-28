@@ -5,7 +5,7 @@
 **Stage 1 score:** 65.4/100
 **Prize:** 22,200 Usd
 **Teams:** unknown
-**Days left:** 44
+**Days left:** 43
 **Task type:** scientific ML / tool / end-to-end system
 
 ## Feasibility

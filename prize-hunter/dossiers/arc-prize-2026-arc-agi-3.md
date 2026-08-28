@@ -2,10 +2,10 @@
 
 **Verdict:** REVIEW
 **Final suitability:** 46.8/100
-**Stage 1 score:** 70.2/100
+**Stage 1 score:** 70.1/100
 **Prize:** 850,000 Usd
-**Teams:** 2577
-**Days left:** 67
+**Teams:** 2593
+**Days left:** 66
 **Task type:** frontier agent/reasoning research
 
 ## Feasibility
