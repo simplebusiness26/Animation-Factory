@@ -27,7 +27,7 @@ TEXT_SUFFIXES = {".log", ".txt", ".json", ".md", ".csv"}
 
 
 def slugify(value: str) -> str:
-    return re.sub(r"[^a-z0-9-]+", "-", value.lower()).strip("-")[:80]
+    return re.sub(r"[^a-z0-9-]+", "-", value.lower()).strip("-")[:50]
 
 
 def current_kernel(state: dict, key: str, fallback: str) -> str:
@@ -86,7 +86,7 @@ def prepare_retry_folder(source: Path, kernel_ref: str) -> Path:
 
 def push_fresh(source: Path, prefix: str, attempt: int) -> tuple[str, str]:
     for collision in range(2):
-        stamp = int(time.time())
+        stamp = str(int(time.time()))[-7:]
         suffix = f"r{attempt}-{stamp}" if collision == 0 else f"r{attempt}-{stamp}-{collision+1}"
         slug = slugify(f"{prefix}-{suffix}")
         kernel = f"{base.OWNER}/{slug}"
@@ -123,7 +123,7 @@ def retry_stills(state: dict, reason: str) -> None:
         return
     attempt = attempts + 1
     try:
-        kernel, out = push_fresh(base.STILLS_KERNEL_DIR, "earth-needs-help-episode-001-production-stills", attempt)
+        kernel, out = push_fresh(base.STILLS_KERNEL_DIR, "enh-e001-stills", attempt)
         base.log("stills-resubmit.txt", out)
         state["stills_attempts"] = attempt
         state["stills_submit_failures"] = 0
@@ -154,8 +154,8 @@ def retry_motion(state: dict, reason: str, *, first_submit: bool = False) -> Non
         return
     attempt = attempts + 1
     for collision in range(2):
-        stamp = int(time.time())
-        slug = slugify(f"earth-needs-help-episode-001-motion-r{attempt}-{stamp}-{collision}")
+        stamp = str(int(time.time()))[-7:]
+        slug = slugify(f"enh-e001-motion-r{attempt}-{stamp}-{collision}")
         kernel = f"{base.OWNER}/{slug}"
         folder = build_motion_retry_folder(kernel, attempt)
         try:
