@@ -6,7 +6,8 @@
   "stills_attempts": 0,
   "motion_kernel": "simplebusiness/earth-needs-help-episode-001-motion",
   "motion_attempts": 0,
-  "last_status": "STILLS_QUEUED",
-  "last_error": null,
+  "last_status": "STILLS_ERROR",
+  "last_error": "RuntimeError: Command failed (1): kaggle kernels push -p\nWarning: Looks like you're using an outdated `kaggle`` version (installed: {current_version}), please consider upgrading to the latest version ({latest_version_str})\n409 Client Error: Conflict for url: https://api.kaggle.com/v1/kernels.KernelsApiService/SaveKernel",
+  "updated_at": "2026-08-28T02:55:42Z",
   "release_tag": "earth-needs-help-e001"
 }
