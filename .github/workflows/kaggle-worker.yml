@@ -51,6 +51,33 @@ jobs:
           if-no-files-found: ignore
           retention-days: 7
 
+      - name: Publish final episode MP4 as GitHub Release
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          shopt -s globstar nullglob
+          final_files=(artifacts/**/*final*.mp4)
+          if [ ${#final_files[@]} -eq 0 ]; then
+            echo "No final episode MP4 in this output; skipping release publication."
+            exit 0
+          fi
+
+          for file in "${final_files[@]}"; do
+            base="$(basename "$file" .mp4)"
+            tag="$(printf '%s' "$base" | tr '[:upper:]_' '[:lower:]-' | sed -E 's/[^a-z0-9.-]+/-/g; s/^-+|-+$//g')"
+            title="$(printf '%s' "$base" | tr '_' ' ')"
+            if gh release view "$tag" >/dev/null 2>&1; then
+              gh release upload "$tag" "$file" --clobber
+            else
+              gh release create "$tag" "$file" \
+                --title "$title" \
+                --notes "Animation Factory final episode export."
+            fi
+            echo "Published $file to GitHub Release $tag"
+          done
+
       - name: Publish latest result
         if: always()
         run: |
