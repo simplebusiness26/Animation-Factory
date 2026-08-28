@@ -1,0 +1,306 @@
+#!/usr/bin/env python3
+"""Self-healing controller for Earth Needs Help Episode 001.
+
+This wraps the original episode controller with failure-aware Kaggle retries:
+- failed/incomplete kernels are diagnosed and their text logs are persisted;
+- retries use fresh unique kernel slugs, avoiding Kaggle 409 SaveKernel conflicts;
+- COMPLETE with missing/bad outputs is treated as a retryable failure;
+- motion and assembly resume from the latest successful stage;
+- only repeated terminal failures halt production.
+"""
+from __future__ import annotations
+
+import json
+import re
+import shutil
+import tempfile
+import time
+from pathlib import Path
+
+import episode001_orchestrator as base
+
+MAX_ASSEMBLY_ATTEMPTS = 2
+TEXT_SUFFIXES = {".log", ".txt", ".json", ".md", ".csv"}
+
+
+def slugify(value: str) -> str:
+    return re.sub(r"[^a-z0-9-]+", "-", value.lower()).strip("-")[:80]
+
+
+def current_kernel(state: dict, key: str, fallback: str) -> str:
+    value = str(state.get(key) or "").strip()
+    return value or fallback
+
+
+def safe_status(kernel: str) -> str:
+    try:
+        return base.status_of(kernel)
+    except Exception as exc:
+        text = str(exc)
+        base.log("latest-status-error.txt", text)
+        if "404" in text or "not found" in text.lower():
+            return "MISSING"
+        return "STATUS_ERROR"
+
+
+def persist_kernel_diagnostics(kernel: str, label: str) -> None:
+    """Download the failed output and keep useful text evidence in the repo."""
+    try:
+        with tempfile.TemporaryDirectory(prefix=f"{label}-") as td:
+            root = Path(td)
+            base.download_output(kernel, root)
+            found = False
+            for path in root.rglob("*"):
+                if not path.is_file() or path.suffix.lower() not in TEXT_SUFFIXES:
+                    continue
+                found = True
+                try:
+                    text = path.read_text(encoding="utf-8", errors="replace")
+                except Exception as exc:
+                    text = f"Could not read {path.name}: {exc}"
+                safe_name = slugify(path.name.rsplit(".", 1)[0]) or "diagnostic"
+                base.log(f"{label}-{safe_name}{path.suffix.lower()}", text[-200_000:])
+            if not found:
+                base.log(f"{label}-diagnostic.txt", f"No text diagnostics were returned for {kernel}.")
+    except Exception as exc:
+        base.log(f"{label}-download-error.txt", f"{type(exc).__name__}: {exc}")
+
+
+def prepare_retry_folder(source: Path, kernel_ref: str, title: str) -> Path:
+    root = Path(tempfile.mkdtemp(prefix="animation-factory-retry-"))
+    shutil.copytree(source, root, dirs_exist_ok=True)
+    meta_path = root / "kernel-metadata.json"
+    raw = meta_path.read_text(encoding="utf-8").replace("__OWNER__", base.OWNER)
+    metadata = json.loads(raw)
+    metadata["id"] = kernel_ref
+    metadata["title"] = title
+    metadata["is_private"] = True
+    metadata["enable_gpu"] = True
+    metadata["enable_internet"] = True
+    meta_path.write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")
+    return root
+
+
+def push_fresh(source: Path, prefix: str, attempt: int, title: str) -> tuple[str, str]:
+    """Push a unique Kaggle kernel; retry once with an alternate slug on conflict."""
+    for collision in range(2):
+        stamp = int(time.time())
+        suffix = f"r{attempt}-{stamp}" if collision == 0 else f"r{attempt}-{stamp}-{collision+1}"
+        slug = slugify(f"{prefix}-{suffix}")
+        kernel = f"{base.OWNER}/{slug}"
+        folder = prepare_retry_folder(source, kernel, f"{title} Retry {attempt}")
+        try:
+            out = base.run(["kaggle", "kernels", "push", "-p", str(folder), "--accelerator", "NvidiaTeslaT4"])
+            return kernel, out
+        except Exception as exc:
+            if "409" not in str(exc) or collision == 1:
+                raise
+            time.sleep(2)
+        finally:
+            shutil.rmtree(folder, ignore_errors=True)
+    raise RuntimeError("Could not allocate a fresh Kaggle retry kernel")
+
+
+def retry_stills(state: dict, reason: str) -> None:
+    attempts = int(state.get("stills_attempts", 0))
+    if attempts >= base.MAX_STILLS_ATTEMPTS:
+        state["phase"] = "failed"
+        state["last_status"] = "STILLS_TERMINAL_FAILURE"
+        state["last_error"] = f"Stills generation exhausted {attempts} automatic retries. Last reason: {reason}"
+        return
+
+    attempt = attempts + 1
+    state["stills_attempts"] = attempt
+    try:
+        kernel, out = push_fresh(
+            base.STILLS_KERNEL_DIR,
+            "earth-needs-help-episode-001-production-stills",
+            attempt,
+            "Earth Needs Help Episode 001 Production Stills",
+        )
+        base.log("stills-resubmit.txt", out)
+        state["stills_kernel"] = kernel
+        state["phase"] = "awaiting_stills"
+        state["last_status"] = f"STILLS_RETRY_{attempt}_SUBMITTED"
+        state["last_error"] = None
+    except Exception as exc:
+        state["last_status"] = f"STILLS_RETRY_{attempt}_SUBMIT_ERROR"
+        state["last_error"] = f"{type(exc).__name__}: {exc}"
+        if attempt >= base.MAX_STILLS_ATTEMPTS:
+            state["phase"] = "failed"
+
+
+def build_motion_retry_folder(kernel_ref: str, attempt: int) -> Path:
+    root = base.build_motion_kernel()
+    meta_path = root / "kernel-metadata.json"
+    metadata = json.loads(meta_path.read_text(encoding="utf-8"))
+    metadata["id"] = kernel_ref
+    metadata["title"] = f"Earth Needs Help Episode 001 Motion Retry {attempt}"
+    meta_path.write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")
+    return root
+
+
+def retry_motion(state: dict, reason: str, *, first_submit: bool = False) -> None:
+    attempts = int(state.get("motion_attempts", 0))
+    if attempts >= base.MAX_MOTION_ATTEMPTS:
+        state["phase"] = "failed"
+        state["last_status"] = "MOTION_TERMINAL_FAILURE"
+        state["last_error"] = f"Motion generation exhausted {attempts} automatic attempts. Last reason: {reason}"
+        return
+
+    attempt = attempts + 1
+    state["motion_attempts"] = attempt
+    for collision in range(2):
+        stamp = int(time.time())
+        slug = slugify(f"earth-needs-help-episode-001-motion-r{attempt}-{stamp}-{collision}")
+        kernel = f"{base.OWNER}/{slug}"
+        folder = build_motion_retry_folder(kernel, attempt)
+        try:
+            out = base.run(["kaggle", "kernels", "push", "-p", str(folder), "--accelerator", "NvidiaTeslaT4"])
+            base.log("motion-submit.txt", out)
+            state["motion_kernel"] = kernel
+            state["phase"] = "awaiting_motion"
+            state["last_status"] = f"MOTION_ATTEMPT_{attempt}_SUBMITTED"
+            state["last_error"] = None
+            return
+        except Exception as exc:
+            if "409" not in str(exc) or collision == 1:
+                state["last_status"] = f"MOTION_ATTEMPT_{attempt}_SUBMIT_ERROR"
+                state["last_error"] = f"{type(exc).__name__}: {exc}"
+                if attempt >= base.MAX_MOTION_ATTEMPTS:
+                    state["phase"] = "failed"
+                return
+            time.sleep(2)
+        finally:
+            shutil.rmtree(folder, ignore_errors=True)
+
+
+def handle_stills(state: dict) -> None:
+    kernel = current_kernel(state, "stills_kernel", base.STILLS_KERNEL)
+    status = safe_status(kernel)
+    state["last_status"] = f"STILLS_{status}"
+
+    if status in {"QUEUED", "RUNNING"}:
+        state["last_error"] = None
+        return
+
+    if status == "COMPLETE":
+        try:
+            with tempfile.TemporaryDirectory(prefix="e001-stills-output-") as td:
+                out_dir = Path(td)
+                base.download_output(kernel, out_dir)
+                staged = base.stage_generated_stills(out_dir)
+                if len(staged) != len(base.SHOTS):
+                    raise RuntimeError(f"Expected {len(base.SHOTS)} validated stills, got {len(staged)}")
+            state["last_status"] = "STILLS_VALIDATED"
+            state["last_error"] = None
+            retry_motion(state, "initial motion submission", first_submit=True)
+        except Exception as exc:
+            persist_kernel_diagnostics(kernel, f"stills-complete-invalid-{int(state.get('stills_attempts', 0))}")
+            retry_stills(state, f"completed output failed validation: {type(exc).__name__}: {exc}")
+        return
+
+    if status == "ERROR":
+        persist_kernel_diagnostics(kernel, f"stills-error-{int(state.get('stills_attempts', 0))}")
+        retry_stills(state, "Kaggle reported ERROR")
+        return
+
+    if status in {"MISSING", "STATUS_ERROR"}:
+        retry_stills(state, f"kernel status unavailable: {status}")
+        return
+
+    retry_stills(state, f"unrecognised Kaggle status: {status}")
+
+
+def handle_motion(state: dict) -> None:
+    kernel = current_kernel(state, "motion_kernel", base.MOTION_KERNEL)
+    status = safe_status(kernel)
+    state["last_status"] = f"MOTION_{status}"
+
+    if status in {"QUEUED", "RUNNING"}:
+        state["last_error"] = None
+        return
+
+    if status == "COMPLETE":
+        try:
+            with tempfile.TemporaryDirectory(prefix="e001-motion-output-") as td:
+                output = Path(td)
+                base.download_output(kernel, output)
+                base.verify_motion_outputs(output)
+                assembly_attempts = int(state.get("assembly_attempts", 0)) + 1
+                state["assembly_attempts"] = assembly_attempts
+                final = base.render_final(output)
+                state["final_file"] = str(final.relative_to(base.ROOT))
+            state["phase"] = "complete"
+            state["last_status"] = "FINAL_QA_PASS"
+            state["last_error"] = None
+        except Exception as exc:
+            attempts = int(state.get("assembly_attempts", 0))
+            base.log("assembly-error.txt", f"{type(exc).__name__}: {exc}")
+            if attempts < MAX_ASSEMBLY_ATTEMPTS:
+                state["phase"] = "awaiting_motion"
+                state["last_status"] = f"ASSEMBLY_RETRY_{attempts}_PENDING"
+                state["last_error"] = f"{type(exc).__name__}: {exc}"
+            else:
+                persist_kernel_diagnostics(kernel, f"motion-complete-invalid-{attempts}")
+                retry_motion(state, f"motion outputs/final assembly invalid: {type(exc).__name__}: {exc}")
+        return
+
+    if status == "ERROR":
+        persist_kernel_diagnostics(kernel, f"motion-error-{int(state.get('motion_attempts', 0))}")
+        retry_motion(state, "Kaggle reported motion ERROR")
+        return
+
+    if status in {"MISSING", "STATUS_ERROR"}:
+        retry_motion(state, f"motion kernel status unavailable: {status}")
+        return
+
+    retry_motion(state, f"unrecognised motion status: {status}")
+
+
+def revive_if_recoverable(state: dict) -> None:
+    if state.get("phase") != "failed":
+        return
+    last_status = str(state.get("last_status") or "")
+    last_error = str(state.get("last_error") or "")
+    if ("409" in last_error or last_status.startswith("STILLS_")) and int(state.get("stills_attempts", 0)) < base.MAX_STILLS_ATTEMPTS:
+        state["phase"] = "awaiting_stills"
+        return
+    if last_status.startswith(("MOTION_", "ASSEMBLY_")) and int(state.get("motion_attempts", 0)) < base.MAX_MOTION_ATTEMPTS:
+        state["phase"] = "awaiting_motion"
+
+
+def main() -> int:
+    base.STILLS_DIR.mkdir(parents=True, exist_ok=True)
+    base.LOG_DIR.mkdir(parents=True, exist_ok=True)
+    state = base.load_state()
+    state.setdefault("assembly_attempts", 0)
+    revive_if_recoverable(state)
+
+    try:
+        phase = state.get("phase")
+        if phase == "awaiting_stills":
+            handle_stills(state)
+        elif phase == "awaiting_motion":
+            handle_motion(state)
+        elif phase == "complete":
+            print("Episode 001 is complete; nothing to do.")
+        elif phase == "failed":
+            print(f"Episode 001 has exhausted automatic recovery: {state.get('last_error')}")
+        else:
+            state["phase"] = "awaiting_stills"
+            state["last_status"] = "STATE_RECOVERED_TO_STILLS"
+            state["last_error"] = f"Recovered from unknown phase: {phase}"
+    except Exception as exc:
+        state["last_error"] = f"{type(exc).__name__}: {exc}"
+        if state.get("phase") not in {"awaiting_stills", "awaiting_motion", "complete", "failed"}:
+            state["phase"] = "awaiting_stills"
+    finally:
+        base.save_state(state)
+
+    print(json.dumps(state, indent=2))
+    return 0 if state.get("phase") != "failed" else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
