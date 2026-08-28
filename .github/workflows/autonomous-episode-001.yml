@@ -6,6 +6,7 @@ on:
     paths:
       - .github/workflows/autonomous-episode-001.yml
       - automation/episode001_orchestrator_v2.py
+      - automation/episode001_orchestrator_v3.py
       - automation/render_episode001.py
       - kernels/earth-needs-help-e001-stills/main.py
       - kernels/episode-motion-runner/main.py
@@ -50,7 +51,7 @@ jobs:
       - name: Run self-healing episode controller
         id: controller
         continue-on-error: true
-        run: python automation/episode001_orchestrator_v2.py
+        run: python automation/episode001_orchestrator_v3.py
 
       - name: Read episode state
         id: state
