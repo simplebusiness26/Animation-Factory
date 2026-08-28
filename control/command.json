@@ -1,6 +1,4 @@
 {
-  "action": "kernel_output",
-  "request_id": "gpu-smoke-output-001",
-  "kernel": "simplebusiness/animation-factory-bridge-smoke-test",
-  "file_pattern": "animation-factory-smoke-test.json"
+  "action": "ping",
+  "request_id": "chat-control-proof-20260828-0200"
 }
