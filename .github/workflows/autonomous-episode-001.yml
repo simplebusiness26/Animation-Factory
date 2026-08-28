@@ -1,0 +1,129 @@
+name: Autonomous Episode 001
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: autonomous-earth-needs-help-e001
+  cancel-in-progress: false
+
+jobs:
+  produce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+      KAGGLE_OWNER: ${{ vars.KAGGLE_OWNER }}
+
+    steps:
+      - name: Checkout factory
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install controller dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg espeak-ng
+          pip install -r requirements.txt
+          pip install Pillow "edge-tts>=7,<8" "numpy>=2,<3"
+
+      - name: Run autonomous episode controller
+        id: controller
+        continue-on-error: true
+        run: python automation/episode001_orchestrator.py
+
+      - name: Read episode state
+        id: state
+        if: always()
+        shell: bash
+        run: |
+          if [ -f automation/episode001-state.json ]; then
+            phase="$(python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path('automation/episode001-state.json')
+          try:
+              print(json.loads(p.read_text()).get('phase', 'unknown'))
+          except Exception:
+              print('unknown')
+          PY
+          )"
+          else
+            phase="unknown"
+          fi
+          echo "phase=$phase" >> "$GITHUB_OUTPUT"
+          echo "Episode phase: $phase"
+
+      - name: Upload production diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: episode-001-production-state
+          path: |
+            automation/episode001-state.json
+            automation/logs/
+            shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/
+            dist/earth-needs-help-e001-final-qa.json
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Upload final episode artifact
+        if: steps.state.outputs.phase == 'complete'
+        uses: actions/upload-artifact@v4
+        with:
+          name: earth-needs-help-episode-001
+          path: |
+            dist/earth-needs-help-e001-final.mp4
+            dist/earth-needs-help-e001-final-qa.json
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Publish final MP4 to GitHub Release
+        if: steps.state.outputs.phase == 'complete'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          tag="earth-needs-help-e001"
+          title="Earth Needs Help — Episode 001: The Great Earth Emergency"
+          video="dist/earth-needs-help-e001-final.mp4"
+          qa="dist/earth-needs-help-e001-final-qa.json"
+          if gh release view "$tag" >/dev/null 2>&1; then
+            gh release upload "$tag" "$video" "$qa" --clobber
+          else
+            gh release create "$tag" "$video" "$qa" \
+              --title "$title" \
+              --notes "Animation Factory autonomous final export. Includes voices, original generated music/SFX, and technical QA report."
+          fi
+
+      - name: Persist controller state and canonical stills
+        if: always()
+        shell: bash
+        run: |
+          git config user.name "animation-factory-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin main
+          git reset --mixed origin/main
+          git add automation/episode001-state.json automation/logs/ \
+            shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/ || true
+          if ! git diff --cached --quiet; then
+            git commit -m "Update autonomous Episode 001 production state [skip ci]"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+
+      - name: Stop only on terminal failure
+        if: steps.state.outputs.phase == 'failed'
+        run: exit 1
