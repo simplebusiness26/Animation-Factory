@@ -1,8 +1,8 @@
 ## ✅ Kaggle Worker
 
-Status for **simplebusiness/enh-e001-stills-r5-7888245**:
+Status for **simplebusiness/enh-e001-motion-r1-7906512-0**:
 
 ```text
 Warning: Looks like you're using an outdated `kaggle`` version (installed: {current_version}), please consider upgrading to the latest version ({latest_version_str})
-simplebusiness/enh-e001-stills-r5-7888245 has status "KernelWorkerStatus.COMPLETE"
+simplebusiness/enh-e001-motion-r1-7906512-0 has status "KernelWorkerStatus.ERROR"
 ```
