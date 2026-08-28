@@ -1,0 +1,280 @@
+[{"stream_name":"stdout","time":164.045238318,"data":"{\n"}
+,{"stream_name":"stdout","time":164.045332815,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":164.045352431,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":164.045356153,"data":"  \"title\": \"The Great Earth Emergency\",\n"}
+,{"stream_name":"stdout","time":164.045359741,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":164.045363268,"data":"  \"ltx_install_error\": null,\n"}
+,{"stream_name":"stdout","time":164.045366721,"data":"  \"packaged_stills_bytes\": null,\n"}
+,{"stream_name":"stdout","time":164.045370126,"data":"  \"started_at\": \"2026-08-28T08:57:07Z\",\n"}
+,{"stream_name":"stdout","time":164.045373641,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":164.045377036,"data":"    {\n"}
+,{"stream_name":"stdout","time":164.045380209,"data":"      \"id\": \"001\",\n"}
+,{"stream_name":"stdout","time":164.045383592,"data":"      \"attempts\": [\n"}
+,{"stream_name":"stdout","time":164.045386896,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.045390275,"data":"          \"profile\": \"ltx-primary\",\n"}
+,{"stream_name":"stdout","time":164.045393729,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.04539716,"data":"          \"error\": \"ModuleNotFoundError: No module named 'ltx_video'\"\n"}
+,{"stream_name":"stdout","time":164.045400679,"data":"        },\n"}
+,{"stream_name":"stdout","time":164.045403947,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.045408004,"data":"          \"profile\": \"ltx-reduced\",\n"}
+,{"stream_name":"stdout","time":164.045412152,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.045416594,"data":"          \"error\": \"ModuleNotFoundError: No module named 'ltx_video'\"\n"}
+,{"stream_name":"stdout","time":164.045421014,"data":"        },\n"}
+,{"stream_name":"stdout","time":164.045424179,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.045427379,"data":"          \"profile\": \"i2vgen-xl\",\n"}
+,{"stream_name":"stdout","time":164.04543076,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.045435004,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.deprecated.i2vgen_xl.pipeline_i2vgen_xl because of the following error (look up to see its traceback):\\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)\"\n"}
+,{"stream_name":"stdout","time":164.045440788,"data":"        },\n"}
+,{"stream_name":"stdout","time":164.045444235,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.045447352,"data":"          \"profile\": \"svd-xt\",\n"}
+,{"stream_name":"stdout","time":164.045450847,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.045454242,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)\"\n"}
+,{"stream_name":"stdout","time":164.045458602,"data":"        }\n"}
+,{"stream_name":"stdout","time":164.045461715,"data":"      ],\n"}
+,{"stream_name":"stdout","time":164.045464969,"data":"      \"success\": false\n"}
+,{"stream_name":"stdout","time":164.045468182,"data":"    },\n"}
+,{"stream_name":"stdout","time":164.045471355,"data":"    {\n"}
+,{"stream_name":"stdout","time":164.045476255,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":164.045502617,"data":"      \"attempts\": [\n"}
+,{"stream_name":"stdout","time":164.045506905,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.045510757,"data":"          \"profile\": \"ltx-primary\",\n"}
+,{"stream_name":"stdout","time":164.045514495,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.045518632,"data":"          \"error\": \"ModuleNotFoundError: No module named 'ltx_video'\"\n"}
+,{"stream_name":"stdout","time":164.045522506,"data":"        },\n"}
+,{"stream_name":"stdout","time":164.045525707,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.04552891,"data":"          \"profile\": \"ltx-reduced\",\n"}
+,{"stream_name":"stdout","time":164.045532439,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.045535692,"data":"          \"error\": \"ModuleNotFoundError: No module named 'ltx_video'\"\n"}
+,{"stream_name":"stdout","time":164.045539234,"data":"        },\n"}
+,{"stream_name":"stdout","time":164.04554234,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.045545557,"data":"          \"profile\": \"i2vgen-xl\",\n"}
+,{"stream_name":"stdout","time":164.045548919,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.045554035,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.deprecated.i2vgen_xl.pipeline_i2vgen_xl because of the following error (look up to see its traceback):\\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)\"\n"}
+,{"stream_name":"stdout","time":164.045558367,"data":"        },\n"}
+,{"stream_name":"stdout","time":164.045561527,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.045564664,"data":"          \"profile\": \"svd-xt\",\n"}
+,{"stream_name":"stdout","time":164.045567998,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.04557138,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)\"\n"}
+,{"stream_name":"stdout","time":164.04557763,"data":"        }\n"}
+,{"stream_name":"stdout","time":164.04558391,"data":"      ],\n"}
+,{"stream_name":"stdout","time":164.045586854,"data":"      \"success\": false\n"}
+,{"stream_name":"stdout","time":164.045600215,"data":"    },\n"}
+,{"stream_name":"stdout","time":164.045603751,"data":"    {\n"}
+,{"stream_name":"stdout","time":164.04563525,"data":"      \"id\": \"003\",\n"}
+,{"stream_name":"stdout","time":164.045639012,"data":"      \"attempts\": [\n"}
+,{"stream_name":"stdout","time":164.045642352,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.045645596,"data":"          \"profile\": \"ltx-primary\",\n"}
+,{"stream_name":"stdout","time":164.045649005,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.045652456,"data":"          \"error\": \"ModuleNotFoundError: No module named 'ltx_video'\"\n"}
+,{"stream_name":"stdout","time":164.045656043,"data":"        },\n"}
+,{"stream_name":"stdout","time":164.045659274,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.045662465,"data":"          \"profile\": \"ltx-reduced\",\n"}
+,{"stream_name":"stdout","time":164.045665849,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.045669264,"data":"          \"error\": \"ModuleNotFoundError: No module named 'ltx_video'\"\n"}
+,{"stream_name":"stdout","time":164.04567728,"data":"        },\n"}
+,{"stream_name":"stdout","time":164.045680539,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.045683853,"data":"          \"profile\": \"i2vgen-xl\",\n"}
+,{"stream_name":"stdout","time":164.045687921,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.045692099,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.deprecated.i2vgen_xl.pipeline_i2vgen_xl because of the following error (look up to see its traceback):\\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)\"\n"}
+,{"stream_name":"stdout","time":164.045697707,"data":"        },\n"}
+,{"stream_name":"stdout","time":164.045701624,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.045704767,"data":"          \"profile\": \"svd-xt\",\n"}
+,{"stream_name":"stdout","time":164.045708149,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.045711559,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)\"\n"}
+,{"stream_name":"stdout","time":164.04571583,"data":"        }\n"}
+,{"stream_name":"stdout","time":164.045719002,"data":"      ],\n"}
+,{"stream_name":"stdout","time":164.045722226,"data":"      \"success\": false\n"}
+,{"stream_name":"stdout","time":164.045725707,"data":"    },\n"}
+,{"stream_name":"stdout","time":164.045728934,"data":"    {\n"}
+,{"stream_name":"stdout","time":164.045732039,"data":"      \"id\": \"004\",\n"}
+,{"stream_name":"stdout","time":164.045735414,"data":"      \"attempts\": [\n"}
+,{"stream_name":"stdout","time":164.045738707,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.045741922,"data":"          \"profile\": \"ltx-primary\",\n"}
+,{"stream_name":"stdout","time":164.045745275,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.045748704,"data":"          \"error\": \"ModuleNotFoundError: No module named 'ltx_video'\"\n"}
+,{"stream_name":"stdout","time":164.045752131,"data":"        },\n"}
+,{"stream_name":"stdout","time":164.045757072,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.04576366,"data":"          \"profile\": \"ltx-reduced\",\n"}
+,{"stream_name":"stdout","time":164.045766713,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.04578211,"data":"          \"error\": \"ModuleNotFoundError: No module named 'ltx_video'\"\n"}
+,{"stream_name":"stdout","time":164.045786425,"data":"        },\n"}
+,{"stream_name":"stdout","time":164.045790217,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.045794186,"data":"          \"profile\": \"i2vgen-xl\",\n"}
+,{"stream_name":"stdout","time":164.045797962,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.045801414,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.deprecated.i2vgen_xl.pipeline_i2vgen_xl because of the following error (look up to see its traceback):\\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)\"\n"}
+,{"stream_name":"stdout","time":164.045805623,"data":"        },\n"}
+,{"stream_name":"stdout","time":164.045808767,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.04581196,"data":"          \"profile\": \"svd-xt\",\n"}
+,{"stream_name":"stdout","time":164.045819034,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.045822482,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)\"\n"}
+,{"stream_name":"stdout","time":164.0458268,"data":"        }\n"}
+,{"stream_name":"stdout","time":164.04582992,"data":"      ],\n"}
+,{"stream_name":"stdout","time":164.045833111,"data":"      \"success\": false\n"}
+,{"stream_name":"stdout","time":164.04583634,"data":"    },\n"}
+,{"stream_name":"stdout","time":164.045839522,"data":"    {\n"}
+,{"stream_name":"stdout","time":164.045842693,"data":"      \"id\": \"005\",\n"}
+,{"stream_name":"stdout","time":164.045846015,"data":"      \"attempts\": [\n"}
+,{"stream_name":"stdout","time":164.045849346,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.045857505,"data":"          \"profile\": \"ltx-primary\",\n"}
+,{"stream_name":"stdout","time":164.045860455,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.045863488,"data":"          \"error\": \"ModuleNotFoundError: No module named 'ltx_video'\"\n"}
+,{"stream_name":"stdout","time":164.045877395,"data":"        },\n"}
+,{"stream_name":"stdout","time":164.0458812,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.04588499,"data":"          \"profile\": \"ltx-reduced\",\n"}
+,{"stream_name":"stdout","time":164.045889093,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.04589292,"data":"          \"error\": \"ModuleNotFoundError: No module named 'ltx_video'\"\n"}
+,{"stream_name":"stdout","time":164.045896458,"data":"        },\n"}
+,{"stream_name":"stdout","time":164.0458996,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.045902787,"data":"          \"profile\": \"i2vgen-xl\",\n"}
+,{"stream_name":"stdout","time":164.045906158,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.045909523,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.deprecated.i2vgen_xl.pipeline_i2vgen_xl because of the following error (look up to see its traceback):\\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)\"\n"}
+,{"stream_name":"stdout","time":164.045913734,"data":"        },\n"}
+,{"stream_name":"stdout","time":164.045916858,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.045919995,"data":"          \"profile\": \"svd-xt\",\n"}
+,{"stream_name":"stdout","time":164.04592336,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.045926757,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)\"\n"}
+,{"stream_name":"stdout","time":164.045931026,"data":"        }\n"}
+,{"stream_name":"stdout","time":164.045934703,"data":"      ],\n"}
+,{"stream_name":"stdout","time":164.045937938,"data":"      \"success\": false\n"}
+,{"stream_name":"stdout","time":164.045941168,"data":"    },\n"}
+,{"stream_name":"stdout","time":164.04594443,"data":"    {\n"}
+,{"stream_name":"stdout","time":164.045970684,"data":"      \"id\": \"006a\",\n"}
+,{"stream_name":"stdout","time":164.045978641,"data":"      \"attempts\": [\n"}
+,{"stream_name":"stdout","time":164.045983313,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.045986991,"data":"          \"profile\": \"ltx-primary\",\n"}
+,{"stream_name":"stdout","time":164.045990351,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.045993689,"data":"          \"error\": \"ModuleNotFoundError: No module named 'ltx_video'\"\n"}
+,{"stream_name":"stdout","time":164.045997086,"data":"        },\n"}
+,{"stream_name":"stdout","time":164.046000215,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.046003398,"data":"          \"profile\": \"ltx-reduced\",\n"}
+,{"stream_name":"stdout","time":164.046006813,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.046010241,"data":"          \"error\": \"ModuleNotFoundError: No module named 'ltx_video'\"\n"}
+,{"stream_name":"stdout","time":164.046016226,"data":"        },\n"}
+,{"stream_name":"stdout","time":164.046019412,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.046022626,"data":"          \"profile\": \"i2vgen-xl\",\n"}
+,{"stream_name":"stdout","time":164.046025995,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.046029371,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.deprecated.i2vgen_xl.pipeline_i2vgen_xl because of the following error (look up to see its traceback):\\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)\"\n"}
+,{"stream_name":"stdout","time":164.046033565,"data":"        },\n"}
+,{"stream_name":"stdout","time":164.046036785,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.046041717,"data":"          \"profile\": \"svd-xt\",\n"}
+,{"stream_name":"stdout","time":164.046047906,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.04605089,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)\"\n"}
+,{"stream_name":"stdout","time":164.046065234,"data":"        }\n"}
+,{"stream_name":"stdout","time":164.04606904,"data":"      ],\n"}
+,{"stream_name":"stdout","time":164.046072886,"data":"      \"success\": false\n"}
+,{"stream_name":"stdout","time":164.046076775,"data":"    },\n"}
+,{"stream_name":"stdout","time":164.046080564,"data":"    {\n"}
+,{"stream_name":"stdout","time":164.046083746,"data":"      \"id\": \"006b\",\n"}
+,{"stream_name":"stdout","time":164.046087072,"data":"      \"attempts\": [\n"}
+,{"stream_name":"stdout","time":164.04609031,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.046093481,"data":"          \"profile\": \"ltx-primary\",\n"}
+,{"stream_name":"stdout","time":164.04609684,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.046100145,"data":"          \"error\": \"ModuleNotFoundError: No module named 'ltx_video'\"\n"}
+,{"stream_name":"stdout","time":164.046103566,"data":"        },\n"}
+,{"stream_name":"stdout","time":164.046106747,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.046109908,"data":"          \"profile\": \"ltx-reduced\",\n"}
+,{"stream_name":"stdout","time":164.046113223,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.04611658,"data":"          \"error\": \"ModuleNotFoundError: No module named 'ltx_video'\"\n"}
+,{"stream_name":"stdout","time":164.046123471,"data":"        },\n"}
+,{"stream_name":"stdout","time":164.046126698,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.046129889,"data":"          \"profile\": \"i2vgen-xl\",\n"}
+,{"stream_name":"stdout","time":164.046135008,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.046142033,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.deprecated.i2vgen_xl.pipeline_i2vgen_xl because of the following error (look up to see its traceback):\\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)\"\n"}
+,{"stream_name":"stdout","time":164.046145477,"data":"        },\n"}
+,{"stream_name":"stdout","time":164.046159368,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.046163458,"data":"          \"profile\": \"svd-xt\",\n"}
+,{"stream_name":"stdout","time":164.046168166,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.046172272,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)\"\n"}
+,{"stream_name":"stdout","time":164.046176826,"data":"        }\n"}
+,{"stream_name":"stdout","time":164.046179983,"data":"      ],\n"}
+,{"stream_name":"stdout","time":164.046183197,"data":"      \"success\": false\n"}
+,{"stream_name":"stdout","time":164.046186413,"data":"    },\n"}
+,{"stream_name":"stdout","time":164.046189588,"data":"    {\n"}
+,{"stream_name":"stdout","time":164.046192716,"data":"      \"id\": \"007\",\n"}
+,{"stream_name":"stdout","time":164.046196037,"data":"      \"attempts\": [\n"}
+,{"stream_name":"stdout","time":164.046199316,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.046202508,"data":"          \"profile\": \"ltx-primary\",\n"}
+,{"stream_name":"stdout","time":164.046205878,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.046209284,"data":"          \"error\": \"ModuleNotFoundError: No module named 'ltx_video'\"\n"}
+,{"stream_name":"stdout","time":164.046212686,"data":"        },\n"}
+,{"stream_name":"stdout","time":164.046215769,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.046218928,"data":"          \"profile\": \"ltx-reduced\",\n"}
+,{"stream_name":"stdout","time":164.046222263,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.046225678,"data":"          \"error\": \"ModuleNotFoundError: No module named 'ltx_video'\"\n"}
+,{"stream_name":"stdout","time":164.04623097,"data":"        },\n"}
+,{"stream_name":"stdout","time":164.046236748,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.046238956,"data":"          \"profile\": \"i2vgen-xl\",\n"}
+,{"stream_name":"stdout","time":164.046251767,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.046255793,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.deprecated.i2vgen_xl.pipeline_i2vgen_xl because of the following error (look up to see its traceback):\\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)\"\n"}
+,{"stream_name":"stdout","time":164.046260854,"data":"        },\n"}
+,{"stream_name":"stdout","time":164.046264838,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.04626859,"data":"          \"profile\": \"svd-xt\",\n"}
+,{"stream_name":"stdout","time":164.046275336,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.046278912,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)\"\n"}
+,{"stream_name":"stdout","time":164.046292542,"data":"        }\n"}
+,{"stream_name":"stdout","time":164.046295778,"data":"      ],\n"}
+,{"stream_name":"stdout","time":164.046298987,"data":"      \"success\": false\n"}
+,{"stream_name":"stdout","time":164.046302249,"data":"    },\n"}
+,{"stream_name":"stdout","time":164.046305417,"data":"    {\n"}
+,{"stream_name":"stdout","time":164.046308612,"data":"      \"id\": \"008\",\n"}
+,{"stream_name":"stdout","time":164.046311921,"data":"      \"attempts\": [\n"}
+,{"stream_name":"stdout","time":164.04631511,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.046318414,"data":"          \"profile\": \"ltx-primary\",\n"}
+,{"stream_name":"stdout","time":164.046321301,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.046326312,"data":"          \"error\": \"ModuleNotFoundError: No module named 'ltx_video'\"\n"}
+,{"stream_name":"stdout","time":164.04633234,"data":"        },\n"}
+,{"stream_name":"stdout","time":164.046335367,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.046349284,"data":"          \"profile\": \"ltx-reduced\",\n"}
+,{"stream_name":"stdout","time":164.046353389,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.046357452,"data":"          \"error\": \"ModuleNotFoundError: No module named 'ltx_video'\"\n"}
+,{"stream_name":"stdout","time":164.046362182,"data":"        },\n"}
+,{"stream_name":"stdout","time":164.046365871,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.046369071,"data":"          \"profile\": \"i2vgen-xl\",\n"}
+,{"stream_name":"stdout","time":164.046372496,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.046376363,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.deprecated.i2vgen_xl.pipeline_i2vgen_xl because of the following error (look up to see its traceback):\\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)\"\n"}
+,{"stream_name":"stdout","time":164.046380577,"data":"        },\n"}
+,{"stream_name":"stdout","time":164.046383758,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.046386949,"data":"          \"profile\": \"svd-xt\",\n"}
+,{"stream_name":"stdout","time":164.046390349,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.046393767,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)\"\n"}
+,{"stream_name":"stdout","time":164.046398001,"data":"        }\n"}
+,{"stream_name":"stdout","time":164.046401178,"data":"      ],\n"}
+,{"stream_name":"stdout","time":164.046404361,"data":"      \"success\": false\n"}
+,{"stream_name":"stdout","time":164.046407584,"data":"    },\n"}
+,{"stream_name":"stdout","time":164.046410756,"data":"    {\n"}
+,{"stream_name":"stdout","time":164.046413938,"data":"      \"id\": \"009\",\n"}
+,{"stream_name":"stdout","time":164.046417339,"data":"      \"attempts\": [\n"}
+,{"stream_name":"stdout","time":164.046428707,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.046443282,"data":"          \"profile\": \"ltx-primary\",\n"}
+,{"stream_name":"stdout","time":164.046447869,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.046451812,"data":"          \"error\": \"ModuleNotFoundError: No module named 'ltx_video'\"\n"}
+,{"stream_name":"stdout","time":164.046456134,"data":"        },\n"}
+,{"stream_name":"stdout","time":164.046459814,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.046463004,"data":"          \"profile\": \"ltx-reduced\",\n"}
+,{"stream_name":"stdout","time":164.046466369,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.046469743,"data":"          \"error\": \"ModuleNotFoundError: No module named 'ltx_video'\"\n"}
+,{"stream_name":"stdout","time":164.046474274,"data":"        },\n"}
+,{"stream_name":"stdout","time":164.046477409,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.046480556,"data":"          \"profile\": \"i2vgen-xl\",\n"}
+,{"stream_name":"stdout","time":164.046484226,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.046487631,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.deprecated.i2vgen_xl.pipeline_i2vgen_xl because of the following error (look up to see its traceback):\\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)\"\n"}
+,{"stream_name":"stdout","time":164.04649184,"data":"        },\n"}
+,{"stream_name":"stdout","time":164.046495092,"data":"        {\n"}
+,{"stream_name":"stdout","time":164.046498214,"data":"          \"profile\": \"svd-xt\",\n"}
+,{"stream_name":"stdout","time":164.046501603,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":164.046505012,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)\"\n"}
+,{"stream_name":"stdout","time":164.046509236,"data":"        }\n"}
+,{"stream_name":"stdout","time":164.046512444,"data":"      ],\n"}
+,{"stream_name":"stdout","time":164.046520697,"data":"      \"success\": false\n"}
+,{"stream_name":"stdout","time":164.046523561,"data":"    }\n"}
+,{"stream_name":"stdout","time":164.046541288,"data":"  ],\n"}
+,{"stream_name":"stdout","time":164.046545201,"data":"  \"elapsed_seconds\": 160.81,\n"}
+,{"stream_name":"stdout","time":164.046549223,"data":"  \"success\": false\n"}
+,{"stream_name":"stdout","time":164.046553085,"data":"}\n"}
+,{"stream_name":"stderr","time":168.137367567,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":168.137413249,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":168.360694329,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":168.360716444,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":168.980467094,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":170.122786123,"data":"[NbConvertApp] Writing 280295 bytes to __results__.html\n"}
+]

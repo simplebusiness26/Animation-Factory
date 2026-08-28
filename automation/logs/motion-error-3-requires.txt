@@ -1,0 +1,16 @@
+torch>=2.1.0
+diffusers>=0.28.2
+transformers<4.52.0,>=4.47.2
+sentencepiece>=0.1.96
+huggingface-hub~=0.30
+einops
+timm
+
+[inference]
+imageio[ffmpeg]
+av
+torchvision
+
+[test]
+pytest
+
