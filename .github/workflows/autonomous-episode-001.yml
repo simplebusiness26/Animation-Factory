@@ -5,6 +5,10 @@ on:
     branches: [main]
     paths:
       - .github/workflows/autonomous-episode-001.yml
+      - automation/episode001_orchestrator_v2.py
+      - automation/render_episode001.py
+      - kernels/earth-needs-help-e001-stills/main.py
+      - kernels/episode-motion-runner/main.py
   schedule:
     - cron: "*/10 * * * *"
   workflow_dispatch:
@@ -43,10 +47,10 @@ jobs:
           pip install -r requirements.txt
           pip install Pillow "edge-tts>=7,<8" "numpy>=2,<3"
 
-      - name: Run autonomous episode controller
+      - name: Run self-healing episode controller
         id: controller
         continue-on-error: true
-        run: python automation/episode001_orchestrator.py
+        run: python automation/episode001_orchestrator_v2.py
 
       - name: Read episode state
         id: state
