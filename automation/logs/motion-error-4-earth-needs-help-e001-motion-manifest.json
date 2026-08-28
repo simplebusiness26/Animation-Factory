@@ -1,0 +1,274 @@
+{
+  "show": "Earth Needs Help",
+  "episode": "001",
+  "title": "The Great Earth Emergency",
+  "gpu": "Tesla T4",
+  "ltx_install_error": null,
+  "packaged_stills_bytes": null,
+  "started_at": "2026-08-28T09:07:46Z",
+  "shots": [
+    {
+      "id": "001",
+      "attempts": [
+        {
+          "profile": "ltx-primary",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+        },
+        {
+          "profile": "ltx-reduced",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+        },
+        {
+          "profile": "i2vgen-xl",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.deprecated.i2vgen_xl.pipeline_i2vgen_xl because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+        },
+        {
+          "profile": "svd-xt",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+        }
+      ],
+      "success": false
+    },
+    {
+      "id": "002",
+      "attempts": [
+        {
+          "profile": "ltx-primary",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+        },
+        {
+          "profile": "ltx-reduced",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+        },
+        {
+          "profile": "i2vgen-xl",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.deprecated.i2vgen_xl.pipeline_i2vgen_xl because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+        },
+        {
+          "profile": "svd-xt",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+        }
+      ],
+      "success": false
+    },
+    {
+      "id": "003",
+      "attempts": [
+        {
+          "profile": "ltx-primary",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+        },
+        {
+          "profile": "ltx-reduced",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+        },
+        {
+          "profile": "i2vgen-xl",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.deprecated.i2vgen_xl.pipeline_i2vgen_xl because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+        },
+        {
+          "profile": "svd-xt",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+        }
+      ],
+      "success": false
+    },
+    {
+      "id": "004",
+      "attempts": [
+        {
+          "profile": "ltx-primary",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+        },
+        {
+          "profile": "ltx-reduced",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+        },
+        {
+          "profile": "i2vgen-xl",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.deprecated.i2vgen_xl.pipeline_i2vgen_xl because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+        },
+        {
+          "profile": "svd-xt",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+        }
+      ],
+      "success": false
+    },
+    {
+      "id": "005",
+      "attempts": [
+        {
+          "profile": "ltx-primary",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+        },
+        {
+          "profile": "ltx-reduced",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+        },
+        {
+          "profile": "i2vgen-xl",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.deprecated.i2vgen_xl.pipeline_i2vgen_xl because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+        },
+        {
+          "profile": "svd-xt",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+        }
+      ],
+      "success": false
+    },
+    {
+      "id": "006a",
+      "attempts": [
+        {
+          "profile": "ltx-primary",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+        },
+        {
+          "profile": "ltx-reduced",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+        },
+        {
+          "profile": "i2vgen-xl",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.deprecated.i2vgen_xl.pipeline_i2vgen_xl because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+        },
+        {
+          "profile": "svd-xt",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+        }
+      ],
+      "success": false
+    },
+    {
+      "id": "006b",
+      "attempts": [
+        {
+          "profile": "ltx-primary",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+        },
+        {
+          "profile": "ltx-reduced",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+        },
+        {
+          "profile": "i2vgen-xl",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.deprecated.i2vgen_xl.pipeline_i2vgen_xl because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+        },
+        {
+          "profile": "svd-xt",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+        }
+      ],
+      "success": false
+    },
+    {
+      "id": "007",
+      "attempts": [
+        {
+          "profile": "ltx-primary",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+        },
+        {
+          "profile": "ltx-reduced",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+        },
+        {
+          "profile": "i2vgen-xl",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.deprecated.i2vgen_xl.pipeline_i2vgen_xl because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+        },
+        {
+          "profile": "svd-xt",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+        }
+      ],
+      "success": false
+    },
+    {
+      "id": "008",
+      "attempts": [
+        {
+          "profile": "ltx-primary",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+        },
+        {
+          "profile": "ltx-reduced",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+        },
+        {
+          "profile": "i2vgen-xl",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.deprecated.i2vgen_xl.pipeline_i2vgen_xl because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+        },
+        {
+          "profile": "svd-xt",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+        }
+      ],
+      "success": false
+    },
+    {
+      "id": "009",
+      "attempts": [
+        {
+          "profile": "ltx-primary",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+        },
+        {
+          "profile": "ltx-reduced",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+        },
+        {
+          "profile": "i2vgen-xl",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.deprecated.i2vgen_xl.pipeline_i2vgen_xl because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+        },
+        {
+          "profile": "svd-xt",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+        }
+      ],
+      "success": false
+    }
+  ],
+  "elapsed_seconds": 160.58,
+  "success": false
+}
+
