@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: '17 7 * * *'
   workflow_dispatch:
+  push:
+    paths:
+      - 'prize-hunter/control.json'
 
 permissions:
   contents: write
