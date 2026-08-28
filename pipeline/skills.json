@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "description": "Animation Factory production-skill registry and execution order.",
+  "default_policy": {
+    "preserve_approved_work": true,
+    "auto_repair": true,
+    "max_attempts_per_shot": 3,
+    "paid_services_require_explicit_approval": true
+  },
+  "stages": [
+    {"id":"episode-director","skill":".agents/skills/episode-director/SKILL.md","gate":"director_lock"},
+    {"id":"scriptwriter","skill":".agents/skills/scriptwriter/SKILL.md","gate":"script_lock"},
+    {"id":"shot-planner","skill":".agents/skills/shot-planner/SKILL.md","gate":"shot_plan_lock"},
+    {"id":"character-continuity","skill":".agents/skills/character-continuity/SKILL.md","gate":"continuity_lock"},
+    {"id":"visual-director","skill":".agents/skills/visual-director/SKILL.md","gate":"reference_still_lock"},
+    {"id":"video-prompt-engineer","skill":".agents/skills/video-prompt-engineer/SKILL.md","gate":"generation_prompt_lock"},
+    {"id":"generation","skill":null,"gate":"generated_asset_exists"},
+    {"id":"shot-qa","skill":".agents/skills/episode-qa/SKILL.md","gate":"shot_qa_pass"},
+    {"id":"audio-director","skill":".agents/skills/audio-director/SKILL.md","gate":"audio_lock"},
+    {"id":"editor","skill":".agents/skills/editor/SKILL.md","gate":"assembly_exists"},
+    {"id":"final-qa","skill":".agents/skills/episode-qa/SKILL.md","gate":"episode_qa_pass"}
+  ]
+}
