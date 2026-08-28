@@ -2,6 +2,7 @@
 """Generate Earth Needs Help Episode 001 Shot 001 on Kaggle GPU."""
 from __future__ import annotations
 
+import base64
 import json
 import subprocess
 import sys
@@ -47,6 +48,13 @@ def find_still() -> Path:
         path = ROOT / name
         if path.exists():
             return path
+
+    embedded = ROOT / "input-still.b64"
+    if embedded.exists():
+        decoded = WORK / "input-still.jpg"
+        decoded.write_bytes(base64.b64decode(embedded.read_text(encoding="utf-8").strip()))
+        return decoded
+
     raise FileNotFoundError("Shot still not found in kernel bundle")
 
 
