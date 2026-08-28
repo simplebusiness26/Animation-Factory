@@ -1,12 +1,15 @@
 ## ✅ Kaggle Worker
 
-Kaggle authentication is working. Request ID: `earth-needs-help-e001-s001-own-list-002`.
+Submitted Kaggle kernel **simplebusiness/earth-needs-help-episode-001-shot-001**.
 
+Push response:
 ```text
 Warning: Looks like you're using an outdated `kaggle`` version (installed: {current_version}), please consider upgrading to the latest version ({latest_version_str})
-Kaggle CLI 1.8.4
+Kernel version 2 successfully pushed.  Please check progress at https://www.kaggle.com/code/simplebusiness/earth-needs-help-episode-001-shot-001
+```
+
+Current status:
+```text
 Warning: Looks like you're using an outdated `kaggle`` version (installed: {current_version}), please consider upgrading to the latest version ({latest_version_str})
-ref                                                   title                                  author           lastRunTime                 totalVotes  
-----------------------------------------------------  -------------------------------------  ---------------  --------------------------  ----------  
-simplebusiness/earth-needs-help-episode-001-shot-001  Earth Needs Help Episode 001 Shot 001  Simple Business  2026-08-28 01:51:10.827000           0
+simplebusiness/earth-needs-help-episode-001-shot-001 has status "KernelWorkerStatus.QUEUED"
 ```
