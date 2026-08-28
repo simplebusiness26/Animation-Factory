@@ -3,11 +3,12 @@
   "title": "The Great Earth Emergency",
   "phase": "awaiting_stills",
   "stills_kernel": "simplebusiness/earth-needs-help-episode-001-production-stills",
-  "stills_attempts": 0,
+  "stills_attempts": 1,
   "motion_kernel": "simplebusiness/earth-needs-help-episode-001-motion",
   "motion_attempts": 0,
-  "last_status": "STILLS_ERROR",
-  "last_error": "RuntimeError: Command failed (1): kaggle kernels push -p\nWarning: Looks like you're using an outdated `kaggle`` version (installed: {current_version}), please consider upgrading to the latest version ({latest_version_str})\n409 Client Error: Conflict for url: https://api.kaggle.com/v1/kernels.KernelsApiService/SaveKernel",
-  "updated_at": "2026-08-28T02:55:42Z",
-  "release_tag": "earth-needs-help-e001"
+  "last_status": "STILLS_RETRY_1_SUBMIT_ERROR",
+  "last_error": "RuntimeError: Command failed (1): kaggle kernels push -p\nWarning: Looks like you're using an outdated `kaggle`` version (installed: {current_version}), please consider upgrading to the latest version ({latest_version_str})\nYour kernel title does not resolve to the specified id. This may result in surprising behavior. We suggest making your title something that resolves to the specified id. See https://en.wikipedia.org/wiki/Clean_URL#Slug for more information on how slugs are determined.\n400 Client Error: Bad Request for url: https://api.kaggle.com/v1/kernels.KernelsApiService/SaveKernel",
+  "updated_at": "2026-08-28T03:14:20Z",
+  "release_tag": "earth-needs-help-e001",
+  "assembly_attempts": 0
 }
