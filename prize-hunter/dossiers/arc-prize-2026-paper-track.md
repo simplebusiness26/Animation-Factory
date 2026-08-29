@@ -5,7 +5,7 @@
 **Stage 1 score:** 82.4/100
 **Prize:** 450,000 Usd
 **Teams:** 159
-**Days left:** 73
+**Days left:** 72
 **Task type:** paper/writeup backed by ARC prediction submission
 
 ## Feasibility

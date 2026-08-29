@@ -1,6 +1,6 @@
 # Kaggle Prize Hunter — Stage 2 Dossiers
 
-Generated: **2026-08-28 19:25 UTC**
+Generated: **2026-08-29 13:09 UTC**
 Web-reviewed evidence cache: **2026-08-28T02:00:00Z**
 
 Stage 2 combines automated Kaggle metadata/compute analysis with previously verified public-rule research.
@@ -11,7 +11,7 @@ Stage 2 combines automated Kaggle metadata/compute analysis with previously veri
 | 2 | **REVIEW** | **46.8** | 70.1 | `arc-prize-2026-arc-agi-3` | 850,000 Usd | frontier agent/reasoning research | public Kaggle pages could not be read automatically |
 | 3 | **REVIEW** | **31.6** | 65.4 | `ai-4-s-open-innovation-artificial-intelligence-for-life-scien` | 22,200 Usd | scientific ML / tool / end-to-end system | public Kaggle pages could not be read automatically |
 | 4 | **REVIEW** | **30.1** | 82.4 | `arc-prize-2026-paper-track` | 450,000 Usd | paper/writeup backed by ARC prediction submission | public Kaggle pages could not be read automatically |
-| 5 | **REVIEW** | **26.9** | 71.5 | `pokemon-tcg-ai-battle-challenge-strategy` | 240,000 Usd | agent/simulation + strategy writeup | public Kaggle pages could not be read automatically |
+| 5 | **REVIEW** | **26.9** | 71.4 | `pokemon-tcg-ai-battle-challenge-strategy` | 240,000 Usd | agent/simulation + strategy writeup | public Kaggle pages could not be read automatically |
 
 ## Best current target
 

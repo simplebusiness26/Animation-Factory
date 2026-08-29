@@ -1,9 +1,9 @@
 {
   "slug": "pokemon-tcg-ai-battle-challenge-strategy",
   "reward": "240,000 Usd",
-  "teams": 530,
-  "days_left": 16.2,
-  "stage1_score": 71.5,
+  "teams": 534,
+  "days_left": 15.5,
+  "stage1_score": 71.4,
   "task_type": "agent/simulation + strategy writeup",
   "compute_fit": 55.0,
   "time_fit": 65.0,

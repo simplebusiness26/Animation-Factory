@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-08-28T19:25:34.738128+00:00",
+  "generated_at": "2026-08-29T13:09:31.179405+00:00",
   "dossiers": [
     {
       "slug": "arc-prize-2026-paper-track",
       "reward": "450,000 Usd",
       "teams": 159,
-      "days_left": 73.2,
+      "days_left": 72.5,
       "stage1_score": 82.4,
       "task_type": "paper/writeup backed by ARC prediction submission",
       "compute_fit": 35.0,
@@ -42,9 +42,9 @@
     {
       "slug": "pokemon-tcg-ai-battle-challenge-strategy",
       "reward": "240,000 Usd",
-      "teams": 530,
-      "days_left": 16.2,
-      "stage1_score": 71.5,
+      "teams": 534,
+      "days_left": 15.5,
+      "stage1_score": 71.4,
       "task_type": "agent/simulation + strategy writeup",
       "compute_fit": 55.0,
       "time_fit": 65.0,
@@ -79,8 +79,8 @@
     {
       "slug": "arc-prize-2026-arc-agi-2",
       "reward": "700,000 Usd",
-      "teams": 1678,
-      "days_left": 66.2,
+      "teams": 1686,
+      "days_left": 65.5,
       "stage1_score": 71.0,
       "task_type": "frontier reasoning research",
       "compute_fit": 35.0,
@@ -117,8 +117,8 @@
     {
       "slug": "arc-prize-2026-arc-agi-3",
       "reward": "850,000 Usd",
-      "teams": 2593,
-      "days_left": 66.2,
+      "teams": 2602,
+      "days_left": 65.5,
       "stage1_score": 70.1,
       "task_type": "frontier agent/reasoning research",
       "compute_fit": 30.0,
@@ -157,7 +157,7 @@
       "slug": "ai-4-s-open-innovation-artificial-intelligence-for-life-scien",
       "reward": "22,200 Usd",
       "teams": 0,
-      "days_left": 42.9,
+      "days_left": 42.1,
       "stage1_score": 65.4,
       "task_type": "scientific ML / tool / end-to-end system",
       "compute_fit": 65.0,
