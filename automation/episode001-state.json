@@ -8,7 +8,7 @@
   "motion_attempts": 5,
   "last_status": "MOTION_TERMINAL_FAILURE",
   "last_error": "Motion generation exhausted 5 automatic attempts. Last reason: Kaggle reported motion ERROR",
-  "updated_at": "2026-08-30T01:23:26Z",
+  "updated_at": "2026-08-30T06:56:09Z",
   "release_tag": "earth-needs-help-e001",
   "stills_submit_failures": 0,
   "motion_submit_failures": 0,
