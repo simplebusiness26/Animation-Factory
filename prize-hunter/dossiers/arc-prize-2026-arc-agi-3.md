@@ -1,11 +1,11 @@
 # Prize Dossier — arc-prize-2026-arc-agi-3
 
 **Verdict:** REVIEW
-**Final suitability:** 46.8/100
+**Final suitability:** 46.7/100
 **Stage 1 score:** 70.1/100
 **Prize:** 850,000 Usd
-**Teams:** 2602
-**Days left:** 66
+**Teams:** 2622
+**Days left:** 64
 **Task type:** frontier agent/reasoning research
 
 ## Feasibility

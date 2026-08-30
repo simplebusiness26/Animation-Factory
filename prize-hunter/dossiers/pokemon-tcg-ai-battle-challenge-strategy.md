@@ -1,11 +1,11 @@
 # Prize Dossier — pokemon-tcg-ai-battle-challenge-strategy
 
 **Verdict:** REVIEW
-**Final suitability:** 26.9/100
+**Final suitability:** 26.8/100
 **Stage 1 score:** 71.4/100
 **Prize:** 240,000 Usd
-**Teams:** 534
-**Days left:** 16
+**Teams:** 538
+**Days left:** 14
 **Task type:** agent/simulation + strategy writeup
 
 ## Feasibility

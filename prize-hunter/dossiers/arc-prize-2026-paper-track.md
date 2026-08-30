@@ -1,10 +1,10 @@
 # Prize Dossier — arc-prize-2026-paper-track
 
 **Verdict:** REVIEW
-**Final suitability:** 30.1/100
-**Stage 1 score:** 82.4/100
+**Final suitability:** 30.0/100
+**Stage 1 score:** 82.3/100
 **Prize:** 450,000 Usd
-**Teams:** 159
+**Teams:** 161
 **Days left:** 72
 **Task type:** paper/writeup backed by ARC prediction submission
 
@@ -12,7 +12,7 @@
 
 - Compute fit: **35/100**
 - Time fit: **90/100**
-- Crowd fit: **52/100**
+- Crowd fit: **51/100**
 - Data fit: **90/100**
 - Documentation confidence: **35/100**
 - Public pages read by runner: **none**
