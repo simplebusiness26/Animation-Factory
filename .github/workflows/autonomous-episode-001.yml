@@ -10,6 +10,9 @@ on:
       - automation/render_episode001.py
       - kernels/earth-needs-help-e001-stills/main.py
       - kernels/episode-motion-runner/main.py
+      - shows/earth-needs-help/character-bible.md
+      - shows/earth-needs-help/continuity-manifest.json
+      - shows/earth-needs-help/assets/characters/**
   schedule:
     - cron: "*/10 * * * *"
   workflow_dispatch:
@@ -84,6 +87,7 @@ jobs:
           path: |
             automation/episode001-state.json
             automation/logs/
+            shows/earth-needs-help/continuity-manifest.json
             shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/
             dist/earth-needs-help-e001-final-qa.json
           if-no-files-found: ignore
@@ -184,7 +188,7 @@ jobs:
           done
 
       - name: Self-requeue while production is active
-        if: steps.state.outputs.phase != 'complete' && steps.state.outputs.phase != 'failed'
+        if: steps.state.outputs.phase != 'complete' && steps.state.outputs.phase != 'failed' && steps.state.outputs.phase != 'blocked_continuity'
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
@@ -192,6 +196,10 @@ jobs:
           echo "Production still active; scheduling the next controller cycle."
           sleep 480
           gh workflow run autonomous-episode-001.yml --ref main
+
+      - name: Continuity block notice
+        if: steps.state.outputs.phase == 'blocked_continuity'
+        run: echo "Production is intentionally paused until the canonical character reference pack is locked."
 
       - name: Stop only on terminal failure
         if: steps.state.outputs.phase == 'failed'
