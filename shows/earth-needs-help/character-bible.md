@@ -1,80 +1,88 @@
 # Earth Needs Help — Character Continuity Bible
 
-This file turns the character descriptions in `show-bible.md` into hard continuity locks for generation. Approved reference images override wording where they are more precise.
+This file is the textual companion to the approved visual reference pack. **Approved character reference images override all prose, storyboard derivatives, generated stills, and later guesses.**
+
+## Canon authority
+
+Use canon in this order:
+1. locked approved individual character reference image;
+2. locked approved full-cast reference image;
+3. this `character-bible.md`;
+4. approved earlier production frames;
+5. script / shot description.
+
+A storyboard, attractive generation, prompt, or later model output may never redesign a recurring character.
 
 ## Global continuity rules
 
-- Do not redesign recurring characters between shots.
-- Keep relative size relationships stable once established by an approved group reference.
-- Keep signature colours, body shapes, head features, wardrobe, and accessories visible and consistent.
-- If a visual detail is not yet canonically defined, do not invent a different answer in every shot. Use the first approved reference as the canonical answer and record it here.
-- Expressions and poses may change; identity may not.
+- Every visual generation must load the continuity manifest and the reference image(s) for every recurring character visible in the shot.
+- Do not use text-only prompting as the identity mechanism for recurring characters.
+- Do not redesign recurring characters between shots or episodes.
+- Keep signature colours, silhouette, face/eyes, head features, wardrobe, accessories, material treatment, and relative scale stable.
+- Expressions, pose, camera angle, lighting, and action may change; identity may not.
+- When a required reference image is missing, **stop generation rather than inventing the character again**.
+- A generated still does not become production-ready until continuity QA passes.
 
-## Bloop
+## Locked main cast
 
-**Identity anchor:** small, round turquoise-blue alien; two short flexible antennae; large oval expressive eyes; tiny limbs; soft squidgy body.
+These colour/shape identities come from the original asset labelled **MAIN CHARACTERS — CONSISTENCY REFERENCE**. Later derivative storyboards that conflict with this mapping are not canon.
 
-**Personality/performance:** enthusiastic, curious, innocent, emotionally transparent; reactions read immediately.
+### Captain Pip
 
-**Must not change:** turquoise-blue identity colour, round/squidgy silhouette, two antennae, large oval eyes, tiny-limb proportions.
+**Canonical identity:** green alien captain; rounded head; large expressive eyes; unmistakable captain/leader styling.
 
-**Avoid:** extra antennae, long limbs, angular body, realistic human anatomy, aggressive expression, unexplained clothing.
+**Must not change:** green identity colour, rounded head language, large-eye facial design, captain identity, approved clothing/hat/insignia from the visual reference, and established proportions.
 
-## Zig
+**Performance:** brave, positive, serious about every rescue, naturally comic because small problems are treated as major emergencies.
 
-**Identity anchor:** slim lime-green alien inventor; three head tufts/antennae; utility goggles; small gadget belt.
+### Bloop
 
-**Personality/performance:** clever, quick, overconfident, energetic; often delighted by an overcomplicated invention.
+**Canonical identity:** blue, round alien; antennae; huge expressive eyes; soft friendly silhouette.
 
-**Must not change:** lime-green identity colour, slim silhouette, three head features, goggles, gadget belt.
+**Must not change:** blue identity colour, round body, antennae, huge-eye face design, approved limb/body proportions and any visual details shown in the locked reference.
 
-**Avoid:** bulky body, missing goggles, different antenna count, colour drift, threatening weapon-like gadgets.
+**Performance:** excitable, curious, hungry, funny, big-hearted.
 
-## Momo
+### Zig
 
-**Identity anchor:** large fluffy lavender alien; enormous arms; tiny friendly eyes; warm smile.
+**Canonical identity:** purple, tall/slim alien inventor; expressive face/eyebrow design; recurring inventor/gadget identity.
 
-**Personality/performance:** gentle, patient, reassuring; physical size contrasts with soft behaviour.
+**Must not change:** purple identity colour, tall slim silhouette, approved face/head design, approved recurring wardrobe/accessories, and established proportions.
 
-**Must not change:** lavender colour, fluffy surface, large scale, oversized arms, tiny friendly eyes.
+**Performance:** clever, inventive, enthusiastic, overcomplicates simple problems.
 
-**Avoid:** sharp/monstrous silhouette, angry intimidation, smooth non-fluffy skin, suddenly small proportions.
+### Momo
 
-## Captain Pip
+**Canonical identity:** pink, small alien; large ear/head-side features; calm thoughtful face and friendly rounded design.
 
-**Identity anchor:** smallest alien; coral-red; oversized dark-blue space-captain jacket; original rescue insignia.
+**Must not change:** pink identity colour, small scale, large ear/head-side silhouette, approved face/body design, and any approved recurring clothing/accessories.
 
-**Personality/performance:** intensely serious and mission-focused; comedy comes from treating tiny Earth inconveniences like huge emergencies.
-
-**Must not change:** coral-red identity colour, smallest-cast scale, oversized dark-blue jacket, captain/rescue identity.
-
-**Avoid:** casual carefree performance, missing jacket without story reason, larger scale than the crew, military realism, threatening insignia.
+**Performance:** kind, smart, calm, usually finds the simple solution.
 
 ## Human child
 
-**Identity anchor:** friendly adventurous Earth child around eight years old; practical clothes; colourful trainers; small backpack.
+The recurring Earth child must also use a locked visual reference once present. Hair, face, skin tone, clothing, backpack, shoes and proportions may not drift between shots.
 
-**Personality/performance:** patient, grounded, helpful; acts as the aliens' unofficial Earth expert.
-
-**Continuity lock:** exact face, hair, skin tone, clothing colours, backpack, and trainer design must be taken from the first approved canonical reference sheet/still and then reused. Until that reference exists, do not create contradictory permanent details across shots.
-
-**Avoid:** age drift, major outfit changes, adult proportions, hyper-realistic mismatch with the show's stylised 3D cartoon world.
+Until that visual reference is committed and marked locked in `continuity-manifest.json`, shots requiring the child must not be regenerated as final production stills.
 
 ## Scale relationships
 
-- Captain Pip is the smallest alien.
-- Momo is the largest alien.
-- Bloop is small and round.
-- Zig is slim and taller-looking than Bloop due to silhouette, while remaining clearly smaller than Momo.
-- Lock exact relative heights from the first approved full-cast reference and reuse them.
+Exact scale comes from the locked full-cast reference. Never infer new relative sizes from a fresh generation. Once the reference pack is locked, those proportions are reused for every shot.
 
 ## Reference policy
 
-For each recurring character, retain:
-- canonical front/three-quarter reference;
-- canonical full-body scale reference;
-- recurring costume reference;
-- approved voice settings;
-- approved prompt identity anchor.
+Machine-readable enforcement lives in `continuity-manifest.json`.
 
-A later attractive generation is not permission to redesign canon. Update this bible only after an explicit intentional design decision.
+Required recurring-character assets live under:
+
+`shows/earth-needs-help/assets/characters/`
+
+Expected files:
+- `captain-pip.png`
+- `bloop.png`
+- `zig.png`
+- `momo.png`
+- `human-child.png`
+- `full-cast.png`
+
+The system must fail closed if a required character reference is absent. The existing Episode 001 generated stills 002–009 are **not canonical reference material** and must not be used to teach later shots what the cast looks like.
