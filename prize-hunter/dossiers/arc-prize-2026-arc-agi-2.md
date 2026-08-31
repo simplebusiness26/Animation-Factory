@@ -4,8 +4,8 @@
 **Final suitability:** 48.8/100
 **Stage 1 score:** 70.9/100
 **Prize:** 700,000 Usd
-**Teams:** 1705
-**Days left:** 64
+**Teams:** 1727
+**Days left:** 63
 **Task type:** frontier reasoning research
 
 ## Feasibility

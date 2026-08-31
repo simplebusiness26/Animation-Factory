@@ -2,10 +2,10 @@
 
 **Verdict:** REVIEW
 **Final suitability:** 26.8/100
-**Stage 1 score:** 71.4/100
+**Stage 1 score:** 71.2/100
 **Prize:** 240,000 Usd
-**Teams:** 538
-**Days left:** 14
+**Teams:** 546
+**Days left:** 13
 **Task type:** agent/simulation + strategy writeup
 
 ## Feasibility

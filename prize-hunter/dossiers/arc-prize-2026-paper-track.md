@@ -4,8 +4,8 @@
 **Final suitability:** 30.0/100
 **Stage 1 score:** 82.3/100
 **Prize:** 450,000 Usd
-**Teams:** 161
-**Days left:** 72
+**Teams:** 163
+**Days left:** 70
 **Task type:** paper/writeup backed by ARC prediction submission
 
 ## Feasibility
