@@ -5,15 +5,23 @@
   "title": "The Great Earth Emergency",
   "target_runtime_seconds": 80,
   "aspect_ratio": "16:9",
-  "status": "planned",
-  "generation_strategy": "reference-image-to-video-per-shot",
+  "status": "blocked_continuity",
+  "generation_strategy": "locked-character-reference-to-scene-still-to-video-per-shot",
+  "continuity": {
+    "manifest": "shows/earth-needs-help/continuity-manifest.json",
+    "reference_pack_required": true,
+    "reference_pack_status": "incomplete",
+    "text_only_identity_generation_allowed": false,
+    "qa_required_before_motion": true,
+    "current_stills_002_009": "rejected_continuity"
+  },
   "skill_pipeline": {
     "registry": "pipeline/skills.json",
     "quality_gates": "pipeline/quality-gates.json",
     "auto_repair": true,
     "max_attempts_per_shot": 3,
-    "active_stage": "generation",
-    "active_shot": "001",
+    "active_stage": "character-continuity",
+    "active_shot": "002",
     "release_requires": "episode_qa_pass"
   },
   "video_backend": {
@@ -25,18 +33,18 @@
       "CogVideoX-small-if-compatible"
     ]
   },
-  "global_negative_prompt": "blurry, distorted, deformed, extra limbs, duplicate characters, wrong colours, changed costume, text, watermark, scary, horror, violent, inconsistent face, melted anatomy, extreme camera motion, background morphing",
+  "global_negative_prompt": "blurry, distorted, deformed, extra limbs, duplicate characters, wrong character identity, wrong colours, changed costume, changed silhouette, changed face, text, watermark, scary, horror, violent, inconsistent face, melted anatomy, extreme camera motion, background morphing",
   "shots": [
-    {"id":"001","duration_seconds":7,"location":"spaceship-bridge","still_status":"ready","motion_status":"pending","qa_status":"pending","attempts":0,"characters":["captain-pip","bloop","zig","momo"]},
-    {"id":"002","duration_seconds":7,"location":"spaceship-bridge","still_status":"pending","motion_status":"pending","qa_status":"pending","attempts":0,"characters":["captain-pip","bloop","zig","momo"]},
-    {"id":"003","duration_seconds":8,"location":"park","still_status":"pending","motion_status":"pending","qa_status":"pending","attempts":0,"characters":["captain-pip","bloop","zig","momo"]},
-    {"id":"004","duration_seconds":9,"location":"park","still_status":"pending","motion_status":"pending","qa_status":"pending","attempts":0,"characters":["captain-pip","bloop","zig","momo","human-child"]},
-    {"id":"005","duration_seconds":8,"location":"park-tree","still_status":"pending","motion_status":"pending","qa_status":"pending","attempts":0,"characters":["captain-pip","bloop","zig","momo","human-child"]},
-    {"id":"006a","duration_seconds":6,"location":"park-tree","still_status":"pending","motion_status":"pending","qa_status":"pending","attempts":0,"characters":["captain-pip","bloop","zig","momo","human-child"]},
-    {"id":"006b","duration_seconds":7,"location":"park-tree","still_status":"pending","motion_status":"pending","qa_status":"pending","attempts":0,"characters":["captain-pip","bloop","zig","momo","human-child"]},
-    {"id":"007","duration_seconds":10,"location":"park-tree","still_status":"pending","motion_status":"pending","qa_status":"pending","attempts":0,"characters":["captain-pip","bloop","zig","momo","human-child"]},
-    {"id":"008","duration_seconds":10,"location":"park","still_status":"pending","motion_status":"pending","qa_status":"pending","attempts":0,"characters":["captain-pip","bloop","zig","momo","human-child"]},
-    {"id":"009","duration_seconds":8,"location":"park","still_status":"pending","motion_status":"pending","qa_status":"pending","attempts":0,"characters":["captain-pip","bloop","zig","momo","human-child","pigeon"]}
+    {"id":"001","duration_seconds":7,"location":"spaceship-bridge","still_status":"ready_canonical_bridge","motion_status":"blocked_continuity","qa_status":"reference_accepted","attempts":0,"characters":["captain-pip","bloop","zig","momo"]},
+    {"id":"002","duration_seconds":7,"location":"spaceship-bridge","still_status":"rejected_continuity","motion_status":"blocked_continuity","qa_status":"failed_continuity","attempts":0,"characters":["captain-pip","bloop","zig","momo"]},
+    {"id":"003","duration_seconds":8,"location":"park","still_status":"rejected_continuity","motion_status":"blocked_continuity","qa_status":"failed_continuity","attempts":0,"characters":["captain-pip","bloop","zig","momo"]},
+    {"id":"004","duration_seconds":9,"location":"park","still_status":"rejected_continuity","motion_status":"blocked_continuity","qa_status":"failed_continuity","attempts":0,"characters":["captain-pip","bloop","zig","momo","human-child"]},
+    {"id":"005","duration_seconds":8,"location":"park-tree","still_status":"rejected_continuity","motion_status":"blocked_continuity","qa_status":"failed_continuity","attempts":0,"characters":["captain-pip","bloop","zig","momo","human-child"]},
+    {"id":"006a","duration_seconds":6,"location":"park-tree","still_status":"rejected_continuity","motion_status":"blocked_continuity","qa_status":"failed_continuity","attempts":0,"characters":["captain-pip","bloop","zig","momo","human-child"]},
+    {"id":"006b","duration_seconds":7,"location":"park-tree","still_status":"rejected_continuity","motion_status":"blocked_continuity","qa_status":"failed_continuity","attempts":0,"characters":["captain-pip","bloop","zig","momo","human-child"]},
+    {"id":"007","duration_seconds":10,"location":"park-tree","still_status":"rejected_continuity","motion_status":"blocked_continuity","qa_status":"failed_continuity","attempts":0,"characters":["captain-pip","bloop","zig","momo","human-child"]},
+    {"id":"008","duration_seconds":10,"location":"park","still_status":"rejected_continuity","motion_status":"blocked_continuity","qa_status":"failed_continuity","attempts":0,"characters":["captain-pip","bloop","zig","momo","human-child"]},
+    {"id":"009","duration_seconds":8,"location":"park","still_status":"rejected_continuity","motion_status":"blocked_continuity","qa_status":"failed_continuity","attempts":0,"characters":["captain-pip","bloop","zig","momo","human-child","pigeon"]}
   ],
   "audio": {
     "strategy": "narrator-led-with-short-character-lines",
@@ -45,5 +53,5 @@
     "music": "light-heroic-to-playful",
     "sfx": ["alarm","spaceship-whoosh","boing","leaf-rustle","gadget-whirr","comic-sting"]
   },
-  "next_action": "load video-prompt-engineer skill, build kaggle image-to-video kernel, generate shot-001, then run shot QA before proceeding"
+  "next_action": "lock the approved visual character reference pack, regenerate shots 002-009 with the references injected on every shot, run continuity QA on each still, and only then resume motion generation"
 }
