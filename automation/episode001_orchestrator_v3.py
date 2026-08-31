@@ -1,16 +1,14 @@
 #!/usr/bin/env python3
-"""Episode 001 autonomous controller with compact Kaggle motion packaging.
+"""Episode 001 autonomous controller with hard character continuity gates.
 
-Extends the self-healing v2 controller. Motion input stills are re-encoded as
-compact JPEGs before upload so the Kaggle kernel source stays comfortably
-below API source-size limits while retaining enough detail for image-to-video.
-
-Character continuity is fail-closed: Episode 001 cannot regenerate stills or
-advance to motion until the show's machine-readable continuity manifest says
-the approved visual reference pack is locked and every required file exists.
+The controller is fail-closed twice:
+1. no still generation unless the approved visual character reference pack is locked;
+2. no motion generation unless the exact generated still batch has a continuity
+   review approval tied to the still-file hashes.
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import shutil
 import tempfile
@@ -29,6 +27,7 @@ TARGET_SIZE = (704, 400)
 TARGET_SOURCE_BYTES = 750_000
 FINAL_MP4 = base.DIST_DIR / "earth-needs-help-e001-final.mp4"
 CONTINUITY_MANIFEST = base.ROOT / "shows" / "earth-needs-help" / "continuity-manifest.json"
+CONTINUITY_QA = base.EPISODE_DIR / "continuity-qa.json"
 
 
 def continuity_preflight() -> tuple[bool, str]:
@@ -56,14 +55,81 @@ def continuity_preflight() -> tuple[bool, str]:
     if missing:
         return False, "missing canonical reference files: " + ", ".join(missing)
 
-    if not bool((manifest.get("canon_policy") or {}).get("continuity_qa_required_before_motion")):
+    policy = manifest.get("canon_policy") or {}
+    if not bool(policy.get("load_references_for_every_shot")):
+        return False, "per-shot reference injection is disabled"
+    if bool(policy.get("text_only_recurring_character_generation_allowed")):
+        return False, "text-only recurring character generation is enabled"
+    if not bool(policy.get("continuity_qa_required_before_motion")):
         return False, "continuity QA before motion is not enabled"
 
     return True, "canonical reference pack locked"
 
 
+def sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def current_still_fingerprints() -> list[dict[str, str]]:
+    rows: list[dict[str, str]] = []
+    for shot in base.SHOTS:
+        sid = shot["id"]
+        path = base.STILLS_DIR / f"earth-needs-help-e001-s{sid}.png"
+        if not path.is_file():
+            raise RuntimeError(f"Missing still for continuity review: {sid}")
+        rows.append({
+            "id": sid,
+            "file": str(path.relative_to(base.ROOT)),
+            "sha256": sha256(path),
+        })
+    return rows
+
+
+def reset_continuity_review() -> None:
+    payload = {
+        "show": "Earth Needs Help",
+        "episode": "001",
+        "status": "pending_review",
+        "review_policy": "Approve only when every recurring character visibly matches the locked reference pack. File hashes bind this approval to this exact still batch.",
+        "required_checks": [
+            "character identity matches locked visual refs",
+            "canonical colours are not swapped",
+            "faces, silhouettes and head features match",
+            "wardrobe/accessories match",
+            "relative character scale is coherent",
+            "no duplicate/missing recurring characters",
+            "no text/watermark or malformed anatomy"
+        ],
+        "shots": current_still_fingerprints(),
+        "reviewed_by": None,
+        "review_notes": None
+    }
+    CONTINUITY_QA.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+
+
+def continuity_review_approved() -> tuple[bool, str]:
+    if not CONTINUITY_QA.is_file():
+        return False, "continuity-qa.json is missing"
+    try:
+        qa = json.loads(CONTINUITY_QA.read_text(encoding="utf-8"))
+    except Exception as exc:
+        return False, f"continuity-qa.json is unreadable: {type(exc).__name__}: {exc}"
+    if qa.get("status") != "approved":
+        return False, f"continuity review status is {qa.get('status', 'unknown')}"
+
+    approved = {str(row.get("id")): str(row.get("sha256")) for row in (qa.get("shots") or [])}
+    for row in current_still_fingerprints():
+        if approved.get(row["id"]) != row["sha256"]:
+            return False, f"approved continuity review does not match current still {row['id']}"
+    return True, "exact still batch approved"
+
+
 def robust_stage_generated_stills(downloaded: Path) -> list[Path]:
-    """Stage completed stills only after the continuity preflight has passed."""
+    """Stage completed stills and invalidate any earlier continuity approval."""
     ready, reason = continuity_preflight()
     if not ready:
         raise RuntimeError(f"Continuity gate blocked still staging: {reason}")
@@ -92,16 +158,35 @@ def robust_stage_generated_stills(downloaded: Path) -> list[Path]:
             raise RuntimeError(f"Shot {sid} still failed file validation")
         staged.append(target)
 
+    reset_continuity_review()
     return staged
 
 
 base.stage_generated_stills = robust_stage_generated_stills
+
+_ORIGINAL_RETRY_MOTION = v2.retry_motion
+
+
+def guarded_retry_motion(state: dict, reason: str, *, first_submit: bool = False) -> None:
+    approved, review_reason = continuity_review_approved()
+    if not approved:
+        state["phase"] = "awaiting_continuity_review"
+        state["last_status"] = "CONTINUITY_VISUAL_REVIEW_REQUIRED"
+        state["last_error"] = review_reason
+        return
+    _ORIGINAL_RETRY_MOTION(state, reason, first_submit=first_submit)
+
+
+v2.retry_motion = guarded_retry_motion
 
 
 def encode_stills(root: Path, quality: int) -> tuple[dict[str, str], int]:
     ready, reason = continuity_preflight()
     if not ready:
         raise RuntimeError(f"Cannot package motion: {reason}")
+    approved, review_reason = continuity_review_approved()
+    if not approved:
+        raise RuntimeError(f"Cannot package motion: {review_reason}")
 
     still_dir = root / "stills"
     if still_dir.exists():
@@ -190,11 +275,26 @@ def run_controller() -> int:
         print(json.dumps(state, indent=2))
         return 0 if state.get("phase") != "failed" else 1
 
+    if state.get("phase") == "awaiting_continuity_review":
+        approved, review_reason = continuity_review_approved()
+        if not approved:
+            state["last_status"] = "CONTINUITY_VISUAL_REVIEW_REQUIRED"
+            state["last_error"] = review_reason
+            base.save_state(state)
+            print(json.dumps(state, indent=2))
+            return 0
+        state["motion_attempts"] = 0
+        state["last_error"] = None
+        _ORIGINAL_RETRY_MOTION(state, "Exact still batch passed continuity visual review", first_submit=True)
+        base.save_state(state)
+        print(json.dumps(state, indent=2))
+        return 0 if state.get("phase") != "failed" else 1
+
     if bool(state.pop("force_stills_retry", False)):
-        reason = str(state.pop("force_stills_retry_reason", "Known-bad stills attempt was superseded after a root-cause fix."))
+        retry_reason = str(state.pop("force_stills_retry_reason", "Known-bad stills attempt was superseded after a root-cause fix."))
         state["last_status"] = "STILLS_SUPERSEDED_RETRY_REQUESTED"
         state["last_error"] = None
-        v2.retry_stills(state, reason)
+        v2.retry_stills(state, retry_reason)
         base.save_state(state)
         print(json.dumps(state, indent=2))
         return 0 if state.get("phase") != "failed" else 1
