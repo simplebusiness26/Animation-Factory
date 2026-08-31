@@ -1,0 +1,63 @@
+{
+  "schema_version": 2,
+  "show": "Earth Needs Help",
+  "status": "reference_pack_incomplete",
+  "canon_policy": {
+    "approved_visual_reference_overrides_text": true,
+    "text_only_recurring_character_generation_allowed": false,
+    "load_references_for_every_shot": true,
+    "continuity_qa_required_before_motion": true,
+    "fail_closed_when_reference_missing": true,
+    "generated_storyboards_are_canon": false,
+    "generated_episode_stills_are_canon": false
+  },
+  "canonical_cast": {
+    "captain-pip": {
+      "identity": "green rounded alien captain with large expressive eyes",
+      "primary_colour": "green",
+      "silhouette": "rounded head and friendly captain silhouette",
+      "reference": "shows/earth-needs-help/assets/characters/captain-pip.png"
+    },
+    "bloop": {
+      "identity": "blue round alien with antennae and huge expressive eyes",
+      "primary_colour": "blue",
+      "silhouette": "small/round/soft",
+      "reference": "shows/earth-needs-help/assets/characters/bloop.png"
+    },
+    "zig": {
+      "identity": "purple tall slim alien inventor with expressive face",
+      "primary_colour": "purple",
+      "silhouette": "tall/slim",
+      "reference": "shows/earth-needs-help/assets/characters/zig.png"
+    },
+    "momo": {
+      "identity": "pink small calm alien with large ear/head-side features",
+      "primary_colour": "pink",
+      "silhouette": "small/rounded with large side features",
+      "reference": "shows/earth-needs-help/assets/characters/momo.png"
+    },
+    "human-child": {
+      "identity": "recurring stylised Earth child; exact appearance comes only from locked visual reference",
+      "reference": "shows/earth-needs-help/assets/characters/human-child.png"
+    }
+  },
+  "reference_pack": {
+    "status": "incomplete",
+    "directory": "shows/earth-needs-help/assets/characters",
+    "required_files": [
+      "captain-pip.png",
+      "bloop.png",
+      "zig.png",
+      "momo.png",
+      "human-child.png",
+      "full-cast.png"
+    ],
+    "provisional_group_reference": "shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/earth-needs-help-e001-s001.png",
+    "note": "Shot 001 may help identify the established cast, but it is not a substitute for individual locked character references. Production still regeneration remains blocked until the required visual pack is committed and this status is changed to locked."
+  },
+  "episode_001": {
+    "current_generated_stills_002_009": "rejected_continuity",
+    "motion_generation_allowed": false,
+    "reason": "The previous still generator used a weak group-image/text lock and high img2img denoise strength, allowing character redesigns."
+  }
+}
