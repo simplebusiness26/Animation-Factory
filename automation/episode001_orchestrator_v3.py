@@ -5,10 +5,9 @@ Extends the self-healing v2 controller. Motion input stills are re-encoded as
 compact JPEGs before upload so the Kaggle kernel source stays comfortably
 below API source-size limits while retaining enough detail for image-to-video.
 
-A persisted force_stills_retry flag can deliberately supersede an in-flight
-kernel that is known to contain obsolete/broken code. A completed episode whose
-GitHub Release was not confirmed is automatically rebuilt from the completed
-motion kernel on the next cycle so release publication can retry.
+Character continuity is fail-closed: Episode 001 cannot regenerate stills or
+advance to motion until the show's machine-readable continuity manifest says
+the approved visual reference pack is locked and every required file exists.
 """
 from __future__ import annotations
 
@@ -29,10 +28,46 @@ base.MOTION_RUNNER = base.ROOT / "kernels" / "episode-motion-runner" / "bootstra
 TARGET_SIZE = (704, 400)
 TARGET_SOURCE_BYTES = 750_000
 FINAL_MP4 = base.DIST_DIR / "earth-needs-help-e001-final.mp4"
+CONTINUITY_MANIFEST = base.ROOT / "shows" / "earth-needs-help" / "continuity-manifest.json"
+
+
+def continuity_preflight() -> tuple[bool, str]:
+    if not CONTINUITY_MANIFEST.is_file():
+        return False, "continuity-manifest.json is missing"
+    try:
+        manifest = json.loads(CONTINUITY_MANIFEST.read_text(encoding="utf-8"))
+    except Exception as exc:
+        return False, f"continuity-manifest.json is unreadable: {type(exc).__name__}: {exc}"
+
+    pack = manifest.get("reference_pack") or {}
+    if pack.get("status") != "locked":
+        return False, "canonical character reference pack is not locked"
+
+    directory_value = str(pack.get("directory") or "").strip()
+    if not directory_value:
+        return False, "continuity manifest has no reference-pack directory"
+    directory = base.ROOT / directory_value
+
+    required = [str(name) for name in (pack.get("required_files") or []) if str(name).strip()]
+    if not required:
+        return False, "continuity manifest has no required reference files"
+
+    missing = [name for name in required if not (directory / name).is_file()]
+    if missing:
+        return False, "missing canonical reference files: " + ", ".join(missing)
+
+    if not bool((manifest.get("canon_policy") or {}).get("continuity_qa_required_before_motion")):
+        return False, "continuity QA before motion is not enabled"
+
+    return True, "canonical reference pack locked"
 
 
 def robust_stage_generated_stills(downloaded: Path) -> list[Path]:
-    """Stage the completed still batch, using Kaggle's repaired bridge as Shot 001."""
+    """Stage completed stills only after the continuity preflight has passed."""
+    ready, reason = continuity_preflight()
+    if not ready:
+        raise RuntimeError(f"Continuity gate blocked still staging: {reason}")
+
     base.STILLS_DIR.mkdir(parents=True, exist_ok=True)
     staged: list[Path] = []
 
@@ -54,7 +89,7 @@ def robust_stage_generated_stills(downloaded: Path) -> list[Path]:
         target = base.STILLS_DIR / f"earth-needs-help-e001-s{sid}.png"
         base.normalize_image(candidates[0], target)
         if not base.valid_image(target):
-            raise RuntimeError(f"Shot {sid} still failed validation")
+            raise RuntimeError(f"Shot {sid} still failed file validation")
         staged.append(target)
 
     return staged
@@ -64,6 +99,10 @@ base.stage_generated_stills = robust_stage_generated_stills
 
 
 def encode_stills(root: Path, quality: int) -> tuple[dict[str, str], int]:
+    ready, reason = continuity_preflight()
+    if not ready:
+        raise RuntimeError(f"Cannot package motion: {reason}")
+
     still_dir = root / "stills"
     if still_dir.exists():
         shutil.rmtree(still_dir)
@@ -129,6 +168,27 @@ v2.build_motion_retry_folder = compact_motion_folder
 
 def run_controller() -> int:
     state = base.load_state()
+
+    ready, reason = continuity_preflight()
+    if not ready:
+        state["phase"] = "blocked_continuity"
+        state["last_status"] = "CONTINUITY_REFERENCE_PACK_REQUIRED"
+        state["last_error"] = reason
+        state["continuity_gate"] = "blocked"
+        base.save_state(state)
+        print(json.dumps(state, indent=2))
+        return 0
+
+    state["continuity_gate"] = "passed"
+
+    if state.get("phase") == "blocked_continuity":
+        state["stills_attempts"] = 0
+        state["motion_attempts"] = 0
+        state["last_error"] = None
+        v2.retry_stills(state, "Canonical character reference pack locked; regenerating continuity-rejected Episode 001 stills.")
+        base.save_state(state)
+        print(json.dumps(state, indent=2))
+        return 0 if state.get("phase") != "failed" else 1
 
     if bool(state.pop("force_stills_retry", False)):
         reason = str(state.pop("force_stills_retry_reason", "Known-bad stills attempt was superseded after a root-cause fix."))
