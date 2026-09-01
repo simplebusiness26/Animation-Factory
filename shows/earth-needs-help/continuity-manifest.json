@@ -1,13 +1,14 @@
 {
-  "schema_version": 3,
+  "schema_version": 4,
   "show": "Earth Needs Help",
-  "status": "locked",
+  "status": "blocked_continuity",
   "canon_policy": {
     "approved_visual_reference_overrides_text": true,
     "text_only_recurring_character_generation_allowed": false,
     "load_references_for_every_shot": true,
     "continuity_qa_required_before_motion": true,
     "fail_closed_when_reference_missing": true,
+    "fail_closed_when_reference_unreadable": true,
     "generated_storyboards_are_canon": false,
     "generated_episode_stills_are_canon": false,
     "silent_character_redesign_allowed": false
@@ -46,9 +47,12 @@
     }
   },
   "reference_pack": {
-    "status": "locked",
+    "status": "invalid_reference_asset",
     "directory": "shows/earth-needs-help/assets/characters",
     "encoding": "base64-jpeg",
+    "master_lock": "kernels/earth-needs-help-e001-stills/character-lock.b64",
+    "master_lock_health": "unreadable_image",
+    "last_validation_error": "Pillow UnidentifiedImageError while decoding the locked master reference on Kaggle.",
     "required_files": [
       "captain-pip.jpg.b64",
       "bloop.jpg.b64",
@@ -56,11 +60,11 @@
       "momo.jpg.b64",
       "human-child.jpg.b64"
     ],
-    "note": "These files are direct crops from the user-approved master consistency sheet. The generator decodes and injects the relevant visual references for every shot."
+    "note": "Generation is blocked until the exact user-approved MAIN CHARACTERS consistency reference is restored as a valid decodable image. Corrupt visual references must never consume render retries or silently fall back to text-only character generation."
   },
   "episode_001": {
     "current_generated_stills_002_009": "rejected_continuity",
     "motion_generation_allowed": false,
-    "reason": "Old stills remain rejected. A fresh still batch must be generated from the locked visual pack and pass continuity QA before motion."
+    "reason": "Old stills remain rejected. Fresh still generation is blocked until the canonical visual reference asset validates, then the new batch must pass continuity QA before motion."
   }
 }
