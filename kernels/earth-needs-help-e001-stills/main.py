@@ -8,7 +8,7 @@ Continuity rules:
 - the five approved crops are composed into one clean runtime reference sheet;
 - that sheet is injected through SDXL IP-Adapter Plus on every shot;
 - the matching h94 ViT-H CLIP image encoder is loaded explicitly (never auto-guessed);
-- prompts stay below CLIP's 77-token limit so scene instructions are not truncated;
+- prompts stay compact so scene instructions are not silently truncated;
 - any unreadable/mismatched reference fails closed before GPU generation.
 """
 from __future__ import annotations
@@ -35,12 +35,9 @@ REFERENCE_FILES = [
     ('human-child', 'shows/earth-needs-help/assets/characters/human-child.jpg.b64', '7aa15b2a11ae15f095eaabca38252672e5828add647806971f0d438ef4417ddb'),
 ]
 
-# Keep this compact. Character identity comes from the locked visual reference,
-# while text only reinforces role/colour and leaves enough token budget for scene action.
 CANONICAL_LOCK = (
-    'Exact characters from reference: green Captain Pip in white captain hat and dark uniform; '
-    'blue round Bloop; tall purple Zig; small pink Momo; brown-haired child in blue hoodie. '
-    'Same faces, silhouettes, clothes and colours. '
+    'Exact reference characters: green Captain Pip, blue Bloop, purple Zig, pink Momo, '
+    'brown-haired child in blue hoodie. Same faces, silhouettes, clothes and colours. '
 )
 
 NEGATIVE = (
@@ -48,18 +45,16 @@ NEGATIVE = (
     'extra limbs, missing limbs, deformed face, horror, photorealistic skin, blurry, low quality'
 )
 
-# Scene wording is deliberately compact so CANONICAL_LOCK + scene remains inside CLIP's
-# practical token window instead of silently losing the action at the end of the prompt.
 SHOTS = [
-    {'id':'002','prompt':'Colourful alien spaceship bridge, Earth huge through front window. Pip points at Earth; Bloop leans to glass; Zig checks gadget; Momo waves. Friendly cinematic 3D animation, 16:9.'},
-    {'id':'003','prompt':'Sunny park. Small rounded rescue spaceship has harmlessly landed through hedge into flowers. Leaves float; Bloop peeks from hatch. Playful physical comedy, bright 3D animation, 16:9.'},
-    {'id':'004','prompt':'Sunny park beside landed spaceship. Child meets Pip, Bloop, Zig and Momo. Pip steps forward; Zig holds scanner; child looks surprised but unafraid. Bright friendly 3D animation, 16:9.'},
-    {'id':'005','prompt':'Sunny park tree with colourful kite stuck high. Pip, Bloop, Zig and Momo stare up dramatically; child gives confused shrug. Friendly comedy 3D animation, 16:9.'},
-    {'id':'006a','prompt':'Base of kite tree. Zig proudly kneels beside compact colourful rescue gadget with folded arms. Pip watches; Bloop leans in; child cautious; Momo calm. Bright 3D animation, 16:9.'},
-    {'id':'006b','prompt':'Same tree. Rescue gadget spins harmlessly, arms pointing wrong ways, leaves flying. Bloop chases it; Zig shocked; Pip directs; child amused; Momo calm. Comedy 3D animation, 16:9.'},
-    {'id':'007','prompt':'Quiet beat under tree. Momo simply reaches up with gentle tool and frees kite. Child smiles; Pip, Bloop and Zig stand stunned behind. Warm friendly 3D animation, 16:9.'},
-    {'id':'008','prompt':'Sunny park celebration. Child holds rescued kite. Pip heroic pose; Bloop jumps; Zig poses proudly; Momo claps. Cheerful colourful 3D animation, 16:9.'},
-    {'id':'009','prompt':'Sunny park comedy. Bloop holds alien snack as ordinary grey pigeon steals it. Bloop freezes; Pip, Zig and Momo turn; child holds kite nearby. Bright 3D animation, 16:9.'},
+    {'id':'002','prompt':'Colourful alien spaceship bridge, Earth huge through front window. Pip points at Earth; Bloop leans to glass; Zig checks gadget; Momo waves. Friendly cinematic 3D animation.'},
+    {'id':'003','prompt':'Sunny park. Small rounded rescue spaceship has harmlessly landed through hedge into flowers. Leaves float; Bloop peeks from hatch. Playful bright 3D comedy.'},
+    {'id':'004','prompt':'Sunny park beside landed spaceship. Child meets Pip, Bloop, Zig and Momo. Pip steps forward; Zig holds scanner; child surprised but unafraid. Friendly 3D animation.'},
+    {'id':'005','prompt':'Sunny park tree with colourful kite stuck high. Pip, Bloop, Zig and Momo stare up dramatically; child gives confused shrug. Friendly 3D comedy.'},
+    {'id':'006a','prompt':'Base of kite tree. Zig proudly kneels beside compact colourful rescue gadget with folded arms. Pip watches; Bloop leans in; child cautious; Momo calm. Bright 3D animation.'},
+    {'id':'006b','prompt':'Same tree. Rescue gadget spins harmlessly, arms pointing wrong ways, leaves flying. Bloop chases it; Zig shocked; Pip directs; child amused; Momo calm. 3D comedy.'},
+    {'id':'007','prompt':'Quiet beat under tree. Momo simply reaches up with gentle tool and frees kite. Child smiles; Pip, Bloop and Zig stand stunned behind. Warm 3D animation.'},
+    {'id':'008','prompt':'Sunny park celebration. Child holds rescued kite. Pip heroic pose; Bloop jumps; Zig poses proudly; Momo claps. Cheerful colourful 3D animation.'},
+    {'id':'009','prompt':'Sunny park comedy. Bloop holds alien snack as ordinary grey pigeon steals it. Bloop freezes; Pip, Zig and Momo turn; child holds kite nearby. Bright 3D animation.'},
 ]
 
 
@@ -110,7 +105,6 @@ def preflight_reference_sheet():
             raise RuntimeError(f'CONTINUITY_BLOCK: manifest does not require {Path(path).name}')
 
     images = [decode_canon_image(name, path, digest) for name, path, digest in REFERENCE_FILES]
-
     cell_w, cell_h = 224, 280
     sheet = Image.new('RGB', (cell_w * len(images), cell_h), (238, 238, 238))
     for idx, image in enumerate(images):
@@ -125,9 +119,6 @@ def preflight_reference_sheet():
 
 
 def install() -> None:
-    # Do not install unrelated Kaggle packages. Explicitly loading the correct CLIP
-    # vision encoder below avoids the auto-selected encoder that produced 1664-dim
-    # patch embeddings against the adapter's 1280-dim projection matrix.
     subprocess.run([
         sys.executable, '-m', 'pip', 'install', '-q', '-U',
         'diffusers', 'transformers', 'accelerate', 'safetensors', 'Pillow<12'
@@ -152,8 +143,6 @@ def main() -> int:
     from diffusers import AutoPipelineForText2Image
     from transformers import CLIPVisionModelWithProjection
 
-    # Critical compatibility fix: the Plus SDXL ViT-H adapter expects the h94 ViT-H
-    # encoder (hidden_size=1280). Never let diffusers infer/auto-select an encoder.
     image_encoder = CLIPVisionModelWithProjection.from_pretrained(
         'h94/IP-Adapter',
         subfolder='models/image_encoder',
@@ -173,12 +162,19 @@ def main() -> int:
         weight_name='ip-adapter-plus_sdxl_vit-h.safetensors',
     )
     pipe.set_ip_adapter_scale(0.90)
-    pipe.enable_model_cpu_offload()
+
+    # Do NOT use enable_model_cpu_offload() with this IP-Adapter path. Diffusers has
+    # a known failure mode where offload + IP-Adapter sends tuple encoder states into
+    # attention and crashes with: AttributeError: tuple object has no attribute shape.
+    # A Kaggle T4 has enough VRAM for this fp16 SDXL setup at 768x432, so keep the
+    # pipeline resident on CUDA and use attention slicing / VAE tiling instead.
+    if not torch.cuda.is_available():
+        raise RuntimeError('GPU_BLOCK: CUDA is required for the stills kernel')
+    pipe.to('cuda')
     pipe.enable_attention_slicing()
     if hasattr(pipe, 'enable_vae_tiling'):
         pipe.enable_vae_tiling()
 
-    # Assert the exact encoder architecture before spending GPU time on shots.
     hidden_size = int(getattr(image_encoder.config, 'hidden_size', 0))
     if hidden_size != 1280:
         raise RuntimeError(f'IP_ADAPTER_BLOCK: expected ViT-H hidden_size 1280, got {hidden_size}')
@@ -191,8 +187,7 @@ def main() -> int:
         'master_reference_staged_as':str(master_path),
         'image_encoder_hidden_size':hidden_size,
         'ip_adapter_scale':0.90,
-        'gpu':torch.cuda.get_device_name(0) if torch.cuda.is_available() else None,
-        'shots':[]
+        'gpu':torch.cuda.get_device_name(0),'shots':[]
     }
 
     for index, shot in enumerate(SHOTS):
@@ -205,7 +200,7 @@ def main() -> int:
                 ip_adapter_image=master_ref,
                 guidance_scale=6.0,
                 num_inference_steps=32,
-                generator=torch.Generator(device='cpu').manual_seed(9300 + index),
+                generator=torch.Generator(device='cuda').manual_seed(9300 + index),
                 width=768,
                 height=432,
             ).images[0]
@@ -215,9 +210,12 @@ def main() -> int:
         except Exception as exc:
             result['shots'].append({'id':shot['id'],'success':False,'error':f'{type(exc).__name__}: {exc}'[:3000]})
             print(f"SHOT {shot['id']} FAILED -> {type(exc).__name__}: {exc}", flush=True)
-            # A structural model/adapter failure will hit every shot. Fail immediately
-            # instead of wasting GPU time repeating the identical error nine times.
-            if 'mat1 and mat2 shapes cannot be multiplied' in str(exc):
+            structural = (
+                'mat1 and mat2 shapes cannot be multiplied',
+                "tuple' object has no attribute 'shape'",
+                'CUDA out of memory',
+            )
+            if any(marker in str(exc) for marker in structural):
                 write_report(result)
                 return 3
         write_report(result)
