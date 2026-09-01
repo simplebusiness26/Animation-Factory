@@ -1,17 +1,19 @@
 {
   "episode": "001",
   "title": "The Great Earth Emergency",
-  "phase": "failed",
+  "phase": "awaiting_stills",
   "stills_kernel": "simplebusiness/enh-e001-stills-r6-8254549",
-  "stills_attempts": 6,
+  "stills_attempts": 0,
   "motion_kernel": "simplebusiness/enh-e001-motion-r5-7908633-0",
   "motion_attempts": 0,
-  "last_status": "STILLS_TERMINAL_FAILURE",
-  "last_error": "Stills generation exhausted 6 automatic retries. Last reason: completed output failed validation: UnidentifiedImageError: cannot identify image file '/tmp/e001-s001-fy9riv42/shot1.jpg'",
-  "updated_at": "2026-09-01T09:31:56Z",
+  "last_status": "STILLS_RETRY_RESET_AFTER_SHOT001_FIX",
+  "last_error": null,
+  "updated_at": "2026-09-01T10:12:00Z",
   "release_tag": "earth-needs-help-e001",
   "stills_submit_failures": 0,
   "motion_submit_failures": 0,
   "assembly_attempts": 0,
-  "continuity_gate": "passed"
+  "continuity_gate": "passed",
+  "force_stills_retry": true,
+  "force_stills_retry_reason": "Legacy Shot 001 bridge asset was corrupt and falsely invalidated completed Kaggle still batches. Shot 001 is now generated from the same locked canon as the rest of the episode."
 }
