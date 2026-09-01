@@ -1,17 +1,17 @@
 {
   "episode": "001",
   "title": "The Great Earth Emergency",
-  "phase": "blocked_continuity",
-  "stills_kernel": "simplebusiness/enh-e001-stills-r2-8231233",
-  "stills_attempts": 0,
+  "phase": "awaiting_stills",
+  "stills_kernel": "simplebusiness/enh-e001-stills-r1-8234994",
+  "stills_attempts": 1,
   "motion_kernel": "simplebusiness/enh-e001-motion-r5-7908633-0",
   "motion_attempts": 0,
-  "last_status": "VALIDATED_CANON_PACK_READY_FOR_CLEAN_RETRY",
+  "last_status": "STILLS_RETRY_1_SUBMITTED",
   "last_error": null,
-  "updated_at": "2026-09-01T03:47:00Z",
+  "updated_at": "2026-09-01T03:56:36Z",
   "release_tag": "earth-needs-help-e001",
   "stills_submit_failures": 0,
   "motion_submit_failures": 0,
   "assembly_attempts": 0,
-  "continuity_gate": "blocked"
+  "continuity_gate": "passed"
 }
