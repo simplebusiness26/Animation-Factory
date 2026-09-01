@@ -1,7 +1,7 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "show": "Earth Needs Help",
-  "status": "reference_pack_incomplete",
+  "status": "locked",
   "canon_policy": {
     "approved_visual_reference_overrides_text": true,
     "text_only_recurring_character_generation_allowed": false,
@@ -9,55 +9,58 @@
     "continuity_qa_required_before_motion": true,
     "fail_closed_when_reference_missing": true,
     "generated_storyboards_are_canon": false,
-    "generated_episode_stills_are_canon": false
+    "generated_episode_stills_are_canon": false,
+    "silent_character_redesign_allowed": false
+  },
+  "canonical_source": {
+    "approved_by_user": true,
+    "source": "Animation Factory: Earth Needs Help Pipeline master sheet uploaded in chat",
+    "source_sha256": "4229269de07a9d17402ae40f7cd25d7880c9e41498808822c62fda48d4fc5477",
+    "approved_reference_row": "MAIN CHARACTERS - CONSISTENCY REFERENCE",
+    "lock_rule": "No recurring character may be redesigned without explicit user approval."
   },
   "canonical_cast": {
     "captain-pip": {
-      "identity": "green rounded alien captain with large expressive eyes",
+      "identity": "green rounded alien captain with large expressive eyes, white captain hat and dark captain uniform exactly as in the approved visual reference",
       "primary_colour": "green",
-      "silhouette": "rounded head and friendly captain silhouette",
-      "reference": "shows/earth-needs-help/assets/characters/captain-pip.png"
+      "reference": "shows/earth-needs-help/assets/characters/captain-pip.jpg.b64"
     },
     "bloop": {
-      "identity": "blue round alien with antennae and huge expressive eyes",
+      "identity": "blue round alien with antennae and huge expressive eyes exactly as in the approved visual reference",
       "primary_colour": "blue",
-      "silhouette": "small/round/soft",
-      "reference": "shows/earth-needs-help/assets/characters/bloop.png"
+      "reference": "shows/earth-needs-help/assets/characters/bloop.jpg.b64"
     },
     "zig": {
-      "identity": "purple tall slim alien inventor with expressive face",
+      "identity": "purple tall slim alien inventor exactly as in the approved visual reference",
       "primary_colour": "purple",
-      "silhouette": "tall/slim",
-      "reference": "shows/earth-needs-help/assets/characters/zig.png"
+      "reference": "shows/earth-needs-help/assets/characters/zig.jpg.b64"
     },
     "momo": {
-      "identity": "pink small calm alien with large ear/head-side features",
+      "identity": "pink small calm alien with large ear/head-side features exactly as in the approved visual reference",
       "primary_colour": "pink",
-      "silhouette": "small/rounded with large side features",
-      "reference": "shows/earth-needs-help/assets/characters/momo.png"
+      "reference": "shows/earth-needs-help/assets/characters/momo.jpg.b64"
     },
     "human-child": {
-      "identity": "recurring stylised Earth child; exact appearance comes only from locked visual reference",
-      "reference": "shows/earth-needs-help/assets/characters/human-child.png"
+      "identity": "brown-haired stylised Earth child in blue hoodie exactly as in the approved visual reference",
+      "reference": "shows/earth-needs-help/assets/characters/human-child.jpg.b64"
     }
   },
   "reference_pack": {
-    "status": "incomplete",
+    "status": "locked",
     "directory": "shows/earth-needs-help/assets/characters",
+    "encoding": "base64-jpeg",
     "required_files": [
-      "captain-pip.png",
-      "bloop.png",
-      "zig.png",
-      "momo.png",
-      "human-child.png",
-      "full-cast.png"
+      "captain-pip.jpg.b64",
+      "bloop.jpg.b64",
+      "zig.jpg.b64",
+      "momo.jpg.b64",
+      "human-child.jpg.b64"
     ],
-    "provisional_group_reference": "shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/earth-needs-help-e001-s001.png",
-    "note": "Shot 001 may help identify the established cast, but it is not a substitute for individual locked character references. Production still regeneration remains blocked until the required visual pack is committed and this status is changed to locked."
+    "note": "These files are direct crops from the user-approved master consistency sheet. The generator decodes and injects the relevant visual references for every shot."
   },
   "episode_001": {
     "current_generated_stills_002_009": "rejected_continuity",
     "motion_generation_allowed": false,
-    "reason": "The previous still generator used a weak group-image/text lock and high img2img denoise strength, allowing character redesigns."
+    "reason": "Old stills remain rejected. A fresh still batch must be generated from the locked visual pack and pass continuity QA before motion."
   }
 }
