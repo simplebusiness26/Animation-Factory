@@ -2,6 +2,7 @@
   "schema_version": 5,
   "show": "Earth Needs Help",
   "status": "locked",
+  "generation_epoch": "canon-repair-2026-09-01T03:47Z",
   "canon_policy": {
     "approved_visual_reference_overrides_text": true,
     "text_only_recurring_character_generation_allowed": false,
