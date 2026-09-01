@@ -56,10 +56,15 @@ def preflight_reference_sheet():
     return sheet,target
 
 def install():
-    # Pin a known-compatible Diffusers/Transformers pair. The previous unpinned 2026 stack
-    # mixed an SDXL IP-Adapter attention API with newer tuple encoder-state semantics.
-    pkgs=['diffusers==0.31.0','transformers==4.46.3','accelerate==1.1.1','safetensors==0.4.5','huggingface-hub==0.26.2','Pillow<12']
-    subprocess.run([sys.executable,'-m','pip','install','-q','--upgrade','--force-reinstall',*pkgs],check=True)
+    # Kaggle's base image ships a mutually compatible torch/torchvision pair. Do not
+    # let pip replace either of them: previous force-reinstalls upgraded transitive
+    # CUDA/torch pieces and broke torchvision registration (torchvision::nms).
+    # Only replace the HF-layer packages we need, without touching their deps.
+    pkgs=[
+        'diffusers==0.31.0','transformers==4.46.3','accelerate==1.1.1',
+        'safetensors==0.4.5','huggingface-hub==0.26.2','tokenizers==0.20.3','Pillow<12'
+    ]
+    subprocess.run([sys.executable,'-m','pip','install','-q','--upgrade','--no-deps',*pkgs],check=True)
 
 def main()->int:
     started=time.time()
@@ -67,10 +72,10 @@ def main()->int:
     except Exception as exc:
         write_report({'show':'Earth Needs Help','episode':'001','success':False,'status':'blocked_continuity','error':f'{type(exc).__name__}: {exc}','shots':[]}); return 2
     install()
-    import torch
+    import torch, torchvision
+    print('VERSIONS', 'torch='+torch.__version__, 'torchvision='+torchvision.__version__, flush=True)
     from diffusers import StableDiffusionXLPipeline
     from transformers import CLIPVisionModelWithProjection
-    print('VERSIONS',torch.__version__,flush=True)
     image_encoder=CLIPVisionModelWithProjection.from_pretrained('h94/IP-Adapter',subfolder='models/image_encoder',torch_dtype=torch.float16)
     if int(getattr(image_encoder.config,'hidden_size',0))!=1280: raise RuntimeError('IP_ADAPTER_BLOCK: ViT-H hidden size mismatch')
     pipe=StableDiffusionXLPipeline.from_pretrained('stabilityai/stable-diffusion-xl-base-1.0',image_encoder=image_encoder,torch_dtype=torch.float16,variant='fp16',use_safetensors=True)
@@ -79,7 +84,7 @@ def main()->int:
     if not torch.cuda.is_available(): raise RuntimeError('GPU_BLOCK: CUDA required')
     pipe.to('cuda'); pipe.enable_attention_slicing()
     if hasattr(pipe,'enable_vae_tiling'): pipe.enable_vae_tiling()
-    result={'show':'Earth Needs Help','episode':'001','success':False,'reference_mode':'validated canon sheet -> pinned Diffusers 0.31.0 -> explicit ViT-H -> SDXL IP-Adapter Plus','continuity_manifest':MANIFEST_PATH,'reference_files':[p for _,p,_ in REFERENCE_FILES],'master_reference_staged_as':str(master_path),'image_encoder_hidden_size':1280,'ip_adapter_scale':0.90,'gpu':torch.cuda.get_device_name(0),'shots':[]}
+    result={'show':'Earth Needs Help','episode':'001','success':False,'reference_mode':'validated canon sheet -> pinned HF layer/no torch replacement -> explicit ViT-H -> SDXL IP-Adapter Plus','continuity_manifest':MANIFEST_PATH,'reference_files':[p for _,p,_ in REFERENCE_FILES],'master_reference_staged_as':str(master_path),'image_encoder_hidden_size':1280,'ip_adapter_scale':0.90,'gpu':torch.cuda.get_device_name(0),'shots':[]}
     for index,shot in enumerate(SHOTS):
         name=f"earth-needs-help-e001-s{shot['id']}.png"
         try:
