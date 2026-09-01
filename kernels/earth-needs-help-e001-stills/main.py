@@ -1,15 +1,18 @@
 #!/usr/bin/env python3
-"""Generate Earth Needs Help Episode 001 stills from the locked master consistency reference.
+"""Generate Earth Needs Help Episode 001 stills from locked visual canon.
 
-The prior retry path decoded the small per-character crops into files that Pillow could
-not identify on Kaggle. This runner uses the original locked master consistency sheet
-(`character-lock.b64`) as the visual IP-Adapter reference for every shot, while still
-checking the continuity manifest and preserving the fail-closed continuity gate.
-All retries that reference canonical-character-refs/*.jpg are stale and must not be reused.
+Continuity rules:
+- recurring character identity is never generated from text alone;
+- every canon crop is fetched, base64-decoded, hash-checked and opened by Pillow
+  before any model is loaded;
+- the five approved crops are composed into one clean runtime reference sheet;
+- that sheet is injected through SDXL IP-Adapter Plus on every shot;
+- any unreadable/mismatched reference fails closed before GPU generation.
 """
 from __future__ import annotations
 
 import base64
+import hashlib
 import io
 import json
 import subprocess
@@ -21,10 +24,17 @@ from pathlib import Path
 WORK = Path('/kaggle/working')
 RAW_BASE = 'https://raw.githubusercontent.com/simplebusiness26/Animation-Factory/main/'
 MANIFEST_PATH = 'shows/earth-needs-help/continuity-manifest.json'
-MASTER_LOCK_PATH = 'kernels/earth-needs-help-e001-stills/character-lock.b64'
+
+REFERENCE_FILES = [
+    ('captain-pip', 'shows/earth-needs-help/assets/characters/captain-pip.jpg.b64', 'fce0949798c906abe4282d3bfee778e98530d4750805ef704c6a26ab18bd09c6'),
+    ('bloop', 'shows/earth-needs-help/assets/characters/bloop.jpg.b64', 'a324cd57f151b55e870453dbbf6a56f7bb529d938a5acc43d8b96bbb22b33e96'),
+    ('zig', 'shows/earth-needs-help/assets/characters/zig.jpg.b64', 'd7b519f171e91f776f7e25d44b5a393fdb5b19bef63c885cc01c3c0ef2086c17'),
+    ('momo', 'shows/earth-needs-help/assets/characters/momo.jpg.b64', '126d3cbc5da02fae3b1c2b734f0fe54d1ae44dd16bf7d3c69b2ae95cf945e356'),
+    ('human-child', 'shows/earth-needs-help/assets/characters/human-child.jpg.b64', '7aa15b2a11ae15f095eaabca38252672e5828add647806971f0d438ef4417ddb'),
+]
 
 CANONICAL_LOCK = (
-    'The attached MAIN CHARACTERS consistency reference is the absolute visual source of truth. '
+    'The attached five-character consistency reference is the absolute visual source of truth. '
     'Reproduce the SAME recurring character designs; do not reinterpret, remix or redesign them. '
     'Captain Pip is the GREEN rounded alien captain with large expressive eyes, white captain hat and dark captain uniform exactly as shown. '
     'Bloop is the BLUE round alien with antennae and huge expressive eyes exactly as shown. '
@@ -66,8 +76,26 @@ def load_manifest() -> dict:
     return json.loads(fetch_raw(MANIFEST_PATH).decode('utf-8'))
 
 
-def preflight_master_reference():
+def decode_canon_image(name: str, path: str, expected_sha256: str):
     from PIL import Image
+    try:
+        encoded = fetch_raw(path).decode('utf-8').strip()
+        data = base64.b64decode(encoded, validate=True)
+    except Exception as exc:
+        raise RuntimeError(f'CONTINUITY_BLOCK: {name} reference base64 is invalid: {type(exc).__name__}: {exc}') from exc
+    digest = hashlib.sha256(data).hexdigest()
+    if digest != expected_sha256:
+        raise RuntimeError(f'CONTINUITY_BLOCK: {name} reference hash mismatch: {digest}')
+    try:
+        image = Image.open(io.BytesIO(data)).convert('RGB')
+        image.load()
+    except Exception as exc:
+        raise RuntimeError(f'CONTINUITY_BLOCK: {name} reference is unreadable: {type(exc).__name__}: {exc}') from exc
+    return image
+
+
+def preflight_reference_sheet():
+    from PIL import Image, ImageOps
     manifest = load_manifest()
     pack = manifest.get('reference_pack') or {}
     policy = manifest.get('canon_policy') or {}
@@ -80,16 +108,26 @@ def preflight_master_reference():
     if policy.get('silent_character_redesign_allowed'):
         raise RuntimeError('CONTINUITY_BLOCK: silent character redesign is forbidden')
 
-    encoded = fetch_raw(MASTER_LOCK_PATH).decode('utf-8').strip()
-    data = base64.b64decode(encoded)
-    try:
-        image = Image.open(io.BytesIO(data)).convert('RGB')
-        image.load()
-    except Exception as exc:
-        raise RuntimeError(f'CONTINUITY_BLOCK: locked master reference is unreadable: {type(exc).__name__}: {exc}') from exc
-    target = WORK / 'canonical-master-reference.jpg'
-    image.save(target, 'JPEG', quality=96)
-    return image, target
+    required = set(pack.get('required_files') or [])
+    for _, path, _ in REFERENCE_FILES:
+        if Path(path).name not in required:
+            raise RuntimeError(f'CONTINUITY_BLOCK: manifest does not require {Path(path).name}')
+
+    images = [decode_canon_image(name, path, digest) for name, path, digest in REFERENCE_FILES]
+
+    # Give each approved crop equal visual weight. This sheet is derived only from
+    # the user-approved MAIN CHARACTERS consistency row, not from generated stills.
+    cell_w, cell_h = 224, 280
+    sheet = Image.new('RGB', (cell_w * len(images), cell_h), (238, 238, 238))
+    for idx, image in enumerate(images):
+        fitted = ImageOps.contain(image, (190, 240), method=Image.Resampling.LANCZOS)
+        x = idx * cell_w + (cell_w - fitted.width) // 2
+        y = (cell_h - fitted.height) // 2
+        sheet.paste(fitted, (x, y))
+
+    target = WORK / 'canonical-five-character-reference.jpg'
+    sheet.save(target, 'JPEG', quality=96)
+    return sheet, target
 
 
 def install() -> None:
@@ -107,7 +145,7 @@ def write_report(payload: dict) -> None:
 def main() -> int:
     started = time.time()
     try:
-        master_ref, master_path = preflight_master_reference()
+        master_ref, master_path = preflight_reference_sheet()
     except Exception as exc:
         write_report({'show':'Earth Needs Help','episode':'001','success':False,'status':'blocked_continuity','error':f'{type(exc).__name__}: {exc}','generated_shots':[]})
         return 2
@@ -129,8 +167,9 @@ def main() -> int:
 
     result = {
         'show':'Earth Needs Help','episode':'001','success':False,
-        'reference_mode':'locked user-approved MAIN CHARACTERS master consistency sheet -> IP-Adapter Plus on every shot',
-        'continuity_manifest':MANIFEST_PATH,'master_reference':MASTER_LOCK_PATH,
+        'reference_mode':'five hash-validated user-approved canon crops -> runtime master sheet -> IP-Adapter Plus on every shot',
+        'continuity_manifest':MANIFEST_PATH,
+        'reference_files':[path for _, path, _ in REFERENCE_FILES],
         'master_reference_staged_as':str(master_path),'ip_adapter_scale':0.95,
         'gpu':torch.cuda.get_device_name(0) if torch.cuda.is_available() else None,'shots':[]
     }
@@ -146,7 +185,7 @@ def main() -> int:
                 width=768, height=432,
             ).images[0]
             image.save(WORK / name)
-            result['shots'].append({'id':shot['id'],'success':True,'file':name,'reference_loaded':'locked master consistency sheet'})
+            result['shots'].append({'id':shot['id'],'success':True,'file':name,'reference_loaded':'five validated canon crops'})
             print(f"SHOT {shot['id']} COMPLETE -> {name}", flush=True)
         except Exception as exc:
             result['shots'].append({'id':shot['id'],'success':False,'error':f'{type(exc).__name__}: {exc}'[:3000]})
