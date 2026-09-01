@@ -1,0 +1,534 @@
+[{"stream_name":"stdout","time":7.7316593430000005,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.9/5.9 MB 60.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":7.862459962,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.1/12.1 MB 102.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":7.896111316,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 389.2/389.2 kB 24.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":7.927374849,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 516.0/516.0 kB 32.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":7.960140708,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 795.8/795.8 kB 44.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":8.013826368,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 86.5 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":8.04242937,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 125.3/125.3 kB 8.5 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":8.099175228,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 109.4 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":28.49983685,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":28.499870622,"data":"google-adk 1.29.0 requires google-cloud-bigquery-storage\u003e=2.0.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":60.293960053,"data":"[transformers] `Siglip2ImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `Siglip2ImageProcessor` instead.\n"}
+,{"stream_name":"stderr","time":60.324217645,"data":"/usr/local/lib/python3.12/dist-packages/huggingface_hub/utils/_validators.py:205: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.\n"}
+,{"stream_name":"stderr","time":60.324247908,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":60.556706644,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":60.556746602,"data":"WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":60.59360849,"data":"/usr/local/lib/python3.12/dist-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.\n"}
+,{"stream_name":"stderr","time":60.593650284,"data":"  deprecate(\"torch_dtype\", \"1.0.0\", _TORCH_DTYPE_DEPRECATION_MESSAGE)\n"}
+,{"stream_name":"stderr","time":90.100474106,"data":"\rFetching 19 files:   0%|          | 0/19 [00:00\u003c?, ?it/s]\rFetching 19 files:  16%|█▌        | 3/19 [00:00\u003c00:00, 16.87it/s]\rFetching 19 files:  53%|█████▎    | 10/19 [00:00\u003c00:00, 39.08it/s]\rFetching 19 files:  79%|███████▉  | 15/19 [00:01\u003c00:00,  7.14it/s]\rFetching 19 files:  95%|█████████▍| 18/19 [00:12\u003c00:01,  1.06s/it]\rFetching 19 files: 100%|██████████| 19/19 [00:29\u003c00:00,  2.90s/it]\rFetching 19 files: 100%|██████████| 19/19 [00:29\u003c00:00,  1.54s/it]\n"}
+,{"stream_name":"stderr","time":91.510296423,"data":"\rLoading pipeline components...:   0%|          | 0/7 [00:00\u003c?, ?it/s]\rLoading pipeline components...:  14%|█▍        | 1/7 [00:01\u003c00:07,  1.29s/it]\n"}
+,{"stream_name":"stderr","time":91.591112434,"data":"\rLoading weights:   0%|          | 0/196 [00:00\u003c?, ?it/s]\u001b[A\rLoading weights: 100%|██████████| 196/196 [00:00\u003c00:00, 2459.90it/s]\n"}
+,{"stream_name":"stderr","time":92.131713344,"data":"\rLoading pipeline components...:  29%|██▊       | 2/7 [00:01\u003c00:03,  1.53it/s]\rLoading pipeline components...:  57%|█████▋    | 4/7 [00:01\u003c00:00,  3.62it/s]\rLoading pipeline components...:  86%|████████▌ | 6/7 [00:01\u003c00:00,  4.57it/s]\n"}
+,{"stream_name":"stderr","time":92.233320994,"data":"\rLoading weights:   0%|          | 0/517 [00:00\u003c?, ?it/s]\u001b[A\n"}
+,{"stream_name":"stderr","time":92.333553848,"data":"\rLoading weights:  48%|████▊     | 249/517 [00:00\u003c00:00, 2453.95it/s]\u001b[A\n"}
+,{"stream_name":"stderr","time":92.338273125,"data":"\rLoading weights:  96%|█████████▋| 498/517 [00:00\u003c00:00, 2471.82it/s]\u001b[A\rLoading weights: 100%|██████████| 517/517 [00:00\u003c00:00, 2505.48it/s]\n"}
+,{"stream_name":"stderr","time":92.348504432,"data":"\rLoading pipeline components...: 100%|██████████| 7/7 [00:02\u003c00:00,  4.03it/s]\rLoading pipeline components...: 100%|██████████| 7/7 [00:02\u003c00:00,  3.12it/s]\n"}
+,{"stream_name":"stderr","time":106.574542514,"data":"\rLoading weights:   0%|          | 0/776 [00:00\u003c?, ?it/s]\rLoading weights:  30%|███       | 234/776 [00:00\u003c00:00, 2333.74it/s]\rLoading weights:  60%|██████    | 468/776 [00:00\u003c00:00, 2260.98it/s]\rLoading weights:  90%|████████▉ | 695/776 [00:00\u003c00:00, 2230.11it/s]\rLoading weights: 100%|██████████| 776/776 [00:00\u003c00:00, 2253.75it/s]\n"}
+,{"stream_name":"stderr","time":107.192305832,"data":"There are modules in UNet2DConditionModel that should be kept in float32: []. Casting directly with `to()` can lead to inconsistent results; set `torch_dtype` in `from_pretrained()` instead to keep these modules in float32.\n"}
+,{"stream_name":"stderr","time":107.343443405,"data":"[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (254 \u003e 77). Running this sequence through the model will result in indexing errors\n"}
+,{"stream_name":"stderr","time":107.349753496,"data":"[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer CLIPTokenizer. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.\n"}
+,{"stream_name":"stderr","time":107.349777464,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['zig is the purple tall slim alien inventor exactly as shown . momo is the pink small calm alien with the large ear / head - side silhouette exactly as shown . when the earth child is visible , use the exact brown - haired child in the blue hoodie shown in the reference . never swap colours , faces , silhouettes , clothing , accessories , roles , or relative scale . identity is locked ; only pose , expression , action , camera and location may change . polished bright friendly 3 d childrens comedy animation , rounded forms , warm cinematic lighting , 1 6 : 9 landscape . compose a new production scene using those exact recurring designs . inside the established colourful alien spaceship bridge . earth fills the large front window . captain pip points dramatically toward earth . bloop leans excitedly toward the glass . zig checks an inventor gadget . momo gives earth a gentle friendly wave . single clean production frame only . no text .']\n"}
+,{"stream_name":"stderr","time":108.22559115,"data":"[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (254 \u003e 77). Running this sequence through the model will result in indexing errors\n"}
+,{"stream_name":"stderr","time":108.230107267,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['zig is the purple tall slim alien inventor exactly as shown . momo is the pink small calm alien with the large ear / head - side silhouette exactly as shown . when the earth child is visible , use the exact brown - haired child in the blue hoodie shown in the reference . never swap colours , faces , silhouettes , clothing , accessories , roles , or relative scale . identity is locked ; only pose , expression , action , camera and location may change . polished bright friendly 3 d childrens comedy animation , rounded forms , warm cinematic lighting , 1 6 : 9 landscape . compose a new production scene using those exact recurring designs . inside the established colourful alien spaceship bridge . earth fills the large front window . captain pip points dramatically toward earth . bloop leans excitedly toward the glass . zig checks an inventor gadget . momo gives earth a gentle friendly wave . single clean production frame only . no text .']\n"}
+,{"stream_name":"stdout","time":118.498984217,"data":"SHOT 002 FAILED -\u003e RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\n"}
+,{"stream_name":"stderr","time":118.498984143,"data":"\r  0%|          | 0/34 [00:00\u003c?, ?it/s]\r  0%|          | 0/34 [00:05\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":118.499333357,"data":"{\n"}
+,{"stream_name":"stdout","time":118.49942386,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":118.499431232,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":118.499435344,"data":"  \"success\": false,\n"}
+,{"stream_name":"stdout","time":118.499439078,"data":"  \"reference_mode\": \"five hash-validated user-approved canon crops -\u003e runtime master sheet -\u003e IP-Adapter Plus on every shot\",\n"}
+,{"stream_name":"stdout","time":118.499444478,"data":"  \"continuity_manifest\": \"shows/earth-needs-help/continuity-manifest.json\",\n"}
+,{"stream_name":"stdout","time":118.49944893,"data":"  \"reference_files\": [\n"}
+,{"stream_name":"stdout","time":118.499453521,"data":"    \"shows/earth-needs-help/assets/characters/captain-pip.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":118.499457908,"data":"    \"shows/earth-needs-help/assets/characters/bloop.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":118.499461904,"data":"    \"shows/earth-needs-help/assets/characters/zig.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":118.499465657,"data":"    \"shows/earth-needs-help/assets/characters/momo.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":118.499469674,"data":"    \"shows/earth-needs-help/assets/characters/human-child.jpg.b64\"\n"}
+,{"stream_name":"stdout","time":118.499473636,"data":"  ],\n"}
+,{"stream_name":"stdout","time":118.499477184,"data":"  \"master_reference_staged_as\": \"/kaggle/working/canonical-five-character-reference.jpg\",\n"}
+,{"stream_name":"stdout","time":118.499481208,"data":"  \"ip_adapter_scale\": 0.95,\n"}
+,{"stream_name":"stdout","time":118.499503236,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":118.49951181,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":118.499514335,"data":"    {\n"}
+,{"stream_name":"stdout","time":118.499516743,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":118.499519236,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":118.49952189,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":118.499524612,"data":"    }\n"}
+,{"stream_name":"stdout","time":118.499526972,"data":"  ]\n"}
+,{"stream_name":"stdout","time":118.499529339,"data":"}\n"}
+,{"stream_name":"stderr","time":118.511387008,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['zig is the purple tall slim alien inventor exactly as shown . momo is the pink small calm alien with the large ear / head - side silhouette exactly as shown . when the earth child is visible , use the exact brown - haired child in the blue hoodie shown in the reference . never swap colours , faces , silhouettes , clothing , accessories , roles , or relative scale . identity is locked ; only pose , expression , action , camera and location may change . polished bright friendly 3 d childrens comedy animation , rounded forms , warm cinematic lighting , 1 6 : 9 landscape . compose a new production scene using those exact recurring designs . sunny colourful neighbourhood park on earth . the crews small rounded rescue spaceship has made a funny harmless landing through a soft hedge and stopped crooked in a flowerbed . leaves float in the air and bloop peeks from the hatch . no injuries or damage ; playful physical comedy . single clean production frame only . no text .']\n"}
+,{"stream_name":"stderr","time":118.592334089,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['zig is the purple tall slim alien inventor exactly as shown . momo is the pink small calm alien with the large ear / head - side silhouette exactly as shown . when the earth child is visible , use the exact brown - haired child in the blue hoodie shown in the reference . never swap colours , faces , silhouettes , clothing , accessories , roles , or relative scale . identity is locked ; only pose , expression , action , camera and location may change . polished bright friendly 3 d childrens comedy animation , rounded forms , warm cinematic lighting , 1 6 : 9 landscape . compose a new production scene using those exact recurring designs . sunny colourful neighbourhood park on earth . the crews small rounded rescue spaceship has made a funny harmless landing through a soft hedge and stopped crooked in a flowerbed . leaves float in the air and bloop peeks from the hatch . no injuries or damage ; playful physical comedy . single clean production frame only . no text .']\n"}
+,{"stream_name":"stderr","time":123.132901149,"data":"\r  0%|          | 0/34 [00:00\u003c?, ?it/s]\r  0%|          | 0/34 [00:02\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":123.13293023,"data":"SHOT 003 FAILED -\u003e RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\n"}
+,{"stream_name":"stdout","time":123.133367883,"data":"{\n"}
+,{"stream_name":"stdout","time":123.133382921,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":123.13338961,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":123.133394199,"data":"  \"success\": false,\n"}
+,{"stream_name":"stdout","time":123.133399014,"data":"  \"reference_mode\": \"five hash-validated user-approved canon crops -\u003e runtime master sheet -\u003e IP-Adapter Plus on every shot\",\n"}
+,{"stream_name":"stdout","time":123.133406114,"data":"  \"continuity_manifest\": \"shows/earth-needs-help/continuity-manifest.json\",\n"}
+,{"stream_name":"stdout","time":123.133422657,"data":"  \"reference_files\": [\n"}
+,{"stream_name":"stdout","time":123.133434244,"data":"    \"shows/earth-needs-help/assets/characters/captain-pip.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":123.133438562,"data":"    \"shows/earth-needs-help/assets/characters/bloop.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":123.133442147,"data":"    \"shows/earth-needs-help/assets/characters/zig.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":123.133445682,"data":"    \"shows/earth-needs-help/assets/characters/momo.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":123.133449227,"data":"    \"shows/earth-needs-help/assets/characters/human-child.jpg.b64\"\n"}
+,{"stream_name":"stdout","time":123.133452883,"data":"  ],\n"}
+,{"stream_name":"stdout","time":123.133456135,"data":"  \"master_reference_staged_as\": \"/kaggle/working/canonical-five-character-reference.jpg\",\n"}
+,{"stream_name":"stdout","time":123.13345984,"data":"  \"ip_adapter_scale\": 0.95,\n"}
+,{"stream_name":"stdout","time":123.1334651,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":123.133472095,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":123.133474572,"data":"    {\n"}
+,{"stream_name":"stdout","time":123.13347684,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":123.133479221,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":123.1334816,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":123.133484225,"data":"    },\n"}
+,{"stream_name":"stdout","time":123.133486442,"data":"    {\n"}
+,{"stream_name":"stdout","time":123.133488637,"data":"      \"id\": \"003\",\n"}
+,{"stream_name":"stdout","time":123.133490958,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":123.133493342,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":123.133495806,"data":"    }\n"}
+,{"stream_name":"stdout","time":123.133498049,"data":"  ]\n"}
+,{"stream_name":"stdout","time":123.133500307,"data":"}\n"}
+,{"stream_name":"stderr","time":123.145467737,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['zig is the purple tall slim alien inventor exactly as shown . momo is the pink small calm alien with the large ear / head - side silhouette exactly as shown . when the earth child is visible , use the exact brown - haired child in the blue hoodie shown in the reference . never swap colours , faces , silhouettes , clothing , accessories , roles , or relative scale . identity is locked ; only pose , expression , action , camera and location may change . polished bright friendly 3 d childrens comedy animation , rounded forms , warm cinematic lighting , 1 6 : 9 landscape . compose a new production scene using those exact recurring designs . sunny park beside the landed alien spaceship . the recurring earth child faces the four alien rescuers for the first time . captain pip steps forward , bloop peeks curiously , zig holds a small scanner , and momo stands calmly behind them . the child is surprised , curious and unafraid . single clean production frame only . no text .']\n"}
+,{"stream_name":"stderr","time":123.228972528,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['zig is the purple tall slim alien inventor exactly as shown . momo is the pink small calm alien with the large ear / head - side silhouette exactly as shown . when the earth child is visible , use the exact brown - haired child in the blue hoodie shown in the reference . never swap colours , faces , silhouettes , clothing , accessories , roles , or relative scale . identity is locked ; only pose , expression , action , camera and location may change . polished bright friendly 3 d childrens comedy animation , rounded forms , warm cinematic lighting , 1 6 : 9 landscape . compose a new production scene using those exact recurring designs . sunny park beside the landed alien spaceship . the recurring earth child faces the four alien rescuers for the first time . captain pip steps forward , bloop peeks curiously , zig holds a small scanner , and momo stands calmly behind them . the child is surprised , curious and unafraid . single clean production frame only . no text .']\n"}
+,{"stream_name":"stderr","time":126.350336402,"data":"\r  0%|          | 0/34 [00:00\u003c?, ?it/s]\r  0%|          | 0/34 [00:01\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":126.350366406,"data":"SHOT 004 FAILED -\u003e RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\n"}
+,{"stream_name":"stdout","time":126.350991211,"data":"{\n"}
+,{"stream_name":"stdout","time":126.351004104,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":126.351007603,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":126.351010612,"data":"  \"success\": false,\n"}
+,{"stream_name":"stdout","time":126.351032065,"data":"  \"reference_mode\": \"five hash-validated user-approved canon crops -\u003e runtime master sheet -\u003e IP-Adapter Plus on every shot\",\n"}
+,{"stream_name":"stdout","time":126.351037946,"data":"  \"continuity_manifest\": \"shows/earth-needs-help/continuity-manifest.json\",\n"}
+,{"stream_name":"stdout","time":126.351044294,"data":"  \"reference_files\": [\n"}
+,{"stream_name":"stdout","time":126.351049064,"data":"    \"shows/earth-needs-help/assets/characters/captain-pip.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":126.351053686,"data":"    \"shows/earth-needs-help/assets/characters/bloop.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":126.351058529,"data":"    \"shows/earth-needs-help/assets/characters/zig.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":126.351063468,"data":"    \"shows/earth-needs-help/assets/characters/momo.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":126.351067785,"data":"    \"shows/earth-needs-help/assets/characters/human-child.jpg.b64\"\n"}
+,{"stream_name":"stdout","time":126.35107212,"data":"  ],\n"}
+,{"stream_name":"stdout","time":126.351076051,"data":"  \"master_reference_staged_as\": \"/kaggle/working/canonical-five-character-reference.jpg\",\n"}
+,{"stream_name":"stdout","time":126.351080421,"data":"  \"ip_adapter_scale\": 0.95,\n"}
+,{"stream_name":"stdout","time":126.351084425,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":126.351090606,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":126.35109899,"data":"    {\n"}
+,{"stream_name":"stdout","time":126.351102051,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":126.351105008,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":126.351107873,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":126.351110827,"data":"    },\n"}
+,{"stream_name":"stdout","time":126.351113497,"data":"    {\n"}
+,{"stream_name":"stdout","time":126.351116156,"data":"      \"id\": \"003\",\n"}
+,{"stream_name":"stdout","time":126.351118894,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":126.351121662,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":126.351132705,"data":"    },\n"}
+,{"stream_name":"stdout","time":126.351135509,"data":"    {\n"}
+,{"stream_name":"stdout","time":126.351138154,"data":"      \"id\": \"004\",\n"}
+,{"stream_name":"stdout","time":126.351140859,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":126.351143573,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":126.351146531,"data":"    }\n"}
+,{"stream_name":"stdout","time":126.351149137,"data":"  ]\n"}
+,{"stream_name":"stdout","time":126.35115181,"data":"}\n"}
+,{"stream_name":"stderr","time":126.363032218,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['zig is the purple tall slim alien inventor exactly as shown . momo is the pink small calm alien with the large ear / head - side silhouette exactly as shown . when the earth child is visible , use the exact brown - haired child in the blue hoodie shown in the reference . never swap colours , faces , silhouettes , clothing , accessories , roles , or relative scale . identity is locked ; only pose , expression , action , camera and location may change . polished bright friendly 3 d childrens comedy animation , rounded forms , warm cinematic lighting , 1 6 : 9 landscape . compose a new production scene using those exact recurring designs . a colourful childs kite is harmlessly stuck high in a leafy park tree . captain pip , bloop , zig and momo stare upward as if witnessing a planetary catastrophe while the child gives a small confused shrug because it is only a kite . single clean production frame only . no text .']\n"}
+,{"stream_name":"stderr","time":126.44369351899999,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['zig is the purple tall slim alien inventor exactly as shown . momo is the pink small calm alien with the large ear / head - side silhouette exactly as shown . when the earth child is visible , use the exact brown - haired child in the blue hoodie shown in the reference . never swap colours , faces , silhouettes , clothing , accessories , roles , or relative scale . identity is locked ; only pose , expression , action , camera and location may change . polished bright friendly 3 d childrens comedy animation , rounded forms , warm cinematic lighting , 1 6 : 9 landscape . compose a new production scene using those exact recurring designs . a colourful childs kite is harmlessly stuck high in a leafy park tree . captain pip , bloop , zig and momo stare upward as if witnessing a planetary catastrophe while the child gives a small confused shrug because it is only a kite . single clean production frame only . no text .']\n"}
+,{"stream_name":"stderr","time":129.429508136,"data":"\r  0%|          | 0/34 [00:00\u003c?, ?it/s]\r  0%|          | 0/34 [00:01\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":129.429504201,"data":"SHOT 005 FAILED -\u003e RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\n"}
+,{"stream_name":"stdout","time":129.430150962,"data":"{\n"}
+,{"stream_name":"stdout","time":129.430166377,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":129.430171417,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":129.430204243,"data":"  \"success\": false,\n"}
+,{"stream_name":"stdout","time":129.430208477,"data":"  \"reference_mode\": \"five hash-validated user-approved canon crops -\u003e runtime master sheet -\u003e IP-Adapter Plus on every shot\",\n"}
+,{"stream_name":"stdout","time":129.430213791,"data":"  \"continuity_manifest\": \"shows/earth-needs-help/continuity-manifest.json\",\n"}
+,{"stream_name":"stdout","time":129.430218369,"data":"  \"reference_files\": [\n"}
+,{"stream_name":"stdout","time":129.43022255,"data":"    \"shows/earth-needs-help/assets/characters/captain-pip.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":129.430236488,"data":"    \"shows/earth-needs-help/assets/characters/bloop.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":129.430240452,"data":"    \"shows/earth-needs-help/assets/characters/zig.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":129.430249891,"data":"    \"shows/earth-needs-help/assets/characters/momo.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":129.430252922,"data":"    \"shows/earth-needs-help/assets/characters/human-child.jpg.b64\"\n"}
+,{"stream_name":"stdout","time":129.430255485,"data":"  ],\n"}
+,{"stream_name":"stdout","time":129.430257833,"data":"  \"master_reference_staged_as\": \"/kaggle/working/canonical-five-character-reference.jpg\",\n"}
+,{"stream_name":"stdout","time":129.430260649,"data":"  \"ip_adapter_scale\": 0.95,\n"}
+,{"stream_name":"stdout","time":129.430263133,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":129.430265597,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":129.43026802,"data":"    {\n"}
+,{"stream_name":"stdout","time":129.43027048,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":129.430272945,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":129.430275448,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":129.430278092,"data":"    },\n"}
+,{"stream_name":"stdout","time":129.43028054,"data":"    {\n"}
+,{"stream_name":"stdout","time":129.430282868,"data":"      \"id\": \"003\",\n"}
+,{"stream_name":"stdout","time":129.430285299,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":129.430287738,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":129.430290379,"data":"    },\n"}
+,{"stream_name":"stdout","time":129.430292709,"data":"    {\n"}
+,{"stream_name":"stdout","time":129.430295032,"data":"      \"id\": \"004\",\n"}
+,{"stream_name":"stdout","time":129.430297446,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":129.43029996,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":129.43030253,"data":"    },\n"}
+,{"stream_name":"stdout","time":129.43030484,"data":"    {\n"}
+,{"stream_name":"stdout","time":129.430307166,"data":"      \"id\": \"005\",\n"}
+,{"stream_name":"stdout","time":129.430309595,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":129.43031205,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":129.43031462,"data":"    }\n"}
+,{"stream_name":"stdout","time":129.430316943,"data":"  ]\n"}
+,{"stream_name":"stdout","time":129.430319321,"data":"}\n"}
+,{"stream_name":"stderr","time":129.442710903,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['zig is the purple tall slim alien inventor exactly as shown . momo is the pink small calm alien with the large ear / head - side silhouette exactly as shown . when the earth child is visible , use the exact brown - haired child in the blue hoodie shown in the reference . never swap colours , faces , silhouettes , clothing , accessories , roles , or relative scale . identity is locked ; only pose , expression , action , camera and location may change . polished bright friendly 3 d childrens comedy animation , rounded forms , warm cinematic lighting , 1 6 : 9 landscape . compose a new production scene using those exact recurring designs . at the base of the kite tree , zig proudly kneels beside a compact colourful alien rescue gadget with several folded mechanical arms . zig looks extremely confident . captain pip watches seriously , bloop leans in excitedly , the child watches cautiously , and momo remains calm . single clean production frame only . no text .']\n"}
+,{"stream_name":"stderr","time":129.524358147,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['zig is the purple tall slim alien inventor exactly as shown . momo is the pink small calm alien with the large ear / head - side silhouette exactly as shown . when the earth child is visible , use the exact brown - haired child in the blue hoodie shown in the reference . never swap colours , faces , silhouettes , clothing , accessories , roles , or relative scale . identity is locked ; only pose , expression , action , camera and location may change . polished bright friendly 3 d childrens comedy animation , rounded forms , warm cinematic lighting , 1 6 : 9 landscape . compose a new production scene using those exact recurring designs . at the base of the kite tree , zig proudly kneels beside a compact colourful alien rescue gadget with several folded mechanical arms . zig looks extremely confident . captain pip watches seriously , bloop leans in excitedly , the child watches cautiously , and momo remains calm . single clean production frame only . no text .']\n"}
+,{"stream_name":"stderr","time":132.554853132,"data":"\r  0%|          | 0/34 [00:00\u003c?, ?it/s]\r  0%|          | 0/34 [00:01\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":132.5548717,"data":"SHOT 006a FAILED -\u003e RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\n"}
+,{"stream_name":"stdout","time":132.555337222,"data":"{\n"}
+,{"stream_name":"stdout","time":132.555347046,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":132.555351583,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":132.555355806,"data":"  \"success\": false,\n"}
+,{"stream_name":"stdout","time":132.555359997,"data":"  \"reference_mode\": \"five hash-validated user-approved canon crops -\u003e runtime master sheet -\u003e IP-Adapter Plus on every shot\",\n"}
+,{"stream_name":"stdout","time":132.555370813,"data":"  \"continuity_manifest\": \"shows/earth-needs-help/continuity-manifest.json\",\n"}
+,{"stream_name":"stdout","time":132.5553741,"data":"  \"reference_files\": [\n"}
+,{"stream_name":"stdout","time":132.555376769,"data":"    \"shows/earth-needs-help/assets/characters/captain-pip.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":132.555379684,"data":"    \"shows/earth-needs-help/assets/characters/bloop.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":132.555382575,"data":"    \"shows/earth-needs-help/assets/characters/zig.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":132.555385222,"data":"    \"shows/earth-needs-help/assets/characters/momo.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":132.555387988,"data":"    \"shows/earth-needs-help/assets/characters/human-child.jpg.b64\"\n"}
+,{"stream_name":"stdout","time":132.55539069,"data":"  ],\n"}
+,{"stream_name":"stdout","time":132.555393311,"data":"  \"master_reference_staged_as\": \"/kaggle/working/canonical-five-character-reference.jpg\",\n"}
+,{"stream_name":"stdout","time":132.555397328,"data":"  \"ip_adapter_scale\": 0.95,\n"}
+,{"stream_name":"stdout","time":132.555420707,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":132.555425542,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":132.555430544,"data":"    {\n"}
+,{"stream_name":"stdout","time":132.555434934,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":132.555450093,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":132.555454169,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":132.555458403,"data":"    },\n"}
+,{"stream_name":"stdout","time":132.555462207,"data":"    {\n"}
+,{"stream_name":"stdout","time":132.555465958,"data":"      \"id\": \"003\",\n"}
+,{"stream_name":"stdout","time":132.555469911,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":132.555474884,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":132.555479086,"data":"    },\n"}
+,{"stream_name":"stdout","time":132.555484836,"data":"    {\n"}
+,{"stream_name":"stdout","time":132.555491872,"data":"      \"id\": \"004\",\n"}
+,{"stream_name":"stdout","time":132.555494614,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":132.555497242,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":132.555513845,"data":"    },\n"}
+,{"stream_name":"stdout","time":132.555518269,"data":"    {\n"}
+,{"stream_name":"stdout","time":132.555522561,"data":"      \"id\": \"005\",\n"}
+,{"stream_name":"stdout","time":132.555527481,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":132.555532237,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":132.555537149,"data":"    },\n"}
+,{"stream_name":"stdout","time":132.555540921,"data":"    {\n"}
+,{"stream_name":"stdout","time":132.55554462,"data":"      \"id\": \"006a\",\n"}
+,{"stream_name":"stdout","time":132.55554885,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":132.555553084,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":132.555557247,"data":"    }\n"}
+,{"stream_name":"stdout","time":132.555561017,"data":"  ]\n"}
+,{"stream_name":"stdout","time":132.555564746,"data":"}\n"}
+,{"stream_name":"stderr","time":132.568199578,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['zig is the purple tall slim alien inventor exactly as shown . momo is the pink small calm alien with the large ear / head - side silhouette exactly as shown . when the earth child is visible , use the exact brown - haired child in the blue hoodie shown in the reference . never swap colours , faces , silhouettes , clothing , accessories , roles , or relative scale . identity is locked ; only pose , expression , action , camera and location may change . polished bright friendly 3 d childrens comedy animation , rounded forms , warm cinematic lighting , 1 6 : 9 landscape . compose a new production scene using those exact recurring designs . same park tree and rescue gadget , now spinning too enthusiastically in a harmless circle with mechanical arms pointing the wrong ways and colourful leaves blowing everywhere . bloop chases it , zig looks shocked , captain pip gives urgent instructions , the child is amused , and momo remains calm . single clean production frame only . no text .']\n"}
+,{"stream_name":"stderr","time":132.652072375,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['zig is the purple tall slim alien inventor exactly as shown . momo is the pink small calm alien with the large ear / head - side silhouette exactly as shown . when the earth child is visible , use the exact brown - haired child in the blue hoodie shown in the reference . never swap colours , faces , silhouettes , clothing , accessories , roles , or relative scale . identity is locked ; only pose , expression , action , camera and location may change . polished bright friendly 3 d childrens comedy animation , rounded forms , warm cinematic lighting , 1 6 : 9 landscape . compose a new production scene using those exact recurring designs . same park tree and rescue gadget , now spinning too enthusiastically in a harmless circle with mechanical arms pointing the wrong ways and colourful leaves blowing everywhere . bloop chases it , zig looks shocked , captain pip gives urgent instructions , the child is amused , and momo remains calm . single clean production frame only . no text .']\n"}
+,{"stream_name":"stderr","time":135.677805074,"data":"\r  0%|          | 0/34 [00:00\u003c?, ?it/s]\r  0%|          | 0/34 [00:01\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":135.677805071,"data":"SHOT 006b FAILED -\u003e RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\n"}
+,{"stream_name":"stdout","time":135.678474291,"data":"{\n"}
+,{"stream_name":"stdout","time":135.678488908,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":135.67849531,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":135.678500316,"data":"  \"success\": false,\n"}
+,{"stream_name":"stdout","time":135.678505203,"data":"  \"reference_mode\": \"five hash-validated user-approved canon crops -\u003e runtime master sheet -\u003e IP-Adapter Plus on every shot\",\n"}
+,{"stream_name":"stdout","time":135.678511068,"data":"  \"continuity_manifest\": \"shows/earth-needs-help/continuity-manifest.json\",\n"}
+,{"stream_name":"stdout","time":135.678515725,"data":"  \"reference_files\": [\n"}
+,{"stream_name":"stdout","time":135.678520588,"data":"    \"shows/earth-needs-help/assets/characters/captain-pip.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":135.678525942,"data":"    \"shows/earth-needs-help/assets/characters/bloop.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":135.678530604,"data":"    \"shows/earth-needs-help/assets/characters/zig.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":135.67853474,"data":"    \"shows/earth-needs-help/assets/characters/momo.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":135.678539325,"data":"    \"shows/earth-needs-help/assets/characters/human-child.jpg.b64\"\n"}
+,{"stream_name":"stdout","time":135.678549566,"data":"  ],\n"}
+,{"stream_name":"stdout","time":135.678553191,"data":"  \"master_reference_staged_as\": \"/kaggle/working/canonical-five-character-reference.jpg\",\n"}
+,{"stream_name":"stdout","time":135.678556235,"data":"  \"ip_adapter_scale\": 0.95,\n"}
+,{"stream_name":"stdout","time":135.678559002,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":135.67856182,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":135.678564668,"data":"    {\n"}
+,{"stream_name":"stdout","time":135.678567322,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":135.678570203,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":135.678573153,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":135.678576387,"data":"    },\n"}
+,{"stream_name":"stdout","time":135.678579109,"data":"    {\n"}
+,{"stream_name":"stdout","time":135.678581708,"data":"      \"id\": \"003\",\n"}
+,{"stream_name":"stdout","time":135.678584416,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":135.678587237,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":135.678599628,"data":"    },\n"}
+,{"stream_name":"stdout","time":135.678602421,"data":"    {\n"}
+,{"stream_name":"stdout","time":135.678605051,"data":"      \"id\": \"004\",\n"}
+,{"stream_name":"stdout","time":135.678607875,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":135.678610575,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":135.678613418,"data":"    },\n"}
+,{"stream_name":"stdout","time":135.678616001,"data":"    {\n"}
+,{"stream_name":"stdout","time":135.678618661,"data":"      \"id\": \"005\",\n"}
+,{"stream_name":"stdout","time":135.678621347,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":135.678624073,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":135.678626904,"data":"    },\n"}
+,{"stream_name":"stdout","time":135.678629563,"data":"    {\n"}
+,{"stream_name":"stdout","time":135.678632154,"data":"      \"id\": \"006a\",\n"}
+,{"stream_name":"stdout","time":135.678634894,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":135.678675515,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":135.678680806,"data":"    },\n"}
+,{"stream_name":"stdout","time":135.678684602,"data":"    {\n"}
+,{"stream_name":"stdout","time":135.678688738,"data":"      \"id\": \"006b\",\n"}
+,{"stream_name":"stdout","time":135.678692804,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":135.67869878,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":135.678707277,"data":"    }\n"}
+,{"stream_name":"stdout","time":135.67871004,"data":"  ]\n"}
+,{"stream_name":"stdout","time":135.678712626,"data":"}\n"}
+,{"stream_name":"stderr","time":135.691183101,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['zig is the purple tall slim alien inventor exactly as shown . momo is the pink small calm alien with the large ear / head - side silhouette exactly as shown . when the earth child is visible , use the exact brown - haired child in the blue hoodie shown in the reference . never swap colours , faces , silhouettes , clothing , accessories , roles , or relative scale . identity is locked ; only pose , expression , action , camera and location may change . polished bright friendly 3 d childrens comedy animation , rounded forms , warm cinematic lighting , 1 6 : 9 landscape . compose a new production scene using those exact recurring designs . quiet comedic beat beneath the tree after gadget chaos . momo stands nearest the branch and simply uses a gentle long reach or simple tool to take the kite free . the child smiles . captain pip , bloop and zig are frozen in stunned silence in the background . single clean production frame only . no text .']\n"}
+,{"stream_name":"stderr","time":135.773142562,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['zig is the purple tall slim alien inventor exactly as shown . momo is the pink small calm alien with the large ear / head - side silhouette exactly as shown . when the earth child is visible , use the exact brown - haired child in the blue hoodie shown in the reference . never swap colours , faces , silhouettes , clothing , accessories , roles , or relative scale . identity is locked ; only pose , expression , action , camera and location may change . polished bright friendly 3 d childrens comedy animation , rounded forms , warm cinematic lighting , 1 6 : 9 landscape . compose a new production scene using those exact recurring designs . quiet comedic beat beneath the tree after gadget chaos . momo stands nearest the branch and simply uses a gentle long reach or simple tool to take the kite free . the child smiles . captain pip , bloop and zig are frozen in stunned silence in the background . single clean production frame only . no text .']\n"}
+,{"stream_name":"stdout","time":138.847191637,"data":"SHOT 007 FAILED -\u003e RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\n"}
+,{"stream_name":"stderr","time":138.84720303,"data":"\r  0%|          | 0/34 [00:00\u003c?, ?it/s]\r  0%|          | 0/34 [00:01\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":138.847926859,"data":"{\n"}
+,{"stream_name":"stdout","time":138.847943213,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":138.847947964,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":138.847952785,"data":"  \"success\": false,\n"}
+,{"stream_name":"stdout","time":138.847957014,"data":"  \"reference_mode\": \"five hash-validated user-approved canon crops -\u003e runtime master sheet -\u003e IP-Adapter Plus on every shot\",\n"}
+,{"stream_name":"stdout","time":138.847962755,"data":"  \"continuity_manifest\": \"shows/earth-needs-help/continuity-manifest.json\",\n"}
+,{"stream_name":"stdout","time":138.847966957,"data":"  \"reference_files\": [\n"}
+,{"stream_name":"stdout","time":138.847971045,"data":"    \"shows/earth-needs-help/assets/characters/captain-pip.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":138.847974867,"data":"    \"shows/earth-needs-help/assets/characters/bloop.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":138.847980675,"data":"    \"shows/earth-needs-help/assets/characters/zig.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":138.847988903,"data":"    \"shows/earth-needs-help/assets/characters/momo.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":138.847992076,"data":"    \"shows/earth-needs-help/assets/characters/human-child.jpg.b64\"\n"}
+,{"stream_name":"stdout","time":138.847994765,"data":"  ],\n"}
+,{"stream_name":"stdout","time":138.847997185,"data":"  \"master_reference_staged_as\": \"/kaggle/working/canonical-five-character-reference.jpg\",\n"}
+,{"stream_name":"stdout","time":138.847999925,"data":"  \"ip_adapter_scale\": 0.95,\n"}
+,{"stream_name":"stdout","time":138.84800578,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":138.848008369,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":138.848010908,"data":"    {\n"}
+,{"stream_name":"stdout","time":138.848013333,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":138.848015888,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":138.84801843,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":138.848021301,"data":"    },\n"}
+,{"stream_name":"stdout","time":138.848023643,"data":"    {\n"}
+,{"stream_name":"stdout","time":138.848025995,"data":"      \"id\": \"003\",\n"}
+,{"stream_name":"stdout","time":138.848028426,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":138.848030954,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":138.848033522,"data":"    },\n"}
+,{"stream_name":"stdout","time":138.84803584,"data":"    {\n"}
+,{"stream_name":"stdout","time":138.848038162,"data":"      \"id\": \"004\",\n"}
+,{"stream_name":"stdout","time":138.848040659,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":138.848043098,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":138.848053187,"data":"    },\n"}
+,{"stream_name":"stdout","time":138.84805567,"data":"    {\n"}
+,{"stream_name":"stdout","time":138.848058017,"data":"      \"id\": \"005\",\n"}
+,{"stream_name":"stdout","time":138.848060485,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":138.848062907,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":138.848065468,"data":"    },\n"}
+,{"stream_name":"stdout","time":138.848067776,"data":"    {\n"}
+,{"stream_name":"stdout","time":138.848070101,"data":"      \"id\": \"006a\",\n"}
+,{"stream_name":"stdout","time":138.848072592,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":138.848075282,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":138.848077864,"data":"    },\n"}
+,{"stream_name":"stdout","time":138.848080181,"data":"    {\n"}
+,{"stream_name":"stdout","time":138.84808251,"data":"      \"id\": \"006b\",\n"}
+,{"stream_name":"stdout","time":138.848085045,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":138.848087479,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":138.848090069,"data":"    },\n"}
+,{"stream_name":"stdout","time":138.8480926,"data":"    {\n"}
+,{"stream_name":"stdout","time":138.848095009,"data":"      \"id\": \"007\",\n"}
+,{"stream_name":"stdout","time":138.84809743900001,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":138.848099867,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":138.84810246199999,"data":"    }\n"}
+,{"stream_name":"stdout","time":138.848104865,"data":"  ]\n"}
+,{"stream_name":"stdout","time":138.848107227,"data":"}\n"}
+,{"stream_name":"stderr","time":138.860075195,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['zig is the purple tall slim alien inventor exactly as shown . momo is the pink small calm alien with the large ear / head - side silhouette exactly as shown . when the earth child is visible , use the exact brown - haired child in the blue hoodie shown in the reference . never swap colours , faces , silhouettes , clothing , accessories , roles , or relative scale . identity is locked ; only pose , expression , action , camera and location may change . polished bright friendly 3 d childrens comedy animation , rounded forms , warm cinematic lighting , 1 6 : 9 landscape . compose a new production scene using those exact recurring designs . sunny park celebration . the child happily holds the rescued kite while the four aliens celebrate as if they saved an entire planet . captain pip strikes a tiny heroic pose , bloop jumps with joy , zig proudly poses as the inventor , and momo claps gently . single clean production frame only . no text .']\n"}
+,{"stream_name":"stderr","time":138.942945965,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['zig is the purple tall slim alien inventor exactly as shown . momo is the pink small calm alien with the large ear / head - side silhouette exactly as shown . when the earth child is visible , use the exact brown - haired child in the blue hoodie shown in the reference . never swap colours , faces , silhouettes , clothing , accessories , roles , or relative scale . identity is locked ; only pose , expression , action , camera and location may change . polished bright friendly 3 d childrens comedy animation , rounded forms , warm cinematic lighting , 1 6 : 9 landscape . compose a new production scene using those exact recurring designs . sunny park celebration . the child happily holds the rescued kite while the four aliens celebrate as if they saved an entire planet . captain pip strikes a tiny heroic pose , bloop jumps with joy , zig proudly poses as the inventor , and momo claps gently . single clean production frame only . no text .']\n"}
+,{"stream_name":"stdout","time":142.054011093,"data":"SHOT 008 FAILED -\u003e RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\n"}
+,{"stream_name":"stderr","time":142.054011612,"data":"\r  0%|          | 0/34 [00:00\u003c?, ?it/s]\r  0%|          | 0/34 [00:01\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":142.05472333,"data":"{\n"}
+,{"stream_name":"stdout","time":142.054740098,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":142.054744935,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":142.054748734,"data":"  \"success\": false,\n"}
+,{"stream_name":"stdout","time":142.054752438,"data":"  \"reference_mode\": \"five hash-validated user-approved canon crops -\u003e runtime master sheet -\u003e IP-Adapter Plus on every shot\",\n"}
+,{"stream_name":"stdout","time":142.054756922,"data":"  \"continuity_manifest\": \"shows/earth-needs-help/continuity-manifest.json\",\n"}
+,{"stream_name":"stdout","time":142.05476109,"data":"  \"reference_files\": [\n"}
+,{"stream_name":"stdout","time":142.054766628,"data":"    \"shows/earth-needs-help/assets/characters/captain-pip.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":142.054774195,"data":"    \"shows/earth-needs-help/assets/characters/bloop.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":142.054776966,"data":"    \"shows/earth-needs-help/assets/characters/zig.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":142.054779452,"data":"    \"shows/earth-needs-help/assets/characters/momo.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":142.05478218,"data":"    \"shows/earth-needs-help/assets/characters/human-child.jpg.b64\"\n"}
+,{"stream_name":"stdout","time":142.054784874,"data":"  ],\n"}
+,{"stream_name":"stdout","time":142.054787341,"data":"  \"master_reference_staged_as\": \"/kaggle/working/canonical-five-character-reference.jpg\",\n"}
+,{"stream_name":"stdout","time":142.054790234,"data":"  \"ip_adapter_scale\": 0.95,\n"}
+,{"stream_name":"stdout","time":142.054792941,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":142.054795486,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":142.0547979,"data":"    {\n"}
+,{"stream_name":"stdout","time":142.054800286,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":142.054802822,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":142.054805306,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":142.054807948,"data":"    },\n"}
+,{"stream_name":"stdout","time":142.0548103,"data":"    {\n"}
+,{"stream_name":"stdout","time":142.05481276,"data":"      \"id\": \"003\",\n"}
+,{"stream_name":"stdout","time":142.054815206,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":142.054817643,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":142.054820209,"data":"    },\n"}
+,{"stream_name":"stdout","time":142.054822582,"data":"    {\n"}
+,{"stream_name":"stdout","time":142.054824904,"data":"      \"id\": \"004\",\n"}
+,{"stream_name":"stdout","time":142.054835679,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":142.054838267,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":142.054840856,"data":"    },\n"}
+,{"stream_name":"stdout","time":142.054843183,"data":"    {\n"}
+,{"stream_name":"stdout","time":142.054845494,"data":"      \"id\": \"005\",\n"}
+,{"stream_name":"stdout","time":142.054847986,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":142.054850407,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":142.054853008,"data":"    },\n"}
+,{"stream_name":"stdout","time":142.0548554,"data":"    {\n"}
+,{"stream_name":"stdout","time":142.054857754,"data":"      \"id\": \"006a\",\n"}
+,{"stream_name":"stdout","time":142.05486022,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":142.054862674,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":142.054865286,"data":"    },\n"}
+,{"stream_name":"stdout","time":142.054867626,"data":"    {\n"}
+,{"stream_name":"stdout","time":142.054869948,"data":"      \"id\": \"006b\",\n"}
+,{"stream_name":"stdout","time":142.054872395,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":142.054874882,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":142.054877477,"data":"    },\n"}
+,{"stream_name":"stdout","time":142.054879803,"data":"    {\n"}
+,{"stream_name":"stdout","time":142.054882129,"data":"      \"id\": \"007\",\n"}
+,{"stream_name":"stdout","time":142.054884622,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":142.054887513,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":142.054890091,"data":"    },\n"}
+,{"stream_name":"stdout","time":142.054892401,"data":"    {\n"}
+,{"stream_name":"stdout","time":142.05489472,"data":"      \"id\": \"008\",\n"}
+,{"stream_name":"stdout","time":142.054897244,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":142.054899656,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":142.05490223,"data":"    }\n"}
+,{"stream_name":"stdout","time":142.05490456,"data":"  ]\n"}
+,{"stream_name":"stdout","time":142.054906915,"data":"}\n"}
+,{"stream_name":"stderr","time":142.067083615,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['zig is the purple tall slim alien inventor exactly as shown . momo is the pink small calm alien with the large ear / head - side silhouette exactly as shown . when the earth child is visible , use the exact brown - haired child in the blue hoodie shown in the reference . never swap colours , faces , silhouettes , clothing , accessories , roles , or relative scale . identity is locked ; only pose , expression , action , camera and location may change . polished bright friendly 3 d childrens comedy animation , rounded forms , warm cinematic lighting , 1 6 : 9 landscape . compose a new production scene using those exact recurring designs . comedy setup in the park after the celebration . bloop holds a small colourful alien snack while a cheeky ordinary grey pigeon steals it . bloop freezes in disbelief . captain pip , zig and momo turn toward the pigeon . the child stands nearby holding the kite . single clean production frame only . no text .']\n"}
+,{"stream_name":"stderr","time":142.148238569,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['zig is the purple tall slim alien inventor exactly as shown . momo is the pink small calm alien with the large ear / head - side silhouette exactly as shown . when the earth child is visible , use the exact brown - haired child in the blue hoodie shown in the reference . never swap colours , faces , silhouettes , clothing , accessories , roles , or relative scale . identity is locked ; only pose , expression , action , camera and location may change . polished bright friendly 3 d childrens comedy animation , rounded forms , warm cinematic lighting , 1 6 : 9 landscape . compose a new production scene using those exact recurring designs . comedy setup in the park after the celebration . bloop holds a small colourful alien snack while a cheeky ordinary grey pigeon steals it . bloop freezes in disbelief . captain pip , zig and momo turn toward the pigeon . the child stands nearby holding the kite . single clean production frame only . no text .']\n"}
+,{"stream_name":"stdout","time":145.283548202,"data":"SHOT 009 FAILED -\u003e RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\n"}
+,{"stream_name":"stderr","time":145.283557598,"data":"\r  0%|          | 0/34 [00:00\u003c?, ?it/s]\r  0%|          | 0/34 [00:01\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":145.284126559,"data":"{\n"}
+,{"stream_name":"stdout","time":145.284142593,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":145.284149644,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":145.284152186,"data":"  \"success\": false,\n"}
+,{"stream_name":"stdout","time":145.284154565,"data":"  \"reference_mode\": \"five hash-validated user-approved canon crops -\u003e runtime master sheet -\u003e IP-Adapter Plus on every shot\",\n"}
+,{"stream_name":"stdout","time":145.284157661,"data":"  \"continuity_manifest\": \"shows/earth-needs-help/continuity-manifest.json\",\n"}
+,{"stream_name":"stdout","time":145.284160143,"data":"  \"reference_files\": [\n"}
+,{"stream_name":"stdout","time":145.28416249,"data":"    \"shows/earth-needs-help/assets/characters/captain-pip.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":145.284165002,"data":"    \"shows/earth-needs-help/assets/characters/bloop.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":145.284167459,"data":"    \"shows/earth-needs-help/assets/characters/zig.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":145.284169785,"data":"    \"shows/earth-needs-help/assets/characters/momo.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":145.284172137,"data":"    \"shows/earth-needs-help/assets/characters/human-child.jpg.b64\"\n"}
+,{"stream_name":"stdout","time":145.284174702,"data":"  ],\n"}
+,{"stream_name":"stdout","time":145.284176996,"data":"  \"master_reference_staged_as\": \"/kaggle/working/canonical-five-character-reference.jpg\",\n"}
+,{"stream_name":"stdout","time":145.284179444,"data":"  \"ip_adapter_scale\": 0.95,\n"}
+,{"stream_name":"stdout","time":145.284181747,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":145.284184193,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":145.284186475,"data":"    {\n"}
+,{"stream_name":"stdout","time":145.284188846,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":145.284211406,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":145.284215656,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":145.284220183,"data":"    },\n"}
+,{"stream_name":"stdout","time":145.284233604,"data":"    {\n"}
+,{"stream_name":"stdout","time":145.284237184,"data":"      \"id\": \"003\",\n"}
+,{"stream_name":"stdout","time":145.284240732,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":145.284244116,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":145.28424779,"data":"    },\n"}
+,{"stream_name":"stdout","time":145.284250968,"data":"    {\n"}
+,{"stream_name":"stdout","time":145.284255941,"data":"      \"id\": \"004\",\n"}
+,{"stream_name":"stdout","time":145.284265546,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":145.284268179,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":145.28427062,"data":"    },\n"}
+,{"stream_name":"stdout","time":145.284272854,"data":"    {\n"}
+,{"stream_name":"stdout","time":145.284275026,"data":"      \"id\": \"005\",\n"}
+,{"stream_name":"stdout","time":145.284277371,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":145.284279664,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":145.284282061,"data":"    },\n"}
+,{"stream_name":"stdout","time":145.28428425,"data":"    {\n"}
+,{"stream_name":"stdout","time":145.284286501,"data":"      \"id\": \"006a\",\n"}
+,{"stream_name":"stdout","time":145.284288823,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":145.28429113,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":145.284293513,"data":"    },\n"}
+,{"stream_name":"stdout","time":145.284296454,"data":"    {\n"}
+,{"stream_name":"stdout","time":145.284310289,"data":"      \"id\": \"006b\",\n"}
+,{"stream_name":"stdout","time":145.284314606,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":145.284318433,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":145.284322833,"data":"    },\n"}
+,{"stream_name":"stdout","time":145.284326628,"data":"    {\n"}
+,{"stream_name":"stdout","time":145.28433001,"data":"      \"id\": \"007\",\n"}
+,{"stream_name":"stdout","time":145.284333372,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":145.284336711,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":145.284340283,"data":"    },\n"}
+,{"stream_name":"stdout","time":145.284343505,"data":"    {\n"}
+,{"stream_name":"stdout","time":145.284346728,"data":"      \"id\": \"008\",\n"}
+,{"stream_name":"stdout","time":145.284350091,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":145.28435349,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":145.284357156,"data":"    },\n"}
+,{"stream_name":"stdout","time":145.284360409,"data":"    {\n"}
+,{"stream_name":"stdout","time":145.284363624,"data":"      \"id\": \"009\",\n"}
+,{"stream_name":"stdout","time":145.284367948,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":145.284373152,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":145.284380529,"data":"    }\n"}
+,{"stream_name":"stdout","time":145.284386223,"data":"  ]\n"}
+,{"stream_name":"stdout","time":145.284388512,"data":"}\n"}
+,{"stream_name":"stdout","time":145.284545399,"data":"{\n"}
+,{"stream_name":"stdout","time":145.284552241,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":145.284555896,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":145.284559312,"data":"  \"success\": false,\n"}
+,{"stream_name":"stdout","time":145.284562716,"data":"  \"reference_mode\": \"five hash-validated user-approved canon crops -\u003e runtime master sheet -\u003e IP-Adapter Plus on every shot\",\n"}
+,{"stream_name":"stdout","time":145.284566709,"data":"  \"continuity_manifest\": \"shows/earth-needs-help/continuity-manifest.json\",\n"}
+,{"stream_name":"stdout","time":145.284570345,"data":"  \"reference_files\": [\n"}
+,{"stream_name":"stdout","time":145.284573806,"data":"    \"shows/earth-needs-help/assets/characters/captain-pip.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":145.284577338,"data":"    \"shows/earth-needs-help/assets/characters/bloop.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":145.284580862,"data":"    \"shows/earth-needs-help/assets/characters/zig.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":145.284584359,"data":"    \"shows/earth-needs-help/assets/characters/momo.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":145.284587851,"data":"    \"shows/earth-needs-help/assets/characters/human-child.jpg.b64\"\n"}
+,{"stream_name":"stdout","time":145.284591401,"data":"  ],\n"}
+,{"stream_name":"stdout","time":145.284594667,"data":"  \"master_reference_staged_as\": \"/kaggle/working/canonical-five-character-reference.jpg\",\n"}
+,{"stream_name":"stdout","time":145.2845984,"data":"  \"ip_adapter_scale\": 0.95,\n"}
+,{"stream_name":"stdout","time":145.284603553,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":145.28461113,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":145.284626369,"data":"    {\n"}
+,{"stream_name":"stdout","time":145.284630323,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":145.284634197,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":145.284637896,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":145.284642113,"data":"    },\n"}
+,{"stream_name":"stdout","time":145.284661841,"data":"    {\n"}
+,{"stream_name":"stdout","time":145.284669949,"data":"      \"id\": \"003\",\n"}
+,{"stream_name":"stdout","time":145.284674024,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":145.284677437,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":145.284681132,"data":"    },\n"}
+,{"stream_name":"stdout","time":145.284684391,"data":"    {\n"}
+,{"stream_name":"stdout","time":145.284687667,"data":"      \"id\": \"004\",\n"}
+,{"stream_name":"stdout","time":145.284691089,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":145.284694589,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":145.284698455,"data":"    },\n"}
+,{"stream_name":"stdout","time":145.284701678,"data":"    {\n"}
+,{"stream_name":"stdout","time":145.284704836,"data":"      \"id\": \"005\",\n"}
+,{"stream_name":"stdout","time":145.284708386,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":145.284711913,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":145.28472211,"data":"    },\n"}
+,{"stream_name":"stdout","time":145.284726331,"data":"    {\n"}
+,{"stream_name":"stdout","time":145.284730385,"data":"      \"id\": \"006a\",\n"}
+,{"stream_name":"stdout","time":145.284734472,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":145.284737922,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":145.284741512,"data":"    },\n"}
+,{"stream_name":"stdout","time":145.284744776,"data":"    {\n"}
+,{"stream_name":"stdout","time":145.284747987,"data":"      \"id\": \"006b\",\n"}
+,{"stream_name":"stdout","time":145.284751385,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":145.28475481,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":145.28475845,"data":"    },\n"}
+,{"stream_name":"stdout","time":145.284761732,"data":"    {\n"}
+,{"stream_name":"stdout","time":145.284765012,"data":"      \"id\": \"007\",\n"}
+,{"stream_name":"stdout","time":145.284768378,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":145.284771733,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":145.284775362,"data":"    },\n"}
+,{"stream_name":"stdout","time":145.284778612,"data":"    {\n"}
+,{"stream_name":"stdout","time":145.284781804,"data":"      \"id\": \"008\",\n"}
+,{"stream_name":"stdout","time":145.284785127,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":145.284790403,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":145.28479727,"data":"    },\n"}
+,{"stream_name":"stdout","time":145.284800433,"data":"    {\n"}
+,{"stream_name":"stdout","time":145.284815088,"data":"      \"id\": \"009\",\n"}
+,{"stream_name":"stdout","time":145.284820011,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":145.28482401,"data":"      \"error\": \"RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)\"\n"}
+,{"stream_name":"stdout","time":145.28482825,"data":"    }\n"}
+,{"stream_name":"stdout","time":145.284832052,"data":"  ],\n"}
+,{"stream_name":"stdout","time":145.284835434,"data":"  \"elapsed_seconds\": 144.27\n"}
+,{"stream_name":"stdout","time":145.284838913,"data":"}\n"}
+,{"stream_name":"stderr","time":150.840449712,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":150.840476636,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":151.120474058,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":151.120498229,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":151.74524458,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":152.9698699,"data":"[NbConvertApp] Writing 316178 bytes to __results__.html\n"}
+]
