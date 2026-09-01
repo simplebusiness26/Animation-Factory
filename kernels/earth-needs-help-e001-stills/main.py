@@ -7,6 +7,8 @@ Continuity rules:
   before any model is loaded;
 - the five approved crops are composed into one clean runtime reference sheet;
 - that sheet is injected through SDXL IP-Adapter Plus on every shot;
+- the matching h94 ViT-H CLIP image encoder is loaded explicitly (never auto-guessed);
+- prompts stay below CLIP's 77-token limit so scene instructions are not truncated;
 - any unreadable/mismatched reference fails closed before GPU generation.
 """
 from __future__ import annotations
@@ -33,37 +35,31 @@ REFERENCE_FILES = [
     ('human-child', 'shows/earth-needs-help/assets/characters/human-child.jpg.b64', '7aa15b2a11ae15f095eaabca38252672e5828add647806971f0d438ef4417ddb'),
 ]
 
+# Keep this compact. Character identity comes from the locked visual reference,
+# while text only reinforces role/colour and leaves enough token budget for scene action.
 CANONICAL_LOCK = (
-    'The attached five-character consistency reference is the absolute visual source of truth. '
-    'Reproduce the SAME recurring character designs; do not reinterpret, remix or redesign them. '
-    'Captain Pip is the GREEN rounded alien captain with large expressive eyes, white captain hat and dark captain uniform exactly as shown. '
-    'Bloop is the BLUE round alien with antennae and huge expressive eyes exactly as shown. '
-    'Zig is the PURPLE tall slim alien inventor exactly as shown. '
-    'Momo is the PINK small calm alien with the large ear/head-side silhouette exactly as shown. '
-    'When the Earth child is visible, use the exact brown-haired child in the blue hoodie shown in the reference. '
-    'Never swap colours, faces, silhouettes, clothing, accessories, roles, or relative scale. '
-    'Identity is locked; only pose, expression, action, camera and location may change. '
-    'Polished bright friendly 3D childrens comedy animation, rounded forms, warm cinematic lighting, 16:9 landscape. '
+    'Exact characters from reference: green Captain Pip in white captain hat and dark uniform; '
+    'blue round Bloop; tall purple Zig; small pink Momo; brown-haired child in blue hoodie. '
+    'Same faces, silhouettes, clothes and colours. '
 )
 
 NEGATIVE = (
-    'text, captions, labels, logo, watermark, infographic, storyboard, UI, poster, '
-    'new character design, replacement character, identity drift, colour swap, role swap, wrong species, wrong face, wrong silhouette, '
-    'coral-red Captain Pip, red Captain Pip, lime-green Zig, green Zig, lavender Momo, purple Momo, turquoise Bloop, '
-    'changed costume, missing captain hat, missing captain uniform, duplicate character, extra limbs, missing limbs, deformed face, '
-    'scary, horror, violence, photorealistic human skin, dark grim lighting, background melting, blurry, low quality'
+    'text, watermark, redesign, colour swap, wrong face, wrong costume, duplicate character, '
+    'extra limbs, missing limbs, deformed face, horror, photorealistic skin, blurry, low quality'
 )
 
+# Scene wording is deliberately compact so CANONICAL_LOCK + scene remains inside CLIP's
+# practical token window instead of silently losing the action at the end of the prompt.
 SHOTS = [
-    {'id':'002','prompt':'Inside the established colourful alien spaceship bridge. Earth fills the large front window. Captain Pip points dramatically toward Earth. Bloop leans excitedly toward the glass. Zig checks an inventor gadget. Momo gives Earth a gentle friendly wave.'},
-    {'id':'003','prompt':'Sunny colourful neighbourhood park on Earth. The crews small rounded rescue spaceship has made a funny harmless landing through a soft hedge and stopped crooked in a flowerbed. Leaves float in the air and Bloop peeks from the hatch. No injuries or damage; playful physical comedy.'},
-    {'id':'004','prompt':'Sunny park beside the landed alien spaceship. The recurring Earth child faces the four alien rescuers for the first time. Captain Pip steps forward, Bloop peeks curiously, Zig holds a small scanner, and Momo stands calmly behind them. The child is surprised, curious and unafraid.'},
-    {'id':'005','prompt':'A colourful childs kite is harmlessly stuck high in a leafy park tree. Captain Pip, Bloop, Zig and Momo stare upward as if witnessing a planetary catastrophe while the child gives a small confused shrug because it is only a kite.'},
-    {'id':'006a','prompt':'At the base of the kite tree, Zig proudly kneels beside a compact colourful alien rescue gadget with several folded mechanical arms. Zig looks extremely confident. Captain Pip watches seriously, Bloop leans in excitedly, the child watches cautiously, and Momo remains calm.'},
-    {'id':'006b','prompt':'Same park tree and rescue gadget, now spinning too enthusiastically in a harmless circle with mechanical arms pointing the wrong ways and colourful leaves blowing everywhere. Bloop chases it, Zig looks shocked, Captain Pip gives urgent instructions, the child is amused, and Momo remains calm.'},
-    {'id':'007','prompt':'Quiet comedic beat beneath the tree after gadget chaos. Momo stands nearest the branch and simply uses a gentle long reach or simple tool to take the kite free. The child smiles. Captain Pip, Bloop and Zig are frozen in stunned silence in the background.'},
-    {'id':'008','prompt':'Sunny park celebration. The child happily holds the rescued kite while the four aliens celebrate as if they saved an entire planet. Captain Pip strikes a tiny heroic pose, Bloop jumps with joy, Zig proudly poses as the inventor, and Momo claps gently.'},
-    {'id':'009','prompt':'Comedy setup in the park after the celebration. Bloop holds a small colourful alien snack while a cheeky ordinary grey pigeon steals it. Bloop freezes in disbelief. Captain Pip, Zig and Momo turn toward the pigeon. The child stands nearby holding the kite.'},
+    {'id':'002','prompt':'Colourful alien spaceship bridge, Earth huge through front window. Pip points at Earth; Bloop leans to glass; Zig checks gadget; Momo waves. Friendly cinematic 3D animation, 16:9.'},
+    {'id':'003','prompt':'Sunny park. Small rounded rescue spaceship has harmlessly landed through hedge into flowers. Leaves float; Bloop peeks from hatch. Playful physical comedy, bright 3D animation, 16:9.'},
+    {'id':'004','prompt':'Sunny park beside landed spaceship. Child meets Pip, Bloop, Zig and Momo. Pip steps forward; Zig holds scanner; child looks surprised but unafraid. Bright friendly 3D animation, 16:9.'},
+    {'id':'005','prompt':'Sunny park tree with colourful kite stuck high. Pip, Bloop, Zig and Momo stare up dramatically; child gives confused shrug. Friendly comedy 3D animation, 16:9.'},
+    {'id':'006a','prompt':'Base of kite tree. Zig proudly kneels beside compact colourful rescue gadget with folded arms. Pip watches; Bloop leans in; child cautious; Momo calm. Bright 3D animation, 16:9.'},
+    {'id':'006b','prompt':'Same tree. Rescue gadget spins harmlessly, arms pointing wrong ways, leaves flying. Bloop chases it; Zig shocked; Pip directs; child amused; Momo calm. Comedy 3D animation, 16:9.'},
+    {'id':'007','prompt':'Quiet beat under tree. Momo simply reaches up with gentle tool and frees kite. Child smiles; Pip, Bloop and Zig stand stunned behind. Warm friendly 3D animation, 16:9.'},
+    {'id':'008','prompt':'Sunny park celebration. Child holds rescued kite. Pip heroic pose; Bloop jumps; Zig poses proudly; Momo claps. Cheerful colourful 3D animation, 16:9.'},
+    {'id':'009','prompt':'Sunny park comedy. Bloop holds alien snack as ordinary grey pigeon steals it. Bloop freezes; Pip, Zig and Momo turn; child holds kite nearby. Bright 3D animation, 16:9.'},
 ]
 
 
@@ -115,8 +111,6 @@ def preflight_reference_sheet():
 
     images = [decode_canon_image(name, path, digest) for name, path, digest in REFERENCE_FILES]
 
-    # Give each approved crop equal visual weight. This sheet is derived only from
-    # the user-approved MAIN CHARACTERS consistency row, not from generated stills.
     cell_w, cell_h = 224, 280
     sheet = Image.new('RGB', (cell_w * len(images), cell_h), (238, 238, 238))
     for idx, image in enumerate(images):
@@ -131,6 +125,9 @@ def preflight_reference_sheet():
 
 
 def install() -> None:
+    # Do not install unrelated Kaggle packages. Explicitly loading the correct CLIP
+    # vision encoder below avoids the auto-selected encoder that produced 1664-dim
+    # patch embeddings against the adapter's 1280-dim projection matrix.
     subprocess.run([
         sys.executable, '-m', 'pip', 'install', '-q', '-U',
         'diffusers', 'transformers', 'accelerate', 'safetensors', 'Pillow<12'
@@ -153,43 +150,76 @@ def main() -> int:
     install()
     import torch
     from diffusers import AutoPipelineForText2Image
+    from transformers import CLIPVisionModelWithProjection
+
+    # Critical compatibility fix: the Plus SDXL ViT-H adapter expects the h94 ViT-H
+    # encoder (hidden_size=1280). Never let diffusers infer/auto-select an encoder.
+    image_encoder = CLIPVisionModelWithProjection.from_pretrained(
+        'h94/IP-Adapter',
+        subfolder='models/image_encoder',
+        torch_dtype=torch.float16,
+    )
 
     pipe = AutoPipelineForText2Image.from_pretrained(
-        'stabilityai/stable-diffusion-xl-base-1.0', torch_dtype=torch.float16,
-        variant='fp16', use_safetensors=True,
+        'stabilityai/stable-diffusion-xl-base-1.0',
+        image_encoder=image_encoder,
+        torch_dtype=torch.float16,
+        variant='fp16',
+        use_safetensors=True,
     )
-    pipe.load_ip_adapter('h94/IP-Adapter', subfolder='sdxl_models', weight_name='ip-adapter-plus_sdxl_vit-h.safetensors')
-    pipe.set_ip_adapter_scale(0.95)
+    pipe.load_ip_adapter(
+        'h94/IP-Adapter',
+        subfolder='sdxl_models',
+        weight_name='ip-adapter-plus_sdxl_vit-h.safetensors',
+    )
+    pipe.set_ip_adapter_scale(0.90)
     pipe.enable_model_cpu_offload()
     pipe.enable_attention_slicing()
     if hasattr(pipe, 'enable_vae_tiling'):
         pipe.enable_vae_tiling()
 
+    # Assert the exact encoder architecture before spending GPU time on shots.
+    hidden_size = int(getattr(image_encoder.config, 'hidden_size', 0))
+    if hidden_size != 1280:
+        raise RuntimeError(f'IP_ADAPTER_BLOCK: expected ViT-H hidden_size 1280, got {hidden_size}')
+
     result = {
         'show':'Earth Needs Help','episode':'001','success':False,
-        'reference_mode':'five hash-validated user-approved canon crops -> runtime master sheet -> IP-Adapter Plus on every shot',
+        'reference_mode':'five hash-validated canon crops -> runtime sheet -> explicit h94 ViT-H encoder -> SDXL IP-Adapter Plus',
         'continuity_manifest':MANIFEST_PATH,
         'reference_files':[path for _, path, _ in REFERENCE_FILES],
-        'master_reference_staged_as':str(master_path),'ip_adapter_scale':0.95,
-        'gpu':torch.cuda.get_device_name(0) if torch.cuda.is_available() else None,'shots':[]
+        'master_reference_staged_as':str(master_path),
+        'image_encoder_hidden_size':hidden_size,
+        'ip_adapter_scale':0.90,
+        'gpu':torch.cuda.get_device_name(0) if torch.cuda.is_available() else None,
+        'shots':[]
     }
 
     for index, shot in enumerate(SHOTS):
         name = f"earth-needs-help-e001-s{shot['id']}.png"
         try:
-            prompt = CANONICAL_LOCK + ' Compose a NEW production scene using those exact recurring designs. ' + shot['prompt'] + ' Single clean production frame only. No text.'
+            prompt = CANONICAL_LOCK + shot['prompt']
             image = pipe(
-                prompt=prompt, negative_prompt=NEGATIVE, ip_adapter_image=master_ref,
-                guidance_scale=6.5, num_inference_steps=34,
+                prompt=prompt,
+                negative_prompt=NEGATIVE,
+                ip_adapter_image=master_ref,
+                guidance_scale=6.0,
+                num_inference_steps=32,
                 generator=torch.Generator(device='cpu').manual_seed(9300 + index),
-                width=768, height=432,
+                width=768,
+                height=432,
             ).images[0]
             image.save(WORK / name)
-            result['shots'].append({'id':shot['id'],'success':True,'file':name,'reference_loaded':'five validated canon crops'})
+            result['shots'].append({'id':shot['id'],'success':True,'file':name,'reference_loaded':'five validated canon crops via explicit ViT-H'})
             print(f"SHOT {shot['id']} COMPLETE -> {name}", flush=True)
         except Exception as exc:
             result['shots'].append({'id':shot['id'],'success':False,'error':f'{type(exc).__name__}: {exc}'[:3000]})
             print(f"SHOT {shot['id']} FAILED -> {type(exc).__name__}: {exc}", flush=True)
+            # A structural model/adapter failure will hit every shot. Fail immediately
+            # instead of wasting GPU time repeating the identical error nine times.
+            if 'mat1 and mat2 shapes cannot be multiplied' in str(exc):
+                write_report(result)
+                return 3
         write_report(result)
 
     result['elapsed_seconds'] = round(time.time() - started, 2)
