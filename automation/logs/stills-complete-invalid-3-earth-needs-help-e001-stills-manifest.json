@@ -1,0 +1,67 @@
+{
+  "show": "Earth Needs Help",
+  "episode": "001",
+  "success": true,
+  "reference_mode": "validated canon sheet -> pinned HF layer/no torch replacement -> explicit ViT-H -> SDXL IP-Adapter Plus",
+  "continuity_manifest": "shows/earth-needs-help/continuity-manifest.json",
+  "reference_files": [
+    "shows/earth-needs-help/assets/characters/captain-pip.jpg.b64",
+    "shows/earth-needs-help/assets/characters/bloop.jpg.b64",
+    "shows/earth-needs-help/assets/characters/zig.jpg.b64",
+    "shows/earth-needs-help/assets/characters/momo.jpg.b64",
+    "shows/earth-needs-help/assets/characters/human-child.jpg.b64"
+  ],
+  "master_reference_staged_as": "/kaggle/working/canonical-five-character-reference.jpg",
+  "image_encoder_hidden_size": 1280,
+  "ip_adapter_scale": 0.9,
+  "gpu": "Tesla T4",
+  "shots": [
+    {
+      "id": "002",
+      "success": true,
+      "file": "earth-needs-help-e001-s002.png"
+    },
+    {
+      "id": "003",
+      "success": true,
+      "file": "earth-needs-help-e001-s003.png"
+    },
+    {
+      "id": "004",
+      "success": true,
+      "file": "earth-needs-help-e001-s004.png"
+    },
+    {
+      "id": "005",
+      "success": true,
+      "file": "earth-needs-help-e001-s005.png"
+    },
+    {
+      "id": "006a",
+      "success": true,
+      "file": "earth-needs-help-e001-s006a.png"
+    },
+    {
+      "id": "006b",
+      "success": true,
+      "file": "earth-needs-help-e001-s006b.png"
+    },
+    {
+      "id": "007",
+      "success": true,
+      "file": "earth-needs-help-e001-s007.png"
+    },
+    {
+      "id": "008",
+      "success": true,
+      "file": "earth-needs-help-e001-s008.png"
+    },
+    {
+      "id": "009",
+      "success": true,
+      "file": "earth-needs-help-e001-s009.png"
+    }
+  ],
+  "elapsed_seconds": 226.84
+}
+

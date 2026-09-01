@@ -1,2 +1,2 @@
 Warning: Looks like you're using an outdated `kaggle`` version (installed: {current_version}), please consider upgrading to the latest version ({latest_version_str})
-simplebusiness/enh-e001-stills-r2-8252289 has status "KernelWorkerStatus.COMPLETE"
+simplebusiness/enh-e001-stills-r3-8252831 has status "KernelWorkerStatus.COMPLETE"
