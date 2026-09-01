@@ -3,15 +3,17 @@
   "title": "The Great Earth Emergency",
   "phase": "failed",
   "stills_kernel": "simplebusiness/enh-e001-stills-r6-8250241",
-  "stills_attempts": 6,
+  "stills_attempts": 0,
   "motion_kernel": "simplebusiness/enh-e001-motion-r5-7908633-0",
   "motion_attempts": 0,
-  "last_status": "STILLS_TERMINAL_FAILURE",
-  "last_error": "Stills generation exhausted 6 automatic retries. Last reason: Kaggle reported ERROR",
-  "updated_at": "2026-09-01T08:19:57Z",
+  "last_status": "STILLS_ROOT_CAUSE_FIXED",
+  "last_error": null,
+  "updated_at": "2026-09-01T08:31:50Z",
   "release_tag": "earth-needs-help-e001",
   "stills_submit_failures": 0,
   "motion_submit_failures": 0,
   "assembly_attempts": 0,
-  "continuity_gate": "passed"
+  "continuity_gate": "passed",
+  "force_stills_retry": true,
+  "force_stills_retry_reason": "Removed attention slicing because SlicedAttnProcessor cannot consume IP-Adapter tuple encoder states; restart from repaired runner."
 }
