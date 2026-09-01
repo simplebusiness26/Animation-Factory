@@ -5,6 +5,7 @@ This runs inside GitHub Actions before Episode 001 is allowed to submit a GPU jo
 It verifies that every user-approved visual reference exists, base64-decodes,
 matches its locked decoded SHA-256, and opens successfully as an image.
 """
+# Recovery trigger: resubmit Episode 001 after the pinned IP-Adapter compatibility fix.
 from __future__ import annotations
 
 import base64
