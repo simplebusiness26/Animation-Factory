@@ -1,17 +1,17 @@
 {
   "episode": "001",
   "title": "The Great Earth Emergency",
-  "phase": "awaiting_stills",
+  "phase": "blocked_continuity",
   "stills_kernel": "simplebusiness/enh-e001-stills-r2-8231233",
-  "stills_attempts": 2,
+  "stills_attempts": 0,
   "motion_kernel": "simplebusiness/enh-e001-motion-r5-7908633-0",
   "motion_attempts": 0,
-  "last_status": "STILLS_RETRY_2_SUBMITTED",
-  "last_error": null,
-  "updated_at": "2026-09-01T02:53:55Z",
+  "last_status": "CONTINUITY_REFERENCE_ASSET_INVALID",
+  "last_error": "The locked master character reference asset character-lock.b64 is unreadable as an image. Generation is intentionally blocked so this continuity fault cannot consume more Kaggle retries or create off-model characters.",
+  "updated_at": "2026-09-01T03:00:00Z",
   "release_tag": "earth-needs-help-e001",
   "stills_submit_failures": 0,
   "motion_submit_failures": 0,
   "assembly_attempts": 0,
-  "continuity_gate": "passed"
+  "continuity_gate": "blocked"
 }
