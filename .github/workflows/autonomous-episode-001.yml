@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - .github/workflows/autonomous-episode-001.yml
+      - automation/validate_canon_refs.py
       - automation/episode001_orchestrator_v2.py
       - automation/episode001_orchestrator_v3.py
       - automation/render_episode001.py
@@ -53,8 +54,14 @@ jobs:
           pip install -r requirements.txt
           pip install Pillow "edge-tts>=7,<8" "numpy>=2,<3"
 
+      - name: Validate locked visual canon
+        id: canon
+        continue-on-error: true
+        run: python automation/validate_canon_refs.py
+
       - name: Run self-healing episode controller
         id: controller
+        if: steps.canon.outcome == 'success'
         continue-on-error: true
         run: python automation/episode001_orchestrator_v3.py
 
@@ -211,7 +218,7 @@ jobs:
 
       - name: Continuity block notice
         if: steps.state.outputs.phase == 'blocked_continuity'
-        run: echo "Production is intentionally paused until the canonical character reference pack is locked."
+        run: echo "Production is intentionally paused because the locked visual canon failed preflight or is not ready."
 
       - name: Continuity review notice
         if: steps.state.outputs.phase == 'awaiting_continuity_review'
