@@ -1,0 +1,99 @@
+[{"stream_name":"stdout","time":9.005267448,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.9/5.9 MB 88.1 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":9.12163407,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.1/12.1 MB 107.4 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":9.153132508,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 389.2/389.2 kB 17.5 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":9.177299827,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 516.0/516.0 kB 33.8 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":9.205451504,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 795.8/795.8 kB 41.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":9.249304462,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 96.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":9.272204372000001,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 125.3/125.3 kB 8.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":9.322001945,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 111.8 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":29.500036002,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":29.500094181,"data":"google-adk 1.29.0 requires google-cloud-bigquery-storage\u003e=2.0.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":63.214438108,"data":"[transformers] `Siglip2ImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `Siglip2ImageProcessor` instead.\n"}
+,{"stream_name":"stderr","time":63.243628333,"data":"/usr/local/lib/python3.12/dist-packages/huggingface_hub/utils/_validators.py:205: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.\n"}
+,{"stream_name":"stderr","time":63.243651803,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":63.532878699,"data":"/usr/local/lib/python3.12/dist-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.\n"}
+,{"stream_name":"stderr","time":63.532924724,"data":"  deprecate(\"torch_dtype\", \"1.0.0\", _TORCH_DTYPE_DEPRECATION_MESSAGE)\n"}
+,{"stream_name":"stderr","time":63.740122035,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":63.740167154,"data":"WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":96.297241746,"data":"\rFetching 19 files:   0%|          | 0/19 [00:00\u003c?, ?it/s]\rFetching 19 files:  11%|█         | 2/19 [00:00\u003c00:01, 16.40it/s]\rFetching 19 files:  42%|████▏     | 8/19 [00:00\u003c00:00, 32.60it/s]\rFetching 19 files:  74%|███████▎  | 14/19 [00:00\u003c00:00, 40.09it/s]\rFetching 19 files:  95%|█████████▍| 18/19 [00:19\u003c00:00, 40.09it/s]\rFetching 19 files: 100%|██████████| 19/19 [00:32\u003c00:00,  2.51s/it]\rFetching 19 files: 100%|██████████| 19/19 [00:32\u003c00:00,  1.70s/it]\n"}
+,{"stream_name":"stderr","time":98.270694641,"data":"\rLoading pipeline components...:   0%|          | 0/7 [00:00\u003c?, ?it/s]\rLoading pipeline components...:  29%|██▊       | 2/7 [00:01\u003c00:04,  1.22it/s]\rLoading pipeline components...:  57%|█████▋    | 4/7 [00:01\u003c00:01,  2.70it/s]\n"}
+,{"stream_name":"stderr","time":98.371564096,"data":"\rLoading weights:   0%|          | 0/517 [00:00\u003c?, ?it/s]\u001b[A\n"}
+,{"stream_name":"stderr","time":98.468473705,"data":"\rLoading weights:  49%|████▉     | 255/517 [00:00\u003c00:00, 2540.87it/s]\u001b[A\rLoading weights: 100%|██████████| 517/517 [00:00\u003c00:00, 2622.10it/s]\n"}
+,{"stream_name":"stderr","time":98.537251829,"data":"\rLoading pipeline components...:  86%|████████▌ | 6/7 [00:02\u003c00:00,  3.33it/s]\n"}
+,{"stream_name":"stderr","time":98.607340659,"data":"\rLoading weights:   0%|          | 0/196 [00:00\u003c?, ?it/s]\u001b[A\rLoading weights: 100%|██████████| 196/196 [00:00\u003c00:00, 2826.36it/s]\n"}
+,{"stream_name":"stderr","time":98.611745179,"data":"\rLoading pipeline components...: 100%|██████████| 7/7 [00:02\u003c00:00,  3.88it/s]\rLoading pipeline components...: 100%|██████████| 7/7 [00:02\u003c00:00,  3.03it/s]\n"}
+,{"stream_name":"stderr","time":111.056834975,"data":"\rLoading weights:   0%|          | 0/776 [00:00\u003c?, ?it/s]\rLoading weights:  34%|███▍      | 265/776 [00:00\u003c00:00, 2647.34it/s]\rLoading weights:  68%|██████▊   | 530/776 [00:00\u003c00:00, 2492.07it/s]\rLoading weights: 100%|██████████| 776/776 [00:00\u003c00:00, 2546.63it/s]\n"}
+,{"stream_name":"stderr","time":111.632714427,"data":"There are modules in UNet2DConditionModel that should be kept in float32: []. Casting directly with `to()` can lead to inconsistent results; set `torch_dtype` in `from_pretrained()` instead to keep these modules in float32.\n"}
+,{"stream_name":"stdout","time":112.031515573,"data":"SHOT 002 FAILED -\u003e UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'\n"}
+,{"stream_name":"stdout","time":112.032045745,"data":"SHOT 003 FAILED -\u003e UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'\n"}
+,{"stream_name":"stdout","time":112.032501115,"data":"SHOT 004 FAILED -\u003e UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'\n"}
+,{"stream_name":"stdout","time":112.032957841,"data":"SHOT 005 FAILED -\u003e UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'\n"}
+,{"stream_name":"stdout","time":112.033413438,"data":"SHOT 006a FAILED -\u003e UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'\n"}
+,{"stream_name":"stdout","time":112.03388408,"data":"SHOT 006b FAILED -\u003e UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'\n"}
+,{"stream_name":"stdout","time":112.034296617,"data":"SHOT 007 FAILED -\u003e UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'\n"}
+,{"stream_name":"stdout","time":112.034829697,"data":"SHOT 008 FAILED -\u003e UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'\n"}
+,{"stream_name":"stdout","time":112.035293063,"data":"SHOT 009 FAILED -\u003e UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'\n"}
+,{"stream_name":"stdout","time":112.036089762,"data":"{\n"}
+,{"stream_name":"stdout","time":112.036105187,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":112.036108532,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":112.036111005,"data":"  \"success\": false,\n"}
+,{"stream_name":"stdout","time":112.036123631,"data":"  \"reference_mode\": \"locked user-approved individual visual refs -\u003e IP-Adapter Plus on every shot\",\n"}
+,{"stream_name":"stdout","time":112.036128601,"data":"  \"continuity_manifest\": \"shows/earth-needs-help/continuity-manifest.json\",\n"}
+,{"stream_name":"stdout","time":112.036133903,"data":"  \"ip_adapter_scale\": 0.95,\n"}
+,{"stream_name":"stdout","time":112.036138093,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":112.03614242,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":112.036146113,"data":"    {\n"}
+,{"stream_name":"stdout","time":112.036150643,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":112.036154806,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":112.036159327,"data":"      \"error\": \"UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'\"\n"}
+,{"stream_name":"stdout","time":112.036164131,"data":"    },\n"}
+,{"stream_name":"stdout","time":112.036168546,"data":"    {\n"}
+,{"stream_name":"stdout","time":112.036172038,"data":"      \"id\": \"003\",\n"}
+,{"stream_name":"stdout","time":112.036175844,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":112.036179542,"data":"      \"error\": \"UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'\"\n"}
+,{"stream_name":"stdout","time":112.03618365,"data":"    },\n"}
+,{"stream_name":"stdout","time":112.036187158,"data":"    {\n"}
+,{"stream_name":"stdout","time":112.036190639,"data":"      \"id\": \"004\",\n"}
+,{"stream_name":"stdout","time":112.036197784,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":112.036200928,"data":"      \"error\": \"UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'\"\n"}
+,{"stream_name":"stdout","time":112.036203499,"data":"    },\n"}
+,{"stream_name":"stdout","time":112.03620577,"data":"    {\n"}
+,{"stream_name":"stdout","time":112.036208056,"data":"      \"id\": \"005\",\n"}
+,{"stream_name":"stdout","time":112.036210405,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":112.036212746,"data":"      \"error\": \"UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'\"\n"}
+,{"stream_name":"stdout","time":112.036215238,"data":"    },\n"}
+,{"stream_name":"stdout","time":112.036217533,"data":"    {\n"}
+,{"stream_name":"stdout","time":112.036219779,"data":"      \"id\": \"006a\",\n"}
+,{"stream_name":"stdout","time":112.03622216,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":112.036224493,"data":"      \"error\": \"UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'\"\n"}
+,{"stream_name":"stdout","time":112.036227039,"data":"    },\n"}
+,{"stream_name":"stdout","time":112.036229287,"data":"    {\n"}
+,{"stream_name":"stdout","time":112.036231531,"data":"      \"id\": \"006b\",\n"}
+,{"stream_name":"stdout","time":112.036234854,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":112.036256996,"data":"      \"error\": \"UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'\"\n"}
+,{"stream_name":"stdout","time":112.036269932,"data":"    },\n"}
+,{"stream_name":"stdout","time":112.036274345,"data":"    {\n"}
+,{"stream_name":"stdout","time":112.036277912,"data":"      \"id\": \"007\",\n"}
+,{"stream_name":"stdout","time":112.036281624,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":112.036285165,"data":"      \"error\": \"UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'\"\n"}
+,{"stream_name":"stdout","time":112.036289153,"data":"    },\n"}
+,{"stream_name":"stdout","time":112.036292579,"data":"    {\n"}
+,{"stream_name":"stdout","time":112.036296091,"data":"      \"id\": \"008\",\n"}
+,{"stream_name":"stdout","time":112.036299682,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":112.036303311,"data":"      \"error\": \"UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'\"\n"}
+,{"stream_name":"stdout","time":112.036307259,"data":"    },\n"}
+,{"stream_name":"stdout","time":112.036310792,"data":"    {\n"}
+,{"stream_name":"stdout","time":112.036314189,"data":"      \"id\": \"009\",\n"}
+,{"stream_name":"stdout","time":112.036317941,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":112.03632474,"data":"      \"error\": \"UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'\"\n"}
+,{"stream_name":"stdout","time":112.036327597,"data":"    }\n"}
+,{"stream_name":"stdout","time":112.036329841,"data":"  ],\n"}
+,{"stream_name":"stdout","time":112.036332148,"data":"  \"elapsed_seconds\": 111.04\n"}
+,{"stream_name":"stdout","time":112.036334582,"data":"}\n"}
+,{"stream_name":"stderr","time":117.40629156,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":117.40633269,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":117.737447835,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":117.737501883,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":123.105867883,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":124.398249898,"data":"[NbConvertApp] Writing 321170 bytes to __results__.html\n"}
+]
