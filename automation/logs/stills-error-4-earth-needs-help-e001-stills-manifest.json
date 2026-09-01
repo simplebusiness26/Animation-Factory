@@ -2,57 +2,66 @@
   "show": "Earth Needs Help",
   "episode": "001",
   "success": false,
-  "reference_mode": "locked user-approved individual visual refs -> IP-Adapter Plus on every shot",
+  "reference_mode": "five hash-validated canon crops -> runtime sheet -> explicit h94 ViT-H encoder -> SDXL IP-Adapter Plus",
   "continuity_manifest": "shows/earth-needs-help/continuity-manifest.json",
-  "ip_adapter_scale": 0.95,
+  "reference_files": [
+    "shows/earth-needs-help/assets/characters/captain-pip.jpg.b64",
+    "shows/earth-needs-help/assets/characters/bloop.jpg.b64",
+    "shows/earth-needs-help/assets/characters/zig.jpg.b64",
+    "shows/earth-needs-help/assets/characters/momo.jpg.b64",
+    "shows/earth-needs-help/assets/characters/human-child.jpg.b64"
+  ],
+  "master_reference_staged_as": "/kaggle/working/canonical-five-character-reference.jpg",
+  "image_encoder_hidden_size": 1280,
+  "ip_adapter_scale": 0.9,
   "gpu": "Tesla T4",
   "shots": [
     {
       "id": "002",
       "success": false,
-      "error": "UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'"
+      "error": "AttributeError: 'tuple' object has no attribute 'shape'"
     },
     {
       "id": "003",
       "success": false,
-      "error": "UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'"
+      "error": "AttributeError: 'tuple' object has no attribute 'shape'"
     },
     {
       "id": "004",
       "success": false,
-      "error": "UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'"
+      "error": "AttributeError: 'tuple' object has no attribute 'shape'"
     },
     {
       "id": "005",
       "success": false,
-      "error": "UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'"
+      "error": "AttributeError: 'tuple' object has no attribute 'shape'"
     },
     {
       "id": "006a",
       "success": false,
-      "error": "UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'"
+      "error": "AttributeError: 'tuple' object has no attribute 'shape'"
     },
     {
       "id": "006b",
       "success": false,
-      "error": "UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'"
+      "error": "AttributeError: 'tuple' object has no attribute 'shape'"
     },
     {
       "id": "007",
       "success": false,
-      "error": "UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'"
+      "error": "AttributeError: 'tuple' object has no attribute 'shape'"
     },
     {
       "id": "008",
       "success": false,
-      "error": "UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'"
+      "error": "AttributeError: 'tuple' object has no attribute 'shape'"
     },
     {
       "id": "009",
       "success": false,
-      "error": "UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'"
+      "error": "AttributeError: 'tuple' object has no attribute 'shape'"
     }
   ],
-  "elapsed_seconds": 126.16
+  "elapsed_seconds": 135.74
 }
 

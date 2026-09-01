@@ -1,0 +1,544 @@
+[{"stream_name":"stdout","time":7.711771046,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.9/5.9 MB 67.1 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":7.822978057,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.1/12.1 MB 111.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":7.849679246,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 389.2/389.2 kB 26.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":7.877086164,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 516.0/516.0 kB 32.1 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":7.909336339,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 795.8/795.8 kB 39.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":7.959940278,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 84.7 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":7.986969083,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 125.3/125.3 kB 8.8 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":8.043131203,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 101.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":28.268191771,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":28.268227004,"data":"google-adk 1.29.0 requires google-cloud-bigquery-storage\u003e=2.0.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":61.749441044,"data":"[transformers] `Siglip2ImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `Siglip2ImageProcessor` instead.\n"}
+,{"stream_name":"stderr","time":62.34610565,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":62.346140132,"data":"WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":70.681078853,"data":"\rLoading weights:   0%|          | 0/520 [00:00\u003c?, ?it/s]\rLoading weights:  14%|█▍        | 73/520 [00:00\u003c00:00, 681.12it/s]\rLoading weights:  31%|███       | 160/520 [00:00\u003c00:00, 788.32it/s]\rLoading weights:  48%|████▊     | 249/520 [00:00\u003c00:00, 818.94it/s]\rLoading weights:  64%|██████▍   | 332/520 [00:00\u003c00:00, 809.39it/s]\rLoading weights:  82%|████████▏ | 425/520 [00:00\u003c00:00, 827.00it/s]\rLoading weights: 100%|██████████| 520/520 [00:00\u003c00:00, 839.96it/s]\n"}
+,{"stream_name":"stderr","time":70.765941566,"data":"/usr/local/lib/python3.12/dist-packages/huggingface_hub/utils/_validators.py:205: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.\n"}
+,{"stream_name":"stderr","time":70.765974031,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":70.898975605,"data":"/usr/local/lib/python3.12/dist-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.\n"}
+,{"stream_name":"stderr","time":70.899014834,"data":"  deprecate(\"torch_dtype\", \"1.0.0\", _TORCH_DTYPE_DEPRECATION_MESSAGE)\n"}
+,{"stream_name":"stderr","time":104.350666389,"data":"\rFetching 19 files:   0%|          | 0/19 [00:00\u003c?, ?it/s]\rFetching 19 files:  11%|█         | 2/19 [00:00\u003c00:00, 18.26it/s]\rFetching 19 files:  42%|████▏     | 8/19 [00:00\u003c00:00, 36.82it/s]\rFetching 19 files:  74%|███████▎  | 14/19 [00:00\u003c00:00, 41.94it/s]\rFetching 19 files:  84%|████████▍ | 16/19 [00:10\u003c00:00, 41.94it/s]\rFetching 19 files:  89%|████████▉ | 17/19 [00:11\u003c00:02,  1.02s/it]\rFetching 19 files:  95%|█████████▍| 18/19 [00:12\u003c00:01,  1.08s/it]\rFetching 19 files:  95%|█████████▍| 18/19 [00:28\u003c00:01,  1.08s/it]\rFetching 19 files: 100%|██████████| 19/19 [00:33\u003c00:00,  3.83s/it]\rFetching 19 files: 100%|██████████| 19/19 [00:33\u003c00:00,  1.74s/it]\n"}
+,{"stream_name":"stderr","time":104.408888059,"data":"\rLoading pipeline components...:   0%|          | 0/7 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stderr","time":104.479897936,"data":"\rLoading weights:   0%|          | 0/196 [00:00\u003c?, ?it/s]\u001b[A\rLoading weights: 100%|██████████| 196/196 [00:00\u003c00:00, 2770.66it/s]\n"}
+,{"stream_name":"stderr","time":106.15608148,"data":"\rLoading pipeline components...:  14%|█▍        | 1/7 [00:00\u003c00:00,  7.64it/s]\rLoading pipeline components...:  43%|████▎     | 3/7 [00:00\u003c00:00, 12.22it/s]\rLoading pipeline components...:  71%|███████▏  | 5/7 [00:01\u003c00:00,  3.00it/s]\rLoading pipeline components...:  86%|████████▌ | 6/7 [00:01\u003c00:00,  3.14it/s]\n"}
+,{"stream_name":"stderr","time":106.257046555,"data":"\rLoading weights:   0%|          | 0/517 [00:00\u003c?, ?it/s]\u001b[A\n"}
+,{"stream_name":"stderr","time":106.3593111,"data":"\rLoading weights:  48%|████▊     | 246/517 [00:00\u003c00:00, 2452.70it/s]\u001b[A\n"}
+,{"stream_name":"stderr","time":106.366538086,"data":"\rLoading weights:  95%|█████████▌| 492/517 [00:00\u003c00:00, 2424.78it/s]\u001b[A\rLoading weights: 100%|██████████| 517/517 [00:00\u003c00:00, 2464.71it/s]\n"}
+,{"stream_name":"stderr","time":106.378829412,"data":"\rLoading pipeline components...: 100%|██████████| 7/7 [00:02\u003c00:00,  3.07it/s]\rLoading pipeline components...: 100%|██████████| 7/7 [00:02\u003c00:00,  3.46it/s]\n"}
+,{"stream_name":"stderr","time":112.420929103,"data":"There are modules in UNet2DConditionModel that should be kept in float32: []. Casting directly with `to()` can lead to inconsistent results; set `torch_dtype` in `from_pretrained()` instead to keep these modules in float32.\n"}
+,{"stream_name":"stderr","time":112.543654761,"data":"[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (87 \u003e 77). Running this sequence through the model will result in indexing errors\n"}
+,{"stream_name":"stderr","time":112.547185192,"data":"[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer CLIPTokenizer. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.\n"}
+,{"stream_name":"stderr","time":112.547204847,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['. friendly cinematic 3 d animation , 1 6 : 9 .']\n"}
+,{"stream_name":"stderr","time":113.405512828,"data":"[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (87 \u003e 77). Running this sequence through the model will result in indexing errors\n"}
+,{"stream_name":"stderr","time":113.407742926,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['. friendly cinematic 3 d animation , 1 6 : 9 .']\n"}
+,{"stream_name":"stdout","time":120.288619018,"data":"SHOT 002 FAILED -\u003e AttributeError: 'tuple' object has no attribute 'shape'\n"}
+,{"stream_name":"stderr","time":120.288647172,"data":"\r  0%|          | 0/32 [00:00\u003c?, ?it/s]\r  0%|          | 0/32 [00:03\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":120.289166527,"data":"{\n"}
+,{"stream_name":"stdout","time":120.289187347,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":120.289193053,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":120.289197361,"data":"  \"success\": false,\n"}
+,{"stream_name":"stdout","time":120.289201114,"data":"  \"reference_mode\": \"five hash-validated canon crops -\u003e runtime sheet -\u003e explicit h94 ViT-H encoder -\u003e SDXL IP-Adapter Plus\",\n"}
+,{"stream_name":"stdout","time":120.289206486,"data":"  \"continuity_manifest\": \"shows/earth-needs-help/continuity-manifest.json\",\n"}
+,{"stream_name":"stdout","time":120.289210245,"data":"  \"reference_files\": [\n"}
+,{"stream_name":"stdout","time":120.289213648,"data":"    \"shows/earth-needs-help/assets/characters/captain-pip.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":120.289217238,"data":"    \"shows/earth-needs-help/assets/characters/bloop.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":120.289224126,"data":"    \"shows/earth-needs-help/assets/characters/zig.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":120.289227184,"data":"    \"shows/earth-needs-help/assets/characters/momo.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":120.289229493,"data":"    \"shows/earth-needs-help/assets/characters/human-child.jpg.b64\"\n"}
+,{"stream_name":"stdout","time":120.289231863,"data":"  ],\n"}
+,{"stream_name":"stdout","time":120.289234178,"data":"  \"master_reference_staged_as\": \"/kaggle/working/canonical-five-character-reference.jpg\",\n"}
+,{"stream_name":"stdout","time":120.28923667,"data":"  \"image_encoder_hidden_size\": 1280,\n"}
+,{"stream_name":"stdout","time":120.289239045,"data":"  \"ip_adapter_scale\": 0.9,\n"}
+,{"stream_name":"stdout","time":120.289241461,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":120.289243825,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":120.289246279,"data":"    {\n"}
+,{"stream_name":"stdout","time":120.289248516,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":120.289250839,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":120.289253282,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":120.28925669,"data":"    }\n"}
+,{"stream_name":"stdout","time":120.289269147,"data":"  ]\n"}
+,{"stream_name":"stdout","time":120.289273168,"data":"}\n"}
+,{"stream_name":"stderr","time":120.298420779,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['comedy , bright 3 d animation , 1 6 : 9 .']\n"}
+,{"stream_name":"stderr","time":120.374015306,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['comedy , bright 3 d animation , 1 6 : 9 .']\n"}
+,{"stream_name":"stdout","time":123.294215182,"data":"SHOT 003 FAILED -\u003e AttributeError: 'tuple' object has no attribute 'shape'\n"}
+,{"stream_name":"stderr","time":123.294215177,"data":"\r  0%|          | 0/32 [00:00\u003c?, ?it/s]\r  0%|          | 0/32 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":123.29484289,"data":"{\n"}
+,{"stream_name":"stdout","time":123.294875636,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":123.294880688,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":123.294885254,"data":"  \"success\": false,\n"}
+,{"stream_name":"stdout","time":123.294889423,"data":"  \"reference_mode\": \"five hash-validated canon crops -\u003e runtime sheet -\u003e explicit h94 ViT-H encoder -\u003e SDXL IP-Adapter Plus\",\n"}
+,{"stream_name":"stdout","time":123.294893951,"data":"  \"continuity_manifest\": \"shows/earth-needs-help/continuity-manifest.json\",\n"}
+,{"stream_name":"stdout","time":123.294898471,"data":"  \"reference_files\": [\n"}
+,{"stream_name":"stdout","time":123.294901986,"data":"    \"shows/earth-needs-help/assets/characters/captain-pip.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":123.294909648,"data":"    \"shows/earth-needs-help/assets/characters/bloop.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":123.294912263,"data":"    \"shows/earth-needs-help/assets/characters/zig.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":123.294914666,"data":"    \"shows/earth-needs-help/assets/characters/momo.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":123.294917028,"data":"    \"shows/earth-needs-help/assets/characters/human-child.jpg.b64\"\n"}
+,{"stream_name":"stdout","time":123.294919473,"data":"  ],\n"}
+,{"stream_name":"stdout","time":123.294921673,"data":"  \"master_reference_staged_as\": \"/kaggle/working/canonical-five-character-reference.jpg\",\n"}
+,{"stream_name":"stdout","time":123.294924188,"data":"  \"image_encoder_hidden_size\": 1280,\n"}
+,{"stream_name":"stdout","time":123.294926488,"data":"  \"ip_adapter_scale\": 0.9,\n"}
+,{"stream_name":"stdout","time":123.29492876,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":123.29493106,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":123.294933311,"data":"    {\n"}
+,{"stream_name":"stdout","time":123.294935504,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":123.294955117,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":123.294968983,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":123.29497374,"data":"    },\n"}
+,{"stream_name":"stdout","time":123.294977688,"data":"    {\n"}
+,{"stream_name":"stdout","time":123.294981404,"data":"      \"id\": \"003\",\n"}
+,{"stream_name":"stdout","time":123.294985629,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":123.294989026,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":123.294992448,"data":"    }\n"}
+,{"stream_name":"stdout","time":123.294995632,"data":"  ]\n"}
+,{"stream_name":"stdout","time":123.29499945,"data":"}\n"}
+,{"stream_name":"stderr","time":123.304059812,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['but unafraid . bright friendly 3 d animation , 1 6 : 9 .']\n"}
+,{"stream_name":"stderr","time":123.381889994,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['but unafraid . bright friendly 3 d animation , 1 6 : 9 .']\n"}
+,{"stream_name":"stderr","time":125.14751891,"data":"\r  0%|          | 0/32 [00:00\u003c?, ?it/s]\r  0%|          | 0/32 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":125.147518914,"data":"SHOT 004 FAILED -\u003e AttributeError: 'tuple' object has no attribute 'shape'\n"}
+,{"stream_name":"stdout","time":125.148090247,"data":"{\n"}
+,{"stream_name":"stdout","time":125.148111747,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":125.148116856,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":125.148120939,"data":"  \"success\": false,\n"}
+,{"stream_name":"stdout","time":125.148124789,"data":"  \"reference_mode\": \"five hash-validated canon crops -\u003e runtime sheet -\u003e explicit h94 ViT-H encoder -\u003e SDXL IP-Adapter Plus\",\n"}
+,{"stream_name":"stdout","time":125.148129793,"data":"  \"continuity_manifest\": \"shows/earth-needs-help/continuity-manifest.json\",\n"}
+,{"stream_name":"stdout","time":125.148134178,"data":"  \"reference_files\": [\n"}
+,{"stream_name":"stdout","time":125.148138282,"data":"    \"shows/earth-needs-help/assets/characters/captain-pip.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":125.148142607,"data":"    \"shows/earth-needs-help/assets/characters/bloop.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":125.14814676,"data":"    \"shows/earth-needs-help/assets/characters/zig.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":125.148150903,"data":"    \"shows/earth-needs-help/assets/characters/momo.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":125.148154511,"data":"    \"shows/earth-needs-help/assets/characters/human-child.jpg.b64\"\n"}
+,{"stream_name":"stdout","time":125.148158041,"data":"  ],\n"}
+,{"stream_name":"stdout","time":125.148161345,"data":"  \"master_reference_staged_as\": \"/kaggle/working/canonical-five-character-reference.jpg\",\n"}
+,{"stream_name":"stdout","time":125.148165688,"data":"  \"image_encoder_hidden_size\": 1280,\n"}
+,{"stream_name":"stdout","time":125.148169779,"data":"  \"ip_adapter_scale\": 0.9,\n"}
+,{"stream_name":"stdout","time":125.148173262,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":125.148177368,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":125.148181074,"data":"    {\n"}
+,{"stream_name":"stdout","time":125.148184975,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":125.148188858,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":125.148192731,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":125.148197106,"data":"    },\n"}
+,{"stream_name":"stdout","time":125.148200402,"data":"    {\n"}
+,{"stream_name":"stdout","time":125.148203654,"data":"      \"id\": \"003\",\n"}
+,{"stream_name":"stdout","time":125.148207033,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":125.148210416,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":125.148213954,"data":"    },\n"}
+,{"stream_name":"stdout","time":125.148217189,"data":"    {\n"}
+,{"stream_name":"stdout","time":125.148220349,"data":"      \"id\": \"004\",\n"}
+,{"stream_name":"stdout","time":125.148223698,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":125.148227534,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":125.148232083,"data":"    }\n"}
+,{"stream_name":"stdout","time":125.148236108,"data":"  ]\n"}
+,{"stream_name":"stdout","time":125.148239901,"data":"}\n"}
+,{"stream_name":"stderr","time":125.156897074,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['comedy 3 d animation , 1 6 : 9 .']\n"}
+,{"stream_name":"stderr","time":125.23127884,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['comedy 3 d animation , 1 6 : 9 .']\n"}
+,{"stream_name":"stdout","time":127.030440655,"data":"SHOT 005 FAILED -\u003e AttributeError: 'tuple' object has no attribute 'shape'\n"}
+,{"stream_name":"stderr","time":127.030466434,"data":"\r  0%|          | 0/32 [00:00\u003c?, ?it/s]\r  0%|          | 0/32 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":127.031032982,"data":"{\n"}
+,{"stream_name":"stdout","time":127.031061351,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":127.031067015,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":127.031071035,"data":"  \"success\": false,\n"}
+,{"stream_name":"stdout","time":127.031075146,"data":"  \"reference_mode\": \"five hash-validated canon crops -\u003e runtime sheet -\u003e explicit h94 ViT-H encoder -\u003e SDXL IP-Adapter Plus\",\n"}
+,{"stream_name":"stdout","time":127.031080627,"data":"  \"continuity_manifest\": \"shows/earth-needs-help/continuity-manifest.json\",\n"}
+,{"stream_name":"stdout","time":127.031085321,"data":"  \"reference_files\": [\n"}
+,{"stream_name":"stdout","time":127.031088555,"data":"    \"shows/earth-needs-help/assets/characters/captain-pip.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":127.031091783,"data":"    \"shows/earth-needs-help/assets/characters/bloop.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":127.03109493,"data":"    \"shows/earth-needs-help/assets/characters/zig.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":127.031098378,"data":"    \"shows/earth-needs-help/assets/characters/momo.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":127.031102317,"data":"    \"shows/earth-needs-help/assets/characters/human-child.jpg.b64\"\n"}
+,{"stream_name":"stdout","time":127.031107096,"data":"  ],\n"}
+,{"stream_name":"stdout","time":127.03111041,"data":"  \"master_reference_staged_as\": \"/kaggle/working/canonical-five-character-reference.jpg\",\n"}
+,{"stream_name":"stdout","time":127.031114712,"data":"  \"image_encoder_hidden_size\": 1280,\n"}
+,{"stream_name":"stdout","time":127.031118158,"data":"  \"ip_adapter_scale\": 0.9,\n"}
+,{"stream_name":"stdout","time":127.031121738,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":127.031125417,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":127.031129446,"data":"    {\n"}
+,{"stream_name":"stdout","time":127.031132548,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":127.031136337,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":127.0311403,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":127.031144128,"data":"    },\n"}
+,{"stream_name":"stdout","time":127.031147392,"data":"    {\n"}
+,{"stream_name":"stdout","time":127.031150892,"data":"      \"id\": \"003\",\n"}
+,{"stream_name":"stdout","time":127.031154433,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":127.031158,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":127.03116262,"data":"    },\n"}
+,{"stream_name":"stdout","time":127.031166165,"data":"    {\n"}
+,{"stream_name":"stdout","time":127.031169346,"data":"      \"id\": \"004\",\n"}
+,{"stream_name":"stdout","time":127.031173,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":127.031176446,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":127.031193234,"data":"    },\n"}
+,{"stream_name":"stdout","time":127.031196801,"data":"    {\n"}
+,{"stream_name":"stdout","time":127.031200306,"data":"      \"id\": \"005\",\n"}
+,{"stream_name":"stdout","time":127.031203843,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":127.031207466,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":127.031211378,"data":"    }\n"}
+,{"stream_name":"stdout","time":127.031214737,"data":"  ]\n"}
+,{"stream_name":"stdout","time":127.031218116,"data":"}\n"}
+,{"stream_name":"stderr","time":127.039984696,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['; momo calm . bright 3 d animation , 1 6 : 9 .']\n"}
+,{"stream_name":"stderr","time":127.114844598,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['; momo calm . bright 3 d animation , 1 6 : 9 .']\n"}
+,{"stream_name":"stdout","time":128.897592466,"data":"SHOT 006a FAILED -\u003e AttributeError: 'tuple' object has no attribute 'shape'\n"}
+,{"stream_name":"stderr","time":128.89762278,"data":"\r  0%|          | 0/32 [00:00\u003c?, ?it/s]\r  0%|          | 0/32 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":128.898085505,"data":"{\n"}
+,{"stream_name":"stdout","time":128.898107025,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":128.898123683,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":128.898127715,"data":"  \"success\": false,\n"}
+,{"stream_name":"stdout","time":128.898130907,"data":"  \"reference_mode\": \"five hash-validated canon crops -\u003e runtime sheet -\u003e explicit h94 ViT-H encoder -\u003e SDXL IP-Adapter Plus\",\n"}
+,{"stream_name":"stdout","time":128.898135706,"data":"  \"continuity_manifest\": \"shows/earth-needs-help/continuity-manifest.json\",\n"}
+,{"stream_name":"stdout","time":128.898139992,"data":"  \"reference_files\": [\n"}
+,{"stream_name":"stdout","time":128.898143814,"data":"    \"shows/earth-needs-help/assets/characters/captain-pip.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":128.898147482,"data":"    \"shows/earth-needs-help/assets/characters/bloop.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":128.8981509,"data":"    \"shows/earth-needs-help/assets/characters/zig.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":128.898154365,"data":"    \"shows/earth-needs-help/assets/characters/momo.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":128.89815819,"data":"    \"shows/earth-needs-help/assets/characters/human-child.jpg.b64\"\n"}
+,{"stream_name":"stdout","time":128.898162409,"data":"  ],\n"}
+,{"stream_name":"stdout","time":128.898165853,"data":"  \"master_reference_staged_as\": \"/kaggle/working/canonical-five-character-reference.jpg\",\n"}
+,{"stream_name":"stdout","time":128.898170023,"data":"  \"image_encoder_hidden_size\": 1280,\n"}
+,{"stream_name":"stdout","time":128.898174012,"data":"  \"ip_adapter_scale\": 0.9,\n"}
+,{"stream_name":"stdout","time":128.898177389,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":128.898180897,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":128.89818446,"data":"    {\n"}
+,{"stream_name":"stdout","time":128.898188064,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":128.898191555,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":128.898195055,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":128.898199067,"data":"    },\n"}
+,{"stream_name":"stdout","time":128.89820257,"data":"    {\n"}
+,{"stream_name":"stdout","time":128.898215692,"data":"      \"id\": \"003\",\n"}
+,{"stream_name":"stdout","time":128.89821953,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":128.898222936,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":128.898227085,"data":"    },\n"}
+,{"stream_name":"stdout","time":128.898230365,"data":"    {\n"}
+,{"stream_name":"stdout","time":128.89823371,"data":"      \"id\": \"004\",\n"}
+,{"stream_name":"stdout","time":128.898237343,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":128.89824096,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":128.898244735,"data":"    },\n"}
+,{"stream_name":"stdout","time":128.898247895,"data":"    {\n"}
+,{"stream_name":"stdout","time":128.898251647,"data":"      \"id\": \"005\",\n"}
+,{"stream_name":"stdout","time":128.898255192,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":128.898258542,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":128.898262518,"data":"    },\n"}
+,{"stream_name":"stdout","time":128.8982659,"data":"    {\n"}
+,{"stream_name":"stdout","time":128.898269302,"data":"      \"id\": \"006a\",\n"}
+,{"stream_name":"stdout","time":128.898273006,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":128.898279215,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":128.898283059,"data":"    }\n"}
+,{"stream_name":"stdout","time":128.898286642,"data":"  ]\n"}
+,{"stream_name":"stdout","time":128.898297245,"data":"}\n"}
+,{"stream_name":"stderr","time":128.9072059,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['child amused ; momo calm . comedy 3 d animation , 1 6 : 9 .']\n"}
+,{"stream_name":"stderr","time":128.986051784,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['child amused ; momo calm . comedy 3 d animation , 1 6 : 9 .']\n"}
+,{"stream_name":"stdout","time":130.827945077,"data":"SHOT 006b FAILED -\u003e AttributeError: 'tuple' object has no attribute 'shape'\n"}
+,{"stream_name":"stderr","time":130.827945374,"data":"\r  0%|          | 0/32 [00:00\u003c?, ?it/s]\r  0%|          | 0/32 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":130.82860507,"data":"{\n"}
+,{"stream_name":"stdout","time":130.828615818,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":130.82862139,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":130.828626604,"data":"  \"success\": false,\n"}
+,{"stream_name":"stdout","time":130.828631401,"data":"  \"reference_mode\": \"five hash-validated canon crops -\u003e runtime sheet -\u003e explicit h94 ViT-H encoder -\u003e SDXL IP-Adapter Plus\",\n"}
+,{"stream_name":"stdout","time":130.828638338,"data":"  \"continuity_manifest\": \"shows/earth-needs-help/continuity-manifest.json\",\n"}
+,{"stream_name":"stdout","time":130.828643207,"data":"  \"reference_files\": [\n"}
+,{"stream_name":"stdout","time":130.828647798,"data":"    \"shows/earth-needs-help/assets/characters/captain-pip.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":130.828652129,"data":"    \"shows/earth-needs-help/assets/characters/bloop.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":130.828656284,"data":"    \"shows/earth-needs-help/assets/characters/zig.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":130.828679664,"data":"    \"shows/earth-needs-help/assets/characters/momo.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":130.828682984,"data":"    \"shows/earth-needs-help/assets/characters/human-child.jpg.b64\"\n"}
+,{"stream_name":"stdout","time":130.828685847,"data":"  ],\n"}
+,{"stream_name":"stdout","time":130.828688439,"data":"  \"master_reference_staged_as\": \"/kaggle/working/canonical-five-character-reference.jpg\",\n"}
+,{"stream_name":"stdout","time":130.828691415,"data":"  \"image_encoder_hidden_size\": 1280,\n"}
+,{"stream_name":"stdout","time":130.828694155,"data":"  \"ip_adapter_scale\": 0.9,\n"}
+,{"stream_name":"stdout","time":130.828696953,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":130.828700168,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":130.828702971,"data":"    {\n"}
+,{"stream_name":"stdout","time":130.828705695,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":130.828708487,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":130.828711204,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":130.828714057,"data":"    },\n"}
+,{"stream_name":"stdout","time":130.828716635,"data":"    {\n"}
+,{"stream_name":"stdout","time":130.828719248,"data":"      \"id\": \"003\",\n"}
+,{"stream_name":"stdout","time":130.828721906,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":130.828724539,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":130.828727354,"data":"    },\n"}
+,{"stream_name":"stdout","time":130.828729979,"data":"    {\n"}
+,{"stream_name":"stdout","time":130.828732532,"data":"      \"id\": \"004\",\n"}
+,{"stream_name":"stdout","time":130.828735255,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":130.828737935,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":130.828740741,"data":"    },\n"}
+,{"stream_name":"stdout","time":130.8287433,"data":"    {\n"}
+,{"stream_name":"stdout","time":130.828745846,"data":"      \"id\": \"005\",\n"}
+,{"stream_name":"stdout","time":130.828748498,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":130.828751132,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":130.82875388,"data":"    },\n"}
+,{"stream_name":"stdout","time":130.828756441,"data":"    {\n"}
+,{"stream_name":"stdout","time":130.828758992,"data":"      \"id\": \"006a\",\n"}
+,{"stream_name":"stdout","time":130.828761675,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":130.828764328,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":130.828767081,"data":"    },\n"}
+,{"stream_name":"stdout","time":130.828769667,"data":"    {\n"}
+,{"stream_name":"stdout","time":130.828772239,"data":"      \"id\": \"006b\",\n"}
+,{"stream_name":"stdout","time":130.828774907,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":130.828777566,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":130.828780364,"data":"    }\n"}
+,{"stream_name":"stdout","time":130.828782932,"data":"  ]\n"}
+,{"stream_name":"stdout","time":130.828785519,"data":"}\n"}
+,{"stream_name":"stderr","time":130.838541089,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['behind . warm friendly 3 d animation , 1 6 : 9 .']\n"}
+,{"stream_name":"stderr","time":130.921102401,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['behind . warm friendly 3 d animation , 1 6 : 9 .']\n"}
+,{"stream_name":"stderr","time":132.885611104,"data":"\r  0%|          | 0/32 [00:00\u003c?, ?it/s]\r  0%|          | 0/32 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":132.885610955,"data":"SHOT 007 FAILED -\u003e AttributeError: 'tuple' object has no attribute 'shape'\n"}
+,{"stream_name":"stdout","time":132.886318722,"data":"{\n"}
+,{"stream_name":"stdout","time":132.886615566,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":132.886623419,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":132.886641999,"data":"  \"success\": false,\n"}
+,{"stream_name":"stdout","time":132.886646581,"data":"  \"reference_mode\": \"five hash-validated canon crops -\u003e runtime sheet -\u003e explicit h94 ViT-H encoder -\u003e SDXL IP-Adapter Plus\",\n"}
+,{"stream_name":"stdout","time":132.886652165,"data":"  \"continuity_manifest\": \"shows/earth-needs-help/continuity-manifest.json\",\n"}
+,{"stream_name":"stdout","time":132.886668484,"data":"  \"reference_files\": [\n"}
+,{"stream_name":"stdout","time":132.886673174,"data":"    \"shows/earth-needs-help/assets/characters/captain-pip.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":132.886677636,"data":"    \"shows/earth-needs-help/assets/characters/bloop.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":132.88668209,"data":"    \"shows/earth-needs-help/assets/characters/zig.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":132.88668594,"data":"    \"shows/earth-needs-help/assets/characters/momo.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":132.886689652,"data":"    \"shows/earth-needs-help/assets/characters/human-child.jpg.b64\"\n"}
+,{"stream_name":"stdout","time":132.886693553,"data":"  ],\n"}
+,{"stream_name":"stdout","time":132.886697372,"data":"  \"master_reference_staged_as\": \"/kaggle/working/canonical-five-character-reference.jpg\",\n"}
+,{"stream_name":"stdout","time":132.886707924,"data":"  \"image_encoder_hidden_size\": 1280,\n"}
+,{"stream_name":"stdout","time":132.886710906,"data":"  \"ip_adapter_scale\": 0.9,\n"}
+,{"stream_name":"stdout","time":132.886713437,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":132.886716058,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":132.886718506,"data":"    {\n"}
+,{"stream_name":"stdout","time":132.88672089,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":132.88672343,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":132.88672607,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":132.886728658,"data":"    },\n"}
+,{"stream_name":"stdout","time":132.88673104,"data":"    {\n"}
+,{"stream_name":"stdout","time":132.88673333,"data":"      \"id\": \"003\",\n"}
+,{"stream_name":"stdout","time":132.886735715,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":132.886738116,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":132.88674059,"data":"    },\n"}
+,{"stream_name":"stdout","time":132.886743034,"data":"    {\n"}
+,{"stream_name":"stdout","time":132.886746472,"data":"      \"id\": \"004\",\n"}
+,{"stream_name":"stdout","time":132.886763232,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":132.886767758,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":132.886780825,"data":"    },\n"}
+,{"stream_name":"stdout","time":132.886784643,"data":"    {\n"}
+,{"stream_name":"stdout","time":132.88678815,"data":"      \"id\": \"005\",\n"}
+,{"stream_name":"stdout","time":132.886791754,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":132.886796064,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":132.886822323,"data":"    },\n"}
+,{"stream_name":"stdout","time":132.886826378,"data":"    {\n"}
+,{"stream_name":"stdout","time":132.886829802,"data":"      \"id\": \"006a\",\n"}
+,{"stream_name":"stdout","time":132.886833434,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":132.886837033,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":132.886840822,"data":"    },\n"}
+,{"stream_name":"stdout","time":132.886844191,"data":"    {\n"}
+,{"stream_name":"stdout","time":132.886849626,"data":"      \"id\": \"006b\",\n"}
+,{"stream_name":"stdout","time":132.886856755,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":132.886859196,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":132.886861666,"data":"    },\n"}
+,{"stream_name":"stdout","time":132.88686416,"data":"    {\n"}
+,{"stream_name":"stdout","time":132.886866434,"data":"      \"id\": \"007\",\n"}
+,{"stream_name":"stdout","time":132.886868812,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":132.886871318,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":132.886873809,"data":"    }\n"}
+,{"stream_name":"stdout","time":132.886876829,"data":"  ]\n"}
+,{"stream_name":"stdout","time":132.886892552,"data":"}\n"}
+,{"stream_name":"stderr","time":132.896533395,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['d animation , 1 6 : 9 .']\n"}
+,{"stream_name":"stderr","time":132.977092697,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['d animation , 1 6 : 9 .']\n"}
+,{"stream_name":"stderr","time":134.833162181,"data":"\r  0%|          | 0/32 [00:00\u003c?, ?it/s]\r  0%|          | 0/32 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":134.833165099,"data":"SHOT 008 FAILED -\u003e AttributeError: 'tuple' object has no attribute 'shape'\n"}
+,{"stream_name":"stdout","time":134.833707898,"data":"{\n"}
+,{"stream_name":"stdout","time":134.833721432,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":134.833727193,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":134.833731737,"data":"  \"success\": false,\n"}
+,{"stream_name":"stdout","time":134.833749739,"data":"  \"reference_mode\": \"five hash-validated canon crops -\u003e runtime sheet -\u003e explicit h94 ViT-H encoder -\u003e SDXL IP-Adapter Plus\",\n"}
+,{"stream_name":"stdout","time":134.833756466,"data":"  \"continuity_manifest\": \"shows/earth-needs-help/continuity-manifest.json\",\n"}
+,{"stream_name":"stdout","time":134.83376183,"data":"  \"reference_files\": [\n"}
+,{"stream_name":"stdout","time":134.833766403,"data":"    \"shows/earth-needs-help/assets/characters/captain-pip.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":134.833770959,"data":"    \"shows/earth-needs-help/assets/characters/bloop.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":134.833775331,"data":"    \"shows/earth-needs-help/assets/characters/zig.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":134.833827219,"data":"    \"shows/earth-needs-help/assets/characters/momo.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":134.833835119,"data":"    \"shows/earth-needs-help/assets/characters/human-child.jpg.b64\"\n"}
+,{"stream_name":"stdout","time":134.83383952,"data":"  ],\n"}
+,{"stream_name":"stdout","time":134.833842907,"data":"  \"master_reference_staged_as\": \"/kaggle/working/canonical-five-character-reference.jpg\",\n"}
+,{"stream_name":"stdout","time":134.833846605,"data":"  \"image_encoder_hidden_size\": 1280,\n"}
+,{"stream_name":"stdout","time":134.83385005,"data":"  \"ip_adapter_scale\": 0.9,\n"}
+,{"stream_name":"stdout","time":134.83385344,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":134.833856859,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":134.833860352,"data":"    {\n"}
+,{"stream_name":"stdout","time":134.833863672,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":134.833867201,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":134.833870659,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":134.833874336,"data":"    },\n"}
+,{"stream_name":"stdout","time":134.833877549,"data":"    {\n"}
+,{"stream_name":"stdout","time":134.833880973,"data":"      \"id\": \"003\",\n"}
+,{"stream_name":"stdout","time":134.833886059,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":134.833892879,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":134.833895344,"data":"    },\n"}
+,{"stream_name":"stdout","time":134.833897512,"data":"    {\n"}
+,{"stream_name":"stdout","time":134.833899734,"data":"      \"id\": \"004\",\n"}
+,{"stream_name":"stdout","time":134.833902964,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":134.833917745,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":134.833922417,"data":"    },\n"}
+,{"stream_name":"stdout","time":134.833926511,"data":"    {\n"}
+,{"stream_name":"stdout","time":134.833930498,"data":"      \"id\": \"005\",\n"}
+,{"stream_name":"stdout","time":134.833934617,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":134.833938151,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":134.833941716,"data":"    },\n"}
+,{"stream_name":"stdout","time":134.833944986,"data":"    {\n"}
+,{"stream_name":"stdout","time":134.833948149,"data":"      \"id\": \"006a\",\n"}
+,{"stream_name":"stdout","time":134.833951526,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":134.833954849,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":134.833958519,"data":"    },\n"}
+,{"stream_name":"stdout","time":134.833961763,"data":"    {\n"}
+,{"stream_name":"stdout","time":134.833964977,"data":"      \"id\": \"006b\",\n"}
+,{"stream_name":"stdout","time":134.833968379,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":134.833971707,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":134.833975221,"data":"    },\n"}
+,{"stream_name":"stdout","time":134.833978409,"data":"    {\n"}
+,{"stream_name":"stdout","time":134.833981634,"data":"      \"id\": \"007\",\n"}
+,{"stream_name":"stdout","time":134.833985099,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":134.834012721,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":134.834017847,"data":"    },\n"}
+,{"stream_name":"stdout","time":134.834021809,"data":"    {\n"}
+,{"stream_name":"stdout","time":134.834025804,"data":"      \"id\": \"008\",\n"}
+,{"stream_name":"stdout","time":134.834029905,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":134.834033518,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":134.834037089,"data":"    }\n"}
+,{"stream_name":"stdout","time":134.834050392,"data":"  ]\n"}
+,{"stream_name":"stdout","time":134.834053715,"data":"}\n"}
+,{"stream_name":"stderr","time":134.842299956,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['child holds kite nearby . bright 3 d animation , 1 6 : 9 .']\n"}
+,{"stream_name":"stderr","time":134.921761932,"data":"The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['child holds kite nearby . bright 3 d animation , 1 6 : 9 .']\n"}
+,{"stream_name":"stderr","time":136.664757554,"data":"\r  0%|          | 0/32 [00:00\u003c?, ?it/s]\r  0%|          | 0/32 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":136.664825427,"data":"SHOT 009 FAILED -\u003e AttributeError: 'tuple' object has no attribute 'shape'\n"}
+,{"stream_name":"stdout","time":136.665364232,"data":"{\n"}
+,{"stream_name":"stdout","time":136.665378958,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":136.665382288,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":136.66538493,"data":"  \"success\": false,\n"}
+,{"stream_name":"stdout","time":136.665387583,"data":"  \"reference_mode\": \"five hash-validated canon crops -\u003e runtime sheet -\u003e explicit h94 ViT-H encoder -\u003e SDXL IP-Adapter Plus\",\n"}
+,{"stream_name":"stdout","time":136.665390698,"data":"  \"continuity_manifest\": \"shows/earth-needs-help/continuity-manifest.json\",\n"}
+,{"stream_name":"stdout","time":136.665393268,"data":"  \"reference_files\": [\n"}
+,{"stream_name":"stdout","time":136.665395573,"data":"    \"shows/earth-needs-help/assets/characters/captain-pip.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":136.665397991,"data":"    \"shows/earth-needs-help/assets/characters/bloop.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":136.665400355,"data":"    \"shows/earth-needs-help/assets/characters/zig.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":136.665402677,"data":"    \"shows/earth-needs-help/assets/characters/momo.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":136.665405011,"data":"    \"shows/earth-needs-help/assets/characters/human-child.jpg.b64\"\n"}
+,{"stream_name":"stdout","time":136.66540735,"data":"  ],\n"}
+,{"stream_name":"stdout","time":136.665409531,"data":"  \"master_reference_staged_as\": \"/kaggle/working/canonical-five-character-reference.jpg\",\n"}
+,{"stream_name":"stdout","time":136.665411971,"data":"  \"image_encoder_hidden_size\": 1280,\n"}
+,{"stream_name":"stdout","time":136.665414272,"data":"  \"ip_adapter_scale\": 0.9,\n"}
+,{"stream_name":"stdout","time":136.665416565,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":136.665422299,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":136.665438662,"data":"    {\n"}
+,{"stream_name":"stdout","time":136.665442651,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":136.665447033,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":136.665461735,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":136.665465836,"data":"    },\n"}
+,{"stream_name":"stdout","time":136.66546909,"data":"    {\n"}
+,{"stream_name":"stdout","time":136.665472326,"data":"      \"id\": \"003\",\n"}
+,{"stream_name":"stdout","time":136.66547571,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":136.665479358,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":136.665487838,"data":"    },\n"}
+,{"stream_name":"stdout","time":136.665490301,"data":"    {\n"}
+,{"stream_name":"stdout","time":136.665492545,"data":"      \"id\": \"004\",\n"}
+,{"stream_name":"stdout","time":136.665494772,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":136.665497089,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":136.665499409,"data":"    },\n"}
+,{"stream_name":"stdout","time":136.665501545,"data":"    {\n"}
+,{"stream_name":"stdout","time":136.665503803,"data":"      \"id\": \"005\",\n"}
+,{"stream_name":"stdout","time":136.665506055,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":136.66550828,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":136.665510571,"data":"    },\n"}
+,{"stream_name":"stdout","time":136.665512706,"data":"    {\n"}
+,{"stream_name":"stdout","time":136.66551484,"data":"      \"id\": \"006a\",\n"}
+,{"stream_name":"stdout","time":136.665517091,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":136.665519318,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":136.665522124,"data":"    },\n"}
+,{"stream_name":"stdout","time":136.66553586,"data":"    {\n"}
+,{"stream_name":"stdout","time":136.665539471,"data":"      \"id\": \"006b\",\n"}
+,{"stream_name":"stdout","time":136.665543646,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":136.665547516,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":136.665551609,"data":"    },\n"}
+,{"stream_name":"stdout","time":136.665554908,"data":"    {\n"}
+,{"stream_name":"stdout","time":136.665558143,"data":"      \"id\": \"007\",\n"}
+,{"stream_name":"stdout","time":136.665562021,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":136.665565818,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":136.665569689,"data":"    },\n"}
+,{"stream_name":"stdout","time":136.665573273,"data":"    {\n"}
+,{"stream_name":"stdout","time":136.665576902,"data":"      \"id\": \"008\",\n"}
+,{"stream_name":"stdout","time":136.665580924,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":136.665584605,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":136.665588601,"data":"    },\n"}
+,{"stream_name":"stdout","time":136.665592181,"data":"    {\n"}
+,{"stream_name":"stdout","time":136.66559554,"data":"      \"id\": \"009\",\n"}
+,{"stream_name":"stdout","time":136.665600266,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":136.665603685,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":136.665607278,"data":"    }\n"}
+,{"stream_name":"stdout","time":136.665614248,"data":"  ]\n"}
+,{"stream_name":"stdout","time":136.665617513,"data":"}\n"}
+,{"stream_name":"stdout","time":136.665714631,"data":"{\n"}
+,{"stream_name":"stdout","time":136.665721595,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":136.665725325,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":136.665728773,"data":"  \"success\": false,\n"}
+,{"stream_name":"stdout","time":136.665732174,"data":"  \"reference_mode\": \"five hash-validated canon crops -\u003e runtime sheet -\u003e explicit h94 ViT-H encoder -\u003e SDXL IP-Adapter Plus\",\n"}
+,{"stream_name":"stdout","time":136.665736393,"data":"  \"continuity_manifest\": \"shows/earth-needs-help/continuity-manifest.json\",\n"}
+,{"stream_name":"stdout","time":136.665739921,"data":"  \"reference_files\": [\n"}
+,{"stream_name":"stdout","time":136.665743312,"data":"    \"shows/earth-needs-help/assets/characters/captain-pip.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":136.66574693,"data":"    \"shows/earth-needs-help/assets/characters/bloop.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":136.665750633,"data":"    \"shows/earth-needs-help/assets/characters/zig.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":136.665758465,"data":"    \"shows/earth-needs-help/assets/characters/momo.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":136.665761519,"data":"    \"shows/earth-needs-help/assets/characters/human-child.jpg.b64\"\n"}
+,{"stream_name":"stdout","time":136.665764131,"data":"  ],\n"}
+,{"stream_name":"stdout","time":136.665766321,"data":"  \"master_reference_staged_as\": \"/kaggle/working/canonical-five-character-reference.jpg\",\n"}
+,{"stream_name":"stdout","time":136.665768826,"data":"  \"image_encoder_hidden_size\": 1280,\n"}
+,{"stream_name":"stdout","time":136.665771119,"data":"  \"ip_adapter_scale\": 0.9,\n"}
+,{"stream_name":"stdout","time":136.66577405499999,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":136.665789905,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":136.665793941,"data":"    {\n"}
+,{"stream_name":"stdout","time":136.665814787,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":136.665824025,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":136.665827543,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":136.665831125,"data":"    },\n"}
+,{"stream_name":"stdout","time":136.665834316,"data":"    {\n"}
+,{"stream_name":"stdout","time":136.665837567,"data":"      \"id\": \"003\",\n"}
+,{"stream_name":"stdout","time":136.665841026,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":136.665844551,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":136.665848085,"data":"    },\n"}
+,{"stream_name":"stdout","time":136.66585129,"data":"    {\n"}
+,{"stream_name":"stdout","time":136.665854571,"data":"      \"id\": \"004\",\n"}
+,{"stream_name":"stdout","time":136.665858181,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":136.665861562,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":136.665865181,"data":"    },\n"}
+,{"stream_name":"stdout","time":136.665868426,"data":"    {\n"}
+,{"stream_name":"stdout","time":136.665871672,"data":"      \"id\": \"005\",\n"}
+,{"stream_name":"stdout","time":136.665876835,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":136.66588027,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":136.665891905,"data":"    },\n"}
+,{"stream_name":"stdout","time":136.665896097,"data":"    {\n"}
+,{"stream_name":"stdout","time":136.665899906,"data":"      \"id\": \"006a\",\n"}
+,{"stream_name":"stdout","time":136.665904279,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":136.665907842,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":136.665911733,"data":"    },\n"}
+,{"stream_name":"stdout","time":136.665914886,"data":"    {\n"}
+,{"stream_name":"stdout","time":136.665918039,"data":"      \"id\": \"006b\",\n"}
+,{"stream_name":"stdout","time":136.665921411,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":136.665924786,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":136.665928275,"data":"    },\n"}
+,{"stream_name":"stdout","time":136.665931437,"data":"    {\n"}
+,{"stream_name":"stdout","time":136.665934655,"data":"      \"id\": \"007\",\n"}
+,{"stream_name":"stdout","time":136.665938061,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":136.665941398,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":136.665944911,"data":"    },\n"}
+,{"stream_name":"stdout","time":136.665948093,"data":"    {\n"}
+,{"stream_name":"stdout","time":136.665951271,"data":"      \"id\": \"008\",\n"}
+,{"stream_name":"stdout","time":136.665954602,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":136.665957985,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":136.665968398,"data":"    },\n"}
+,{"stream_name":"stdout","time":136.665971165,"data":"    {\n"}
+,{"stream_name":"stdout","time":136.665985134,"data":"      \"id\": \"009\",\n"}
+,{"stream_name":"stdout","time":136.665989436,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":136.665993449,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":136.665997749,"data":"    }\n"}
+,{"stream_name":"stdout","time":136.666001521,"data":"  ],\n"}
+,{"stream_name":"stdout","time":136.666004851,"data":"  \"elapsed_seconds\": 135.74\n"}
+,{"stream_name":"stdout","time":136.666008331,"data":"}\n"}
+,{"stream_name":"stderr","time":142.39963317,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":142.399661997,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":142.668098674,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":142.668125668,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":143.297012953,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":144.562186825,"data":"[NbConvertApp] Writing 317556 bytes to __results__.html\n"}
+]
