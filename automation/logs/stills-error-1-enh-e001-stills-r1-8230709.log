@@ -1,0 +1,15 @@
+[{"stream_name":"stdout","time":1.677384252,"data":"{\n"}
+,{"stream_name":"stdout","time":1.677428886,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":1.677433366,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":1.677436138,"data":"  \"success\": false,\n"}
+,{"stream_name":"stdout","time":1.677438725,"data":"  \"status\": \"blocked_continuity\",\n"}
+,{"stream_name":"stdout","time":1.677441416,"data":"  \"error\": \"RuntimeError: CONTINUITY_BLOCK: locked master reference is unreadable: UnidentifiedImageError: cannot identify image file \u003c_io.BytesIO object at 0x7f4ad0b83b00\u003e\",\n"}
+,{"stream_name":"stdout","time":1.6774516990000001,"data":"  \"generated_shots\": []\n"}
+,{"stream_name":"stdout","time":1.677454312,"data":"}\n"}
+,{"stream_name":"stderr","time":3.921530209,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":3.921600392,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":4.185304598,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":4.185329352,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":5.355169128,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":6.519744305,"data":"[NbConvertApp] Writing 306726 bytes to __results__.html\n"}
+]
