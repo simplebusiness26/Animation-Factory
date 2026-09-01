@@ -2,8 +2,65 @@
   "show": "Earth Needs Help",
   "episode": "001",
   "success": false,
-  "status": "blocked_continuity",
-  "error": "RuntimeError: CONTINUITY_BLOCK: locked master reference is unreadable: UnidentifiedImageError: cannot identify image file <_io.BytesIO object at 0x7f4ad0b83b00>",
-  "generated_shots": []
+  "reference_mode": "five hash-validated user-approved canon crops -> runtime master sheet -> IP-Adapter Plus on every shot",
+  "continuity_manifest": "shows/earth-needs-help/continuity-manifest.json",
+  "reference_files": [
+    "shows/earth-needs-help/assets/characters/captain-pip.jpg.b64",
+    "shows/earth-needs-help/assets/characters/bloop.jpg.b64",
+    "shows/earth-needs-help/assets/characters/zig.jpg.b64",
+    "shows/earth-needs-help/assets/characters/momo.jpg.b64",
+    "shows/earth-needs-help/assets/characters/human-child.jpg.b64"
+  ],
+  "master_reference_staged_as": "/kaggle/working/canonical-five-character-reference.jpg",
+  "ip_adapter_scale": 0.95,
+  "gpu": "Tesla T4",
+  "shots": [
+    {
+      "id": "002",
+      "success": false,
+      "error": "RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)"
+    },
+    {
+      "id": "003",
+      "success": false,
+      "error": "RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)"
+    },
+    {
+      "id": "004",
+      "success": false,
+      "error": "RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)"
+    },
+    {
+      "id": "005",
+      "success": false,
+      "error": "RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)"
+    },
+    {
+      "id": "006a",
+      "success": false,
+      "error": "RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)"
+    },
+    {
+      "id": "006b",
+      "success": false,
+      "error": "RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)"
+    },
+    {
+      "id": "007",
+      "success": false,
+      "error": "RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)"
+    },
+    {
+      "id": "008",
+      "success": false,
+      "error": "RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)"
+    },
+    {
+      "id": "009",
+      "success": false,
+      "error": "RuntimeError: mat1 and mat2 shapes cannot be multiplied (514x1664 and 1280x1280)"
+    }
+  ],
+  "elapsed_seconds": 144.12
 }
 
