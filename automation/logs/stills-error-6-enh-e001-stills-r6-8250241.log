@@ -1,0 +1,104 @@
+[{"stream_name":"stdout","time":4.687559333,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 44.1/44.1 kB 3.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":6.148453952,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.9/2.9 MB 82.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":6.241491869,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.0/10.0 MB 120.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":6.262714732,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 333.2/333.2 kB 24.9 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":6.288418435,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 434.8/434.8 kB 23.5 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":6.310698336,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 447.5/447.5 kB 31.4 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":6.35243504,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.0/3.0 MB 91.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":29.66834157,"data":"VERSIONS torch=2.10.0+cu128 torchvision=0.25.0+cu128\n"}
+,{"stream_name":"stderr","time":32.934968846,"data":"The cache for model files in Transformers v4.22.0 has been updated. Migrating your old cache. This is a one-time only operation. You can interrupt this and resume the migration later on by calling `transformers.utils.move_cache()`.\n"}
+,{"stream_name":"stderr","time":32.937453110999996,"data":"\r0it [00:00, ?it/s]\r0it [00:00, ?it/s]\n"}
+,{"stream_name":"stderr","time":119.395039271,"data":"\rFetching 19 files:   0%|          | 0/19 [00:00\u003c?, ?it/s]\rFetching 19 files:  21%|██        | 4/19 [00:02\u003c00:09,  1.52it/s]\rFetching 19 files:  32%|███▏      | 6/19 [00:10\u003c00:25,  1.98s/it]\rFetching 19 files:  84%|████████▍ | 16/19 [00:37\u003c00:07,  2.52s/it]\rFetching 19 files: 100%|██████████| 19/19 [00:37\u003c00:00,  1.96s/it]\n"}
+,{"stream_name":"stderr","time":121.023534494,"data":"\rLoading pipeline components...:   0%|          | 0/7 [00:00\u003c?, ?it/s]\rLoading pipeline components...:  14%|█▍        | 1/7 [00:00\u003c00:02,  2.14it/s]\rLoading pipeline components...:  43%|████▎     | 3/7 [00:00\u003c00:00,  6.31it/s]\rLoading pipeline components...:  71%|███████▏  | 5/7 [00:01\u003c00:00,  3.26it/s]\rLoading pipeline components...: 100%|██████████| 7/7 [00:01\u003c00:00,  4.73it/s]\rLoading pipeline components...: 100%|██████████| 7/7 [00:01\u003c00:00,  4.31it/s]\n"}
+,{"stream_name":"stderr","time":136.113810806,"data":"\r  0%|          | 0/30 [00:00\u003c?, ?it/s]\r  0%|          | 0/30 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stderr","time":136.120414856,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":136.120946121,"data":"  File \"/kaggle/src/script.py\", line 91, in main\n"}
+,{"stream_name":"stderr","time":136.120967466,"data":"    image=pipe(prompt=CANONICAL_LOCK+shot['prompt'],negative_prompt=NEGATIVE,ip_adapter_image=master_ref,guidance_scale=6.0,num_inference_steps=30,generator=torch.Generator(device='cuda').manual_seed(9300+index),width=768,height=432).images[0]\n"}
+,{"stream_name":"stderr","time":136.120976714,"data":"          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":136.120994964,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py\", line 124, in decorate_context\n"}
+,{"stream_name":"stderr","time":136.120999964,"data":"    return func(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":136.121003933,"data":"           ^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":136.121008244,"data":"  File \"/usr/local/lib/python3.12/dist-packages/diffusers/pipelines/stable_diffusion_xl/pipeline_stable_diffusion_xl.py\", line 1211, in __call__\n"}
+,{"stream_name":"stderr","time":136.121012772,"data":"    noise_pred = self.unet(\n"}
+,{"stream_name":"stderr","time":136.121017048,"data":"                 ^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":136.121020664,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1776, in _wrapped_call_impl\n"}
+,{"stream_name":"stderr","time":136.121024586,"data":"    return self._call_impl(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":136.121028589,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":136.12103235,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1787, in _call_impl\n"}
+,{"stream_name":"stderr","time":136.121036394,"data":"    return forward_call(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":136.121039989,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":136.12104339,"data":"  File \"/usr/local/lib/python3.12/dist-packages/diffusers/models/unets/unet_2d_condition.py\", line 1216, in forward\n"}
+,{"stream_name":"stderr","time":136.121047252,"data":"    sample, res_samples = downsample_block(\n"}
+,{"stream_name":"stderr","time":136.121050603,"data":"                          ^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":136.121054712,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1776, in _wrapped_call_impl\n"}
+,{"stream_name":"stderr","time":136.121058286,"data":"    return self._call_impl(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":136.121061694,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":136.121065219,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1787, in _call_impl\n"}
+,{"stream_name":"stderr","time":136.121068973,"data":"    return forward_call(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":136.121081725,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":136.121085514,"data":"  File \"/usr/local/lib/python3.12/dist-packages/diffusers/models/unets/unet_2d_blocks.py\", line 1288, in forward\n"}
+,{"stream_name":"stderr","time":136.121089182,"data":"    hidden_states = attn(\n"}
+,{"stream_name":"stderr","time":136.12109299,"data":"                    ^^^^^\n"}
+,{"stream_name":"stderr","time":136.121097923,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1776, in _wrapped_call_impl\n"}
+,{"stream_name":"stderr","time":136.12110193,"data":"    return self._call_impl(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":136.121105454,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":136.121109056,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1787, in _call_impl\n"}
+,{"stream_name":"stderr","time":136.121112764,"data":"    return forward_call(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":136.121116292,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":136.121124793,"data":"  File \"/usr/local/lib/python3.12/dist-packages/diffusers/models/transformers/transformer_2d.py\", line 442, in forward\n"}
+,{"stream_name":"stderr","time":136.121128636,"data":"    hidden_states = block(\n"}
+,{"stream_name":"stderr","time":136.121132054,"data":"                    ^^^^^^\n"}
+,{"stream_name":"stderr","time":136.121135525,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1776, in _wrapped_call_impl\n"}
+,{"stream_name":"stderr","time":136.12113911,"data":"    return self._call_impl(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":136.121143043,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":136.121147218,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1787, in _call_impl\n"}
+,{"stream_name":"stderr","time":136.121151612,"data":"    return forward_call(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":136.121155848,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":136.121159908,"data":"  File \"/usr/local/lib/python3.12/dist-packages/diffusers/models/attention.py\", line 545, in forward\n"}
+,{"stream_name":"stderr","time":136.121164342,"data":"    attn_output = self.attn2(\n"}
+,{"stream_name":"stderr","time":136.121167863,"data":"                  ^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":136.121171411,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1776, in _wrapped_call_impl\n"}
+,{"stream_name":"stderr","time":136.121175274,"data":"    return self._call_impl(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":136.121178993,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":136.121182478,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1787, in _call_impl\n"}
+,{"stream_name":"stderr","time":136.121186558,"data":"    return forward_call(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":136.121190014,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":136.12119365,"data":"  File \"/usr/local/lib/python3.12/dist-packages/diffusers/models/attention_processor.py\", line 495, in forward\n"}
+,{"stream_name":"stderr","time":136.121197242,"data":"    return self.processor(\n"}
+,{"stream_name":"stderr","time":136.121200445,"data":"           ^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":136.121203714,"data":"  File \"/usr/local/lib/python3.12/dist-packages/diffusers/models/attention_processor.py\", line 3446, in __call__\n"}
+,{"stream_name":"stderr","time":136.121207666,"data":"    hidden_states.shape if encoder_hidden_states is None else encoder_hidden_states.shape\n"}
+,{"stream_name":"stderr","time":136.121211166,"data":"                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":136.121214824,"data":"AttributeError: 'tuple' object has no attribute 'shape'\n"}
+,{"stream_name":"stdout","time":136.121650811,"data":"{\n"}
+,{"stream_name":"stdout","time":136.121669715,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":136.121675063,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":136.121679497,"data":"  \"success\": false,\n"}
+,{"stream_name":"stdout","time":136.121684746,"data":"  \"reference_mode\": \"validated canon sheet -\u003e pinned HF layer/no torch replacement -\u003e explicit ViT-H -\u003e SDXL IP-Adapter Plus\",\n"}
+,{"stream_name":"stdout","time":136.121690133,"data":"  \"continuity_manifest\": \"shows/earth-needs-help/continuity-manifest.json\",\n"}
+,{"stream_name":"stdout","time":136.121719496,"data":"  \"reference_files\": [\n"}
+,{"stream_name":"stdout","time":136.121723865,"data":"    \"shows/earth-needs-help/assets/characters/captain-pip.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":136.121728344,"data":"    \"shows/earth-needs-help/assets/characters/bloop.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":136.121732651,"data":"    \"shows/earth-needs-help/assets/characters/zig.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":136.121736903,"data":"    \"shows/earth-needs-help/assets/characters/momo.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":136.121741208,"data":"    \"shows/earth-needs-help/assets/characters/human-child.jpg.b64\"\n"}
+,{"stream_name":"stdout","time":136.12174566,"data":"  ],\n"}
+,{"stream_name":"stdout","time":136.12174988,"data":"  \"master_reference_staged_as\": \"/kaggle/working/canonical-five-character-reference.jpg\",\n"}
+,{"stream_name":"stdout","time":136.121754412,"data":"  \"image_encoder_hidden_size\": 1280,\n"}
+,{"stream_name":"stdout","time":136.121758636,"data":"  \"ip_adapter_scale\": 0.9,\n"}
+,{"stream_name":"stdout","time":136.121762911,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":136.121767285,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":136.121771484,"data":"    {\n"}
+,{"stream_name":"stdout","time":136.121775526,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":136.121779794,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":136.121784099,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":136.121788647,"data":"    }\n"}
+,{"stream_name":"stdout","time":136.121792744,"data":"  ]\n"}
+,{"stream_name":"stdout","time":136.121796785,"data":"}\n"}
+,{"stream_name":"stderr","time":141.704578965,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":141.704615248,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":141.957173738,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":141.957203643,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":142.56523382,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":143.350666798,"data":"[NbConvertApp] Writing 309933 bytes to __results__.html\n"}
+]

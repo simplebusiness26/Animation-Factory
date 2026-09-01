@@ -2,7 +2,7 @@
   "show": "Earth Needs Help",
   "episode": "001",
   "success": false,
-  "reference_mode": "five hash-validated canon crops -> runtime sheet -> explicit h94 ViT-H encoder -> SDXL IP-Adapter Plus",
+  "reference_mode": "validated canon sheet -> pinned HF layer/no torch replacement -> explicit ViT-H -> SDXL IP-Adapter Plus",
   "continuity_manifest": "shows/earth-needs-help/continuity-manifest.json",
   "reference_files": [
     "shows/earth-needs-help/assets/characters/captain-pip.jpg.b64",
