@@ -1,3 +1,3 @@
 Warning: Looks like you're using an outdated `kaggle`` version (installed: {current_version}), please consider upgrading to the latest version ({latest_version_str})
-Output file downloaded to /tmp/stills-error-4-a09afmb1/canonical-five-character-reference.jpg
-Kernel log downloaded to /tmp/stills-error-4-a09afmb1/enh-e001-stills-r4-8245149.log
+Output file downloaded to /tmp/stills-error-5-fmvj2h6m/canonical-five-character-reference.jpg
+Kernel log downloaded to /tmp/stills-error-5-fmvj2h6m/enh-e001-stills-r5-8245384.log
