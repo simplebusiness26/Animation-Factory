@@ -1,0 +1,61 @@
+[{"stream_name":"stdout","time":8.084645172,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.9/5.9 MB 43.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":8.214422549,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.1/12.1 MB 107.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":8.252132419,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 389.2/389.2 kB 24.1 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":8.288658502,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 516.0/516.0 kB 33.1 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":8.333368918,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 795.8/795.8 kB 36.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":8.402509164,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 70.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":8.436641138,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 125.3/125.3 kB 9.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":8.498847065,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 109.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":29.184513392,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":29.184566617,"data":"google-adk 1.29.0 requires google-cloud-bigquery-storage\u003e=2.0.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":61.429609979,"data":"[transformers] `Siglip2ImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `Siglip2ImageProcessor` instead.\n"}
+,{"stream_name":"stderr","time":61.922298013,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":61.922329956,"data":"WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":78.940756317,"data":"\rLoading weights:   0%|          | 0/520 [00:00\u003c?, ?it/s]\rLoading weights:  17%|█▋        | 89/520 [00:00\u003c00:00, 824.82it/s]\rLoading weights:  36%|███▌      | 185/520 [00:00\u003c00:00, 880.60it/s]\rLoading weights:  54%|█████▍    | 281/520 [00:00\u003c00:00, 875.17it/s]\rLoading weights:  72%|███████▎  | 377/520 [00:00\u003c00:00, 905.58it/s]\rLoading weights:  90%|█████████ | 468/520 [00:00\u003c00:00, 892.10it/s]\rLoading weights: 100%|██████████| 520/520 [00:00\u003c00:00, 914.14it/s]\n"}
+,{"stream_name":"stderr","time":79.031438022,"data":"/usr/local/lib/python3.12/dist-packages/huggingface_hub/utils/_validators.py:205: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.\n"}
+,{"stream_name":"stderr","time":79.031484729,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":79.189121083,"data":"/usr/local/lib/python3.12/dist-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.\n"}
+,{"stream_name":"stderr","time":79.18915946,"data":"  deprecate(\"torch_dtype\", \"1.0.0\", _TORCH_DTYPE_DEPRECATION_MESSAGE)\n"}
+,{"stream_name":"stderr","time":100.272034085,"data":"\rFetching 19 files:   0%|          | 0/19 [00:00\u003c?, ?it/s]\rFetching 19 files:  11%|█         | 2/19 [00:00\u003c00:00, 19.42it/s]\rFetching 19 files:  42%|████▏     | 8/19 [00:00\u003c00:00, 34.41it/s]\rFetching 19 files:  74%|███████▎  | 14/19 [00:00\u003c00:00, 41.91it/s]\rFetching 19 files:  89%|████████▉ | 17/19 [00:12\u003c00:00, 41.91it/s]\rFetching 19 files:  95%|█████████▍| 18/19 [00:16\u003c00:01,  1.38s/it]\rFetching 19 files: 100%|██████████| 19/19 [00:20\u003c00:00,  1.69s/it]\rFetching 19 files: 100%|██████████| 19/19 [00:20\u003c00:00,  1.09s/it]\n"}
+,{"stream_name":"stderr","time":101.795915169,"data":"\rLoading pipeline components...:   0%|          | 0/7 [00:00\u003c?, ?it/s]\rLoading pipeline components...:  14%|█▍        | 1/7 [00:01\u003c00:06,  1.16s/it]\rLoading pipeline components...:  29%|██▊       | 2/7 [00:01\u003c00:03,  1.54it/s]\n"}
+,{"stream_name":"stderr","time":101.877590088,"data":"\rLoading weights:   0%|          | 0/196 [00:00\u003c?, ?it/s]\u001b[A\rLoading weights: 100%|██████████| 196/196 [00:00\u003c00:00, 2447.08it/s]\n"}
+,{"stream_name":"stderr","time":102.137376203,"data":"\rLoading pipeline components...:  43%|████▎     | 3/7 [00:01\u003c00:01,  2.36it/s]\rLoading pipeline components...:  71%|███████▏  | 5/7 [00:01\u003c00:00,  4.56it/s]\n"}
+,{"stream_name":"stderr","time":102.239421886,"data":"\rLoading weights:   0%|          | 0/517 [00:00\u003c?, ?it/s]\u001b[A\n"}
+,{"stream_name":"stderr","time":102.339530257,"data":"\rLoading weights:  45%|████▌     | 233/517 [00:00\u003c00:00, 2308.83it/s]\u001b[A\n"}
+,{"stream_name":"stderr","time":102.356791615,"data":"\rLoading weights:  91%|█████████ | 468/517 [00:00\u003c00:00, 2331.01it/s]\u001b[A\rLoading weights: 100%|██████████| 517/517 [00:00\u003c00:00, 2368.92it/s]\n"}
+,{"stream_name":"stderr","time":102.44672436,"data":"\rLoading pipeline components...:  86%|████████▌ | 6/7 [00:02\u003c00:00,  3.84it/s]\rLoading pipeline components...: 100%|██████████| 7/7 [00:02\u003c00:00,  3.22it/s]\n"}
+,{"stream_name":"stderr","time":116.460827096,"data":"There are modules in UNet2DConditionModel that should be kept in float32: []. Casting directly with `to()` can lead to inconsistent results; set `torch_dtype` in `from_pretrained()` instead to keep these modules in float32.\n"}
+,{"stream_name":"stderr","time":121.249247222,"data":"\r  0%|          | 0/32 [00:00\u003c?, ?it/s]\r  0%|          | 0/32 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":121.249274222,"data":"SHOT 002 FAILED -\u003e AttributeError: 'tuple' object has no attribute 'shape'\n"}
+,{"stream_name":"stdout","time":121.251472836,"data":"{\n"}
+,{"stream_name":"stdout","time":121.251488205,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":121.251493959,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":121.251498496,"data":"  \"success\": false,\n"}
+,{"stream_name":"stdout","time":121.251502879,"data":"  \"reference_mode\": \"five hash-validated canon crops -\u003e runtime sheet -\u003e explicit h94 ViT-H encoder -\u003e SDXL IP-Adapter Plus\",\n"}
+,{"stream_name":"stdout","time":121.251508474,"data":"  \"continuity_manifest\": \"shows/earth-needs-help/continuity-manifest.json\",\n"}
+,{"stream_name":"stdout","time":121.2515133,"data":"  \"reference_files\": [\n"}
+,{"stream_name":"stdout","time":121.251532027,"data":"    \"shows/earth-needs-help/assets/characters/captain-pip.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":121.251536192,"data":"    \"shows/earth-needs-help/assets/characters/bloop.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":121.251539668,"data":"    \"shows/earth-needs-help/assets/characters/zig.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":121.251543229,"data":"    \"shows/earth-needs-help/assets/characters/momo.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":121.251546688,"data":"    \"shows/earth-needs-help/assets/characters/human-child.jpg.b64\"\n"}
+,{"stream_name":"stdout","time":121.251550158,"data":"  ],\n"}
+,{"stream_name":"stdout","time":121.251553316,"data":"  \"master_reference_staged_as\": \"/kaggle/working/canonical-five-character-reference.jpg\",\n"}
+,{"stream_name":"stdout","time":121.251556897,"data":"  \"image_encoder_hidden_size\": 1280,\n"}
+,{"stream_name":"stdout","time":121.251560321,"data":"  \"ip_adapter_scale\": 0.9,\n"}
+,{"stream_name":"stdout","time":121.251563637,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":121.251566998,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":121.251570311,"data":"    {\n"}
+,{"stream_name":"stdout","time":121.251573569,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":121.251576859,"data":"      \"success\": false,\n"}
+,{"stream_name":"stdout","time":121.251580278,"data":"      \"error\": \"AttributeError: 'tuple' object has no attribute 'shape'\"\n"}
+,{"stream_name":"stdout","time":121.251583804,"data":"    }\n"}
+,{"stream_name":"stdout","time":121.251587169,"data":"  ]\n"}
+,{"stream_name":"stdout","time":121.251594662,"data":"}\n"}
+,{"stream_name":"stderr","time":127.042867178,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":127.042903894,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":127.286448024,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":127.286484801,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":127.927843691,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":129.173660683,"data":"[NbConvertApp] Writing 317371 bytes to __results__.html\n"}
+]
