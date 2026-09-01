@@ -1,0 +1,508 @@
+[{"stream_name":"stdout","time":4.78033191,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 44.1/44.1 kB 2.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":6.266735571,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.9/2.9 MB 54.7 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":6.369276431,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.0/10.0 MB 111.7 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":6.3945387799999995,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 333.2/333.2 kB 25.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":6.4245547720000005,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 434.8/434.8 kB 23.1 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":6.450356778,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 447.5/447.5 kB 32.5 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":6.492996558,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.0/3.0 MB 101.7 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":29.269619929,"data":"VERSIONS torch=2.10.0+cu128 torchvision=0.25.0+cu128\n"}
+,{"stream_name":"stderr","time":32.451302923,"data":"The cache for model files in Transformers v4.22.0 has been updated. Migrating your old cache. This is a one-time only operation. You can interrupt this and resume the migration later on by calling `transformers.utils.move_cache()`.\n"}
+,{"stream_name":"stderr","time":32.453753704,"data":"\r0it [00:00, ?it/s]\r0it [00:00, ?it/s]\n"}
+,{"stream_name":"stderr","time":126.083977644,"data":"\rFetching 19 files:   0%|          | 0/19 [00:00\u003c?, ?it/s]\rFetching 19 files:  11%|█         | 2/19 [00:00\u003c00:01, 13.74it/s]\rFetching 19 files:  21%|██        | 4/19 [00:02\u003c00:12,  1.21it/s]\rFetching 19 files:  32%|███▏      | 6/19 [00:11\u003c00:32,  2.52s/it]\rFetching 19 files:  84%|████████▍ | 16/19 [00:50\u003c00:10,  3.52s/it]\rFetching 19 files: 100%|██████████| 19/19 [00:50\u003c00:00,  2.64s/it]\n"}
+,{"stream_name":"stderr","time":127.483844756,"data":"\rLoading pipeline components...:   0%|          | 0/7 [00:00\u003c?, ?it/s]\rLoading pipeline components...:  29%|██▊       | 2/7 [00:00\u003c00:00, 15.67it/s]\rLoading pipeline components...:  57%|█████▋    | 4/7 [00:00\u003c00:00,  7.04it/s]\rLoading pipeline components...:  71%|███████▏  | 5/7 [00:00\u003c00:00,  5.10it/s]\rLoading pipeline components...:  86%|████████▌ | 6/7 [00:01\u003c00:00,  3.57it/s]\rLoading pipeline components...: 100%|██████████| 7/7 [00:01\u003c00:00,  5.01it/s]\n"}
+,{"stream_name":"stderr","time":149.306424575,"data":"\r  0%|          | 0/30 [00:00\u003c?, ?it/s]\r  3%|▎         | 1/30 [00:00\u003c00:21,  1.38it/s]\r  7%|▋         | 2/30 [00:00\u003c00:10,  2.55it/s]\r 10%|█         | 3/30 [00:01\u003c00:09,  2.93it/s]\r 13%|█▎        | 4/30 [00:01\u003c00:08,  3.15it/s]\r 17%|█▋        | 5/30 [00:01\u003c00:07,  3.29it/s]\r 20%|██        | 6/30 [00:02\u003c00:07,  3.38it/s]\r 23%|██▎       | 7/30 [00:02\u003c00:06,  3.43it/s]\r 27%|██▋       | 8/30 [00:02\u003c00:06,  3.47it/s]\r 30%|███       | 9/30 [00:02\u003c00:06,  3.49it/s]\r 33%|███▎      | 10/30 [00:03\u003c00:05,  3.54it/s]\r 37%|███▋      | 11/30 [00:03\u003c00:05,  3.53it/s]\r 40%|████      | 12/30 [00:03\u003c00:05,  3.53it/s]\r 43%|████▎     | 13/30 [00:03\u003c00:04,  3.54it/s]\r 47%|████▋     | 14/30 [00:04\u003c00:04,  3.53it/s]\r 50%|█████     | 15/30 [00:04\u003c00:04,  3.53it/s]\r 53%|█████▎    | 16/30 [00:04\u003c00:03,  3.52it/s]\r 57%|█████▋    | 17/30 [00:05\u003c00:03,  3.52it/s]\r 60%|██████    | 18/30 [00:05\u003c00:03,  3.52it/s]\r 63%|██████▎   | 19/30 [00:05\u003c00:03,  3.52it/s]\r 67%|██████▋   | 20/30 [00:05\u003c00:02,  3.51it/s]\r 70%|███████   | 21/30 [00:06\u003c00:02,  3.50it/s]\r 73%|███████▎  | 22/30 [00:06\u003c00:02,  3.50it/s]\r 77%|███████▋  | 23/30 [00:06\u003c00:02,  3.49it/s]\r 80%|████████  | 24/30 [00:07\u003c00:01,  3.50it/s]\r 83%|████████▎ | 25/30 [00:07\u003c00:01,  3.49it/s]\r 87%|████████▋ | 26/30 [00:07\u003c00:01,  3.49it/s]\r 90%|█████████ | 27/30 [00:07\u003c00:00,  3.48it/s]\r 93%|█████████▎| 28/30 [00:08\u003c00:00,  3.49it/s]\r 97%|█████████▋| 29/30 [00:08\u003c00:00,  3.49it/s]\r100%|██████████| 30/30 [00:08\u003c00:00,  3.49it/s]\r100%|██████████| 30/30 [00:08\u003c00:00,  3.39it/s]\n"}
+,{"stream_name":"stdout","time":150.150093945,"data":"SHOT 002 COMPLETE -\u003e earth-needs-help-e001-s002.png\n"}
+,{"stream_name":"stdout","time":150.150504804,"data":"{\n"}
+,{"stream_name":"stdout","time":150.150518406,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":150.150522592,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":150.150526088,"data":"  \"success\": false,\n"}
+,{"stream_name":"stdout","time":150.150529636,"data":"  \"reference_mode\": \"validated canon sheet -\u003e pinned HF layer/no torch replacement -\u003e explicit ViT-H -\u003e SDXL IP-Adapter Plus\",\n"}
+,{"stream_name":"stdout","time":150.150533859,"data":"  \"continuity_manifest\": \"shows/earth-needs-help/continuity-manifest.json\",\n"}
+,{"stream_name":"stdout","time":150.150537575,"data":"  \"reference_files\": [\n"}
+,{"stream_name":"stdout","time":150.15054094,"data":"    \"shows/earth-needs-help/assets/characters/captain-pip.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":150.150544587,"data":"    \"shows/earth-needs-help/assets/characters/bloop.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":150.150553308,"data":"    \"shows/earth-needs-help/assets/characters/zig.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":150.150556465,"data":"    \"shows/earth-needs-help/assets/characters/momo.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":150.150573032,"data":"    \"shows/earth-needs-help/assets/characters/human-child.jpg.b64\"\n"}
+,{"stream_name":"stdout","time":150.150577352,"data":"  ],\n"}
+,{"stream_name":"stdout","time":150.150581036,"data":"  \"master_reference_staged_as\": \"/kaggle/working/canonical-five-character-reference.jpg\",\n"}
+,{"stream_name":"stdout","time":150.15058493,"data":"  \"image_encoder_hidden_size\": 1280,\n"}
+,{"stream_name":"stdout","time":150.150589199,"data":"  \"ip_adapter_scale\": 0.9,\n"}
+,{"stream_name":"stdout","time":150.150592652,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":150.150596111,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":150.150599637,"data":"    {\n"}
+,{"stream_name":"stdout","time":150.150602906,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":150.150606338,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":150.150609768,"data":"      \"file\": \"earth-needs-help-e001-s002.png\"\n"}
+,{"stream_name":"stdout","time":150.150613194,"data":"    }\n"}
+,{"stream_name":"stdout","time":150.150616574,"data":"  ]\n"}
+,{"stream_name":"stdout","time":150.150640654,"data":"}\n"}
+,{"stream_name":"stderr","time":158.886427652,"data":"\r  0%|          | 0/30 [00:00\u003c?, ?it/s]\r  3%|▎         | 1/30 [00:00\u003c00:05,  5.31it/s]\r  7%|▋         | 2/30 [00:00\u003c00:06,  4.05it/s]\r 10%|█         | 3/30 [00:00\u003c00:07,  3.75it/s]\r 13%|█▎        | 4/30 [00:01\u003c00:07,  3.62it/s]\r 17%|█▋        | 5/30 [00:01\u003c00:07,  3.56it/s]\r 20%|██        | 6/30 [00:01\u003c00:06,  3.52it/s]\r 23%|██▎       | 7/30 [00:01\u003c00:06,  3.50it/s]\r 27%|██▋       | 8/30 [00:02\u003c00:06,  3.47it/s]\r 30%|███       | 9/30 [00:02\u003c00:06,  3.46it/s]\r 33%|███▎      | 10/30 [00:02\u003c00:05,  3.46it/s]\r 37%|███▋      | 11/30 [00:03\u003c00:05,  3.45it/s]\r 40%|████      | 12/30 [00:03\u003c00:05,  3.43it/s]\r 43%|████▎     | 13/30 [00:03\u003c00:04,  3.42it/s]\r 47%|████▋     | 14/30 [00:03\u003c00:04,  3.43it/s]\r 50%|█████     | 15/30 [00:04\u003c00:04,  3.42it/s]\r 53%|█████▎    | 16/30 [00:04\u003c00:04,  3.41it/s]\r 57%|█████▋    | 17/30 [00:04\u003c00:03,  3.41it/s]\r 60%|██████    | 18/30 [00:05\u003c00:03,  3.40it/s]\r 63%|██████▎   | 19/30 [00:05\u003c00:03,  3.41it/s]\r 67%|██████▋   | 20/30 [00:05\u003c00:02,  3.41it/s]\r 70%|███████   | 21/30 [00:06\u003c00:02,  3.43it/s]\r 73%|███████▎  | 22/30 [00:06\u003c00:02,  3.43it/s]\r 77%|███████▋  | 23/30 [00:06\u003c00:02,  3.44it/s]\r 80%|████████  | 24/30 [00:06\u003c00:01,  3.44it/s]\r 83%|████████▎ | 25/30 [00:07\u003c00:01,  3.44it/s]\r 87%|████████▋ | 26/30 [00:07\u003c00:01,  3.44it/s]\r 90%|█████████ | 27/30 [00:07\u003c00:00,  3.43it/s]\r 93%|█████████▎| 28/30 [00:08\u003c00:00,  3.43it/s]\r 97%|█████████▋| 29/30 [00:08\u003c00:00,  3.42it/s]\r100%|██████████| 30/30 [00:08\u003c00:00,  3.42it/s]\r100%|██████████| 30/30 [00:08\u003c00:00,  3.47it/s]\n"}
+,{"stream_name":"stdout","time":159.706004324,"data":"SHOT 003 COMPLETE -\u003e earth-needs-help-e001-s003.png\n"}
+,{"stream_name":"stdout","time":159.706410282,"data":"{\n"}
+,{"stream_name":"stdout","time":159.707078369,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":159.707089619,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":159.707094638,"data":"  \"success\": false,\n"}
+,{"stream_name":"stdout","time":159.707099342,"data":"  \"reference_mode\": \"validated canon sheet -\u003e pinned HF layer/no torch replacement -\u003e explicit ViT-H -\u003e SDXL IP-Adapter Plus\",\n"}
+,{"stream_name":"stdout","time":159.707104985,"data":"  \"continuity_manifest\": \"shows/earth-needs-help/continuity-manifest.json\",\n"}
+,{"stream_name":"stdout","time":159.707109838,"data":"  \"reference_files\": [\n"}
+,{"stream_name":"stdout","time":159.707114214,"data":"    \"shows/earth-needs-help/assets/characters/captain-pip.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":159.707119173,"data":"    \"shows/earth-needs-help/assets/characters/bloop.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":159.707123747,"data":"    \"shows/earth-needs-help/assets/characters/zig.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":159.707128373,"data":"    \"shows/earth-needs-help/assets/characters/momo.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":159.707133055,"data":"    \"shows/earth-needs-help/assets/characters/human-child.jpg.b64\"\n"}
+,{"stream_name":"stdout","time":159.707137643,"data":"  ],\n"}
+,{"stream_name":"stdout","time":159.707141818,"data":"  \"master_reference_staged_as\": \"/kaggle/working/canonical-five-character-reference.jpg\",\n"}
+,{"stream_name":"stdout","time":159.707157648,"data":"  \"image_encoder_hidden_size\": 1280,\n"}
+,{"stream_name":"stdout","time":159.707161493,"data":"  \"ip_adapter_scale\": 0.9,\n"}
+,{"stream_name":"stdout","time":159.707165143,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":159.707168755,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":159.7071723,"data":"    {\n"}
+,{"stream_name":"stdout","time":159.707175651,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":159.707179158,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":159.707182676,"data":"      \"file\": \"earth-needs-help-e001-s002.png\"\n"}
+,{"stream_name":"stdout","time":159.70718635,"data":"    },\n"}
+,{"stream_name":"stdout","time":159.707189643,"data":"    {\n"}
+,{"stream_name":"stdout","time":159.707193091,"data":"      \"id\": \"003\",\n"}
+,{"stream_name":"stdout","time":159.707196748,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":159.707200318,"data":"      \"file\": \"earth-needs-help-e001-s003.png\"\n"}
+,{"stream_name":"stdout","time":159.707203891,"data":"    }\n"}
+,{"stream_name":"stdout","time":159.707207185,"data":"  ]\n"}
+,{"stream_name":"stdout","time":159.707210515,"data":"}\n"}
+,{"stream_name":"stderr","time":168.680407921,"data":"\r  0%|          | 0/30 [00:00\u003c?, ?it/s]\r  3%|▎         | 1/30 [00:00\u003c00:05,  5.32it/s]\r  7%|▋         | 2/30 [00:00\u003c00:07,  3.98it/s]\r 10%|█         | 3/30 [00:00\u003c00:07,  3.68it/s]\r 13%|█▎        | 4/30 [00:01\u003c00:07,  3.56it/s]\r 17%|█▋        | 5/30 [00:01\u003c00:07,  3.49it/s]\r 20%|██        | 6/30 [00:01\u003c00:06,  3.46it/s]\r 23%|██▎       | 7/30 [00:01\u003c00:06,  3.42it/s]\r 27%|██▋       | 8/30 [00:02\u003c00:06,  3.41it/s]\r 30%|███       | 9/30 [00:02\u003c00:06,  3.40it/s]\r 33%|███▎      | 10/30 [00:02\u003c00:05,  3.40it/s]\r 37%|███▋      | 11/30 [00:03\u003c00:05,  3.38it/s]\r 40%|████      | 12/30 [00:03\u003c00:05,  3.38it/s]\r 43%|████▎     | 13/30 [00:03\u003c00:05,  3.36it/s]\r 47%|████▋     | 14/30 [00:04\u003c00:04,  3.36it/s]\r 50%|█████     | 15/30 [00:04\u003c00:04,  3.35it/s]\r 53%|█████▎    | 16/30 [00:04\u003c00:04,  3.35it/s]\r 57%|█████▋    | 17/30 [00:04\u003c00:03,  3.35it/s]\r 60%|██████    | 18/30 [00:05\u003c00:03,  3.34it/s]\r 63%|██████▎   | 19/30 [00:05\u003c00:03,  3.33it/s]\r 67%|██████▋   | 20/30 [00:05\u003c00:03,  3.33it/s]\r 70%|███████   | 21/30 [00:06\u003c00:02,  3.34it/s]\r 73%|███████▎  | 22/30 [00:06\u003c00:02,  3.32it/s]\r 77%|███████▋  | 23/30 [00:06\u003c00:02,  3.31it/s]\r 80%|████████  | 24/30 [00:07\u003c00:01,  3.31it/s]\r 83%|████████▎ | 25/30 [00:07\u003c00:01,  3.30it/s]\r 87%|████████▋ | 26/30 [00:07\u003c00:01,  3.30it/s]\r 90%|█████████ | 27/30 [00:07\u003c00:00,  3.29it/s]\r 93%|█████████▎| 28/30 [00:08\u003c00:00,  3.30it/s]\r 97%|█████████▋| 29/30 [00:08\u003c00:00,  3.29it/s]\r100%|██████████| 30/30 [00:08\u003c00:00,  3.28it/s]\r100%|██████████| 30/30 [00:08\u003c00:00,  3.38it/s]\n"}
+,{"stream_name":"stdout","time":169.529489316,"data":"SHOT 004 COMPLETE -\u003e earth-needs-help-e001-s004.png\n"}
+,{"stream_name":"stdout","time":169.53000496,"data":"{\n"}
+,{"stream_name":"stdout","time":169.530017118,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":169.530022302,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":169.530026935,"data":"  \"success\": false,\n"}
+,{"stream_name":"stdout","time":169.530047031,"data":"  \"reference_mode\": \"validated canon sheet -\u003e pinned HF layer/no torch replacement -\u003e explicit ViT-H -\u003e SDXL IP-Adapter Plus\",\n"}
+,{"stream_name":"stdout","time":169.530053146,"data":"  \"continuity_manifest\": \"shows/earth-needs-help/continuity-manifest.json\",\n"}
+,{"stream_name":"stdout","time":169.530058106,"data":"  \"reference_files\": [\n"}
+,{"stream_name":"stdout","time":169.530062415,"data":"    \"shows/earth-needs-help/assets/characters/captain-pip.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":169.530066614,"data":"    \"shows/earth-needs-help/assets/characters/bloop.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":169.530071709,"data":"    \"shows/earth-needs-help/assets/characters/zig.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":169.530076357,"data":"    \"shows/earth-needs-help/assets/characters/momo.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":169.530080904,"data":"    \"shows/earth-needs-help/assets/characters/human-child.jpg.b64\"\n"}
+,{"stream_name":"stdout","time":169.530085441,"data":"  ],\n"}
+,{"stream_name":"stdout","time":169.530089373,"data":"  \"master_reference_staged_as\": \"/kaggle/working/canonical-five-character-reference.jpg\",\n"}
+,{"stream_name":"stdout","time":169.530094266,"data":"  \"image_encoder_hidden_size\": 1280,\n"}
+,{"stream_name":"stdout","time":169.530098178,"data":"  \"ip_adapter_scale\": 0.9,\n"}
+,{"stream_name":"stdout","time":169.530102426,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":169.530106107,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":169.530110109,"data":"    {\n"}
+,{"stream_name":"stdout","time":169.530114751,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":169.530118913,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":169.530123043,"data":"      \"file\": \"earth-needs-help-e001-s002.png\"\n"}
+,{"stream_name":"stdout","time":169.530128007,"data":"    },\n"}
+,{"stream_name":"stdout","time":169.530132563,"data":"    {\n"}
+,{"stream_name":"stdout","time":169.53013675,"data":"      \"id\": \"003\",\n"}
+,{"stream_name":"stdout","time":169.530141499,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":169.530146445,"data":"      \"file\": \"earth-needs-help-e001-s003.png\"\n"}
+,{"stream_name":"stdout","time":169.530150621,"data":"    },\n"}
+,{"stream_name":"stdout","time":169.530159662,"data":"    {\n"}
+,{"stream_name":"stdout","time":169.530164615,"data":"      \"id\": \"004\",\n"}
+,{"stream_name":"stdout","time":169.530169219,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":169.530174116,"data":"      \"file\": \"earth-needs-help-e001-s004.png\"\n"}
+,{"stream_name":"stdout","time":169.530178446,"data":"    }\n"}
+,{"stream_name":"stdout","time":169.530182181,"data":"  ]\n"}
+,{"stream_name":"stdout","time":169.530186118,"data":"}\n"}
+,{"stream_name":"stderr","time":178.659900827,"data":"\r  0%|          | 0/30 [00:00\u003c?, ?it/s]\r  3%|▎         | 1/30 [00:00\u003c00:05,  5.18it/s]\r  7%|▋         | 2/30 [00:00\u003c00:07,  3.92it/s]\r 10%|█         | 3/30 [00:00\u003c00:07,  3.64it/s]\r 13%|█▎        | 4/30 [00:01\u003c00:07,  3.50it/s]\r 17%|█▋        | 5/30 [00:01\u003c00:07,  3.44it/s]\r 20%|██        | 6/30 [00:01\u003c00:07,  3.40it/s]\r 23%|██▎       | 7/30 [00:01\u003c00:06,  3.36it/s]\r 27%|██▋       | 8/30 [00:02\u003c00:06,  3.35it/s]\r 30%|███       | 9/30 [00:02\u003c00:06,  3.34it/s]\r 33%|███▎      | 10/30 [00:02\u003c00:06,  3.33it/s]\r 37%|███▋      | 11/30 [00:03\u003c00:05,  3.32it/s]\r 40%|████      | 12/30 [00:03\u003c00:05,  3.31it/s]\r 43%|████▎     | 13/30 [00:03\u003c00:05,  3.31it/s]\r 47%|████▋     | 14/30 [00:04\u003c00:04,  3.31it/s]\r 50%|█████     | 15/30 [00:04\u003c00:04,  3.30it/s]\r 53%|█████▎    | 16/30 [00:04\u003c00:04,  3.29it/s]\r 57%|█████▋    | 17/30 [00:05\u003c00:03,  3.28it/s]\r 60%|██████    | 18/30 [00:05\u003c00:03,  3.28it/s]\r 63%|██████▎   | 19/30 [00:05\u003c00:03,  3.28it/s]\r 67%|██████▋   | 20/30 [00:05\u003c00:03,  3.27it/s]\r 70%|███████   | 21/30 [00:06\u003c00:02,  3.27it/s]\r 73%|███████▎  | 22/30 [00:06\u003c00:02,  3.27it/s]\r 77%|███████▋  | 23/30 [00:06\u003c00:02,  3.26it/s]\r 80%|████████  | 24/30 [00:07\u003c00:01,  3.26it/s]\r 83%|████████▎ | 25/30 [00:07\u003c00:01,  3.26it/s]\r 87%|████████▋ | 26/30 [00:07\u003c00:01,  3.26it/s]\r 90%|█████████ | 27/30 [00:08\u003c00:00,  3.24it/s]\r 93%|█████████▎| 28/30 [00:08\u003c00:00,  3.24it/s]\r 97%|█████████▋| 29/30 [00:08\u003c00:00,  3.23it/s]\r100%|██████████| 30/30 [00:09\u003c00:00,  3.24it/s]\r100%|██████████| 30/30 [00:09\u003c00:00,  3.32it/s]\n"}
+,{"stream_name":"stdout","time":179.518692547,"data":"SHOT 005 COMPLETE -\u003e earth-needs-help-e001-s005.png\n"}
+,{"stream_name":"stdout","time":179.519009447,"data":"{\n"}
+,{"stream_name":"stdout","time":179.519024087,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":179.51902836,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":179.51903199,"data":"  \"success\": false,\n"}
+,{"stream_name":"stdout","time":179.519035337,"data":"  \"reference_mode\": \"validated canon sheet -\u003e pinned HF layer/no torch replacement -\u003e explicit ViT-H -\u003e SDXL IP-Adapter Plus\",\n"}
+,{"stream_name":"stdout","time":179.519039903,"data":"  \"continuity_manifest\": \"shows/earth-needs-help/continuity-manifest.json\",\n"}
+,{"stream_name":"stdout","time":179.519043527,"data":"  \"reference_files\": [\n"}
+,{"stream_name":"stdout","time":179.519046888,"data":"    \"shows/earth-needs-help/assets/characters/captain-pip.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":179.519050185,"data":"    \"shows/earth-needs-help/assets/characters/bloop.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":179.519053704,"data":"    \"shows/earth-needs-help/assets/characters/zig.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":179.519057102,"data":"    \"shows/earth-needs-help/assets/characters/momo.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":179.519060768,"data":"    \"shows/earth-needs-help/assets/characters/human-child.jpg.b64\"\n"}
+,{"stream_name":"stdout","time":179.519064369,"data":"  ],\n"}
+,{"stream_name":"stdout","time":179.519067833,"data":"  \"master_reference_staged_as\": \"/kaggle/working/canonical-five-character-reference.jpg\",\n"}
+,{"stream_name":"stdout","time":179.51907176,"data":"  \"image_encoder_hidden_size\": 1280,\n"}
+,{"stream_name":"stdout","time":179.519075424,"data":"  \"ip_adapter_scale\": 0.9,\n"}
+,{"stream_name":"stdout","time":179.519078957,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":179.519082624,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":179.519086238,"data":"    {\n"}
+,{"stream_name":"stdout","time":179.519089568,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":179.51909304,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":179.519096291,"data":"      \"file\": \"earth-needs-help-e001-s002.png\"\n"}
+,{"stream_name":"stdout","time":179.519099984,"data":"    },\n"}
+,{"stream_name":"stdout","time":179.519103246,"data":"    {\n"}
+,{"stream_name":"stdout","time":179.519114305,"data":"      \"id\": \"003\",\n"}
+,{"stream_name":"stdout","time":179.519117912,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":179.519121677,"data":"      \"file\": \"earth-needs-help-e001-s003.png\"\n"}
+,{"stream_name":"stdout","time":179.519125153,"data":"    },\n"}
+,{"stream_name":"stdout","time":179.519139198,"data":"    {\n"}
+,{"stream_name":"stdout","time":179.519142922,"data":"      \"id\": \"004\",\n"}
+,{"stream_name":"stdout","time":179.51914669,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":179.519149751,"data":"      \"file\": \"earth-needs-help-e001-s004.png\"\n"}
+,{"stream_name":"stdout","time":179.519153018,"data":"    },\n"}
+,{"stream_name":"stdout","time":179.519156454,"data":"    {\n"}
+,{"stream_name":"stdout","time":179.519159608,"data":"      \"id\": \"005\",\n"}
+,{"stream_name":"stdout","time":179.519162791,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":179.519165948,"data":"      \"file\": \"earth-needs-help-e001-s005.png\"\n"}
+,{"stream_name":"stdout","time":179.519169398,"data":"    }\n"}
+,{"stream_name":"stdout","time":179.519172598,"data":"  ]\n"}
+,{"stream_name":"stdout","time":179.519175763,"data":"}\n"}
+,{"stream_name":"stderr","time":188.973891025,"data":"\r  0%|          | 0/30 [00:00\u003c?, ?it/s]\r  3%|▎         | 1/30 [00:00\u003c00:05,  4.98it/s]\r  7%|▋         | 2/30 [00:00\u003c00:07,  3.79it/s]\r 10%|█         | 3/30 [00:00\u003c00:07,  3.50it/s]\r 13%|█▎        | 4/30 [00:01\u003c00:07,  3.38it/s]\r 17%|█▋        | 5/30 [00:01\u003c00:07,  3.31it/s]\r 20%|██        | 6/30 [00:01\u003c00:07,  3.27it/s]\r 23%|██▎       | 7/30 [00:02\u003c00:07,  3.25it/s]\r 27%|██▋       | 8/30 [00:02\u003c00:06,  3.24it/s]\r 30%|███       | 9/30 [00:02\u003c00:06,  3.22it/s]\r 33%|███▎      | 10/30 [00:03\u003c00:06,  3.21it/s]\r 37%|███▋      | 11/30 [00:03\u003c00:05,  3.20it/s]\r 40%|████      | 12/30 [00:03\u003c00:05,  3.19it/s]\r 43%|████▎     | 13/30 [00:03\u003c00:05,  3.19it/s]\r 47%|████▋     | 14/30 [00:04\u003c00:05,  3.18it/s]\r 50%|█████     | 15/30 [00:04\u003c00:04,  3.18it/s]\r 53%|█████▎    | 16/30 [00:04\u003c00:04,  3.17it/s]\r 57%|█████▋    | 17/30 [00:05\u003c00:04,  3.17it/s]\r 60%|██████    | 18/30 [00:05\u003c00:03,  3.16it/s]\r 63%|██████▎   | 19/30 [00:05\u003c00:03,  3.16it/s]\r 67%|██████▋   | 20/30 [00:06\u003c00:03,  3.16it/s]\r 70%|███████   | 21/30 [00:06\u003c00:02,  3.16it/s]\r 73%|███████▎  | 22/30 [00:06\u003c00:02,  3.15it/s]\r 77%|███████▋  | 23/30 [00:07\u003c00:02,  3.14it/s]\r 80%|████████  | 24/30 [00:07\u003c00:01,  3.14it/s]\r 83%|████████▎ | 25/30 [00:07\u003c00:01,  3.13it/s]\r 87%|████████▋ | 26/30 [00:08\u003c00:01,  3.13it/s]\r 90%|█████████ | 27/30 [00:08\u003c00:00,  3.12it/s]\r 93%|█████████▎| 28/30 [00:08\u003c00:00,  3.13it/s]\r 97%|█████████▋| 29/30 [00:09\u003c00:00,  3.12it/s]\r100%|██████████| 30/30 [00:09\u003c00:00,  3.13it/s]\r100%|██████████| 30/30 [00:09\u003c00:00,  3.20it/s]\n"}
+,{"stream_name":"stdout","time":189.863339071,"data":"SHOT 006a COMPLETE -\u003e earth-needs-help-e001-s006a.png\n"}
+,{"stream_name":"stdout","time":189.863815525,"data":"{\n"}
+,{"stream_name":"stdout","time":189.863829988,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":189.863838738,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":189.863842535,"data":"  \"success\": false,\n"}
+,{"stream_name":"stdout","time":189.863872104,"data":"  \"reference_mode\": \"validated canon sheet -\u003e pinned HF layer/no torch replacement -\u003e explicit ViT-H -\u003e SDXL IP-Adapter Plus\",\n"}
+,{"stream_name":"stdout","time":189.863878583,"data":"  \"continuity_manifest\": \"shows/earth-needs-help/continuity-manifest.json\",\n"}
+,{"stream_name":"stdout","time":189.863883656,"data":"  \"reference_files\": [\n"}
+,{"stream_name":"stdout","time":189.863887935,"data":"    \"shows/earth-needs-help/assets/characters/captain-pip.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":189.863891962,"data":"    \"shows/earth-needs-help/assets/characters/bloop.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":189.863895861,"data":"    \"shows/earth-needs-help/assets/characters/zig.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":189.863899808,"data":"    \"shows/earth-needs-help/assets/characters/momo.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":189.863903798,"data":"    \"shows/earth-needs-help/assets/characters/human-child.jpg.b64\"\n"}
+,{"stream_name":"stdout","time":189.863907599,"data":"  ],\n"}
+,{"stream_name":"stdout","time":189.863911111,"data":"  \"master_reference_staged_as\": \"/kaggle/working/canonical-five-character-reference.jpg\",\n"}
+,{"stream_name":"stdout","time":189.863915063,"data":"  \"image_encoder_hidden_size\": 1280,\n"}
+,{"stream_name":"stdout","time":189.86392106,"data":"  \"ip_adapter_scale\": 0.9,\n"}
+,{"stream_name":"stdout","time":189.863928533,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":189.863931341,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":189.863933803,"data":"    {\n"}
+,{"stream_name":"stdout","time":189.863936239,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":189.863938826,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":189.863941499,"data":"      \"file\": \"earth-needs-help-e001-s002.png\"\n"}
+,{"stream_name":"stdout","time":189.863944187,"data":"    },\n"}
+,{"stream_name":"stdout","time":189.863946669,"data":"    {\n"}
+,{"stream_name":"stdout","time":189.863949528,"data":"      \"id\": \"003\",\n"}
+,{"stream_name":"stdout","time":189.863952467,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":189.863954983,"data":"      \"file\": \"earth-needs-help-e001-s003.png\"\n"}
+,{"stream_name":"stdout","time":189.863957563,"data":"    },\n"}
+,{"stream_name":"stdout","time":189.863959957,"data":"    {\n"}
+,{"stream_name":"stdout","time":189.86396246,"data":"      \"id\": \"004\",\n"}
+,{"stream_name":"stdout","time":189.863965014,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":189.863967498,"data":"      \"file\": \"earth-needs-help-e001-s004.png\"\n"}
+,{"stream_name":"stdout","time":189.863970041,"data":"    },\n"}
+,{"stream_name":"stdout","time":189.863972517,"data":"    {\n"}
+,{"stream_name":"stdout","time":189.863974939,"data":"      \"id\": \"005\",\n"}
+,{"stream_name":"stdout","time":189.863977441,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":189.863979913,"data":"      \"file\": \"earth-needs-help-e001-s005.png\"\n"}
+,{"stream_name":"stdout","time":189.863982643,"data":"    },\n"}
+,{"stream_name":"stdout","time":189.863985164,"data":"    {\n"}
+,{"stream_name":"stdout","time":189.863987577,"data":"      \"id\": \"006a\",\n"}
+,{"stream_name":"stdout","time":189.863990117,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":189.863992648,"data":"      \"file\": \"earth-needs-help-e001-s006a.png\"\n"}
+,{"stream_name":"stdout","time":189.863995301,"data":"    }\n"}
+,{"stream_name":"stdout","time":189.863997728,"data":"  ]\n"}
+,{"stream_name":"stdout","time":189.864004528,"data":"}\n"}
+,{"stream_name":"stderr","time":199.74034048,"data":"\r  0%|          | 0/30 [00:00\u003c?, ?it/s]\r  3%|▎         | 1/30 [00:00\u003c00:06,  4.75it/s]\r  7%|▋         | 2/30 [00:00\u003c00:07,  3.63it/s]\r 10%|█         | 3/30 [00:00\u003c00:08,  3.36it/s]\r 13%|█▎        | 4/30 [00:01\u003c00:08,  3.25it/s]\r 17%|█▋        | 5/30 [00:01\u003c00:07,  3.19it/s]\r 20%|██        | 6/30 [00:01\u003c00:07,  3.16it/s]\r 23%|██▎       | 7/30 [00:02\u003c00:07,  3.14it/s]\r 27%|██▋       | 8/30 [00:02\u003c00:07,  3.11it/s]\r 30%|███       | 9/30 [00:02\u003c00:06,  3.10it/s]\r 33%|███▎      | 10/30 [00:03\u003c00:06,  3.09it/s]\r 37%|███▋      | 11/30 [00:03\u003c00:06,  3.09it/s]\r 40%|████      | 12/30 [00:03\u003c00:05,  3.07it/s]\r 43%|████▎     | 13/30 [00:04\u003c00:05,  3.05it/s]\r 47%|████▋     | 14/30 [00:04\u003c00:05,  3.05it/s]\r 50%|█████     | 15/30 [00:04\u003c00:04,  3.04it/s]\r 53%|█████▎    | 16/30 [00:05\u003c00:04,  3.05it/s]\r 57%|█████▋    | 17/30 [00:05\u003c00:04,  3.03it/s]\r 60%|██████    | 18/30 [00:05\u003c00:03,  3.02it/s]\r 63%|██████▎   | 19/30 [00:06\u003c00:03,  3.02it/s]\r 67%|██████▋   | 20/30 [00:06\u003c00:03,  3.02it/s]\r 70%|███████   | 21/30 [00:06\u003c00:02,  3.01it/s]\r 73%|███████▎  | 22/30 [00:07\u003c00:02,  3.01it/s]\r 77%|███████▋  | 23/30 [00:07\u003c00:02,  3.00it/s]\r 80%|████████  | 24/30 [00:07\u003c00:02,  2.99it/s]\r 83%|████████▎ | 25/30 [00:08\u003c00:01,  2.99it/s]\r 87%|████████▋ | 26/30 [00:08\u003c00:01,  2.99it/s]\r 90%|█████████ | 27/30 [00:08\u003c00:01,  3.00it/s]\r 93%|█████████▎| 28/30 [00:09\u003c00:00,  2.99it/s]\r 97%|█████████▋| 29/30 [00:09\u003c00:00,  2.98it/s]\r100%|██████████| 30/30 [00:09\u003c00:00,  2.98it/s]\r100%|██████████| 30/30 [00:09\u003c00:00,  3.07it/s]\n"}
+,{"stream_name":"stdout","time":200.627203318,"data":"SHOT 006b COMPLETE -\u003e earth-needs-help-e001-s006b.png\n"}
+,{"stream_name":"stdout","time":200.627499248,"data":"{\n"}
+,{"stream_name":"stdout","time":200.627513129,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":200.627517063,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":200.627520562,"data":"  \"success\": false,\n"}
+,{"stream_name":"stdout","time":200.627524023,"data":"  \"reference_mode\": \"validated canon sheet -\u003e pinned HF layer/no torch replacement -\u003e explicit ViT-H -\u003e SDXL IP-Adapter Plus\",\n"}
+,{"stream_name":"stdout","time":200.627528356,"data":"  \"continuity_manifest\": \"shows/earth-needs-help/continuity-manifest.json\",\n"}
+,{"stream_name":"stdout","time":200.627532265,"data":"  \"reference_files\": [\n"}
+,{"stream_name":"stdout","time":200.627537462,"data":"    \"shows/earth-needs-help/assets/characters/captain-pip.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":200.627544662,"data":"    \"shows/earth-needs-help/assets/characters/bloop.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":200.627547186,"data":"    \"shows/earth-needs-help/assets/characters/zig.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":200.627550369,"data":"    \"shows/earth-needs-help/assets/characters/momo.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":200.627566696,"data":"    \"shows/earth-needs-help/assets/characters/human-child.jpg.b64\"\n"}
+,{"stream_name":"stdout","time":200.627570826,"data":"  ],\n"}
+,{"stream_name":"stdout","time":200.627574514,"data":"  \"master_reference_staged_as\": \"/kaggle/working/canonical-five-character-reference.jpg\",\n"}
+,{"stream_name":"stdout","time":200.627588555,"data":"  \"image_encoder_hidden_size\": 1280,\n"}
+,{"stream_name":"stdout","time":200.627592389,"data":"  \"ip_adapter_scale\": 0.9,\n"}
+,{"stream_name":"stdout","time":200.627595814,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":200.627599277,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":200.627602675,"data":"    {\n"}
+,{"stream_name":"stdout","time":200.627605918,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":200.627609346,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":200.627613249,"data":"      \"file\": \"earth-needs-help-e001-s002.png\"\n"}
+,{"stream_name":"stdout","time":200.627616777,"data":"    },\n"}
+,{"stream_name":"stdout","time":200.627619912,"data":"    {\n"}
+,{"stream_name":"stdout","time":200.627623135,"data":"      \"id\": \"003\",\n"}
+,{"stream_name":"stdout","time":200.627626521,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":200.627629895,"data":"      \"file\": \"earth-needs-help-e001-s003.png\"\n"}
+,{"stream_name":"stdout","time":200.627633407,"data":"    },\n"}
+,{"stream_name":"stdout","time":200.627636662,"data":"    {\n"}
+,{"stream_name":"stdout","time":200.627644464,"data":"      \"id\": \"004\",\n"}
+,{"stream_name":"stdout","time":200.62764738,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":200.627662299,"data":"      \"file\": \"earth-needs-help-e001-s004.png\"\n"}
+,{"stream_name":"stdout","time":200.627666816,"data":"    },\n"}
+,{"stream_name":"stdout","time":200.627670529,"data":"    {\n"}
+,{"stream_name":"stdout","time":200.627674497,"data":"      \"id\": \"005\",\n"}
+,{"stream_name":"stdout","time":200.627678558,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":200.62768193,"data":"      \"file\": \"earth-needs-help-e001-s005.png\"\n"}
+,{"stream_name":"stdout","time":200.62768536,"data":"    },\n"}
+,{"stream_name":"stdout","time":200.627688574,"data":"    {\n"}
+,{"stream_name":"stdout","time":200.627691765,"data":"      \"id\": \"006a\",\n"}
+,{"stream_name":"stdout","time":200.627695123,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":200.627698436,"data":"      \"file\": \"earth-needs-help-e001-s006a.png\"\n"}
+,{"stream_name":"stdout","time":200.627701879,"data":"    },\n"}
+,{"stream_name":"stdout","time":200.627705097,"data":"    {\n"}
+,{"stream_name":"stdout","time":200.627708259,"data":"      \"id\": \"006b\",\n"}
+,{"stream_name":"stdout","time":200.627711592,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":200.627714936,"data":"      \"file\": \"earth-needs-help-e001-s006b.png\"\n"}
+,{"stream_name":"stdout","time":200.627718485,"data":"    }\n"}
+,{"stream_name":"stdout","time":200.627721719,"data":"  ]\n"}
+,{"stream_name":"stdout","time":200.627724859,"data":"}\n"}
+,{"stream_name":"stderr","time":210.792912932,"data":"\r  0%|          | 0/30 [00:00\u003c?, ?it/s]\r  3%|▎         | 1/30 [00:00\u003c00:06,  4.61it/s]\r  7%|▋         | 2/30 [00:00\u003c00:08,  3.47it/s]\r 10%|█         | 3/30 [00:00\u003c00:08,  3.21it/s]\r 13%|█▎        | 4/30 [00:01\u003c00:08,  3.09it/s]\r 17%|█▋        | 5/30 [00:01\u003c00:08,  3.04it/s]\r 20%|██        | 6/30 [00:01\u003c00:08,  3.00it/s]\r 23%|██▎       | 7/30 [00:02\u003c00:07,  2.99it/s]\r 27%|██▋       | 8/30 [00:02\u003c00:07,  2.99it/s]\r 30%|███       | 9/30 [00:02\u003c00:07,  2.99it/s]\r 33%|███▎      | 10/30 [00:03\u003c00:06,  2.98it/s]\r 37%|███▋      | 11/30 [00:03\u003c00:06,  2.97it/s]\r 40%|████      | 12/30 [00:03\u003c00:06,  2.96it/s]\r 43%|████▎     | 13/30 [00:04\u003c00:05,  2.97it/s]\r 47%|████▋     | 14/30 [00:04\u003c00:05,  2.97it/s]\r 50%|█████     | 15/30 [00:04\u003c00:05,  2.97it/s]\r 53%|█████▎    | 16/30 [00:05\u003c00:04,  2.97it/s]\r 57%|█████▋    | 17/30 [00:05\u003c00:04,  2.96it/s]\r 60%|██████    | 18/30 [00:05\u003c00:04,  2.95it/s]\r 63%|██████▎   | 19/30 [00:06\u003c00:03,  2.95it/s]\r 67%|██████▋   | 20/30 [00:06\u003c00:03,  2.95it/s]\r 70%|███████   | 21/30 [00:06\u003c00:03,  2.94it/s]\r 73%|███████▎  | 22/30 [00:07\u003c00:02,  2.94it/s]\r 77%|███████▋  | 23/30 [00:07\u003c00:02,  2.93it/s]\r 80%|████████  | 24/30 [00:08\u003c00:02,  2.92it/s]\r 83%|████████▎ | 25/30 [00:08\u003c00:01,  2.93it/s]\r 87%|████████▋ | 26/30 [00:08\u003c00:01,  2.92it/s]\r 90%|█████████ | 27/30 [00:09\u003c00:01,  2.91it/s]\r 93%|█████████▎| 28/30 [00:09\u003c00:00,  2.92it/s]\r 97%|█████████▋| 29/30 [00:09\u003c00:00,  2.92it/s]\r100%|██████████| 30/30 [00:10\u003c00:00,  2.91it/s]\r100%|██████████| 30/30 [00:10\u003c00:00,  2.98it/s]\n"}
+,{"stream_name":"stdout","time":211.721331635,"data":"SHOT 007 COMPLETE -\u003e earth-needs-help-e001-s007.png\n"}
+,{"stream_name":"stdout","time":211.723408465,"data":"{\n"}
+,{"stream_name":"stdout","time":211.723421357,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":211.723426284,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":211.723430355,"data":"  \"success\": false,\n"}
+,{"stream_name":"stdout","time":211.72343477,"data":"  \"reference_mode\": \"validated canon sheet -\u003e pinned HF layer/no torch replacement -\u003e explicit ViT-H -\u003e SDXL IP-Adapter Plus\",\n"}
+,{"stream_name":"stdout","time":211.723439735,"data":"  \"continuity_manifest\": \"shows/earth-needs-help/continuity-manifest.json\",\n"}
+,{"stream_name":"stdout","time":211.723444028,"data":"  \"reference_files\": [\n"}
+,{"stream_name":"stdout","time":211.723447867,"data":"    \"shows/earth-needs-help/assets/characters/captain-pip.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":211.723452126,"data":"    \"shows/earth-needs-help/assets/characters/bloop.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":211.723456117,"data":"    \"shows/earth-needs-help/assets/characters/zig.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":211.72346052,"data":"    \"shows/earth-needs-help/assets/characters/momo.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":211.723464479,"data":"    \"shows/earth-needs-help/assets/characters/human-child.jpg.b64\"\n"}
+,{"stream_name":"stdout","time":211.723468485,"data":"  ],\n"}
+,{"stream_name":"stdout","time":211.723472293,"data":"  \"master_reference_staged_as\": \"/kaggle/working/canonical-five-character-reference.jpg\",\n"}
+,{"stream_name":"stdout","time":211.723477127,"data":"  \"image_encoder_hidden_size\": 1280,\n"}
+,{"stream_name":"stdout","time":211.723481152,"data":"  \"ip_adapter_scale\": 0.9,\n"}
+,{"stream_name":"stdout","time":211.723485172,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":211.723489623,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":211.723493692,"data":"    {\n"}
+,{"stream_name":"stdout","time":211.723497355,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":211.723501395,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":211.723505767,"data":"      \"file\": \"earth-needs-help-e001-s002.png\"\n"}
+,{"stream_name":"stdout","time":211.723510195,"data":"    },\n"}
+,{"stream_name":"stdout","time":211.723514193,"data":"    {\n"}
+,{"stream_name":"stdout","time":211.723526219,"data":"      \"id\": \"003\",\n"}
+,{"stream_name":"stdout","time":211.723530452,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":211.723534413,"data":"      \"file\": \"earth-needs-help-e001-s003.png\"\n"}
+,{"stream_name":"stdout","time":211.723538748,"data":"    },\n"}
+,{"stream_name":"stdout","time":211.723542348,"data":"    {\n"}
+,{"stream_name":"stdout","time":211.723546052,"data":"      \"id\": \"004\",\n"}
+,{"stream_name":"stdout","time":211.723549998,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":211.723554002,"data":"      \"file\": \"earth-needs-help-e001-s004.png\"\n"}
+,{"stream_name":"stdout","time":211.723558262,"data":"    },\n"}
+,{"stream_name":"stdout","time":211.723562122,"data":"    {\n"}
+,{"stream_name":"stdout","time":211.72356584,"data":"      \"id\": \"005\",\n"}
+,{"stream_name":"stdout","time":211.723569947,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":211.723573914,"data":"      \"file\": \"earth-needs-help-e001-s005.png\"\n"}
+,{"stream_name":"stdout","time":211.723578001,"data":"    },\n"}
+,{"stream_name":"stdout","time":211.723581805,"data":"    {\n"}
+,{"stream_name":"stdout","time":211.723585568,"data":"      \"id\": \"006a\",\n"}
+,{"stream_name":"stdout","time":211.723589501,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":211.723593481,"data":"      \"file\": \"earth-needs-help-e001-s006a.png\"\n"}
+,{"stream_name":"stdout","time":211.723597599,"data":"    },\n"}
+,{"stream_name":"stdout","time":211.723601319,"data":"    {\n"}
+,{"stream_name":"stdout","time":211.72360514,"data":"      \"id\": \"006b\",\n"}
+,{"stream_name":"stdout","time":211.723609077,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":211.723612949,"data":"      \"file\": \"earth-needs-help-e001-s006b.png\"\n"}
+,{"stream_name":"stdout","time":211.723617405,"data":"    },\n"}
+,{"stream_name":"stdout","time":211.72362137,"data":"    {\n"}
+,{"stream_name":"stdout","time":211.723625215,"data":"      \"id\": \"007\",\n"}
+,{"stream_name":"stdout","time":211.723629215,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":211.72363298,"data":"      \"file\": \"earth-needs-help-e001-s007.png\"\n"}
+,{"stream_name":"stdout","time":211.723637125,"data":"    }\n"}
+,{"stream_name":"stdout","time":211.723640887,"data":"  ]\n"}
+,{"stream_name":"stdout","time":211.723644988,"data":"}\n"}
+,{"stream_name":"stderr","time":222.386505314,"data":"\r  0%|          | 0/30 [00:00\u003c?, ?it/s]\r  3%|▎         | 1/30 [00:00\u003c00:06,  4.50it/s]\r  7%|▋         | 2/30 [00:00\u003c00:08,  3.37it/s]\r 10%|█         | 3/30 [00:00\u003c00:08,  3.14it/s]\r 13%|█▎        | 4/30 [00:01\u003c00:08,  3.04it/s]\r 17%|█▋        | 5/30 [00:01\u003c00:08,  2.97it/s]\r 20%|██        | 6/30 [00:01\u003c00:08,  2.93it/s]\r 23%|██▎       | 7/30 [00:02\u003c00:07,  2.90it/s]\r 27%|██▋       | 8/30 [00:02\u003c00:07,  2.88it/s]\r 30%|███       | 9/30 [00:03\u003c00:07,  2.87it/s]\r 33%|███▎      | 10/30 [00:03\u003c00:06,  2.86it/s]\r 37%|███▋      | 11/30 [00:03\u003c00:06,  2.85it/s]\r 40%|████      | 12/30 [00:04\u003c00:06,  2.84it/s]\r 43%|████▎     | 13/30 [00:04\u003c00:05,  2.83it/s]\r 47%|████▋     | 14/30 [00:04\u003c00:05,  2.83it/s]\r 50%|█████     | 15/30 [00:05\u003c00:05,  2.82it/s]\r 53%|█████▎    | 16/30 [00:05\u003c00:04,  2.81it/s]\r 57%|█████▋    | 17/30 [00:05\u003c00:04,  2.82it/s]\r 60%|██████    | 18/30 [00:06\u003c00:04,  2.81it/s]\r 63%|██████▎   | 19/30 [00:06\u003c00:03,  2.81it/s]\r 67%|██████▋   | 20/30 [00:06\u003c00:03,  2.81it/s]\r 70%|███████   | 21/30 [00:07\u003c00:03,  2.80it/s]\r 73%|███████▎  | 22/30 [00:07\u003c00:02,  2.79it/s]\r 77%|███████▋  | 23/30 [00:08\u003c00:02,  2.78it/s]\r 80%|████████  | 24/30 [00:08\u003c00:02,  2.77it/s]\r 83%|████████▎ | 25/30 [00:08\u003c00:01,  2.77it/s]\r 87%|████████▋ | 26/30 [00:09\u003c00:01,  2.77it/s]\r 90%|█████████ | 27/30 [00:09\u003c00:01,  2.77it/s]\r 93%|█████████▎| 28/30 [00:09\u003c00:00,  2.76it/s]\r 97%|█████████▋| 29/30 [00:10\u003c00:00,  2.76it/s]\r100%|██████████| 30/30 [00:10\u003c00:00,  2.76it/s]\r100%|██████████| 30/30 [00:10\u003c00:00,  2.84it/s]\n"}
+,{"stream_name":"stdout","time":223.366626032,"data":"SHOT 008 COMPLETE -\u003e earth-needs-help-e001-s008.png\n"}
+,{"stream_name":"stdout","time":223.367061762,"data":"{\n"}
+,{"stream_name":"stdout","time":223.367072416,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":223.36707752,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":223.367081119,"data":"  \"success\": false,\n"}
+,{"stream_name":"stdout","time":223.367084603,"data":"  \"reference_mode\": \"validated canon sheet -\u003e pinned HF layer/no torch replacement -\u003e explicit ViT-H -\u003e SDXL IP-Adapter Plus\",\n"}
+,{"stream_name":"stdout","time":223.3670895,"data":"  \"continuity_manifest\": \"shows/earth-needs-help/continuity-manifest.json\",\n"}
+,{"stream_name":"stdout","time":223.367093965,"data":"  \"reference_files\": [\n"}
+,{"stream_name":"stdout","time":223.367098219,"data":"    \"shows/earth-needs-help/assets/characters/captain-pip.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":223.367102247,"data":"    \"shows/earth-needs-help/assets/characters/bloop.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":223.367106575,"data":"    \"shows/earth-needs-help/assets/characters/zig.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":223.36711019,"data":"    \"shows/earth-needs-help/assets/characters/momo.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":223.367113781,"data":"    \"shows/earth-needs-help/assets/characters/human-child.jpg.b64\"\n"}
+,{"stream_name":"stdout","time":223.367117591,"data":"  ],\n"}
+,{"stream_name":"stdout","time":223.36712267,"data":"  \"master_reference_staged_as\": \"/kaggle/working/canonical-five-character-reference.jpg\",\n"}
+,{"stream_name":"stdout","time":223.367129335,"data":"  \"image_encoder_hidden_size\": 1280,\n"}
+,{"stream_name":"stdout","time":223.367131779,"data":"  \"ip_adapter_scale\": 0.9,\n"}
+,{"stream_name":"stdout","time":223.367134167,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":223.367136455,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":223.367138663,"data":"    {\n"}
+,{"stream_name":"stdout","time":223.367140788,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":223.367143033,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":223.367145279,"data":"      \"file\": \"earth-needs-help-e001-s002.png\"\n"}
+,{"stream_name":"stdout","time":223.367147585,"data":"    },\n"}
+,{"stream_name":"stdout","time":223.367149694,"data":"    {\n"}
+,{"stream_name":"stdout","time":223.367152448,"data":"      \"id\": \"003\",\n"}
+,{"stream_name":"stdout","time":223.36715582,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":223.36715931,"data":"      \"file\": \"earth-needs-help-e001-s003.png\"\n"}
+,{"stream_name":"stdout","time":223.367161796,"data":"    },\n"}
+,{"stream_name":"stdout","time":223.367174243,"data":"    {\n"}
+,{"stream_name":"stdout","time":223.367176616,"data":"      \"id\": \"004\",\n"}
+,{"stream_name":"stdout","time":223.3671788,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":223.367181083,"data":"      \"file\": \"earth-needs-help-e001-s004.png\"\n"}
+,{"stream_name":"stdout","time":223.367183373,"data":"    },\n"}
+,{"stream_name":"stdout","time":223.367185582,"data":"    {\n"}
+,{"stream_name":"stdout","time":223.367187694,"data":"      \"id\": \"005\",\n"}
+,{"stream_name":"stdout","time":223.367189948,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":223.36719222,"data":"      \"file\": \"earth-needs-help-e001-s005.png\"\n"}
+,{"stream_name":"stdout","time":223.367194426,"data":"    },\n"}
+,{"stream_name":"stdout","time":223.367196536,"data":"    {\n"}
+,{"stream_name":"stdout","time":223.367198635,"data":"      \"id\": \"006a\",\n"}
+,{"stream_name":"stdout","time":223.367200871,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":223.367203043,"data":"      \"file\": \"earth-needs-help-e001-s006a.png\"\n"}
+,{"stream_name":"stdout","time":223.367205308,"data":"    },\n"}
+,{"stream_name":"stdout","time":223.36720741,"data":"    {\n"}
+,{"stream_name":"stdout","time":223.367213241,"data":"      \"id\": \"006b\",\n"}
+,{"stream_name":"stdout","time":223.367215406,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":223.36721755,"data":"      \"file\": \"earth-needs-help-e001-s006b.png\"\n"}
+,{"stream_name":"stdout","time":223.367219746,"data":"    },\n"}
+,{"stream_name":"stdout","time":223.367221924,"data":"    {\n"}
+,{"stream_name":"stdout","time":223.367224006,"data":"      \"id\": \"007\",\n"}
+,{"stream_name":"stdout","time":223.367226177,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":223.367228419,"data":"      \"file\": \"earth-needs-help-e001-s007.png\"\n"}
+,{"stream_name":"stdout","time":223.367230588,"data":"    },\n"}
+,{"stream_name":"stdout","time":223.367232662,"data":"    {\n"}
+,{"stream_name":"stdout","time":223.36723482,"data":"      \"id\": \"008\",\n"}
+,{"stream_name":"stdout","time":223.367272096,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":223.36727634,"data":"      \"file\": \"earth-needs-help-e001-s008.png\"\n"}
+,{"stream_name":"stdout","time":223.367279773,"data":"    }\n"}
+,{"stream_name":"stdout","time":223.367282961,"data":"  ]\n"}
+,{"stream_name":"stdout","time":223.367286146,"data":"}\n"}
+,{"stream_name":"stderr","time":234.554375333,"data":"\r  0%|          | 0/30 [00:00\u003c?, ?it/s]\r  3%|▎         | 1/30 [00:00\u003c00:06,  4.24it/s]\r  7%|▋         | 2/30 [00:00\u003c00:08,  3.21it/s]\r 10%|█         | 3/30 [00:00\u003c00:09,  2.99it/s]\r 13%|█▎        | 4/30 [00:01\u003c00:09,  2.87it/s]\r 17%|█▋        | 5/30 [00:01\u003c00:08,  2.81it/s]\r 20%|██        | 6/30 [00:02\u003c00:08,  2.77it/s]\r 23%|██▎       | 7/30 [00:02\u003c00:08,  2.75it/s]\r 27%|██▋       | 8/30 [00:02\u003c00:08,  2.74it/s]\r 30%|███       | 9/30 [00:03\u003c00:07,  2.73it/s]\r 33%|███▎      | 10/30 [00:03\u003c00:07,  2.72it/s]\r 37%|███▋      | 11/30 [00:03\u003c00:06,  2.72it/s]\r 40%|████      | 12/30 [00:04\u003c00:06,  2.71it/s]\r 43%|████▎     | 13/30 [00:04\u003c00:06,  2.70it/s]\r 47%|████▋     | 14/30 [00:05\u003c00:05,  2.70it/s]\r 50%|█████     | 15/30 [00:05\u003c00:05,  2.69it/s]\r 53%|█████▎    | 16/30 [00:05\u003c00:05,  2.68it/s]\r 57%|█████▋    | 17/30 [00:06\u003c00:04,  2.68it/s]\r 60%|██████    | 18/30 [00:06\u003c00:04,  2.67it/s]\r 63%|██████▎   | 19/30 [00:06\u003c00:04,  2.67it/s]\r 67%|██████▋   | 20/30 [00:07\u003c00:03,  2.66it/s]\r 70%|███████   | 21/30 [00:07\u003c00:03,  2.65it/s]\r 73%|███████▎  | 22/30 [00:08\u003c00:03,  2.65it/s]\r 77%|███████▋  | 23/30 [00:08\u003c00:02,  2.65it/s]\r 80%|████████  | 24/30 [00:08\u003c00:02,  2.64it/s]\r 83%|████████▎ | 25/30 [00:09\u003c00:01,  2.63it/s]\r 87%|████████▋ | 26/30 [00:09\u003c00:01,  2.63it/s]\r 90%|█████████ | 27/30 [00:09\u003c00:01,  2.63it/s]\r 93%|█████████▎| 28/30 [00:10\u003c00:00,  2.62it/s]\r 97%|█████████▋| 29/30 [00:10\u003c00:00,  2.62it/s]\r100%|██████████| 30/30 [00:11\u003c00:00,  2.62it/s]\r100%|██████████| 30/30 [00:11\u003c00:00,  2.70it/s]\n"}
+,{"stream_name":"stdout","time":235.549998807,"data":"SHOT 009 COMPLETE -\u003e earth-needs-help-e001-s009.png\n"}
+,{"stream_name":"stdout","time":235.550548684,"data":"{\n"}
+,{"stream_name":"stdout","time":235.550562923,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":235.550567214,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":235.5505708,"data":"  \"success\": false,\n"}
+,{"stream_name":"stdout","time":235.550574378,"data":"  \"reference_mode\": \"validated canon sheet -\u003e pinned HF layer/no torch replacement -\u003e explicit ViT-H -\u003e SDXL IP-Adapter Plus\",\n"}
+,{"stream_name":"stdout","time":235.550578817,"data":"  \"continuity_manifest\": \"shows/earth-needs-help/continuity-manifest.json\",\n"}
+,{"stream_name":"stdout","time":235.550582662,"data":"  \"reference_files\": [\n"}
+,{"stream_name":"stdout","time":235.550586055,"data":"    \"shows/earth-needs-help/assets/characters/captain-pip.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":235.550589602,"data":"    \"shows/earth-needs-help/assets/characters/bloop.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":235.550593096,"data":"    \"shows/earth-needs-help/assets/characters/zig.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":235.550596589,"data":"    \"shows/earth-needs-help/assets/characters/momo.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":235.550600062,"data":"    \"shows/earth-needs-help/assets/characters/human-child.jpg.b64\"\n"}
+,{"stream_name":"stdout","time":235.550604225,"data":"  ],\n"}
+,{"stream_name":"stdout","time":235.550608249,"data":"  \"master_reference_staged_as\": \"/kaggle/working/canonical-five-character-reference.jpg\",\n"}
+,{"stream_name":"stdout","time":235.550612668,"data":"  \"image_encoder_hidden_size\": 1280,\n"}
+,{"stream_name":"stdout","time":235.550616889,"data":"  \"ip_adapter_scale\": 0.9,\n"}
+,{"stream_name":"stdout","time":235.550620825,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":235.550624332,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":235.550627693,"data":"    {\n"}
+,{"stream_name":"stdout","time":235.550631011,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":235.55063452,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":235.550637877,"data":"      \"file\": \"earth-needs-help-e001-s002.png\"\n"}
+,{"stream_name":"stdout","time":235.550641488,"data":"    },\n"}
+,{"stream_name":"stdout","time":235.550644724,"data":"    {\n"}
+,{"stream_name":"stdout","time":235.55064801,"data":"      \"id\": \"003\",\n"}
+,{"stream_name":"stdout","time":235.550651467,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":235.55065496,"data":"      \"file\": \"earth-needs-help-e001-s003.png\"\n"}
+,{"stream_name":"stdout","time":235.550658596,"data":"    },\n"}
+,{"stream_name":"stdout","time":235.550670198,"data":"    {\n"}
+,{"stream_name":"stdout","time":235.550673564,"data":"      \"id\": \"004\",\n"}
+,{"stream_name":"stdout","time":235.55068191,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":235.550685251,"data":"      \"file\": \"earth-needs-help-e001-s004.png\"\n"}
+,{"stream_name":"stdout","time":235.550701078,"data":"    },\n"}
+,{"stream_name":"stdout","time":235.550705087,"data":"    {\n"}
+,{"stream_name":"stdout","time":235.550708727,"data":"      \"id\": \"005\",\n"}
+,{"stream_name":"stdout","time":235.550712884,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":235.550716783,"data":"      \"file\": \"earth-needs-help-e001-s005.png\"\n"}
+,{"stream_name":"stdout","time":235.5507202,"data":"    },\n"}
+,{"stream_name":"stdout","time":235.550723717,"data":"    {\n"}
+,{"stream_name":"stdout","time":235.550726925,"data":"      \"id\": \"006a\",\n"}
+,{"stream_name":"stdout","time":235.550730332,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":235.550733704,"data":"      \"file\": \"earth-needs-help-e001-s006a.png\"\n"}
+,{"stream_name":"stdout","time":235.550737108,"data":"    },\n"}
+,{"stream_name":"stdout","time":235.550740261,"data":"    {\n"}
+,{"stream_name":"stdout","time":235.550743481,"data":"      \"id\": \"006b\",\n"}
+,{"stream_name":"stdout","time":235.550746813,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":235.550750146,"data":"      \"file\": \"earth-needs-help-e001-s006b.png\"\n"}
+,{"stream_name":"stdout","time":235.550753603,"data":"    },\n"}
+,{"stream_name":"stdout","time":235.550756834,"data":"    {\n"}
+,{"stream_name":"stdout","time":235.550760076,"data":"      \"id\": \"007\",\n"}
+,{"stream_name":"stdout","time":235.550764091,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":235.5507677,"data":"      \"file\": \"earth-needs-help-e001-s007.png\"\n"}
+,{"stream_name":"stdout","time":235.550771515,"data":"    },\n"}
+,{"stream_name":"stdout","time":235.550775681,"data":"    {\n"}
+,{"stream_name":"stdout","time":235.55077924,"data":"      \"id\": \"008\",\n"}
+,{"stream_name":"stdout","time":235.550793559,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":235.550797124,"data":"      \"file\": \"earth-needs-help-e001-s008.png\"\n"}
+,{"stream_name":"stdout","time":235.550801484,"data":"    },\n"}
+,{"stream_name":"stdout","time":235.550804903,"data":"    {\n"}
+,{"stream_name":"stdout","time":235.55080849,"data":"      \"id\": \"009\",\n"}
+,{"stream_name":"stdout","time":235.550812446,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":235.55081585,"data":"      \"file\": \"earth-needs-help-e001-s009.png\"\n"}
+,{"stream_name":"stdout","time":235.550819395,"data":"    }\n"}
+,{"stream_name":"stdout","time":235.550822576,"data":"  ]\n"}
+,{"stream_name":"stdout","time":235.550825901,"data":"}\n"}
+,{"stream_name":"stdout","time":235.55099746,"data":"{\n"}
+,{"stream_name":"stdout","time":235.551005462,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":235.551009225,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":235.551012919,"data":"  \"success\": true,\n"}
+,{"stream_name":"stdout","time":235.551016331,"data":"  \"reference_mode\": \"validated canon sheet -\u003e pinned HF layer/no torch replacement -\u003e explicit ViT-H -\u003e SDXL IP-Adapter Plus\",\n"}
+,{"stream_name":"stdout","time":235.551020641,"data":"  \"continuity_manifest\": \"shows/earth-needs-help/continuity-manifest.json\",\n"}
+,{"stream_name":"stdout","time":235.551030054,"data":"  \"reference_files\": [\n"}
+,{"stream_name":"stdout","time":235.551033659,"data":"    \"shows/earth-needs-help/assets/characters/captain-pip.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":235.551037121,"data":"    \"shows/earth-needs-help/assets/characters/bloop.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":235.551040573,"data":"    \"shows/earth-needs-help/assets/characters/zig.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":235.551044041,"data":"    \"shows/earth-needs-help/assets/characters/momo.jpg.b64\",\n"}
+,{"stream_name":"stdout","time":235.551047445,"data":"    \"shows/earth-needs-help/assets/characters/human-child.jpg.b64\"\n"}
+,{"stream_name":"stdout","time":235.551050894,"data":"  ],\n"}
+,{"stream_name":"stdout","time":235.551054237,"data":"  \"master_reference_staged_as\": \"/kaggle/working/canonical-five-character-reference.jpg\",\n"}
+,{"stream_name":"stdout","time":235.551063434,"data":"  \"image_encoder_hidden_size\": 1280,\n"}
+,{"stream_name":"stdout","time":235.551079169,"data":"  \"ip_adapter_scale\": 0.9,\n"}
+,{"stream_name":"stdout","time":235.551083039,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":235.551086952,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":235.551090627,"data":"    {\n"}
+,{"stream_name":"stdout","time":235.551094388,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":235.551098389,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":235.551101743,"data":"      \"file\": \"earth-needs-help-e001-s002.png\"\n"}
+,{"stream_name":"stdout","time":235.551105174,"data":"    },\n"}
+,{"stream_name":"stdout","time":235.551108497,"data":"    {\n"}
+,{"stream_name":"stdout","time":235.551111747,"data":"      \"id\": \"003\",\n"}
+,{"stream_name":"stdout","time":235.551115163,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":235.551118494,"data":"      \"file\": \"earth-needs-help-e001-s003.png\"\n"}
+,{"stream_name":"stdout","time":235.551121973,"data":"    },\n"}
+,{"stream_name":"stdout","time":235.551125129,"data":"    {\n"}
+,{"stream_name":"stdout","time":235.551128321,"data":"      \"id\": \"004\",\n"}
+,{"stream_name":"stdout","time":235.551131676,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":235.551135104,"data":"      \"file\": \"earth-needs-help-e001-s004.png\"\n"}
+,{"stream_name":"stdout","time":235.551138763,"data":"    },\n"}
+,{"stream_name":"stdout","time":235.551142075,"data":"    {\n"}
+,{"stream_name":"stdout","time":235.551145279,"data":"      \"id\": \"005\",\n"}
+,{"stream_name":"stdout","time":235.551148634,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":235.551159961,"data":"      \"file\": \"earth-needs-help-e001-s005.png\"\n"}
+,{"stream_name":"stdout","time":235.551173089,"data":"    },\n"}
+,{"stream_name":"stdout","time":235.551177083,"data":"    {\n"}
+,{"stream_name":"stdout","time":235.551180912,"data":"      \"id\": \"006a\",\n"}
+,{"stream_name":"stdout","time":235.551184901,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":235.551188851,"data":"      \"file\": \"earth-needs-help-e001-s006a.png\"\n"}
+,{"stream_name":"stdout","time":235.551192583,"data":"    },\n"}
+,{"stream_name":"stdout","time":235.551195855,"data":"    {\n"}
+,{"stream_name":"stdout","time":235.551199006,"data":"      \"id\": \"006b\",\n"}
+,{"stream_name":"stdout","time":235.551202451,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":235.55120571,"data":"      \"file\": \"earth-needs-help-e001-s006b.png\"\n"}
+,{"stream_name":"stdout","time":235.551213157,"data":"    },\n"}
+,{"stream_name":"stdout","time":235.551216428,"data":"    {\n"}
+,{"stream_name":"stdout","time":235.551219641,"data":"      \"id\": \"007\",\n"}
+,{"stream_name":"stdout","time":235.551222958,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":235.551226239,"data":"      \"file\": \"earth-needs-help-e001-s007.png\"\n"}
+,{"stream_name":"stdout","time":235.551229641,"data":"    },\n"}
+,{"stream_name":"stdout","time":235.551232867,"data":"    {\n"}
+,{"stream_name":"stdout","time":235.551236016,"data":"      \"id\": \"008\",\n"}
+,{"stream_name":"stdout","time":235.551239465,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":235.551243344,"data":"      \"file\": \"earth-needs-help-e001-s008.png\"\n"}
+,{"stream_name":"stdout","time":235.551267341,"data":"    },\n"}
+,{"stream_name":"stdout","time":235.551271134,"data":"    {\n"}
+,{"stream_name":"stdout","time":235.551274946,"data":"      \"id\": \"009\",\n"}
+,{"stream_name":"stdout","time":235.551278851,"data":"      \"success\": true,\n"}
+,{"stream_name":"stdout","time":235.551282439,"data":"      \"file\": \"earth-needs-help-e001-s009.png\"\n"}
+,{"stream_name":"stdout","time":235.551286397,"data":"    }\n"}
+,{"stream_name":"stdout","time":235.551289652,"data":"  ],\n"}
+,{"stream_name":"stdout","time":235.551292876,"data":"  \"elapsed_seconds\": 234.75\n"}
+,{"stream_name":"stdout","time":235.551296264,"data":"}\n"}
+,{"stream_name":"stderr","time":240.876551457,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":240.876581139,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":241.09477288,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":241.094798649,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":241.712527903,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":242.465893745,"data":"[NbConvertApp] Writing 309859 bytes to __results__.html\n"}
+]

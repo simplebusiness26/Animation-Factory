@@ -1,8 +1,19 @@
 {
   "show": "Earth Needs Help",
   "episode": "001",
-  "reference_mode": "approved canonical bridge + strict text continuity lock; adapter-free recovery path",
-  "reference_repaired": true,
+  "success": true,
+  "reference_mode": "validated canon sheet -> pinned HF layer/no torch replacement -> explicit ViT-H -> SDXL IP-Adapter Plus",
+  "continuity_manifest": "shows/earth-needs-help/continuity-manifest.json",
+  "reference_files": [
+    "shows/earth-needs-help/assets/characters/captain-pip.jpg.b64",
+    "shows/earth-needs-help/assets/characters/bloop.jpg.b64",
+    "shows/earth-needs-help/assets/characters/zig.jpg.b64",
+    "shows/earth-needs-help/assets/characters/momo.jpg.b64",
+    "shows/earth-needs-help/assets/characters/human-child.jpg.b64"
+  ],
+  "master_reference_staged_as": "/kaggle/working/canonical-five-character-reference.jpg",
+  "image_encoder_hidden_size": 1280,
+  "ip_adapter_scale": 0.9,
   "gpu": "Tesla T4",
   "shots": [
     {
@@ -51,6 +62,6 @@
       "file": "earth-needs-help-e001-s009.png"
     }
   ],
-  "elapsed_seconds": 220.34
+  "elapsed_seconds": 234.75
 }
 
