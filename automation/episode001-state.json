@@ -1,18 +1,18 @@
 {
   "episode": "001",
   "title": "The Great Earth Emergency",
-  "phase": "blocked_quality_redesign",
+  "phase": "awaiting_continuity_review",
   "stills_kernel": "simplebusiness/enh-e001-stills-r1-8257670",
   "stills_attempts": 1,
   "motion_kernel": "simplebusiness/enh-e001-motion-r5-7908633-0",
   "motion_attempts": 0,
-  "last_status": "STILLS_REJECTED_PRODUCTION_QUALITY",
-  "last_error": "User rejected the current still batch as below production standard. Motion is blocked while the still-generation architecture is redesigned.",
-  "updated_at": "2026-09-02T00:00:00Z",
+  "last_status": "CONTINUITY_VISUAL_REVIEW_REQUIRED",
+  "last_error": "continuity review status is pending_review",
+  "updated_at": "2026-09-01T21:58:59Z",
   "release_tag": "earth-needs-help-e001",
   "stills_submit_failures": 0,
   "motion_submit_failures": 0,
   "assembly_attempts": 0,
-  "continuity_gate": "rejected",
+  "continuity_gate": "passed",
   "stills_staging_failures": 0
 }
