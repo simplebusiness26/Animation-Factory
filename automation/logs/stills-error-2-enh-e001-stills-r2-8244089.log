@@ -1,0 +1,171 @@
+[{"stream_name":"stdout","time":5.637937003,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 44.1/44.1 kB 1.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":8.741609308,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.6/40.6 kB 2.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":9.734653345,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.3/57.3 kB 3.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":13.380218271,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.9/45.9 kB 2.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":14.170249643,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.9/2.9 MB 30.4 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":14.295632976,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.0/10.0 MB 97.4 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":14.334789244,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 333.2/333.2 kB 20.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":14.378775027,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 434.8/434.8 kB 21.7 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":14.415752306,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 447.5/447.5 kB 31.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":14.514927937,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.6/6.6 MB 87.5 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":14.553770195,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 206.6/206.6 kB 12.7 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":14.738382003,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.7/16.7 MB 81.7 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":14.776308649,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 130.0/130.0 kB 8.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":14.820452958,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 38.7 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":14.864142811,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 802.0/802.0 kB 39.1 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":14.922479419,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.0/3.0 MB 88.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":20.346360061,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 526.6/526.6 MB 3.5 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":25.406691377,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 366.2/366.2 MB 5.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":27.652962632,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 170.1/170.1 MB 10.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":30.345004024,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 206.0/206.0 MB 8.8 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":31.478739003,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 60.4/60.4 MB 14.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":34.442349175,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 197.7/197.7 MB 9.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":43.563798001,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 423.1/423.1 MB 2.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":44.447766324,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.7/10.7 MB 11.9 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":46.170298309,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 90.2/90.2 MB 17.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":46.240089317,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.2/2.2 MB 47.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":52.555486396,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 214.1/214.1 MB 2.8 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":52.605519203,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 45.4 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":53.633806875,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 59.5/59.5 MB 26.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":60.046865895,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 200.9/200.9 MB 3.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":63.595235737,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 145.9/145.9 MB 11.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":63.635046845,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 148.0/148.0 kB 8.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":63.67272656,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 80.2/80.2 kB 4.9 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":63.709461892,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.6/45.6 kB 2.5 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":63.750266337,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100.0/100.0 kB 5.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":63.818554196,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 155.6/155.6 kB 11.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":63.855394362,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 73.1/73.1 kB 4.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":63.893152529,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 137.0/137.0 kB 8.8 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":63.937412873,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 248.8/248.8 kB 11.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":64.110184182,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.7/6.7 MB 44.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":64.144666997,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 68.5/68.5 kB 5.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":64.221345807,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 37.7 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":64.271501251,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 818.2/818.2 kB 29.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":64.4384445,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 43.7 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":64.474842301,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 131.1/131.1 kB 8.7 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":64.542897309,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.9/134.9 kB 8.8 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":64.576473851,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.5/62.5 kB 4.4 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":64.659079738,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 18.9 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":65.558404422,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.7/40.7 MB 29.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":200.033239964,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":200.033317759,"data":"bigframes 2.39.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":200.033324969,"data":"google-adk 1.29.0 requires google-cloud-bigquery-storage\u003e=2.0.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":200.033330111,"data":"datasets 5.0.0 requires fsspec[http]\u003c=2026.4.0,\u003e=2023.1.0, but you have fsspec 2026.7.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":200.033335313,"data":"ydata-profiling 4.18.4 requires numpy\u003c2.4,\u003e=1.22, but you have numpy 2.5.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":200.033346305,"data":"google-colab 1.0.0 requires jupyter-server==2.14.0, but you have jupyter-server 2.12.5 which is incompatible.\n"}
+,{"stream_name":"stderr","time":200.033369933,"data":"google-colab 1.0.0 requires pandas==2.2.2, but you have pandas 2.3.3 which is incompatible.\n"}
+,{"stream_name":"stderr","time":200.033372899,"data":"google-colab 1.0.0 requires requests==2.32.4, but you have requests 2.34.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":200.033375622,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":200.033401904,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":200.033406643,"data":"libcuml-cu12 26.2.0 requires cuda-toolkit[cublas,cufft,curand,cusolver,cusparse]==12.*, but you have cuda-toolkit 13.0.3.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":200.033411443,"data":"cuml-cu12 26.2.0 requires cuda-toolkit[cublas,cufft,curand,cusolver,cusparse]==12.*, but you have cuda-toolkit 13.0.3.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":200.033415696,"data":"cuda-python 12.9.4 requires cuda-bindings~=12.9.4, but you have cuda-bindings 13.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":200.033420376,"data":"torchaudio 2.10.0+cu128 requires torch==2.10.0, but you have torch 2.13.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":200.033424737,"data":"torchvision 0.25.0+cu128 requires torch==2.10.0, but you have torch 2.13.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":200.033428823,"data":"cudf-cu12 26.2.1 requires cuda-toolkit[nvcc,nvrtc]==12.*, but you have cuda-toolkit 13.0.3.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":200.033432624,"data":"numba 0.60.0 requires numpy\u003c2.1,\u003e=1.22, but you have numpy 2.5.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":200.033436421,"data":"libcuvs-cu12 26.2.0 requires cuda-toolkit[cublas,curand,cusolver,cusparse]==12.*, but you have cuda-toolkit 13.0.3.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":200.033441667,"data":"libraft-cu12 26.2.0 requires cuda-toolkit[cublas,curand,cusolver,cusparse]==12.*, but you have cuda-toolkit 13.0.3.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":200.033445621,"data":"opentelemetry-api 1.38.0 requires importlib-metadata\u003c8.8.0,\u003e=6.0, but you have importlib-metadata 9.0.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":200.033449663,"data":"gcsfs 2025.3.0 requires fsspec==2025.3.0, but you have fsspec 2026.7.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":200.033453481,"data":"gradio 5.50.0 requires huggingface-hub\u003c2.0,\u003e=0.33.5, but you have huggingface-hub 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":207.958950974,"data":"The cache for model files in Transformers v4.22.0 has been updated. Migrating your old cache. This is a one-time only operation. You can interrupt this and resume the migration later on by calling `transformers.utils.move_cache()`.\n"}
+,{"stream_name":"stderr","time":207.961102457,"data":"\r0it [00:00, ?it/s]\r0it [00:00, ?it/s]\n"}
+,{"stream_name":"stderr","time":208.155663259,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":208.155699703,"data":"  File \"/usr/local/lib/python3.12/dist-packages/transformers/utils/import_utils.py\", line 1778, in _get_module\n"}
+,{"stream_name":"stderr","time":208.156015041,"data":"    return importlib.import_module(\".\" + module_name, self.__name__)\n"}
+,{"stream_name":"stderr","time":208.156105965,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":208.156152734,"data":"  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n"}
+,{"stream_name":"stderr","time":208.1571513,"data":"    return _bootstrap._gcd_import(name[level:], package, level)\n"}
+,{"stream_name":"stderr","time":208.157240022,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":208.157300526,"data":"  File \"\u003cfrozen importlib._bootstrap\u003e\", line 1387, in _gcd_import\n"}
+,{"stream_name":"stderr","time":208.15730734,"data":"  File \"\u003cfrozen importlib._bootstrap\u003e\", line 1360, in _find_and_load\n"}
+,{"stream_name":"stderr","time":208.157311117,"data":"  File \"\u003cfrozen importlib._bootstrap\u003e\", line 1331, in _find_and_load_unlocked\n"}
+,{"stream_name":"stderr","time":208.157314947,"data":"  File \"\u003cfrozen importlib._bootstrap\u003e\", line 935, in _load_unlocked\n"}
+,{"stream_name":"stderr","time":208.157318789,"data":"  File \"\u003cfrozen importlib._bootstrap_external\u003e\", line 999, in exec_module\n"}
+,{"stream_name":"stderr","time":208.157331582,"data":"  File \"\u003cfrozen importlib._bootstrap\u003e\", line 488, in _call_with_frames_removed\n"}
+,{"stream_name":"stderr","time":208.157351078,"data":"  File \"/usr/local/lib/python3.12/dist-packages/transformers/models/clip/image_processing_clip.py\", line 21, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":208.157616861,"data":"    from ...image_processing_utils import BaseImageProcessor, BatchFeature, get_size_dict\n"}
+,{"stream_name":"stderr","time":208.157631923,"data":"  File \"/usr/local/lib/python3.12/dist-packages/transformers/image_processing_utils.py\", line 21, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":208.15768187,"data":"    from .image_transforms import center_crop, normalize, rescale\n"}
+,{"stream_name":"stderr","time":208.157715193,"data":"  File \"/usr/local/lib/python3.12/dist-packages/transformers/image_transforms.py\", line 22, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":208.157873327,"data":"    from .image_utils import (\n"}
+,{"stream_name":"stderr","time":208.15788253,"data":"  File \"/usr/local/lib/python3.12/dist-packages/transformers/image_utils.py\", line 58, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":208.158019982,"data":"    from torchvision.transforms import InterpolationMode\n"}
+,{"stream_name":"stderr","time":208.158030269,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torchvision/__init__.py\", line 10, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":208.158113539,"data":"    from torchvision import _meta_registrations, datasets, io, models, ops, transforms, utils  # usort:skip\n"}
+,{"stream_name":"stderr","time":208.158371388,"data":"    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":208.1583827,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torchvision/_meta_registrations.py\", line 163, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":208.158633588,"data":"    @torch.library.register_fake(\"torchvision::nms\")\n"}
+,{"stream_name":"stderr","time":208.158689272,"data":"     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":208.158733186,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/library.py\", line 1262, in register\n"}
+,{"stream_name":"stderr","time":208.159177381,"data":"    use_lib._register_fake(\n"}
+,{"stream_name":"stderr","time":208.159188897,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/library.py\", line 352, in _register_fake\n"}
+,{"stream_name":"stderr","time":208.159363288,"data":"    handle = entry.fake_impl.register(\n"}
+,{"stream_name":"stderr","time":208.159373319,"data":"             ^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":208.15940119,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/_library/fake_impl.py\", line 87, in register\n"}
+,{"stream_name":"stderr","time":208.159610742,"data":"    lib.impl(self.qualname, meta_kernel, \"Meta\", allow_override=allow_override)\n"}
+,{"stream_name":"stderr","time":208.159623768,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/library.py\", line 493, in impl\n"}
+,{"stream_name":"stderr","time":208.159901281,"data":"    if torch._C._dispatch_has_kernel_for_dispatch_key(\n"}
+,{"stream_name":"stderr","time":208.159959049,"data":"       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":208.159991583,"data":"RuntimeError: operator torchvision::nms does not exist\n"}
+,{"stream_name":"stderr","time":208.159999235,"data":"\n"}
+,{"stream_name":"stderr","time":208.160003451,"data":"The above exception was the direct cause of the following exception:\n"}
+,{"stream_name":"stderr","time":208.160007817,"data":"\n"}
+,{"stream_name":"stderr","time":208.160014103,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":208.160037956,"data":"  File \"/usr/local/lib/python3.12/dist-packages/diffusers/utils/import_utils.py\", line 853, in _get_module\n"}
+,{"stream_name":"stderr","time":208.160408886,"data":"    return importlib.import_module(\".\" + module_name, self.__name__)\n"}
+,{"stream_name":"stderr","time":208.16054728,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":208.160554239,"data":"  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n"}
+,{"stream_name":"stderr","time":208.160790438,"data":"    return _bootstrap._gcd_import(name[level:], package, level)\n"}
+,{"stream_name":"stderr","time":208.160897517,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":208.160942201,"data":"  File \"\u003cfrozen importlib._bootstrap\u003e\", line 1387, in _gcd_import\n"}
+,{"stream_name":"stderr","time":208.160947776,"data":"  File \"\u003cfrozen importlib._bootstrap\u003e\", line 1360, in _find_and_load\n"}
+,{"stream_name":"stderr","time":208.160951781,"data":"  File \"\u003cfrozen importlib._bootstrap\u003e\", line 1331, in _find_and_load_unlocked\n"}
+,{"stream_name":"stderr","time":208.160967624,"data":"  File \"\u003cfrozen importlib._bootstrap\u003e\", line 935, in _load_unlocked\n"}
+,{"stream_name":"stderr","time":208.160972397,"data":"  File \"\u003cfrozen importlib._bootstrap_external\u003e\", line 999, in exec_module\n"}
+,{"stream_name":"stderr","time":208.160976918,"data":"  File \"\u003cfrozen importlib._bootstrap\u003e\", line 488, in _call_with_frames_removed\n"}
+,{"stream_name":"stderr","time":208.160981612,"data":"  File \"/usr/local/lib/python3.12/dist-packages/diffusers/pipelines/stable_diffusion_xl/pipeline_stable_diffusion_xl.py\", line 19, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":208.161191432,"data":"    from transformers import (\n"}
+,{"stream_name":"stderr","time":208.161200275,"data":"  File \"\u003cfrozen importlib._bootstrap\u003e\", line 1412, in _handle_fromlist\n"}
+,{"stream_name":"stderr","time":208.161204846,"data":"  File \"/usr/local/lib/python3.12/dist-packages/transformers/utils/import_utils.py\", line 1767, in __getattr__\n"}
+,{"stream_name":"stderr","time":208.161664927,"data":"    value = getattr(module, name)\n"}
+,{"stream_name":"stderr","time":208.161690929,"data":"            ^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":208.161731759,"data":"  File \"/usr/local/lib/python3.12/dist-packages/transformers/utils/import_utils.py\", line 1766, in __getattr__\n"}
+,{"stream_name":"stderr","time":208.162210294,"data":"    module = self._get_module(self._class_to_module[name])\n"}
+,{"stream_name":"stderr","time":208.162379241,"data":"             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":208.162386485,"data":"  File \"/usr/local/lib/python3.12/dist-packages/transformers/utils/import_utils.py\", line 1780, in _get_module\n"}
+,{"stream_name":"stderr","time":208.162874547,"data":"    raise RuntimeError(\n"}
+,{"stream_name":"stderr","time":208.162889607,"data":"RuntimeError: Failed to import transformers.models.clip.image_processing_clip because of the following error (look up to see its traceback):\n"}
+,{"stream_name":"stderr","time":208.162894829,"data":"operator torchvision::nms does not exist\n"}
+,{"stream_name":"stderr","time":208.162899717,"data":"\n"}
+,{"stream_name":"stderr","time":208.162903546,"data":"The above exception was the direct cause of the following exception:\n"}
+,{"stream_name":"stderr","time":208.162919305,"data":"\n"}
+,{"stream_name":"stderr","time":208.162924826,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":208.162946507,"data":"  File \"/kaggle/src/script.py\", line 97, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":208.163093204,"data":"    if __name__=='__main__': raise SystemExit(main())\n"}
+,{"stream_name":"stderr","time":208.163219385,"data":"                                              ^^^^^^\n"}
+,{"stream_name":"stderr","time":208.163278081,"data":"  File \"/kaggle/src/script.py\", line 71, in main\n"}
+,{"stream_name":"stderr","time":208.163437281,"data":"    from diffusers import StableDiffusionXLPipeline\n"}
+,{"stream_name":"stderr","time":208.163448976,"data":"  File \"\u003cfrozen importlib._bootstrap\u003e\", line 1412, in _handle_fromlist\n"}
+,{"stream_name":"stderr","time":208.163453692,"data":"  File \"/usr/local/lib/python3.12/dist-packages/diffusers/utils/import_utils.py\", line 844, in __getattr__\n"}
+,{"stream_name":"stderr","time":208.163844732,"data":"    value = getattr(module, name)\n"}
+,{"stream_name":"stderr","time":208.163858876,"data":"            ^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":208.163873654,"data":"  File \"/usr/local/lib/python3.12/dist-packages/diffusers/utils/import_utils.py\", line 844, in __getattr__\n"}
+,{"stream_name":"stderr","time":208.164200495,"data":"    value = getattr(module, name)\n"}
+,{"stream_name":"stderr","time":208.164227956,"data":"            ^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":208.164315139,"data":"  File \"/usr/local/lib/python3.12/dist-packages/diffusers/utils/import_utils.py\", line 843, in __getattr__\n"}
+,{"stream_name":"stderr","time":208.164619378,"data":"    module = self._get_module(self._class_to_module[name])\n"}
+,{"stream_name":"stderr","time":208.164672503,"data":"             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":208.164712485,"data":"  File \"/usr/local/lib/python3.12/dist-packages/diffusers/utils/import_utils.py\", line 855, in _get_module\n"}
+,{"stream_name":"stderr","time":208.165034707,"data":"    raise RuntimeError(\n"}
+,{"stream_name":"stderr","time":208.165045488,"data":"RuntimeError: Failed to import diffusers.pipelines.stable_diffusion_xl.pipeline_stable_diffusion_xl because of the following error (look up to see its traceback):\n"}
+,{"stream_name":"stderr","time":208.165050172,"data":"Failed to import transformers.models.clip.image_processing_clip because of the following error (look up to see its traceback):\n"}
+,{"stream_name":"stderr","time":208.165054217,"data":"operator torchvision::nms does not exist\n"}
+,{"stream_name":"stderr","time":211.853217611,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":211.853273728,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":212.104800424,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":212.10483699,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":212.856899332,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":214.095893036,"data":"[NbConvertApp] Writing 309292 bytes to __results__.html\n"}
+]
