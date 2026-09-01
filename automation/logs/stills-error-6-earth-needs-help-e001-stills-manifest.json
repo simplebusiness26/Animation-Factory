@@ -1,0 +1,58 @@
+{
+  "show": "Earth Needs Help",
+  "episode": "001",
+  "success": false,
+  "reference_mode": "locked user-approved individual visual refs -> IP-Adapter Plus on every shot",
+  "continuity_manifest": "shows/earth-needs-help/continuity-manifest.json",
+  "ip_adapter_scale": 0.95,
+  "gpu": "Tesla T4",
+  "shots": [
+    {
+      "id": "002",
+      "success": false,
+      "error": "UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'"
+    },
+    {
+      "id": "003",
+      "success": false,
+      "error": "UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'"
+    },
+    {
+      "id": "004",
+      "success": false,
+      "error": "UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'"
+    },
+    {
+      "id": "005",
+      "success": false,
+      "error": "UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'"
+    },
+    {
+      "id": "006a",
+      "success": false,
+      "error": "UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'"
+    },
+    {
+      "id": "006b",
+      "success": false,
+      "error": "UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'"
+    },
+    {
+      "id": "007",
+      "success": false,
+      "error": "UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'"
+    },
+    {
+      "id": "008",
+      "success": false,
+      "error": "UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'"
+    },
+    {
+      "id": "009",
+      "success": false,
+      "error": "UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'"
+    }
+  ],
+  "elapsed_seconds": 121.76
+}
+
