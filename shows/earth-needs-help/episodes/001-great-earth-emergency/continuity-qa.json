@@ -1,0 +1,18 @@
+{
+  "show": "Earth Needs Help",
+  "episode": "001",
+  "status": "pending_review",
+  "review_policy": "Approve only when every recurring character visibly matches the locked reference pack. File hashes bind approval to the exact still batch.",
+  "required_checks": [
+    "character identity matches locked visual refs",
+    "canonical colours are not swapped",
+    "faces, silhouettes and head features match",
+    "wardrobe/accessories match",
+    "relative character scale is coherent",
+    "no duplicate/missing recurring characters",
+    "no text/watermark or malformed anatomy"
+  ],
+  "shots": [],
+  "reviewed_by": null,
+  "review_notes": "Placeholder created so autonomous workflow can persist production state before the regenerated still batch is available. The controller will replace this with exact still hashes after staging the fresh batch."
+}
