@@ -1,7 +1,7 @@
 {
-  "schema_version": 4,
+  "schema_version": 5,
   "show": "Earth Needs Help",
-  "status": "blocked_continuity",
+  "status": "locked",
   "canon_policy": {
     "approved_visual_reference_overrides_text": true,
     "text_only_recurring_character_generation_allowed": false,
@@ -24,35 +24,39 @@
     "captain-pip": {
       "identity": "green rounded alien captain with large expressive eyes, white captain hat and dark captain uniform exactly as in the approved visual reference",
       "primary_colour": "green",
-      "reference": "shows/earth-needs-help/assets/characters/captain-pip.jpg.b64"
+      "reference": "shows/earth-needs-help/assets/characters/captain-pip.jpg.b64",
+      "decoded_sha256": "fce0949798c906abe4282d3bfee778e98530d4750805ef704c6a26ab18bd09c6"
     },
     "bloop": {
       "identity": "blue round alien with antennae and huge expressive eyes exactly as in the approved visual reference",
       "primary_colour": "blue",
-      "reference": "shows/earth-needs-help/assets/characters/bloop.jpg.b64"
+      "reference": "shows/earth-needs-help/assets/characters/bloop.jpg.b64",
+      "decoded_sha256": "a324cd57f151b55e870453dbbf6a56f7bb529d938a5acc43d8b96bbb22b33e96"
     },
     "zig": {
       "identity": "purple tall slim alien inventor exactly as in the approved visual reference",
       "primary_colour": "purple",
-      "reference": "shows/earth-needs-help/assets/characters/zig.jpg.b64"
+      "reference": "shows/earth-needs-help/assets/characters/zig.jpg.b64",
+      "decoded_sha256": "d7b519f171e91f776f7e25d44b5a393fdb5b19bef63c885cc01c3c0ef2086c17"
     },
     "momo": {
       "identity": "pink small calm alien with large ear/head-side features exactly as in the approved visual reference",
       "primary_colour": "pink",
-      "reference": "shows/earth-needs-help/assets/characters/momo.jpg.b64"
+      "reference": "shows/earth-needs-help/assets/characters/momo.jpg.b64",
+      "decoded_sha256": "126d3cbc5da02fae3b1c2b734f0fe54d1ae44dd16bf7d3c69b2ae95cf945e356"
     },
     "human-child": {
       "identity": "brown-haired stylised Earth child in blue hoodie exactly as in the approved visual reference",
-      "reference": "shows/earth-needs-help/assets/characters/human-child.jpg.b64"
+      "reference": "shows/earth-needs-help/assets/characters/human-child.jpg.b64",
+      "decoded_sha256": "7aa15b2a11ae15f095eaabca38252672e5828add647806971f0d438ef4417ddb"
     }
   },
   "reference_pack": {
-    "status": "invalid_reference_asset",
+    "status": "locked",
+    "health": "validated",
     "directory": "shows/earth-needs-help/assets/characters",
     "encoding": "base64-jpeg",
-    "master_lock": "kernels/earth-needs-help-e001-stills/character-lock.b64",
-    "master_lock_health": "unreadable_image",
-    "last_validation_error": "Pillow UnidentifiedImageError while decoding the locked master reference on Kaggle.",
+    "runtime_reference_strategy": "decode and hash-check all five approved crops, then compose an equal-weight five-character reference sheet in memory for every still-generation kernel",
     "required_files": [
       "captain-pip.jpg.b64",
       "bloop.jpg.b64",
@@ -60,11 +64,11 @@
       "momo.jpg.b64",
       "human-child.jpg.b64"
     ],
-    "note": "Generation is blocked until the exact user-approved MAIN CHARACTERS consistency reference is restored as a valid decodable image. Corrupt visual references must never consume render retries or silently fall back to text-only character generation."
+    "note": "These files are direct crops from the user-approved MAIN CHARACTERS consistency row. The obsolete corrupt single character-lock.b64 asset has been removed."
   },
   "episode_001": {
     "current_generated_stills_002_009": "rejected_continuity",
     "motion_generation_allowed": false,
-    "reason": "Old stills remain rejected. Fresh still generation is blocked until the canonical visual reference asset validates, then the new batch must pass continuity QA before motion."
+    "reason": "Old stills remain rejected. A fresh still batch must be generated from the validated locked visual pack and pass continuity QA before motion."
   }
 }
