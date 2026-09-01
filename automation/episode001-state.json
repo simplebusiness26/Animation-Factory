@@ -1,19 +1,17 @@
 {
   "episode": "001",
   "title": "The Great Earth Emergency",
-  "phase": "failed",
-  "stills_kernel": "simplebusiness/enh-e001-stills-r6-8227442",
-  "stills_attempts": 0,
+  "phase": "awaiting_stills",
+  "stills_kernel": "simplebusiness/enh-e001-stills-r1-8230709",
+  "stills_attempts": 1,
   "motion_kernel": "simplebusiness/enh-e001-motion-r5-7908633-0",
   "motion_attempts": 0,
-  "last_status": "STILLS_MASTER_REFERENCE_RETRY_REQUESTED",
+  "last_status": "STILLS_RETRY_1_SUBMITTED",
   "last_error": null,
-  "updated_at": "2026-09-01T02:41:00Z",
+  "updated_at": "2026-09-01T02:45:11Z",
   "release_tag": "earth-needs-help-e001",
   "stills_submit_failures": 0,
   "motion_submit_failures": 0,
   "assembly_attempts": 0,
-  "continuity_gate": "passed",
-  "force_stills_retry": true,
-  "force_stills_retry_reason": "Retry 6 ran stale per-character JPEG reference code. Submit a fresh Kaggle stills kernel from the current master-reference runner using locked character-lock.b64 for every shot."
+  "continuity_gate": "passed"
 }
