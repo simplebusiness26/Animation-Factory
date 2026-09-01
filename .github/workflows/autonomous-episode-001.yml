@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - .github/workflows/autonomous-episode-001.yml
+      - automation/episode001-state.json
       - automation/validate_canon_refs.py
       - automation/episode001_orchestrator_v2.py
       - automation/episode001_orchestrator_v3.py
