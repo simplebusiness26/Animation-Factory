@@ -56,10 +56,6 @@ def preflight_reference_sheet():
     return sheet,target
 
 def install():
-    # Kaggle's base image ships a mutually compatible torch/torchvision pair. Do not
-    # let pip replace either of them: previous force-reinstalls upgraded transitive
-    # CUDA/torch pieces and broke torchvision registration (torchvision::nms).
-    # Only replace the HF-layer packages we need, without touching their deps.
     pkgs=[
         'diffusers==0.31.0','transformers==4.46.3','accelerate==1.1.1',
         'safetensors==0.4.5','huggingface-hub==0.26.2','tokenizers==0.20.3','Pillow<12'
@@ -82,7 +78,12 @@ def main()->int:
     pipe.load_ip_adapter('h94/IP-Adapter',subfolder='sdxl_models',weight_name='ip-adapter-plus_sdxl_vit-h.safetensors')
     pipe.set_ip_adapter_scale(0.90)
     if not torch.cuda.is_available(): raise RuntimeError('GPU_BLOCK: CUDA required')
-    pipe.to('cuda'); pipe.enable_attention_slicing()
+    pipe.to('cuda')
+    # Do not call enable_attention_slicing() here. With IP-Adapter, SDXL passes
+    # encoder_hidden_states as a (text, image) tuple. SlicedAttnProcessor expects a
+    # tensor and crashes with "tuple object has no attribute shape" on the first
+    # denoising step. The IP-Adapter processors installed by load_ip_adapter must
+    # remain active.
     if hasattr(pipe,'enable_vae_tiling'): pipe.enable_vae_tiling()
     result={'show':'Earth Needs Help','episode':'001','success':False,'reference_mode':'validated canon sheet -> pinned HF layer/no torch replacement -> explicit ViT-H -> SDXL IP-Adapter Plus','continuity_manifest':MANIFEST_PATH,'reference_files':[p for _,p,_ in REFERENCE_FILES],'master_reference_staged_as':str(master_path),'image_encoder_hidden_size':1280,'ip_adapter_scale':0.90,'gpu':torch.cuda.get_device_name(0),'shots':[]}
     for index,shot in enumerate(SHOTS):
