@@ -3,15 +3,17 @@
   "title": "The Great Earth Emergency",
   "phase": "failed",
   "stills_kernel": "simplebusiness/enh-e001-stills-r6-8227442",
-  "stills_attempts": 6,
+  "stills_attempts": 0,
   "motion_kernel": "simplebusiness/enh-e001-motion-r5-7908633-0",
   "motion_attempts": 0,
-  "last_status": "STILLS_TERMINAL_FAILURE",
-  "last_error": "Stills generation exhausted 6 automatic retries. Last reason: Kaggle reported ERROR",
-  "updated_at": "2026-09-01T01:59:27Z",
+  "last_status": "STILLS_REFERENCE_LOADER_REPAIRED",
+  "last_error": null,
+  "updated_at": "2026-09-01T02:22:00Z",
   "release_tag": "earth-needs-help-e001",
   "stills_submit_failures": 0,
   "motion_submit_failures": 0,
   "assembly_attempts": 0,
-  "continuity_gate": "passed"
+  "continuity_gate": "passed",
+  "force_stills_retry": true,
+  "force_stills_retry_reason": "Recovered from repeated UnidentifiedImageError in per-character JPEG crops by switching every shot to the locked user-approved MAIN CHARACTERS master consistency reference sheet."
 }
