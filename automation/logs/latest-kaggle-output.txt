@@ -1,8 +1,8 @@
 Warning: Looks like you're using an outdated `kaggle`` version (installed: {current_version}), please consider upgrading to the latest version ({latest_version_str})
-Output file downloaded to /tmp/stills-error-1-bbcb787d/canonical-character-refs/bloop.jpg
-Output file downloaded to /tmp/stills-error-1-bbcb787d/canonical-character-refs/captain-pip.jpg
-Output file downloaded to /tmp/stills-error-1-bbcb787d/canonical-character-refs/human-child.jpg
-Output file downloaded to /tmp/stills-error-1-bbcb787d/canonical-character-refs/momo.jpg
-Output file downloaded to /tmp/stills-error-1-bbcb787d/canonical-character-refs/zig.jpg
-Output file downloaded to /tmp/stills-error-1-bbcb787d/earth-needs-help-e001-stills-manifest.json
-Kernel log downloaded to /tmp/stills-error-1-bbcb787d/enh-e001-stills-r1-8225282.log
+Output file downloaded to /tmp/stills-error-2-x5im8htj/canonical-character-refs/bloop.jpg
+Output file downloaded to /tmp/stills-error-2-x5im8htj/canonical-character-refs/captain-pip.jpg
+Output file downloaded to /tmp/stills-error-2-x5im8htj/canonical-character-refs/human-child.jpg
+Output file downloaded to /tmp/stills-error-2-x5im8htj/canonical-character-refs/momo.jpg
+Output file downloaded to /tmp/stills-error-2-x5im8htj/canonical-character-refs/zig.jpg
+Output file downloaded to /tmp/stills-error-2-x5im8htj/earth-needs-help-e001-stills-manifest.json
+Kernel log downloaded to /tmp/stills-error-2-x5im8htj/enh-e001-stills-r2-8225674.log
