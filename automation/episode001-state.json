@@ -1,19 +1,17 @@
 {
   "episode": "001",
   "title": "The Great Earth Emergency",
-  "phase": "failed",
-  "stills_kernel": "simplebusiness/enh-e001-stills-r6-8237437",
-  "stills_attempts": 0,
+  "phase": "awaiting_stills",
+  "stills_kernel": "simplebusiness/enh-e001-stills-r1-8243543",
+  "stills_attempts": 1,
   "motion_kernel": "simplebusiness/enh-e001-motion-r5-7908633-0",
   "motion_attempts": 0,
-  "last_status": "STILLS_SUPERSEDED_RETRY_REQUESTED",
+  "last_status": "STILLS_RETRY_1_SUBMITTED",
   "last_error": null,
-  "updated_at": "2026-09-01T06:18:00Z",
+  "updated_at": "2026-09-01T06:19:05Z",
   "release_tag": "earth-needs-help-e001",
   "stills_submit_failures": 0,
   "motion_submit_failures": 0,
   "assembly_attempts": 0,
-  "continuity_gate": "passed",
-  "force_stills_retry": true,
-  "force_stills_retry_reason": "Recovered the reset that was overwritten by a stale workflow race. Current runner is pinned to the compatibility-fixed SDXL IP-Adapter stack; submit a fresh stills job from this code."
+  "continuity_gate": "passed"
 }
