@@ -1,4 +1,3 @@
 Warning: Looks like you're using an outdated `kaggle`` version (installed: {current_version}), please consider upgrading to the latest version ({latest_version_str})
-Output file downloaded to /tmp/stills-error-6-m1h1rbxa/canonical-five-character-reference.jpg
-Output file downloaded to /tmp/stills-error-6-m1h1rbxa/earth-needs-help-e001-stills-manifest.json
-Kernel log downloaded to /tmp/stills-error-6-m1h1rbxa/enh-e001-stills-r6-8237437.log
+Output file downloaded to /tmp/stills-error-1-x31l6ha9/canonical-five-character-reference.jpg
+Kernel log downloaded to /tmp/stills-error-1-x31l6ha9/enh-e001-stills-r1-8243543.log
