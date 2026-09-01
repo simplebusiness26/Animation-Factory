@@ -6,7 +6,7 @@ Failure-aware behaviour:
 - retries use fresh unique Kaggle kernel slugs;
 - Kaggle title/id slug rules are enforced;
 - submission failures do not consume actual render attempts;
-- COMPLETE with missing/bad outputs is treated as retryable;
+- COMPLETE still kernels are never automatically rerendered just because local staging fails;
 - motion and assembly resume from the latest successful stage;
 - only repeated terminal failures halt production.
 """
@@ -127,6 +127,7 @@ def retry_stills(state: dict, reason: str) -> None:
         base.log("stills-resubmit.txt", out)
         state["stills_attempts"] = attempt
         state["stills_submit_failures"] = 0
+        state["stills_staging_failures"] = 0
         state["stills_kernel"] = kernel
         state["phase"] = "awaiting_stills"
         state["last_status"] = f"STILLS_RETRY_{attempt}_SUBMITTED"
@@ -193,12 +194,21 @@ def handle_stills(state: dict) -> None:
                 staged = base.stage_generated_stills(out_dir)
                 if len(staged) != len(base.SHOTS):
                     raise RuntimeError(f"Expected {len(base.SHOTS)} validated stills, got {len(staged)}")
+            state["stills_staging_failures"] = 0
             state["last_status"] = "STILLS_VALIDATED"
             state["last_error"] = None
             retry_motion(state, "initial motion submission", first_submit=True)
         except Exception as exc:
-            persist_kernel_diagnostics(kernel, f"stills-complete-invalid-{int(state.get('stills_attempts', 0))}")
-            retry_stills(state, f"completed output failed validation: {type(exc).__name__}: {exc}")
+            # A COMPLETE Kaggle kernel means GPU generation already succeeded. A local
+            # download/normalisation/staging exception must not burn another GPU render.
+            # Keep the same completed kernel in state so the next controller cycle can
+            # retry staging after code repair, while diagnostics identify the real fault.
+            failures = int(state.get("stills_staging_failures", 0)) + 1
+            state["stills_staging_failures"] = failures
+            persist_kernel_diagnostics(kernel, f"stills-staging-error-{failures}")
+            state["phase"] = "awaiting_stills"
+            state["last_status"] = f"STILLS_STAGING_ERROR_{failures}"
+            state["last_error"] = f"Completed Kaggle batch retained; staging failed: {type(exc).__name__}: {exc}"
         return
     if status == "ERROR":
         persist_kernel_diagnostics(kernel, f"stills-error-{int(state.get('stills_attempts', 0))}")
@@ -268,6 +278,7 @@ def main() -> int:
     state = base.load_state()
     state.setdefault("assembly_attempts", 0)
     state.setdefault("stills_submit_failures", 0)
+    state.setdefault("stills_staging_failures", 0)
     state.setdefault("motion_submit_failures", 0)
     revive_if_recoverable(state)
     try:
