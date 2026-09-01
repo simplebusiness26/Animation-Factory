@@ -1,160 +1,58 @@
 {
   "show": "Earth Needs Help",
   "episode": "001",
-  "reference_mode": "canonical bridge frame + optional ViT-H IP-Adapter; automatic img2img fallback",
-  "reference_repaired": true,
-  "character_sheet_repaired": false,
-  "character_sheet_error": "OSError: broken data stream when reading image file",
-  "image_encoder_error": null,
-  "ip_adapter_ready": true,
-  "ip_adapter_error": null,
+  "success": false,
+  "reference_mode": "locked user-approved individual visual refs -> IP-Adapter Plus on every shot",
+  "continuity_manifest": "shows/earth-needs-help/continuity-manifest.json",
+  "ip_adapter_scale": 0.95,
   "gpu": "Tesla T4",
   "shots": [
     {
       "id": "002",
       "success": false,
-      "attempts": [
-        {
-          "mode": "ip-adapter",
-          "status": "failed",
-          "error": "AttributeError: 'tuple' object has no attribute 'shape'"
-        },
-        {
-          "mode": "canonical-img2img",
-          "status": "failed",
-          "error": "ValueError: <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'> has the config param `encoder_hid_dim_type` set to 'ip_image_proj' which requires the keyword argument `image_embeds` to be passed in `added_cond_kwargs`"
-        }
-      ]
+      "error": "UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'"
     },
     {
       "id": "003",
       "success": false,
-      "attempts": [
-        {
-          "mode": "ip-adapter",
-          "status": "failed",
-          "error": "AttributeError: 'tuple' object has no attribute 'shape'"
-        },
-        {
-          "mode": "canonical-img2img",
-          "status": "failed",
-          "error": "ValueError: <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'> has the config param `encoder_hid_dim_type` set to 'ip_image_proj' which requires the keyword argument `image_embeds` to be passed in `added_cond_kwargs`"
-        }
-      ]
+      "error": "UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'"
     },
     {
       "id": "004",
       "success": false,
-      "attempts": [
-        {
-          "mode": "ip-adapter",
-          "status": "failed",
-          "error": "AttributeError: 'tuple' object has no attribute 'shape'"
-        },
-        {
-          "mode": "canonical-img2img",
-          "status": "failed",
-          "error": "ValueError: <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'> has the config param `encoder_hid_dim_type` set to 'ip_image_proj' which requires the keyword argument `image_embeds` to be passed in `added_cond_kwargs`"
-        }
-      ]
+      "error": "UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'"
     },
     {
       "id": "005",
       "success": false,
-      "attempts": [
-        {
-          "mode": "ip-adapter",
-          "status": "failed",
-          "error": "AttributeError: 'tuple' object has no attribute 'shape'"
-        },
-        {
-          "mode": "canonical-img2img",
-          "status": "failed",
-          "error": "ValueError: <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'> has the config param `encoder_hid_dim_type` set to 'ip_image_proj' which requires the keyword argument `image_embeds` to be passed in `added_cond_kwargs`"
-        }
-      ]
+      "error": "UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'"
     },
     {
       "id": "006a",
       "success": false,
-      "attempts": [
-        {
-          "mode": "ip-adapter",
-          "status": "failed",
-          "error": "AttributeError: 'tuple' object has no attribute 'shape'"
-        },
-        {
-          "mode": "canonical-img2img",
-          "status": "failed",
-          "error": "ValueError: <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'> has the config param `encoder_hid_dim_type` set to 'ip_image_proj' which requires the keyword argument `image_embeds` to be passed in `added_cond_kwargs`"
-        }
-      ]
+      "error": "UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'"
     },
     {
       "id": "006b",
       "success": false,
-      "attempts": [
-        {
-          "mode": "ip-adapter",
-          "status": "failed",
-          "error": "AttributeError: 'tuple' object has no attribute 'shape'"
-        },
-        {
-          "mode": "canonical-img2img",
-          "status": "failed",
-          "error": "ValueError: <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'> has the config param `encoder_hid_dim_type` set to 'ip_image_proj' which requires the keyword argument `image_embeds` to be passed in `added_cond_kwargs`"
-        }
-      ]
+      "error": "UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'"
     },
     {
       "id": "007",
       "success": false,
-      "attempts": [
-        {
-          "mode": "ip-adapter",
-          "status": "failed",
-          "error": "AttributeError: 'tuple' object has no attribute 'shape'"
-        },
-        {
-          "mode": "canonical-img2img",
-          "status": "failed",
-          "error": "ValueError: <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'> has the config param `encoder_hid_dim_type` set to 'ip_image_proj' which requires the keyword argument `image_embeds` to be passed in `added_cond_kwargs`"
-        }
-      ]
+      "error": "UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'"
     },
     {
       "id": "008",
       "success": false,
-      "attempts": [
-        {
-          "mode": "ip-adapter",
-          "status": "failed",
-          "error": "AttributeError: 'tuple' object has no attribute 'shape'"
-        },
-        {
-          "mode": "canonical-img2img",
-          "status": "failed",
-          "error": "ValueError: <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'> has the config param `encoder_hid_dim_type` set to 'ip_image_proj' which requires the keyword argument `image_embeds` to be passed in `added_cond_kwargs`"
-        }
-      ]
+      "error": "UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'"
     },
     {
       "id": "009",
       "success": false,
-      "attempts": [
-        {
-          "mode": "ip-adapter",
-          "status": "failed",
-          "error": "AttributeError: 'tuple' object has no attribute 'shape'"
-        },
-        {
-          "mode": "canonical-img2img",
-          "status": "failed",
-          "error": "ValueError: <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'> has the config param `encoder_hid_dim_type` set to 'ip_image_proj' which requires the keyword argument `image_embeds` to be passed in `added_cond_kwargs`"
-        }
-      ]
+      "error": "UnidentifiedImageError: cannot identify image file '/kaggle/working/canonical-character-refs/captain-pip.jpg'"
     }
   ],
-  "elapsed_seconds": 207.02
+  "elapsed_seconds": 126.16
 }
 
