@@ -5,6 +5,7 @@ The prior retry path decoded the small per-character crops into files that Pillo
 not identify on Kaggle. This runner uses the original locked master consistency sheet
 (`character-lock.b64`) as the visual IP-Adapter reference for every shot, while still
 checking the continuity manifest and preserving the fail-closed continuity gate.
+All retries that reference canonical-character-refs/*.jpg are stale and must not be reused.
 """
 from __future__ import annotations
 
