@@ -1,2 +1,2 @@
 Warning: Looks like you're using an outdated `kaggle`` version (installed: {current_version}), please consider upgrading to the latest version ({latest_version_str})
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/simplebusiness/enh-e001-stills-r1-8310088
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/simplebusiness/enh-e001-stills-r1-8310623
