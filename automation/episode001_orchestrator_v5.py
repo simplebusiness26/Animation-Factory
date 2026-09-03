@@ -1,21 +1,22 @@
 #!/usr/bin/env python3
 """Episode 001 controller v5.
 
-Adds a Kaggle submission-indexing grace period on top of v4.
+Adds Kaggle submission-indexing protection and GPU-quota backoff on top of v4.
 
 Private Kaggle kernels can briefly report as missing immediately after a
 successful `kaggle kernels push`. The previous controller interpreted that
 transient MISSING result as a failed render and submitted another fresh kernel
-on the next self-check. That caused kernel churn without advancing production.
+on the next self-check. This wrapper preserves the locked character canon,
+hash-bound continuity gate, and archive/current-stills separation while
+suppressing those duplicate submissions.
 
-This wrapper preserves all v4 behaviour, including the locked character canon,
-hash-bound continuity gate, and archive/current-stills separation. It only
-suppresses automatic still/motion resubmission while a newly submitted kernel
-is inside a conservative indexing grace window.
+Kaggle can also print a weekly GPU quota error while returning exit code 0. v2
+now detects that condition explicitly; this wrapper respects the persisted
+retry-after timestamp so scheduled checks do not hammer Kaggle while the quota
+is exhausted.
 """
 from __future__ import annotations
 
-import json
 import time
 from datetime import datetime, timezone
 
@@ -50,7 +51,18 @@ def _fresh_submission(state: dict, family: str) -> bool:
     return submitted and age is not None and age < INDEXING_GRACE_SECONDS
 
 
+def _quota_backoff_active(state: dict) -> bool:
+    retry_after = state.get("gpu_quota_retry_after")
+    try:
+        return int(retry_after) > int(time.time())
+    except (TypeError, ValueError):
+        return False
+
+
 def guarded_handle_stills(state: dict) -> None:
+    if str(state.get("last_status") or "") == "STILLS_GPU_QUOTA_WAIT" and _quota_backoff_active(state):
+        state["phase"] = "awaiting_stills"
+        return
     kernel = v2.current_kernel(state, "stills_kernel", base.STILLS_KERNEL)
     status = v2.safe_status(kernel)
     if status == "MISSING" and _fresh_submission(state, "stills"):
@@ -62,6 +74,9 @@ def guarded_handle_stills(state: dict) -> None:
 
 
 def guarded_handle_motion(state: dict) -> None:
+    if str(state.get("last_status") or "") == "MOTION_GPU_QUOTA_WAIT" and _quota_backoff_active(state):
+        state["phase"] = "awaiting_motion"
+        return
     kernel = v2.current_kernel(state, "motion_kernel", base.MOTION_KERNEL)
     status = v2.safe_status(kernel)
     if status == "MISSING" and _fresh_submission(state, "motion"):
