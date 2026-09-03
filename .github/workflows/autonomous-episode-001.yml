@@ -10,6 +10,7 @@ on:
       - automation/episode001_orchestrator_v2.py
       - automation/episode001_orchestrator_v3.py
       - automation/episode001_orchestrator_v4.py
+      - automation/episode001_orchestrator_v5.py
       - automation/render_episode001.py
       - kernels/earth-needs-help-e001-stills/main.py
       - kernels/episode-motion-runner/main.py
@@ -65,7 +66,7 @@ jobs:
         id: controller
         if: steps.canon.outcome == 'success'
         continue-on-error: true
-        run: python automation/episode001_orchestrator_v4.py
+        run: python automation/episode001_orchestrator_v5.py
 
       - name: Read episode state
         id: state
