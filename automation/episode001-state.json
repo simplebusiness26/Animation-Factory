@@ -8,12 +8,12 @@
   "motion_attempts": 0,
   "last_status": "STILLS_GPU_QUOTA_WAIT",
   "last_error": "Kaggle weekly GPU quota is exhausted; production will retry automatically after backoff without consuming a render attempt.",
-  "updated_at": "2026-09-03T16:08:51Z",
+  "updated_at": "2026-09-03T16:17:32Z",
   "release_tag": "earth-needs-help-e001",
   "stills_submit_failures": 0,
   "motion_submit_failures": 0,
   "assembly_attempts": 0,
   "continuity_gate": "passed",
   "stills_staging_failures": 0,
-  "gpu_quota_retry_after": 1788455331
+  "gpu_quota_retry_after": 1788455852
 }
