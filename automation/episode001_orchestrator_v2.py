@@ -23,6 +23,7 @@ import episode001_orchestrator as base
 
 MAX_ASSEMBLY_ATTEMPTS = 2
 MAX_SUBMIT_FAILURES = 5
+GPU_QUOTA_BACKOFF_SECONDS = 60 * 60
 TEXT_SUFFIXES = {".log", ".txt", ".json", ".md", ".csv"}
 
 
@@ -84,6 +85,13 @@ def prepare_retry_folder(source: Path, kernel_ref: str) -> Path:
     return root
 
 
+def _validate_kaggle_push_output(out: str) -> None:
+    """Kaggle CLI can print a push error while still exiting with code 0."""
+    lowered = out.lower()
+    if "kernel push error:" in lowered or "maximum weekly gpu quota" in lowered:
+        raise RuntimeError(out[-6000:] or "Kaggle kernel push failed")
+
+
 def push_fresh(source: Path, prefix: str, attempt: int) -> tuple[str, str]:
     for collision in range(2):
         stamp = str(int(time.time()))[-7:]
@@ -93,6 +101,7 @@ def push_fresh(source: Path, prefix: str, attempt: int) -> tuple[str, str]:
         folder = prepare_retry_folder(source, kernel)
         try:
             out = base.run(["kaggle", "kernels", "push", "-p", str(folder), "--accelerator", "NvidiaTeslaT4"])
+            _validate_kaggle_push_output(out)
             return kernel, out
         except Exception as exc:
             if "409" not in str(exc) or collision == 1:
@@ -101,6 +110,19 @@ def push_fresh(source: Path, prefix: str, attempt: int) -> tuple[str, str]:
         finally:
             shutil.rmtree(folder, ignore_errors=True)
     raise RuntimeError("Could not allocate a fresh Kaggle retry kernel")
+
+
+def _is_gpu_quota_error(exc: Exception) -> bool:
+    text = str(exc).lower()
+    return "maximum weekly gpu quota" in text or ("gpu quota" in text and "reached" in text)
+
+
+def record_gpu_quota_wait(state: dict, family: str, exc: Exception) -> None:
+    state["phase"] = "awaiting_stills" if family == "stills" else "awaiting_motion"
+    state["last_status"] = f"{family.upper()}_GPU_QUOTA_WAIT"
+    state["last_error"] = "Kaggle weekly GPU quota is exhausted; production will retry automatically after backoff without consuming a render attempt."
+    state["gpu_quota_retry_after"] = int(time.time()) + GPU_QUOTA_BACKOFF_SECONDS
+    base.log(f"{family}-gpu-quota-wait.txt", str(exc))
 
 
 def record_submit_failure(state: dict, family: str, exc: Exception) -> None:
@@ -132,8 +154,12 @@ def retry_stills(state: dict, reason: str) -> None:
         state["phase"] = "awaiting_stills"
         state["last_status"] = f"STILLS_RETRY_{attempt}_SUBMITTED"
         state["last_error"] = None
+        state.pop("gpu_quota_retry_after", None)
     except Exception as exc:
-        record_submit_failure(state, "stills", exc)
+        if _is_gpu_quota_error(exc):
+            record_gpu_quota_wait(state, "stills", exc)
+        else:
+            record_submit_failure(state, "stills", exc)
 
 
 def build_motion_retry_folder(kernel_ref: str, attempt: int) -> Path:
@@ -161,6 +187,7 @@ def retry_motion(state: dict, reason: str, *, first_submit: bool = False) -> Non
         folder = build_motion_retry_folder(kernel, attempt)
         try:
             out = base.run(["kaggle", "kernels", "push", "-p", str(folder), "--accelerator", "NvidiaTeslaT4"])
+            _validate_kaggle_push_output(out)
             base.log("motion-submit.txt", out)
             state["motion_attempts"] = attempt
             state["motion_submit_failures"] = 0
@@ -168,12 +195,16 @@ def retry_motion(state: dict, reason: str, *, first_submit: bool = False) -> Non
             state["phase"] = "awaiting_motion"
             state["last_status"] = f"MOTION_ATTEMPT_{attempt}_SUBMITTED"
             state["last_error"] = None
+            state.pop("gpu_quota_retry_after", None)
             return
         except Exception as exc:
             if "409" in str(exc) and collision == 0:
                 time.sleep(2)
                 continue
-            record_submit_failure(state, "motion", exc)
+            if _is_gpu_quota_error(exc):
+                record_gpu_quota_wait(state, "motion", exc)
+            else:
+                record_submit_failure(state, "motion", exc)
             return
         finally:
             shutil.rmtree(folder, ignore_errors=True)
@@ -199,10 +230,6 @@ def handle_stills(state: dict) -> None:
             state["last_error"] = None
             retry_motion(state, "initial motion submission", first_submit=True)
         except Exception as exc:
-            # A COMPLETE Kaggle kernel means GPU generation already succeeded. A local
-            # download/normalisation/staging exception must not burn another GPU render.
-            # Keep the same completed kernel in state so the next controller cycle can
-            # retry staging after code repair, while diagnostics identify the real fault.
             failures = int(state.get("stills_staging_failures", 0)) + 1
             state["stills_staging_failures"] = failures
             persist_kernel_diagnostics(kernel, f"stills-staging-error-{failures}")
@@ -238,72 +265,22 @@ def handle_motion(state: dict) -> None:
                 final = base.render_final(output)
                 state["final_file"] = str(final.relative_to(base.ROOT))
             state["phase"] = "complete"
-            state["last_status"] = "FINAL_QA_PASS"
+            state["last_status"] = "FINAL_MP4_VALIDATED"
             state["last_error"] = None
         except Exception as exc:
-            attempts = int(state.get("assembly_attempts", 0))
-            base.log("assembly-error.txt", f"{type(exc).__name__}: {exc}")
-            if attempts < MAX_ASSEMBLY_ATTEMPTS:
-                state["phase"] = "awaiting_motion"
-                state["last_status"] = f"ASSEMBLY_RETRY_{attempts}_PENDING"
-                state["last_error"] = f"{type(exc).__name__}: {exc}"
+            state["last_error"] = f"Final assembly/QA failed: {type(exc).__name__}: {exc}"
+            if int(state.get("assembly_attempts", 0)) >= MAX_ASSEMBLY_ATTEMPTS:
+                state["phase"] = "failed"
+                state["last_status"] = "ASSEMBLY_TERMINAL_FAILURE"
             else:
-                persist_kernel_diagnostics(kernel, f"motion-complete-invalid-{attempts}")
-                retry_motion(state, f"motion outputs/final assembly invalid: {type(exc).__name__}: {exc}")
+                state["phase"] = "awaiting_motion"
+                state["last_status"] = "ASSEMBLY_RETRY_PENDING"
         return
     if status == "ERROR":
         persist_kernel_diagnostics(kernel, f"motion-error-{int(state.get('motion_attempts', 0))}")
-        retry_motion(state, "Kaggle reported motion ERROR")
+        retry_motion(state, "Kaggle reported ERROR")
         return
     if status in {"MISSING", "STATUS_ERROR"}:
-        retry_motion(state, f"motion kernel status unavailable: {status}")
+        retry_motion(state, f"kernel status unavailable: {status}")
         return
-    retry_motion(state, f"unrecognised motion status: {status}")
-
-
-def revive_if_recoverable(state: dict) -> None:
-    if state.get("phase") != "failed":
-        return
-    last_status = str(state.get("last_status") or "")
-    if last_status.startswith("STILLS_") and int(state.get("stills_attempts", 0)) < base.MAX_STILLS_ATTEMPTS and int(state.get("stills_submit_failures", 0)) < MAX_SUBMIT_FAILURES:
-        state["phase"] = "awaiting_stills"
-        return
-    if last_status.startswith(("MOTION_", "ASSEMBLY_")) and int(state.get("motion_attempts", 0)) < base.MAX_MOTION_ATTEMPTS and int(state.get("motion_submit_failures", 0)) < MAX_SUBMIT_FAILURES:
-        state["phase"] = "awaiting_motion"
-
-
-def main() -> int:
-    base.STILLS_DIR.mkdir(parents=True, exist_ok=True)
-    base.LOG_DIR.mkdir(parents=True, exist_ok=True)
-    state = base.load_state()
-    state.setdefault("assembly_attempts", 0)
-    state.setdefault("stills_submit_failures", 0)
-    state.setdefault("stills_staging_failures", 0)
-    state.setdefault("motion_submit_failures", 0)
-    revive_if_recoverable(state)
-    try:
-        phase = state.get("phase")
-        if phase == "awaiting_stills":
-            handle_stills(state)
-        elif phase == "awaiting_motion":
-            handle_motion(state)
-        elif phase == "complete":
-            print("Episode 001 is complete; nothing to do.")
-        elif phase == "failed":
-            print(f"Episode 001 has exhausted automatic recovery: {state.get('last_error')}")
-        else:
-            state["phase"] = "awaiting_stills"
-            state["last_status"] = "STATE_RECOVERED_TO_STILLS"
-            state["last_error"] = f"Recovered from unknown phase: {phase}"
-    except Exception as exc:
-        state["last_error"] = f"{type(exc).__name__}: {exc}"
-        if state.get("phase") not in {"awaiting_stills", "awaiting_motion", "complete", "failed"}:
-            state["phase"] = "awaiting_stills"
-    finally:
-        base.save_state(state)
-    print(json.dumps(state, indent=2))
-    return 0 if state.get("phase") != "failed" else 1
-
-
-if __name__ == "__main__":
-    raise SystemExit(main())
+    retry_motion(state, f"unrecognised Kaggle status: {status}")
