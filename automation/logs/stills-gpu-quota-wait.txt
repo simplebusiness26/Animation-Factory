@@ -1,0 +1,2 @@
+Warning: Looks like you're using an outdated `kaggle`` version (installed: {current_version}), please consider upgrading to the latest version ({latest_version_str})
+Kernel push error: Maximum weekly GPU quota of 30.00 hours reached.
