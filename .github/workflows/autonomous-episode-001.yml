@@ -6,6 +6,9 @@ on:
 permissions:
   contents: read
 
+env:
+  EPISODE001_CONTROLLER: automation/episode001_orchestrator_v6.py
+
 concurrency:
   group: autonomous-earth-needs-help-e001
   cancel-in-progress: true
@@ -15,4 +18,6 @@ jobs:
     if: ${{ false }}
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Animation Factory Episode 001 is paused by user request."
+      - run: |
+          echo "Animation Factory Episode 001 is paused by user request."
+          echo "Hardened controller for the next explicit restart: $EPISODE001_CONTROLLER"
