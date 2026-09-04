@@ -1,19 +1,20 @@
 {
   "episode": "001",
   "title": "The Great Earth Emergency",
-  "phase": "awaiting_stills",
+  "phase": "paused_by_user",
   "stills_kernel": "simplebusiness/enh-e001-stills-r1-8449127",
   "stills_attempts": 0,
   "motion_kernel": "simplebusiness/enh-e001-motion-r5-7908633-0",
   "motion_attempts": 0,
-  "last_status": "STILLS_GPU_QUOTA_WAIT",
-  "last_error": "Kaggle weekly GPU quota is exhausted; production will retry automatically after backoff without consuming a render attempt.",
-  "updated_at": "2026-09-04T00:07:58Z",
+  "last_status": "USER_PAUSED",
+  "last_error": null,
+  "updated_at": "2026-09-04T00:15:00Z",
   "release_tag": "earth-needs-help-e001",
   "stills_submit_failures": 0,
   "motion_submit_failures": 0,
   "assembly_attempts": 0,
   "continuity_gate": "passed",
   "stills_staging_failures": 0,
-  "gpu_quota_retry_after": 1788484078
+  "paused_by_user": true,
+  "pause_reason": "User requested that all Animation Factory Episode 001 execution stop."
 }
