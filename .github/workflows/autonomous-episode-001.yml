@@ -1,10 +1,6 @@
 name: Autonomous Episode 001
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - .github/workflows/autonomous-episode-001.yml
   workflow_dispatch:
 
 permissions:
