@@ -16,5 +16,11 @@
   "continuity_gate": "passed",
   "stills_staging_failures": 0,
   "paused_by_user": true,
-  "pause_reason": "User requested that all Animation Factory Episode 001 execution stop."
+  "pause_reason": "User requested that all Animation Factory Episode 001 execution stop.",
+  "controller_version": 6,
+  "handled_rejected_batch_key": "9194476a8e14822670df",
+  "retry_storm_protection": true,
+  "single_active_submission_per_stage": true,
+  "transient_status_backoff": true,
+  "repeated_failure_repair_gate": true
 }
