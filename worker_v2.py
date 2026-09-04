@@ -5,12 +5,50 @@ Keeps the existing allow-listed worker operations, but treats Kaggle's private
 kernel session-status 403 as non-fatal after a successful kernel push. The
 kernel has already been submitted at that point and its outputs can be fetched
 through the normal kernel_output command.
+
+Episode 001 run submissions are also fail-closed while its persisted production
+state is paused, so the generic bridge cannot bypass the episode controller.
+Read-only status/output commands remain available.
 """
 from __future__ import annotations
 
+import json
 import sys
+from pathlib import Path
 
 import worker
+
+ROOT = Path(__file__).resolve().parent
+EPISODE001_STATE = ROOT / "automation" / "episode001-state.json"
+EPISODE001_MARKERS = (
+    "earth-needs-help-e001",
+    "episode001",
+    "episode-001",
+    "episode_001",
+    "e001",
+)
+
+
+def episode001_paused() -> bool:
+    if not EPISODE001_STATE.is_file():
+        return False
+    try:
+        state = json.loads(EPISODE001_STATE.read_text(encoding="utf-8"))
+    except Exception:
+        return True
+    return bool(state.get("paused_by_user")) or str(state.get("phase") or "").lower() == "paused_by_user"
+
+
+def targets_episode001(command: dict, metadata: dict) -> bool:
+    material = " ".join(
+        [
+            str(command.get("request_id") or ""),
+            str(command.get("path") or ""),
+            str(metadata.get("id") or ""),
+            str(metadata.get("title") or ""),
+        ]
+    ).lower()
+    return any(marker in material for marker in EPISODE001_MARKERS)
 
 
 def execute(command):
@@ -22,6 +60,13 @@ def execute(command):
     owner = str(command.get("owner") or worker.os.getenv("KAGGLE_OWNER") or "").strip() or None
     folder = worker.safe_kernel_dir(command.get("path"))
     metadata = worker.render_metadata(folder, owner)
+
+    if episode001_paused() and targets_episode001(command, metadata):
+        raise RuntimeError(
+            "Episode 001 is paused. Kaggle run submission was blocked by the bridge safety gate; "
+            "status and output checks remain allowed."
+        )
+
     args = ["kaggle", "kernels", "push", "-p", str(folder)]
     accelerator = str(command.get("accelerator") or "").strip()
     if accelerator:
