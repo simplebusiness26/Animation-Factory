@@ -6,14 +6,27 @@
   "target_runtime_seconds": 80,
   "aspect_ratio": "16:9",
   "status": "blocked_continuity",
-  "generation_strategy": "locked-character-reference-to-scene-still-to-video-per-shot",
+  "generation_strategy": "hybrid-routed-locked-reference-to-scene-still-to-video-per-shot",
   "continuity": {
     "manifest": "shows/earth-needs-help/continuity-manifest.json",
     "reference_pack_required": true,
-    "reference_pack_status": "incomplete",
+    "reference_pack_status": "locked",
     "text_only_identity_generation_allowed": false,
     "qa_required_before_motion": true,
     "current_stills_002_009": "rejected_continuity"
+  },
+  "image_backend": {
+    "router_config": "pipeline/image-generation.json",
+    "router": "pipeline/image_router.py",
+    "default_provider": "kaggle",
+    "default_model": "black-forest-labs/FLUX.2-klein-4B",
+    "accelerator": "NvidiaTeslaT4",
+    "runner": "kernels/reference-still-runner",
+    "job": "shows/earth-needs-help/episodes/001-great-earth-emergency/episode001-image-job.json",
+    "quality_route": "chatgpt-image-account",
+    "quality_route_is_manual_import": true,
+    "paid_api_allowed": false,
+    "fallback": "sdxl-layered-fallback"
   },
   "skill_pipeline": {
     "registry": "pipeline/skills.json",
@@ -53,5 +66,5 @@
     "music": "light-heroic-to-playful",
     "sfx": ["alarm","spaceship-whoosh","boing","leaf-rustle","gadget-whirr","comic-sting"]
   },
-  "next_action": "lock the approved visual character reference pack, regenerate shots 002-009 with the references injected on every shot, run continuity QA on each still, and only then resume motion generation"
+  "next_action": "regenerate shots 002-009 through the hybrid image router with locked references, run continuity QA on each still, and only then resume motion generation"
 }
