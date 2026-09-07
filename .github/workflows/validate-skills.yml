@@ -6,19 +6,23 @@ on:
       - 'AGENTS.md'
       - '.agents/skills/**'
       - 'pipeline/**'
+      - 'kernels/reference-still-runner/**'
       - 'shows/**/show-bible.md'
       - 'shows/**/character-bible.md'
       - 'shows/**/style-bible.md'
       - 'shows/**/episodes/**/production.json'
+      - 'shows/**/episodes/**/episode*-image-job.json'
   pull_request:
     paths:
       - 'AGENTS.md'
       - '.agents/skills/**'
       - 'pipeline/**'
+      - 'kernels/reference-still-runner/**'
       - 'shows/**/show-bible.md'
       - 'shows/**/character-bible.md'
       - 'shows/**/style-bible.md'
       - 'shows/**/episodes/**/production.json'
+      - 'shows/**/episodes/**/episode*-image-job.json'
 
 permissions:
   contents: read
@@ -33,6 +37,15 @@ jobs:
           python-version: '3.11'
       - name: Validate production skills and canon
         run: python pipeline/validate_skills.py
+      - name: Validate hybrid image Python entrypoints
+        run: >-
+          python -m py_compile
+          pipeline/image_router.py
+          kernels/reference-still-runner/main.py
+          kernels/reference-still-runner/bootstrap.py
+      - name: Validate image generation JSON
+        run: >-
+          python -c "import json; from pathlib import Path; [json.loads(Path(p).read_text()) for p in ['pipeline/image-generation.json','shows/earth-needs-help/episodes/001-great-earth-emergency/episode001-image-job.json']]"
       - name: Smoke-test context loader
         run: >-
           python pipeline/skill_loader.py
