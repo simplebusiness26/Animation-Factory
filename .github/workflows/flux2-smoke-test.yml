@@ -40,17 +40,31 @@ jobs:
         run: |
           set -euo pipefail
           test -n "${KAGGLE_API_TOKEN:-}"
-          test -n "${KAGGLE_OWNER:-}"
           python -m py_compile kernels/flux2-smoke-test/main.py
           python - <<'PY'
-          import json
+          import json, os, re
           from pathlib import Path
+
           request=json.loads(Path('control/flux2-smoke-request.json').read_text())
           assert request.get('action') == 'flux2_single_shot_smoke'
           assert request.get('shot') == '002'
+          assert request.get('production_episode_remains_paused') is True
+
           state=json.loads(Path('automation/episode001-state.json').read_text())
           assert state.get('paused_by_user') is True or state.get('phase') == 'paused_by_user'
-          print('Smoke request valid; Episode 001 remains paused.')
+
+          owner=(os.environ.get('KAGGLE_OWNER') or '').strip()
+          if not owner:
+              existing=str(state.get('stills_kernel') or '')
+              if '/' not in existing:
+                  raise RuntimeError('KAGGLE_OWNER is unset and no saved Kaggle kernel owner can be derived')
+              owner=existing.split('/', 1)[0].strip()
+          if not re.fullmatch(r'[A-Za-z0-9_-]+', owner):
+              raise RuntimeError('Derived Kaggle owner is invalid')
+
+          with open(os.environ['GITHUB_ENV'], 'a') as fh:
+              fh.write(f'KAGGLE_OWNER_RESOLVED={owner}\n')
+          print(f'Smoke request valid; Episode 001 remains paused; Kaggle owner resolved as {owner}.')
           PY
 
       - name: Package and submit isolated Kaggle kernel
@@ -65,7 +79,7 @@ jobs:
           from pathlib import Path
           path=Path('/tmp/flux2-smoke-kernel/kernel-metadata.json')
           meta=json.loads(path.read_text())
-          owner=os.environ['KAGGLE_OWNER'].strip()
+          owner=os.environ['KAGGLE_OWNER_RESOLVED'].strip()
           meta['id']=meta['id'].replace('__OWNER__', owner)
           path.write_text(json.dumps(meta, indent=2)+'\n')
           print('kernel='+meta['id'])
