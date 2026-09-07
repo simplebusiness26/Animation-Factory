@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "show": "Earth Needs Help",
+  "episode": "001",
+  "provider": "flux2-klein-kaggle",
+  "model": "black-forest-labs/FLUX.2-klein-4B",
+  "continuity_manifest": "shows/earth-needs-help/continuity-manifest.json",
+  "width": 1024,
+  "height": 576,
+  "steps": 4,
+  "guidance_scale": 1.0,
+  "style_lock": "polished bright 3D children's comedy animation, warm tactile materials, soft rounded forms, expressive readable faces, gentle cinematic lighting, strong silhouettes, safe playful environment, 16:9 landscape, no text, no logos",
+  "reference_rule": "The supplied locked character images are the identity authority. If any prose conflicts with a supplied reference image, the reference image wins.",
+  "shots": [
+    {
+      "id": "002",
+      "purpose": "routine",
+      "seed": 12002,
+      "characters": ["captain-pip", "bloop", "zig", "momo"],
+      "prompt": "Inside the same colourful alien spaceship bridge, beautiful blue Earth fills the large front window. Captain Pip points dramatically toward Earth, Bloop leans excitedly toward the glass, Zig checks his inventor equipment, and Momo gives Earth a friendly wave. Warm interior light, heroic but funny framing, clear full-character staging."
+    },
+    {
+      "id": "003",
+      "purpose": "routine",
+      "seed": 12003,
+      "characters": ["bloop"],
+      "prompt": "Sunny colourful suburban park. The tiny alien rescue spaceship has harmlessly bounced through a soft hedge and stopped crooked in a flowerbed, fully intact. A few leaves float in the air, the hatch is opening, and Bloop peeks out in a funny surprised pose. Bright blue sky, harmless physical comedy."
+    },
+    {
+      "id": "004",
+      "purpose": "routine",
+      "seed": 12004,
+      "characters": ["captain-pip", "bloop", "zig", "momo", "human-child"],
+      "prompt": "In the same sunny park beside the landed spaceship, the human child faces the four alien rescuers. Captain Pip steps forward seriously, Bloop peeks curiously, Zig holds a scanner, Momo stands reassuringly, and the child looks surprised but unafraid. Medium group composition with everyone readable."
+    },
+    {
+      "id": "005",
+      "purpose": "routine",
+      "seed": 12005,
+      "characters": ["captain-pip", "bloop", "zig", "momo", "human-child"],
+      "prompt": "A colourful child's kite is harmlessly caught in a leafy park tree. Captain Pip, Bloop, Zig, Momo and the child look upward. The alien crew reacts as though this tiny problem is a huge emergency while the child looks mildly confused. Bright safe park, strong visual comedy."
+    },
+    {
+      "id": "006a",
+      "purpose": "routine",
+      "seed": 12006,
+      "characters": ["captain-pip", "bloop", "zig", "momo", "human-child"],
+      "prompt": "At the base of the kite tree, Zig proudly kneels beside a compact colourful alien rescue gadget with folded mechanical arms. Captain Pip watches seriously, Bloop leans in with excitement, the child watches cautiously, and Momo stands calmly behind them. Clean readable composition with room for the gadget to animate."
+    },
+    {
+      "id": "006b",
+      "purpose": "routine",
+      "seed": 12007,
+      "characters": ["captain-pip", "bloop", "zig", "momo", "human-child"],
+      "prompt": "The same gadget is now spinning too enthusiastically beneath the tree, harmlessly blowing colourful leaves through the air. Bloop reacts to the gadget, Zig looks shocked, Captain Pip points and gives orders, the child watches in disbelief, and Momo remains calm. Wide energetic but readable comedy shot."
+    },
+    {
+      "id": "007",
+      "purpose": "routine",
+      "seed": 12008,
+      "characters": ["captain-pip", "bloop", "zig", "momo", "human-child"],
+      "prompt": "Everything is calm beneath the tree after the gadget mishap. Momo stands closest to the branch with the kite and simply reaches toward it. The child waits beside Momo while Captain Pip, Bloop and Zig remain frozen in stunned silence. Warm quiet comedic composition with the kite clearly reachable."
+    },
+    {
+      "id": "008",
+      "purpose": "routine",
+      "seed": 12009,
+      "characters": ["captain-pip", "bloop", "zig", "momo", "human-child"],
+      "prompt": "The child happily holds the rescued kite in the sunny park while the four aliens celebrate as though they saved a planet. Captain Pip takes a heroic pose, Bloop celebrates, Zig proudly poses with inventor equipment, and Momo claps. Bright uplifting wide shot with clear silhouettes."
+    },
+    {
+      "id": "009",
+      "purpose": "routine",
+      "seed": 12010,
+      "characters": ["captain-pip", "bloop", "zig", "momo", "human-child"],
+      "prompt": "In the park after the celebration, Bloop holds an alien snack while an ordinary cheeky pigeon stands just behind, about to steal it. Captain Pip, Zig and Momo are nearby and the child holds the kite. Clean visual comedy setup with everyone readable and the pigeon clearly separate from the recurring cast."
+    }
+  ]
+}
