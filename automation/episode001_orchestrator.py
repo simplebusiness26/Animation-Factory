@@ -25,6 +25,8 @@ import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from pipeline.production_guard import is_paused, require_launch_allowed
 EPISODE_DIR = ROOT / "shows" / "earth-needs-help" / "episodes" / "001-great-earth-emergency"
 ASSETS = EPISODE_DIR / "assets"
 STILLS_DIR = ASSETS / "stills"
@@ -62,6 +64,8 @@ def now() -> str:
 
 
 def run(args: list[str], cwd: Path | None = None, check: bool = True) -> str:
+    if args[:3] == ['kaggle', 'kernels', 'push']:
+        require_launch_allowed(ROOT)
     proc = subprocess.run(args, cwd=str(cwd or ROOT), text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, check=False)
     out = proc.stdout.strip()
     if check and proc.returncode != 0:
@@ -75,11 +79,13 @@ def default_state() -> dict:
 
 def load_state() -> dict:
     if not STATE_PATH.exists():
-        return default_state()
+        raise RuntimeError('Episode 001 state is missing; controller blocked')
     try:
         data = json.loads(STATE_PATH.read_text(encoding="utf-8"))
-    except Exception:
-        data = default_state()
+    except Exception as exc:
+        raise RuntimeError('Episode 001 state is unreadable; controller blocked') from exc
+    if not isinstance(data, dict):
+        raise RuntimeError('Episode 001 state must be an object')
     base = default_state()
     base.update(data)
     return base
@@ -115,7 +121,7 @@ def download_output(kernel: str, target: Path) -> str:
 def valid_image(path: Path) -> bool:
     try:
         from PIL import Image, ImageFile
-        ImageFile.LOAD_TRUNCATED_IMAGES = True
+        ImageFile.LOAD_TRUNCATED_IMAGES = False
         with Image.open(path) as im:
             im.load()
             return im.width >= 256 and im.height >= 144
@@ -125,7 +131,7 @@ def valid_image(path: Path) -> bool:
 
 def normalize_image(source: Path, target: Path) -> None:
     from PIL import Image, ImageFile
-    ImageFile.LOAD_TRUNCATED_IMAGES = True
+    ImageFile.LOAD_TRUNCATED_IMAGES = False
     target.parent.mkdir(parents=True, exist_ok=True)
     with Image.open(source) as im:
         im = im.convert("RGB")
@@ -296,6 +302,9 @@ def main() -> int:
     STILLS_DIR.mkdir(parents=True, exist_ok=True)
     LOG_DIR.mkdir(parents=True, exist_ok=True)
     state = load_state()
+    if is_paused(state):
+        print("Episode 001 is paused; no work submitted.")
+        return 0
     try:
         phase = state.get("phase")
         if phase == "awaiting_stills":

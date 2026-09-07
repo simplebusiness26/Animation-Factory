@@ -2,54 +2,33 @@
 """Generate continuity-locked reference stills with FLUX.2 [klein] 4B on Kaggle."""
 from __future__ import annotations
 
-import base64
 import hashlib
 import io
 import json
+import os
 import subprocess
 import sys
 import time
 import traceback
-import urllib.request
 from pathlib import Path
 
 WORK = Path('/kaggle/working')
-BASE = 'https://raw.githubusercontent.com/simplebusiness26/Animation-Factory/main'
-JOB = WORK / 'episode-image-job.json'
+SOURCE_ROOT = Path(os.environ.get('ANIMATION_SOURCE_ROOT', Path(__file__).resolve().parents[2]))
+sys.path.insert(0, str(SOURCE_ROOT))
+from pipeline.image_router import load_json, plan_job, verified_image
+from pipeline.production_guard import require_launch_allowed
+
+JOB = SOURCE_ROOT / os.environ.get('ANIMATION_IMAGE_JOB', 'shows/earth-needs-help/episodes/001-great-earth-emergency/episode001-image-job.json')
 REPORT = WORK / 'animation-factory-image-report.json'
 
 
-def fetch_bytes(path: str) -> bytes:
-    with urllib.request.urlopen(f'{BASE}/{path.lstrip("/")}', timeout=120) as r:
-        return r.read()
-
-
-def fetch_json(path: str) -> dict:
-    return json.loads(fetch_bytes(path).decode('utf-8'))
-
-
 def install_runtime() -> None:
-    subprocess.run(
-        [
-            sys.executable,
-            '-m',
-            'pip',
-            'install',
-            '-q',
-            '--upgrade',
-            'git+https://github.com/huggingface/diffusers.git',
-            'transformers>=4.54.0',
-            'accelerate>=1.6.0',
-            'safetensors>=0.5.0',
-            'sentencepiece',
-            'protobuf',
-            'Pillow',
-        ],
-        check=True,
-    )
+    subprocess.run([sys.executable, '-m', 'pip', 'install', '-q', '-r',
+                    str(SOURCE_ROOT / 'kernels/reference-still-runner/requirements.txt')], check=True)
 
 
 def write_report(payload: dict) -> None:
+    WORK.mkdir(parents=True, exist_ok=True)
     REPORT.write_text(json.dumps(payload, indent=2) + '\n', encoding='utf-8')
     print(json.dumps(payload, indent=2), flush=True)
 
@@ -66,25 +45,10 @@ def load_locked_reference(manifest: dict, name: str):
     if not path or not expected:
         raise RuntimeError(f'CONTINUITY_BLOCK: incomplete canonical entry for {name}')
 
-    raw = base64.b64decode(fetch_bytes(path).decode('utf-8').strip(), validate=True)
-    if hashlib.sha256(raw).hexdigest() != expected:
-        raise RuntimeError(f'CONTINUITY_BLOCK: hash mismatch for {name}')
+    raw = verified_image(SOURCE_ROOT, path, expected, encoded=True)
     image = Image.open(io.BytesIO(raw)).convert('RGB')
     image.load()
     return image, str(item.get('identity') or name)
-
-
-def preflight(manifest: dict) -> None:
-    policy = manifest.get('canon_policy') or {}
-    pack = manifest.get('reference_pack') or {}
-    if manifest.get('status') != 'locked' or pack.get('status') != 'locked':
-        raise RuntimeError('CONTINUITY_BLOCK: reference pack is not locked')
-    if not policy.get('approved_visual_reference_overrides_text'):
-        raise RuntimeError('CONTINUITY_BLOCK: visual-reference priority is disabled')
-    if policy.get('text_only_recurring_character_generation_allowed'):
-        raise RuntimeError('CONTINUITY_BLOCK: text-only recurring identity must remain disabled')
-    if not policy.get('load_references_for_every_shot'):
-        raise RuntimeError('CONTINUITY_BLOCK: references must be loaded for every recurring-character shot')
 
 
 def build_prompt(job: dict, shot: dict, identities: list[str]) -> str:
@@ -99,7 +63,23 @@ def build_prompt(job: dict, shot: dict, identities: list[str]) -> str:
     )
 
 
+def load_pipeline(job: dict, revision: str):
+    # Kaggle provides torch. Check CUDA before a lengthy dependency/model install.
+    import torch
+    if not torch.cuda.is_available():
+        raise RuntimeError('GPU_BLOCK: CUDA GPU is required')
+    install_runtime()
+    from diffusers import Flux2KleinPipeline
+    major, _minor = torch.cuda.get_device_capability(0)
+    dtype = torch.bfloat16 if major >= 8 else torch.float16
+    pipe = Flux2KleinPipeline.from_pretrained(job['model'], revision=revision, torch_dtype=dtype)
+    pipe.enable_model_cpu_offload()
+    pipe.vae.enable_tiling()
+    return pipe, torch, dtype
+
+
 def main() -> int:
+    WORK.mkdir(parents=True, exist_ok=True)
     started = time.time()
     result = {
         'success': False,
@@ -108,28 +88,38 @@ def main() -> int:
         'shots': [],
     }
     try:
-        job = json.loads(JOB.read_text(encoding='utf-8'))
-        manifest = fetch_json(job['continuity_manifest'])
-        preflight(manifest)
-        install_runtime()
-
-        import torch
-        from diffusers import Flux2KleinPipeline
-
-        if not torch.cuda.is_available():
-            raise RuntimeError('GPU_BLOCK: CUDA GPU is required')
-
-        major, _minor = torch.cuda.get_device_capability(0)
-        dtype = torch.bfloat16 if major >= 8 else torch.float16
-        pipe = Flux2KleinPipeline.from_pretrained(job['model'], torch_dtype=dtype)
-        pipe.enable_model_cpu_offload()
-
-        result['gpu'] = torch.cuda.get_device_name(0)
-        result['dtype'] = str(dtype)
+        require_launch_allowed(SOURCE_ROOT)
+        job = load_json(JOB)
+        config = load_json(SOURCE_ROOT / 'pipeline/image-generation.json')
+        plan = plan_job(job, config, root=SOURCE_ROOT)
+        if plan['status'] != 'ready':
+            raise RuntimeError('IMAGE_PREFLIGHT_BLOCK: ' + json.dumps(plan))
+        manifest = load_json(SOURCE_ROOT / job['continuity_manifest'])
+        result['source_commit'] = os.environ.get('ANIMATION_SOURCE_COMMIT')
+        result['model_revision'] = plan['model_revision']
+        decisions = {row['id']: row for row in plan['shots']}
+        needs_gpu = any(row['automated'] for row in plan['shots'])
+        pipe = None
+        if needs_gpu:
+            pipe, torch, dtype = load_pipeline(job, plan['model_revision'])
+            result['gpu'] = torch.cuda.get_device_name(0)
+            result['dtype'] = str(dtype)
         result['model'] = job['model']
 
         for shot in job.get('shots') or []:
             try:
+                decision = decisions[shot['id']]
+                out = WORK / f"earth-needs-help-e001-s{shot['id']}.png"
+                if decision.get('approved_input_path'):
+                    from PIL import Image
+                    with Image.open(SOURCE_ROOT / decision['approved_input_path']) as imported:
+                        imported.convert('RGB').save(out)
+                    result['shots'].append({'id': shot['id'], 'success': True, 'file': out.name,
+                                            'qa_status': 'pending', 'reused_approved_input': True,
+                                            'source_sha256': decision['approved_input_sha256'],
+                                            'sha256': hashlib.sha256(out.read_bytes()).hexdigest()})
+                    write_report(result)
+                    continue
                 refs = []
                 identities = []
                 for name in shot.get('characters') or []:
@@ -149,7 +139,15 @@ def main() -> int:
                 if refs:
                     kwargs['image'] = refs
 
-                image = pipe(**kwargs).images[0]
+                # Check raw pixels before PIL can hide NaNs as a black image.
+                import numpy as np
+                from PIL import Image
+                pixels = np.asarray(pipe(**kwargs, output_type='np').images[0])
+                if pixels.shape != (job['height'], job['width'], 3) or not np.isfinite(pixels).all():
+                    raise RuntimeError('IMAGE_OUTPUT_BLOCK: non-finite pixels or incorrect output dimensions')
+                if float(pixels.max() - pixels.min()) < 1 / 255:
+                    raise RuntimeError('IMAGE_OUTPUT_BLOCK: blank output; check model precision')
+                image = Image.fromarray((np.clip(pixels, 0, 1) * 255).round().astype('uint8'))
                 out = WORK / f"earth-needs-help-e001-s{shot['id']}.png"
                 image.save(out)
                 result['shots'].append({
@@ -160,6 +158,7 @@ def main() -> int:
                     'reference_count': len(refs),
                     'seed': int(shot.get('seed', 0)),
                     'qa_status': 'pending',
+                    'sha256': hashlib.sha256(out.read_bytes()).hexdigest(),
                 })
                 print(f"STILL {shot['id']} COMPLETE -> {out.name}", flush=True)
                 write_report(result)

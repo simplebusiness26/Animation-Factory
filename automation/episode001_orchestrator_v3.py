@@ -128,12 +128,32 @@ def continuity_review_approved() -> tuple[bool, str]:
     return True, "exact still batch approved"
 
 
+def validate_still_batch(downloaded: Path) -> None:
+    """Validate every reported output before changing any current asset."""
+    reports = list(downloaded.rglob('animation-factory-image-report.json'))
+    if len(reports) != 1:
+        raise RuntimeError('Expected exactly one hybrid image report')
+    report = json.loads(reports[0].read_text(encoding='utf-8'))
+    expected = {shot['id'] for shot in base.SHOTS[1:]}
+    rows = report.get('shots') or []
+    if report.get('success') is not True or len(rows) != len(expected) or {row.get('id') for row in rows} != expected:
+        raise RuntimeError('Image batch is incomplete or failed')
+    for row in rows:
+        name = f"earth-needs-help-e001-s{row['id']}.png"
+        candidates = list(downloaded.rglob(name))
+        if row.get('success') is not True or row.get('file') != name or len(candidates) != 1:
+            raise RuntimeError(f'Invalid image report for {name}')
+        if sha256(candidates[0]) != row.get('sha256') or not base.valid_image(candidates[0]):
+            raise RuntimeError(f'Corrupt or mismatched image output: {name}')
+
+
 def robust_stage_generated_stills(downloaded: Path) -> list[Path]:
     """Stage completed stills and invalidate any earlier continuity approval."""
     ready, reason = continuity_preflight()
     if not ready:
         raise RuntimeError(f"Continuity gate blocked still staging: {reason}")
 
+    validate_still_batch(downloaded)
     base.STILLS_DIR.mkdir(parents=True, exist_ok=True)
     staged: list[Path] = []
 
@@ -144,8 +164,11 @@ def robust_stage_generated_stills(downloaded: Path) -> list[Path]:
         if not base.valid_image(shot1_target):
             raise RuntimeError("Repaired canonical Shot 001 bridge failed validation")
         staged.append(shot1_target)
+    elif shot1_target.is_file() and base.valid_image(shot1_target):
+        # Preserve the current accepted Shot 001; never overwrite it with an old embedded thumbnail.
+        staged.append(shot1_target)
     else:
-        staged.append(base.make_shot1_still())
+        raise RuntimeError('Current Shot 001 is missing or invalid; restore it before staging')
 
     for shot in base.SHOTS[1:]:
         sid = shot["id"]
@@ -212,22 +235,12 @@ def compact_motion_folder(kernel_ref: str, attempt: int) -> Path:
     if not base.MOTION_RUNNER.is_file():
         raise RuntimeError("Episode motion bootstrap is missing")
     root = Path(tempfile.mkdtemp(prefix="e001-motion-compact-"))
-    shutil.copy2(base.MOTION_RUNNER, root / "main.py")
-
-    mapping, total = encode_stills(root, 82)
-    if total > TARGET_SOURCE_BYTES:
-        mapping, total = encode_stills(root, 70)
-    if total > TARGET_SOURCE_BYTES:
-        mapping, total = encode_stills(root, 58)
-    if total > 950_000:
-        raise RuntimeError(f"Motion still package remains too large: {total} bytes")
-
-    job = base.motion_job()
-    job["width"], job["height"] = TARGET_SIZE
-    for shot in job["shots"]:
-        shot["still"] = mapping[shot["id"]]
-    job["packaged_stills_bytes"] = total
-    (root / "episode-job.json").write_text(json.dumps(job, indent=2) + "\n", encoding="utf-8")
+    from pipeline.kaggle_packaging import prepare_motion_bootstrap
+    try:
+        prepare_motion_bootstrap(base.ROOT, root / 'main.py')
+    except Exception:
+        shutil.rmtree(root, ignore_errors=True)
+        raise
 
     slug = kernel_ref.split("/", 1)[1]
     metadata = {
@@ -253,6 +266,9 @@ v2.build_motion_retry_folder = compact_motion_folder
 
 def run_controller() -> int:
     state = base.load_state()
+    if base.is_paused(state):
+        print('Episode 001 is paused; no work submitted.')
+        return 0
 
     ready, reason = continuity_preflight()
     if not ready:
@@ -285,7 +301,7 @@ def run_controller() -> int:
             return 0
         state["motion_attempts"] = 0
         state["last_error"] = None
-        _ORIGINAL_RETRY_MOTION(state, "Exact still batch passed continuity visual review", first_submit=True)
+        v2.retry_motion(state, "Exact still batch passed continuity visual review", first_submit=True)
         base.save_state(state)
         print(json.dumps(state, indent=2))
         return 0 if state.get("phase") != "failed" else 1

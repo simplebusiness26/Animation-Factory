@@ -6,6 +6,14 @@ on:
       - 'AGENTS.md'
       - '.agents/skills/**'
       - 'pipeline/**'
+      - 'automation/**.py'
+      - 'worker*.py'
+      - 'kernels/episode-motion-runner/**'
+      - 'tests/**'
+      - '.github/workflows/validate-skills.yml'
+      - '.github/workflows/kaggle-worker.yml'
+      - 'shows/**/continuity-manifest.json'
+      - 'shows/**/assets/characters/**'
       - 'kernels/reference-still-runner/**'
       - 'shows/**/show-bible.md'
       - 'shows/**/character-bible.md'
@@ -17,6 +25,14 @@ on:
       - 'AGENTS.md'
       - '.agents/skills/**'
       - 'pipeline/**'
+      - 'automation/**.py'
+      - 'worker*.py'
+      - 'kernels/episode-motion-runner/**'
+      - 'tests/**'
+      - '.github/workflows/validate-skills.yml'
+      - '.github/workflows/kaggle-worker.yml'
+      - 'shows/**/continuity-manifest.json'
+      - 'shows/**/assets/characters/**'
       - 'kernels/reference-still-runner/**'
       - 'shows/**/show-bible.md'
       - 'shows/**/character-bible.md'
@@ -35,6 +51,14 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Install lightweight validation dependencies
+        run: pip install Pillow==12.1.0 numpy==2.2.6
+      - name: Exercise routing, launch guards, controller and output contracts
+        run: python -m unittest discover -s tests -v
+      - name: Check all Python entrypoints
+        run: python -m compileall -q pipeline automation kernels worker.py worker_v2.py
+      - name: Verify locked reference image bytes
+        run: python automation/validate_canon_refs.py
       - name: Validate production skills and canon
         run: python pipeline/validate_skills.py
       - name: Validate hybrid image Python entrypoints

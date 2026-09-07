@@ -109,7 +109,7 @@ def _hold_existing_submission(state: dict, family: str) -> bool:
         state[_active_key(family)] = kernel
         return True
 
-    if status == "STATUS_ERROR":
+    if status not in {"QUEUED", "RUNNING", "COMPLETE", "ERROR", "MISSING"}:
         _mark_transient_wait(
             state,
             family,
@@ -272,7 +272,10 @@ def _enter_repair_required(
 
 
 def _handle_error_with_repair_gate(state: dict, family: str, kernel: str) -> bool:
+    if state.get(f'{family}_last_failed_kernel') == kernel:
+        return state.get('phase') == 'repair_required'
     signature, summary = _diagnostic_signature(state, family, kernel)
+    state[f'{family}_last_failed_kernel'] = kernel
     previous = str(state.get(f"{family}_failure_fingerprint") or "")
     repeats = int(state.get(f"{family}_failure_repeats", 0)) + 1 if previous == signature else 1
     state[f"{family}_failure_fingerprint"] = signature
@@ -293,7 +296,7 @@ def _hardened_handle(state: dict, family: str) -> None:
     kernel = _kernel_for(state, family)
     status = v2.safe_status(kernel)
 
-    if status == "STATUS_ERROR":
+    if status not in {"QUEUED", "RUNNING", "COMPLETE", "ERROR", "MISSING"}:
         _mark_transient_wait(
             state,
             family,
@@ -323,9 +326,9 @@ def _hardened_handle(state: dict, family: str) -> None:
         return
 
     if family == "stills":
-        _V5_HANDLE_STILLS(state)
+        v5._ORIGINAL_HANDLE_STILLS(state, status=status)
     else:
-        _V5_HANDLE_MOTION(state)
+        v5._ORIGINAL_HANDLE_MOTION(state, status=status)
 
 
 def hardened_handle_stills(state: dict) -> None:
@@ -342,6 +345,9 @@ v2.handle_motion = hardened_handle_motion
 
 def main() -> int:
     state = base.load_state()
+    if base.is_paused(state):
+        print('Episode 001 is paused; no work submitted.')
+        return 0
     if state.get("phase") == "repair_required":
         state["last_status"] = state.get("last_status") or "REPAIR_REQUIRED"
         base.save_state(state)

@@ -65,6 +65,10 @@ jobs:
           fi
 
           for file in "${final_files[@]}"; do
+            if ! python pipeline/release_gate.py "$file"; then
+              echo "Final file retained as an artifact while QA is pending."
+              continue
+            fi
             base="$(basename "$file" .mp4)"
             tag="$(printf '%s' "$base" | tr '[:upper:]_' '[:lower:]-' | sed -E 's/[^a-z0-9.-]+/-/g; s/^-+|-+$//g')"
             title="$(printf '%s' "$base" | tr '_' ' ')"

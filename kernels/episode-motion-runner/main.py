@@ -49,6 +49,7 @@ def install_ltx() -> Path:
     if not repo.exists():
         run(['git', 'clone', '--depth', '1', 'https://github.com/Lightricks/LTX-Video.git', str(repo)])
     run([sys.executable, '-m', 'pip', 'install', '-q', '-e', f'{repo}[inference-script]'])
+    sys.path.insert(0, str(repo))
     return repo
 
 
@@ -121,8 +122,8 @@ def get_i2v_pipe():
 def generate_i2vgen(job: dict, shot: dict, fps: int) -> dict:
     import torch
     from PIL import Image, ImageOps
-    from diffusers.utils import export_to_video
     pipe = get_i2v_pipe()
+    from diffusers.utils import export_to_video
     width, height = 704, 400
     image = ImageOps.fit(Image.open(shot_still(shot)).convert('RGB'), (width, height))
     generator = torch.Generator(device='cpu').manual_seed(int(shot.get('seed', 42)))
@@ -162,8 +163,8 @@ def get_svd_pipe():
 def generate_svd(job: dict, shot: dict, fps: int) -> dict:
     import torch
     from PIL import Image, ImageOps
-    from diffusers.utils import export_to_video
     pipe = get_svd_pipe()
+    from diffusers.utils import export_to_video
     image = ImageOps.fit(Image.open(shot_still(shot)).convert('RGB'), (1024, 576))
     generator = torch.manual_seed(int(shot.get('seed', 42)))
     frames = pipe(
