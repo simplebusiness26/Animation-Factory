@@ -14,29 +14,24 @@ from __future__ import annotations
 
 import json
 import sys
+import shutil
+import tempfile
 from pathlib import Path
 
 import worker
+from pipeline.production_guard import require_launch_allowed
+from pipeline.kaggle_packaging import prepare_image_bootstrap
 
 ROOT = Path(__file__).resolve().parent
-EPISODE001_STATE = ROOT / "automation" / "episode001-state.json"
 EPISODE001_MARKERS = (
     "earth-needs-help-e001",
     "episode001",
     "episode-001",
     "episode_001",
     "e001",
+    "reference-still-runner",
+    "episode-motion-runner",
 )
-
-
-def episode001_paused() -> bool:
-    if not EPISODE001_STATE.is_file():
-        return False
-    try:
-        state = json.loads(EPISODE001_STATE.read_text(encoding="utf-8"))
-    except Exception:
-        return True
-    return bool(state.get("paused_by_user")) or str(state.get("phase") or "").lower() == "paused_by_user"
 
 
 def targets_episode001(command: dict, metadata: dict) -> bool:
@@ -44,6 +39,7 @@ def targets_episode001(command: dict, metadata: dict) -> bool:
         [
             str(command.get("request_id") or ""),
             str(command.get("path") or ""),
+            str(command.get("job_path") or ""),
             str(metadata.get("id") or ""),
             str(metadata.get("title") or ""),
         ]
@@ -53,28 +49,40 @@ def targets_episode001(command: dict, metadata: dict) -> bool:
 
 def execute(command):
     action = str(command.get("action") or "").strip()
-    if action != "run_kernel":
+    if action == 'run_shot':
+        job_path = worker.safe_repo_file(command.get('job_path'), roots=('shows',), suffixes={'.json'})
+        job = json.loads(job_path.read_text(encoding='utf-8'))
+        if targets_episode001(command, {}) or str(job.get('episode', '')).zfill(3) == '001':
+            require_launch_allowed(ROOT)
+            from pipeline.image_router import verified_image
+            if job.get('qa_status') != 'approved':
+                raise RuntimeError('Shot generation requires an approved input still')
+            verified_image(ROOT, job['still_path'], job.get('still_sha256', ''))
+        return worker.execute(command)
+    if action != 'run_kernel':
         return worker.execute(command)
 
     request_id = str(command.get("request_id") or "unspecified").strip()
     owner = str(command.get("owner") or worker.os.getenv("KAGGLE_OWNER") or "").strip() or None
     folder = worker.safe_kernel_dir(command.get("path"))
-    metadata = worker.render_metadata(folder, owner)
-
-    if episode001_paused() and targets_episode001(command, metadata):
-        raise RuntimeError(
-            "Episode 001 is paused. Kaggle run submission was blocked by the bridge safety gate; "
-            "status and output checks remain allowed."
-        )
-
-    args = ["kaggle", "kernels", "push", "-p", str(folder)]
-    accelerator = str(command.get("accelerator") or "").strip()
-    if accelerator:
-        if accelerator not in worker.ALLOWED_ACCELERATORS:
-            raise ValueError(f"Unsupported accelerator: {accelerator}")
-        args.extend(["--accelerator", accelerator])
-
-    push_response = worker.run(args)
+    original_metadata = json.loads((folder / 'kernel-metadata.json').read_text(encoding='utf-8'))
+    if targets_episode001(command, original_metadata):
+        require_launch_allowed(ROOT)
+    # Render metadata and inject immutable source refs only in a temporary copy.
+    # A rejected launch must not modify the checked-out kernel metadata.
+    with tempfile.TemporaryDirectory(prefix='animation-kernel-') as td:
+        prepared = Path(td)
+        shutil.copytree(folder, prepared, dirs_exist_ok=True)
+        metadata = worker.render_metadata(prepared, owner)
+        if folder.name == 'reference-still-runner':
+            prepare_image_bootstrap(ROOT, prepared / metadata['code_file'])
+        args = ['kaggle', 'kernels', 'push', '-p', str(prepared)]
+        accelerator = str(command.get('accelerator') or '').strip()
+        if accelerator:
+            if accelerator not in worker.ALLOWED_ACCELERATORS:
+                raise ValueError(f'Unsupported accelerator: {accelerator}')
+            args.extend(['--accelerator', accelerator])
+        push_response = worker.run(args)
     kernel = metadata["id"]
     try:
         status = worker.run(["kaggle", "kernels", "status", kernel])

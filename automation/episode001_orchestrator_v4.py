@@ -62,6 +62,7 @@ def archive_current_stills() -> Path | None:
 
 
 def stage_with_archive(downloaded: Path):
+    v3.validate_still_batch(downloaded)
     archive_current_stills()
     return _ORIGINAL_STAGE(downloaded)
 
@@ -96,6 +97,9 @@ def normalize_explicit_rejection(state: dict) -> bool:
 
 def main() -> int:
     state = base.load_state()
+    if base.is_paused(state):
+        print('Episode 001 is paused; no work submitted.')
+        return 0
     normalize_explicit_rejection(state)
     return v3.run_controller()
 

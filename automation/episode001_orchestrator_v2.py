@@ -82,6 +82,9 @@ def prepare_retry_folder(source: Path, kernel_ref: str) -> Path:
     metadata["enable_gpu"] = True
     metadata["enable_internet"] = True
     meta_path.write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")
+    if source.name == 'reference-still-runner':
+        from pipeline.kaggle_packaging import prepare_image_bootstrap
+        prepare_image_bootstrap(base.ROOT, root / metadata['code_file'])
     return root
 
 
@@ -145,7 +148,13 @@ def retry_stills(state: dict, reason: str) -> None:
         return
     attempt = attempts + 1
     try:
-        kernel, out = push_fresh(base.STILLS_KERNEL_DIR, "enh-e001-stills", attempt)
+        production = json.loads((base.EPISODE_DIR / 'production.json').read_text(encoding='utf-8'))
+        from pipeline.image_router import asset_path
+        runner = production['image_backend']['runner']
+        if runner != 'kernels/reference-still-runner':
+            raise ValueError('Unsupported configured image runner; no implicit legacy fallback')
+        source = asset_path(base.ROOT, runner + '/kernel-metadata.json').parent
+        kernel, out = push_fresh(source, 'enh-e001-stills', attempt)
         base.log("stills-resubmit.txt", out)
         state["stills_attempts"] = attempt
         state["stills_submit_failures"] = 0
@@ -210,9 +219,9 @@ def retry_motion(state: dict, reason: str, *, first_submit: bool = False) -> Non
             shutil.rmtree(folder, ignore_errors=True)
 
 
-def handle_stills(state: dict) -> None:
+def handle_stills(state: dict, status: str | None = None) -> None:
     kernel = current_kernel(state, "stills_kernel", base.STILLS_KERNEL)
-    status = safe_status(kernel)
+    status = status if status is not None else safe_status(kernel)
     state["last_status"] = f"STILLS_{status}"
     if status in {"QUEUED", "RUNNING"}:
         state["last_error"] = None
@@ -233,7 +242,7 @@ def handle_stills(state: dict) -> None:
             failures = int(state.get("stills_staging_failures", 0)) + 1
             state["stills_staging_failures"] = failures
             persist_kernel_diagnostics(kernel, f"stills-staging-error-{failures}")
-            state["phase"] = "awaiting_stills"
+            state["phase"] = "repair_required" if failures >= 2 else "awaiting_stills"
             state["last_status"] = f"STILLS_STAGING_ERROR_{failures}"
             state["last_error"] = f"Completed Kaggle batch retained; staging failed: {type(exc).__name__}: {exc}"
         return
@@ -247,9 +256,9 @@ def handle_stills(state: dict) -> None:
     retry_stills(state, f"unrecognised Kaggle status: {status}")
 
 
-def handle_motion(state: dict) -> None:
+def handle_motion(state: dict, status: str | None = None) -> None:
     kernel = current_kernel(state, "motion_kernel", base.MOTION_KERNEL)
-    status = safe_status(kernel)
+    status = status if status is not None else safe_status(kernel)
     state["last_status"] = f"MOTION_{status}"
     if status in {"QUEUED", "RUNNING"}:
         state["last_error"] = None
@@ -264,8 +273,8 @@ def handle_motion(state: dict) -> None:
                 state["assembly_attempts"] = assembly_attempts
                 final = base.render_final(output)
                 state["final_file"] = str(final.relative_to(base.ROOT))
-            state["phase"] = "complete"
-            state["last_status"] = "FINAL_MP4_VALIDATED"
+            state["phase"] = "awaiting_final_review"
+            state["last_status"] = "FINAL_MP4_TECHNICAL_CHECKS_PASSED"
             state["last_error"] = None
         except Exception as exc:
             state["last_error"] = f"Final assembly/QA failed: {type(exc).__name__}: {exc}"
@@ -284,3 +293,45 @@ def handle_motion(state: dict) -> None:
         retry_motion(state, f"kernel status unavailable: {status}")
         return
     retry_motion(state, f"unrecognised Kaggle status: {status}")
+
+
+def main() -> int:
+    """Dispatch persisted phases through the active (possibly guarded) handlers."""
+    state = base.load_state()
+    if base.is_paused(state):
+        print('Episode 001 is paused; no work submitted.')
+        return 0
+    if state.get('phase') == 'awaiting_final_review':
+        from pipeline.release_gate import verify_release
+        try:
+            final = (base.ROOT / str(state.get('final_file') or '')).resolve()
+            if base.ROOT not in final.parents:
+                raise ValueError('Invalid final video path')
+            verify_release(final)
+            state.update(phase='complete', last_status='FINAL_EPISODE_QA_APPROVED', last_error=None)
+        except (ValueError, OSError) as exc:
+            state['last_error'] = str(exc)
+        base.save_state(state)
+        print(json.dumps(state, indent=2))
+        return 0
+    if state.get('phase') in {'repair_required', 'failed', 'complete'}:
+        print(json.dumps(state, indent=2))
+        return 1 if state['phase'] == 'failed' else 0
+    try:
+        handlers = {'awaiting_stills': handle_stills, 'awaiting_motion': handle_motion}
+        handler = handlers.get(state.get('phase'))
+        if handler is None:
+            raise ValueError(f"Unknown controller phase: {state.get('phase')}")
+        handler(state)
+    except Exception as exc:
+        state.update(phase='repair_required', last_status='CONTROLLER_REPAIR_REQUIRED',
+                     last_error=f'{type(exc).__name__}: {exc}')
+        base.save_state(state)
+        return 1
+    base.save_state(state)
+    print(json.dumps(state, indent=2))
+    return 1 if state.get('phase') == 'failed' else 0
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())

@@ -42,8 +42,8 @@
     "accelerator": "NvidiaTeslaT4",
     "preferred_model": "LTX-Video-2B-distilled",
     "fallback_models": [
-      "Stable-Video-Diffusion",
-      "CogVideoX-small-if-compatible"
+      "I2VGen-XL",
+      "Stable-Video-Diffusion-XT"
     ]
   },
   "global_negative_prompt": "blurry, distorted, deformed, extra limbs, duplicate characters, wrong character identity, wrong colours, changed costume, changed silhouette, changed face, text, watermark, scary, horror, violent, inconsistent face, melted anatomy, extreme camera motion, background morphing",

@@ -30,7 +30,7 @@ Use for master character references, hero keyframes and difficult continuity res
 
 ### 3. SDXL layered fallback
 
-The existing SDXL + IP-Adapter workflow remains available only as a fallback if the primary free model cannot run or repeatedly fails.
+The old SDXL + IP-Adapter implementation is retained for diagnosis. The hybrid router blocks this route until it has a separately validated job; it does not silently run FLUX for a requested SDXL fallback.
 
 ## Fail-closed rules
 
@@ -54,3 +54,19 @@ The runner writes one PNG per still plus `animation-factory-image-report.json`. 
 ## Paid-service rule
 
 No paid image API may be introduced or automatically called without explicit user approval. The existing ChatGPT subscription is not treated as API credit.
+
+## Validation and reproducible submission
+
+Run `python -m unittest discover -s tests -v` and the existing canon/skill checks before submitting. The tests replace GPU inference and Kaggle API calls; a pass does not certify model output quality or GPU compatibility.
+
+`python pipeline/image_router.py shows/earth-needs-help/episodes/001-great-earth-emergency/episode001-image-job.json` validates every shot, every used reference hash, dimensions, unique IDs and each shot's selected route. A `ready` plan means the inputs are ready, not that the episode is rendered.
+
+The guarded controller reads `production.json.image_backend.runner`. The bridge prepares this runner when given `run_kernel` with `path: kernels/reference-still-runner`. Both prepare a bootstrap pinned to the current committed source, job, routing configuration and image references. Commit and push changed production inputs before submitting. A separate live pause check still prevents a queued notebook from starting after production is paused.
+
+For an approved ChatGPT image, set the shot's `approved_input_path`, `approved_input_sha256` (the file's SHA-256), and `qa_status: approved`. Approval must come from an actual visual review. The runner reuses the image without loading a model; its staged output still enters the batch continuity review.
+
+The image dependency versions and Hugging Face model revision are pinned. Kaggle's installed PyTorch/CUDA combination is retained and must be verified on its assigned GPU. Generated images are checked for non-finite pixels, blank output, dimensions and file hashes before entering visual QA.
+
+A successful render has `technical_pass` in its final QA report. Publication additionally requires `visual_review: approved`, `audio_review: approved`, and a matching video SHA-256. The controller waits in `awaiting_final_review`; a filename containing `final` cannot authorize publication.
+
+Production remains paused. Neither validation nor this integration change resumes it.

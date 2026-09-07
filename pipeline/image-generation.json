@@ -9,6 +9,7 @@
       "provider": "kaggle",
       "model": "black-forest-labs/FLUX.2-klein-4B",
       "license": "Apache-2.0",
+      "revision": "e7b7dc27f91deacad38e78976d1f2b499d76a294",
       "accelerator": "NvidiaTeslaT4",
       "approx_vram_gb": 13,
       "supports": ["text-to-image", "image-to-image", "multi-reference"],

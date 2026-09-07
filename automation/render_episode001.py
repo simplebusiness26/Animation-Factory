@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import asyncio, json, subprocess, sys, tempfile, wave
+import asyncio, hashlib, json, subprocess, sys, tempfile, wave
 from pathlib import Path
 import numpy as np
 ROOT=Path(__file__).resolve().parents[1]; DIST=ROOT/'dist'; FINAL=DIST/'earth-needs-help-e001-final.mp4'; RUNTIME=80.0
@@ -56,5 +56,5 @@ def main():
   args=['ffmpeg','-y','-i',str(pic),'-i',str(mu),'-i',str(sf)]; [args.extend(['-i',str(v)]) for v in vs]; filt=['[1:a]volume=0.14[bg]','[2:a]volume=0.7[sfx]']; labels=['[bg]','[sfx]']
   for i,(st,_,_) in enumerate(LINES): ms=int(st*1000); filt.append(f'[{i+3}:a]adelay={ms}|{ms},volume=1.25[v{i}]'); labels.append(f'[v{i}]')
   filt.append(''.join(labels)+f'amix=inputs={len(labels)}:duration=longest,alimiter=limit=0.95[aout]'); args+=['-filter_complex',';'.join(filt),'-map','0:v:0','-map','[aout]','-c:v','copy','-c:a','aac','-b:a','192k','-t',str(RUNTIME),str(FINAL)]; run(args)
- out=json.loads(run(['ffprobe','-v','error','-show_entries','format=duration,size:stream=codec_type','-of','json',str(FINAL)])); dur=float(out['format']['duration']); streams=out['streams']; report={'pass':78<=dur<=82 and any(s['codec_type']=='video' for s in streams) and any(s['codec_type']=='audio' for s in streams),'duration_seconds':dur,'size_bytes':int(out['format']['size'])}; (DIST/'earth-needs-help-e001-final-qa.json').write_text(json.dumps(report,indent=2)+'\n'); print(json.dumps(report,indent=2)); return 0 if report['pass'] else 1
+ out=json.loads(run(['ffprobe','-v','error','-show_entries','format=duration,size:stream=codec_type','-of','json',str(FINAL)])); dur=float(out['format']['duration']); streams=out['streams']; report={'pass':78<=dur<=82 and any(s['codec_type']=='video' for s in streams) and any(s['codec_type']=='audio' for s in streams),'duration_seconds':dur,'size_bytes':int(out['format']['size'])}; report.update(technical_pass=report.pop('pass'), visual_review='pending', audio_review='pending', sha256=hashlib.sha256(FINAL.read_bytes()).hexdigest()); (DIST/'earth-needs-help-e001-final-qa.json').write_text(json.dumps(report,indent=2)+'\n'); print(json.dumps(report,indent=2)); return 0 if report['technical_pass'] else 1
 if __name__=='__main__': raise SystemExit(main())

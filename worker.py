@@ -46,7 +46,10 @@ def run(args: list[str], cwd: Path | None = None) -> str:
         check=False,
     )
     output = proc.stdout.strip()
-    if proc.returncode != 0:
+    push_rejected = args[:3] == ['kaggle', 'kernels', 'push'] and any(
+        marker in output.lower() for marker in ('kernel push error:', 'maximum weekly gpu quota')
+    )
+    if proc.returncode != 0 or push_rejected:
         raise RuntimeError(f"Command failed ({proc.returncode}): {' '.join(args[:3])}\n{output}")
     return output
 
