@@ -1,0 +1,7 @@
+{
+  "action": "flux2_single_shot_smoke",
+  "shot": "002",
+  "request_id": "earth-needs-help-e001-flux2-smoke-2026-09-08",
+  "production_episode_remains_paused": true,
+  "purpose": "Validate FLUX.2 Klein 4B multi-reference character consistency on Kaggle before any Episode 001 production restart."
+}
