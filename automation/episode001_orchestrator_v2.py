@@ -42,7 +42,9 @@ def safe_status(kernel: str) -> str:
     except Exception as exc:
         text = str(exc)
         base.log("latest-status-error.txt", text)
-        if "404" in text or "not found" in text.lower():
+        # Match Kaggle's "(404)" / "Not Found" response only; slugs such as
+        # enh-e001-stills-r1-8404127 legitimately contain the digits 404.
+        if re.search(r"(?<!\d)404(?!\d)", text) or "not found" in text.lower():
             return "MISSING"
         return "STATUS_ERROR"
 
@@ -193,8 +195,9 @@ def retry_motion(state: dict, reason: str, *, first_submit: bool = False) -> Non
         stamp = str(int(time.time()))[-7:]
         slug = slugify(f"enh-e001-motion-r{attempt}-{stamp}-{collision}")
         kernel = f"{base.OWNER}/{slug}"
-        folder = build_motion_retry_folder(kernel, attempt)
+        folder: Path | None = None
         try:
+            folder = build_motion_retry_folder(kernel, attempt)
             out = base.run(["kaggle", "kernels", "push", "-p", str(folder), "--accelerator", "NvidiaTeslaT4"])
             _validate_kaggle_push_output(out)
             base.log("motion-submit.txt", out)
@@ -216,7 +219,8 @@ def retry_motion(state: dict, reason: str, *, first_submit: bool = False) -> Non
                 record_submit_failure(state, "motion", exc)
             return
         finally:
-            shutil.rmtree(folder, ignore_errors=True)
+            if folder is not None:
+                shutil.rmtree(folder, ignore_errors=True)
 
 
 def handle_stills(state: dict, status: str | None = None) -> None:

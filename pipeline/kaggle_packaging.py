@@ -33,7 +33,7 @@ def image_inputs(root: Path) -> list[str]:
     if plan['status'] != 'ready':
         raise ValueError('Image routing blocked: ' + json.dumps(plan))
     paths = [backend['job'], backend['router_config'], job['continuity_manifest'],
-             'pipeline/image_router.py', 'pipeline/production_guard.py',
+             'pipeline/__init__.py', 'pipeline/image_router.py', 'pipeline/production_guard.py',
              'kernels/reference-still-runner/main.py',
              'kernels/reference-still-runner/bootstrap.py',
              'kernels/reference-still-runner/requirements.txt']

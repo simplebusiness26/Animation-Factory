@@ -46,7 +46,8 @@ def run_ltx(job: dict, still: Path) -> dict:
     repo = WORK / 'LTX-Video'
     if not repo.exists():
         subprocess.run(['git', 'clone', '--depth', '1', 'https://github.com/Lightricks/LTX-Video.git', str(repo)], check=True)
-    subprocess.run([sys.executable, '-m', 'pip', 'install', '-q', '-e', f'{repo}[inference-script]'], check=True)
+    subprocess.run([sys.executable, '-m', 'pip', 'install', '-q', '-e', f'{repo}[inference]'], check=True)
+    sys.path.insert(0, str(repo))
 
     from ltx_video.inference import infer, InferenceConfig
 

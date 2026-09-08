@@ -179,6 +179,25 @@ class LaunchTests(Fixture):
             self.assertEqual(worker_v2.execute({'action': 'kernel_status'}), ('status', []))
             execute.assert_called_once()
 
+    def test_kernel_ref_cannot_name_parent_directory_or_flag(self):
+        for ref in ('owner/..', 'owner/.', '../owner', '-x/slug', 'owner/-p'):
+            with self.subTest(ref=ref), self.assertRaises(ValueError):
+                worker.safe_kernel_ref(ref)
+        self.assertEqual(worker.safe_kernel_ref('simplebusiness/enh-e001-stills-r1-8449127'), 'simplebusiness/enh-e001-stills-r1-8449127')
+
+    def test_kernel_output_never_deletes_outside_artifacts(self):
+        with patch.dict(worker.os.environ, {'KAGGLE_API_TOKEN': 'test'}), patch.object(worker, 'run') as run, patch.object(worker.shutil, 'rmtree') as rmtree:
+            with self.assertRaises(ValueError):
+                worker.execute({'action': 'kernel_output', 'kernel': 'owner/..', 'request_id': 'x'})
+            run.assert_not_called()
+            rmtree.assert_not_called()
+
+    def test_repo_file_root_cannot_be_escaped_with_dotdot(self):
+        with self.assertRaises(ValueError):
+            worker.safe_repo_file('shows/../control/command.json', roots=('shows',), suffixes={'.json'})
+        real = 'shows/earth-needs-help/episodes/001-great-earth-emergency/production.json'
+        self.assertEqual(worker.safe_repo_file(real, roots=('shows',), suffixes={'.json'}), ROOT / real)
+
     def test_zero_exit_push_quota_error_is_failure(self):
         response = types.SimpleNamespace(returncode=0, stdout='Kernel push error: Maximum weekly GPU quota reached')
         with patch.object(worker.subprocess, 'run', return_value=response):
@@ -245,6 +264,25 @@ class ControllerTests(unittest.TestCase):
             self.assertEqual(state['phase'], 'awaiting_final_review')
             stills.assert_not_called()
             motion.assert_not_called()
+
+    def test_status_error_mentioning_slug_digits_is_not_missing(self):
+        cases = {
+            'Command failed (1): kaggle kernels status owner/enh-e001-stills-r1-8404127\n503 Service Unavailable': 'STATUS_ERROR',
+            'kaggle.rest.ApiException: (404)\nReason: Not Found': 'MISSING',
+            'Command failed (1): kaggle kernels status owner/x\n404 Client Error': 'MISSING',
+        }
+        for text, expected in cases.items():
+            with self.subTest(text=text), patch.object(base, 'status_of', side_effect=RuntimeError(text)), patch.object(base, 'log'):
+                self.assertEqual(v2.safe_status('owner/x'), expected)
+
+    def test_motion_packaging_failure_is_recorded_not_raised(self):
+        state = {'motion_attempts': 0, 'phase': 'awaiting_continuity_review'}
+        with patch.object(v2, 'build_motion_retry_folder', side_effect=RuntimeError('Commit stills before submitting')), patch.object(base, 'run') as run, patch.object(base, 'log'):
+            v3._ORIGINAL_RETRY_MOTION(state, 'approved batch')
+            run.assert_not_called()
+        self.assertEqual(state['motion_submit_failures'], 1)
+        self.assertEqual(state['motion_attempts'], 0)
+        self.assertIn('Commit stills', state['last_error'])
 
     def test_same_failed_notebook_is_not_counted_twice(self):
         state = {'stills_last_failed_kernel': 'owner/one', 'stills_failure_repeats': 1}

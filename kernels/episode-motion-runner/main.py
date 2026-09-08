@@ -28,6 +28,8 @@ ROOT = Path(__file__).resolve().parent
 WORK = Path('/kaggle/working')
 JOB_PATH = ROOT / 'episode-job.json'
 MANIFEST_PATH = WORK / 'earth-needs-help-e001-motion-manifest.json'
+# Lightricks/LTX-Video main as of 2026-09-08; still ships configs/ltxv-2b-0.9.6-distilled.yaml.
+LTX_COMMIT = '4b2d053057623ddd4d0a1d3e9cd28890e9ef487f'
 _I2V_PIPE = None
 _SVD_PIPE = None
 
@@ -47,8 +49,9 @@ def pip_install(*packages: str) -> None:
 def install_ltx() -> Path:
     repo = WORK / 'LTX-Video'
     if not repo.exists():
-        run(['git', 'clone', '--depth', '1', 'https://github.com/Lightricks/LTX-Video.git', str(repo)])
-    run([sys.executable, '-m', 'pip', 'install', '-q', '-e', f'{repo}[inference-script]'])
+        run(['git', 'clone', '--filter=blob:none', 'https://github.com/Lightricks/LTX-Video.git', str(repo)])
+        run(['git', 'checkout', '--quiet', LTX_COMMIT], cwd=repo)
+    run([sys.executable, '-m', 'pip', 'install', '-q', '-e', f'{repo}[inference]'])
     sys.path.insert(0, str(repo))
     return repo
 

@@ -17,7 +17,7 @@ ARTIFACTS = ROOT / "artifacts"
 RESULT_FILE = ROOT / "result.md"
 COMMAND_FILE = ROOT / "control" / "command.json"
 SHOT_TEMPLATE = ROOT / "kernels" / "shot-runner" / "main.py"
-KERNEL_RE = re.compile(r"^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$")
+KERNEL_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.-]*/[A-Za-z0-9][A-Za-z0-9_.-]*$")
 SLUG_RE = re.compile(r"^[a-z0-9][a-z0-9-]{2,80}$")
 ALLOWED_ACCELERATORS = {
     "NvidiaTeslaT4",
@@ -76,7 +76,8 @@ def safe_repo_file(value: Any, *, roots: tuple[str, ...], suffixes: set[str] | N
     if not rel or not any(rel.startswith(root.rstrip("/") + "/") for root in roots):
         raise ValueError(f"Path must be inside one of: {', '.join(roots)}")
     target = (ROOT / rel).resolve()
-    if ROOT not in target.parents:
+    allowed = [(ROOT / root.rstrip("/")).resolve() for root in roots]
+    if ROOT not in target.parents or not any(base in target.parents for base in allowed):
         raise ValueError("Path escapes repository")
     if not target.is_file():
         raise ValueError(f"File not found: {rel}")

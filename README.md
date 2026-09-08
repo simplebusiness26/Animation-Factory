@@ -26,9 +26,9 @@ The system preserves approved work. A failed shot should be repaired or regenera
 
 ## Kaggle control flow
 
-ChatGPT -> `control/command.json` -> GitHub Actions -> Kaggle CLI/API -> Kaggle notebook/GPU -> `results/latest.md` + workflow artifact
+ChatGPT -> `control/command.json` -> GitHub Actions -> `worker_v2.py` -> Kaggle CLI/API -> Kaggle notebook/GPU -> `results/latest.md` + workflow artifact
 
-Only users with repository push access can change the command file. The worker does not accept arbitrary shell commands.
+Only users with repository push access can change the command file. The worker does not accept arbitrary shell commands. The workflow runs `worker_v2.py`, which wraps the allow-listed operations in `worker.py` with the Episode 001 pause/repair guard and tolerates Kaggle's private session-status 403 after a successful push.
 
 ## One-time Kaggle setup
 

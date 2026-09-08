@@ -1,2 +1,6 @@
 __pycache__/
 *.py[cod]
+# Kaggle bridge and renderer scratch output
+artifacts/
+result.md
+dist/
