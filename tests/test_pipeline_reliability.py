@@ -386,6 +386,36 @@ class SnapshotTests(Fixture):
         with self.assertRaisesRegex(RuntimeError, 'continuity review'):
             packaging.prepare_motion_bootstrap(self.root, self.root / 'motion.py')
 
+class PinnedModelStackTests(unittest.TestCase):
+    """diffusers 0.40.0 requires safetensors>=0.8.0 and huggingface-hub>=1.23,<2;
+    transformers<5 pins huggingface-hub<1.0. Pinning transformers==4.x or
+    safetensors==0.7.0 alongside diffusers==0.40.0 is not pip-installable at all
+    (verified: pip's resolver rejects it), and this is exactly what broke the
+    2026-09-07 FLUX2 smoke test kernel on Kaggle."""
+
+    def _pins(self, text: str) -> dict:
+        import re
+        return dict(re.findall(r"([a-zA-Z0-9_-]+)==([0-9][0-9.]*[0-9])", text))
+
+    def test_still_runner_requirements_are_pip_installable_together(self):
+        pins = self._pins((ROOT / 'kernels/reference-still-runner/requirements.txt').read_text())
+        self.assertGreaterEqual(tuple(map(int, pins['safetensors'].split('.'))), (0, 8, 0))
+        self.assertGreaterEqual(int(pins['transformers'].split('.')[0]), 5)
+
+    def test_smoke_test_requirements_are_pip_installable_together(self):
+        pins = self._pins((ROOT / 'kernels/flux2-smoke-test/main.py').read_text())
+        self.assertGreaterEqual(tuple(map(int, pins['safetensors'].split('.'))), (0, 8, 0))
+        self.assertGreaterEqual(int(pins['transformers'].split('.')[0]), 5)
+
+    def test_smoke_test_and_still_runner_share_the_same_model_stack_pins(self):
+        requirements = self._pins((ROOT / 'kernels/reference-still-runner/requirements.txt').read_text())
+        smoke = self._pins((ROOT / 'kernels/flux2-smoke-test/main.py').read_text())
+        shared = requirements.keys() & smoke.keys()
+        self.assertTrue(shared)
+        for name in shared:
+            self.assertEqual(requirements[name], smoke[name], name)
+
+
 class ReleaseTests(unittest.TestCase):
     def test_technical_pass_alone_cannot_publish_video(self):
         from pipeline.release_gate import verify_release
