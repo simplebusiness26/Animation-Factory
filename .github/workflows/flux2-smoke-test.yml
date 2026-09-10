@@ -1,0 +1,159 @@
+name: FLUX2 Single Shot Smoke Test
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - control/flux2-smoke-request.json
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: animation-factory-flux2-smoke
+  cancel-in-progress: false
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    env:
+      KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+      KAGGLE_OWNER: ${{ vars.KAGGLE_OWNER }}
+    steps:
+      - name: Checkout tested main revision
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Kaggle CLI
+        run: pip install 'kaggle>=1.8.2,<2'
+
+      - name: Validate smoke request and isolation
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "${KAGGLE_API_TOKEN:-}"
+          python -m py_compile kernels/flux2-smoke-test/main.py
+          python - <<'PY'
+          import json, os, re
+          from pathlib import Path
+
+          request=json.loads(Path('control/flux2-smoke-request.json').read_text())
+          assert request.get('action') == 'flux2_single_shot_smoke'
+          assert request.get('shot') == '002'
+          assert request.get('production_episode_remains_paused') is True
+
+          state=json.loads(Path('automation/episode001-state.json').read_text())
+          assert state.get('paused_by_user') is True or state.get('phase') == 'paused_by_user'
+
+          owner=(os.environ.get('KAGGLE_OWNER') or '').strip()
+          if not owner:
+              existing=str(state.get('stills_kernel') or '')
+              if '/' not in existing:
+                  raise RuntimeError('KAGGLE_OWNER is unset and no saved Kaggle kernel owner can be derived')
+              owner=existing.split('/', 1)[0].strip()
+          if not re.fullmatch(r'[A-Za-z0-9_-]+', owner):
+              raise RuntimeError('Derived Kaggle owner is invalid')
+
+          with open(os.environ['GITHUB_ENV'], 'a') as fh:
+              fh.write(f'KAGGLE_OWNER_RESOLVED={owner}\n')
+          print(f'Smoke request valid; Episode 001 remains paused; Kaggle owner resolved as {owner}.')
+          PY
+
+      - name: Package and submit isolated Kaggle kernel
+        id: submit
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/flux2-smoke-kernel
+          cp -R kernels/flux2-smoke-test /tmp/flux2-smoke-kernel
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          path=Path('/tmp/flux2-smoke-kernel/kernel-metadata.json')
+          meta=json.loads(path.read_text())
+          owner=os.environ['KAGGLE_OWNER_RESOLVED'].strip()
+          meta['id']=meta['id'].replace('__OWNER__', owner)
+          path.write_text(json.dumps(meta, indent=2)+'\n')
+          print('kernel='+meta['id'])
+          with open(os.environ['GITHUB_OUTPUT'],'a') as fh:
+              fh.write('kernel='+meta['id']+'\n')
+          PY
+          set +e
+          PUSH_OUTPUT="$(kaggle kernels push -p /tmp/flux2-smoke-kernel --accelerator NvidiaTeslaT4 2>&1)"
+          RC=$?
+          set -e
+          printf '%s\n' "$PUSH_OUTPUT"
+          if [ "$RC" -ne 0 ]; then exit "$RC"; fi
+          if printf '%s' "$PUSH_OUTPUT" | grep -Eqi '(quota[^a-z]*(exceed|limit|available)|submission[^a-z]*fail|kernel[^a-z]*push[^a-z]*fail|permission denied|unauthorized)'; then
+            echo 'Kaggle reported a submission failure despite a zero exit code.'
+            exit 2
+          fi
+
+      - name: Retrieve smoke result when available
+        id: retrieve
+        shell: bash
+        env:
+          KERNEL: ${{ steps.submit.outputs.kernel }}
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/flux2-smoke-output
+          mkdir -p /tmp/flux2-smoke-output
+          for attempt in $(seq 1 45); do
+            echo "Output check $attempt/45 for $KERNEL"
+            rm -rf /tmp/flux2-smoke-output/*
+            set +e
+            kaggle kernels output "$KERNEL" -p /tmp/flux2-smoke-output -o >/tmp/kaggle-output.log 2>&1
+            set -e
+            cat /tmp/kaggle-output.log || true
+            if [ -f /tmp/flux2-smoke-output/flux2-smoke-report.json ]; then
+              python - <<'PY'
+          import json
+          from pathlib import Path
+          report=json.loads(Path('/tmp/flux2-smoke-output/flux2-smoke-report.json').read_text())
+          print(json.dumps(report, indent=2))
+          if report.get('success') is not True:
+              raise SystemExit(3)
+          image=Path('/tmp/flux2-smoke-output/flux2-smoke-shot-002.png')
+          if not image.is_file() or image.stat().st_size < 10_000:
+              raise SystemExit('Smoke report passed but image output is missing/suspiciously small')
+          PY
+              echo 'result_ready=true' >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            sleep 60
+          done
+          echo 'Smoke kernel output was not retrievable inside the controlled polling window.'
+          exit 4
+
+      - name: Publish smoke evidence to repository
+        if: steps.retrieve.outputs.result_ready == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p results/smoke
+          cp /tmp/flux2-smoke-output/flux2-smoke-shot-002.png results/smoke/flux2-shot-002.png
+          cp /tmp/flux2-smoke-output/flux2-smoke-report.json results/smoke/flux2-shot-002-report.json
+          git config user.name 'animation-factory-bot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add results/smoke/flux2-shot-002.png results/smoke/flux2-shot-002-report.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Record FLUX2 single-shot smoke result [skip ci]'
+            git push origin HEAD:main
+          fi
+
+      - name: Upload smoke artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: flux2-single-shot-smoke
+          path: /tmp/flux2-smoke-output/
+          if-no-files-found: ignore
+          retention-days: 7

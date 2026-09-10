@@ -1,0 +1,14 @@
+{
+  "id": "__OWNER__/animation-factory-flux2-smoke",
+  "title": "Animation Factory FLUX2 Single Shot Smoke Test",
+  "code_file": "main.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}

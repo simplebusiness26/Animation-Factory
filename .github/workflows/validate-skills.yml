@@ -9,12 +9,15 @@ on:
       - 'automation/**.py'
       - 'worker*.py'
       - 'kernels/episode-motion-runner/**'
+      - 'kernels/reference-still-runner/**'
+      - 'kernels/flux2-smoke-test/**'
       - 'tests/**'
       - '.github/workflows/validate-skills.yml'
       - '.github/workflows/kaggle-worker.yml'
+      - '.github/workflows/flux2-smoke-test.yml'
+      - 'control/flux2-smoke-request.json'
       - 'shows/**/continuity-manifest.json'
       - 'shows/**/assets/characters/**'
-      - 'kernels/reference-still-runner/**'
       - 'shows/**/show-bible.md'
       - 'shows/**/character-bible.md'
       - 'shows/**/style-bible.md'
@@ -28,12 +31,15 @@ on:
       - 'automation/**.py'
       - 'worker*.py'
       - 'kernels/episode-motion-runner/**'
+      - 'kernels/reference-still-runner/**'
+      - 'kernels/flux2-smoke-test/**'
       - 'tests/**'
       - '.github/workflows/validate-skills.yml'
       - '.github/workflows/kaggle-worker.yml'
+      - '.github/workflows/flux2-smoke-test.yml'
+      - 'control/flux2-smoke-request.json'
       - 'shows/**/continuity-manifest.json'
       - 'shows/**/assets/characters/**'
-      - 'kernels/reference-still-runner/**'
       - 'shows/**/show-bible.md'
       - 'shows/**/character-bible.md'
       - 'shows/**/style-bible.md'
@@ -61,15 +67,16 @@ jobs:
         run: python automation/validate_canon_refs.py
       - name: Validate production skills and canon
         run: python pipeline/validate_skills.py
-      - name: Validate hybrid image Python entrypoints
+      - name: Validate hybrid image and smoke Python entrypoints
         run: >-
           python -m py_compile
           pipeline/image_router.py
           kernels/reference-still-runner/main.py
           kernels/reference-still-runner/bootstrap.py
-      - name: Validate image generation JSON
+          kernels/flux2-smoke-test/main.py
+      - name: Validate image and smoke JSON contracts
         run: >-
-          python -c "import json; from pathlib import Path; [json.loads(Path(p).read_text()) for p in ['pipeline/image-generation.json','shows/earth-needs-help/episodes/001-great-earth-emergency/episode001-image-job.json']]"
+          python -c "import json; from pathlib import Path; files=['pipeline/image-generation.json','shows/earth-needs-help/episodes/001-great-earth-emergency/episode001-image-job.json','kernels/flux2-smoke-test/kernel-metadata.json','control/flux2-smoke-request.json']; data=[json.loads(Path(p).read_text()) for p in files]; req=data[-1]; assert req['action']=='flux2_single_shot_smoke' and req['shot']=='002' and req['production_episode_remains_paused'] is True"
       - name: Smoke-test context loader
         run: >-
           python pipeline/skill_loader.py
