@@ -1,8 +1,8 @@
 {
   "action": "flux2_single_shot_smoke",
   "shot": "002",
-  "request_id": "earth-needs-help-e001-flux2-smoke-2026-09-08-r2",
+  "request_id": "earth-needs-help-e001-flux2-smoke-2026-09-10-r3",
   "production_episode_remains_paused": true,
   "purpose": "Validate FLUX.2 Klein 4B multi-reference character consistency on Kaggle before any Episode 001 production restart.",
-  "retry_reason": "Resolve Kaggle owner from saved kernel state when the repository KAGGLE_OWNER variable is unset."
+  "retry_reason": "diffusers==0.40.0 requires safetensors>=0.8.0 and huggingface-hub>=1.23,<2, which transformers==4.57.6 pinned below 1.0; pip's resolver rejected the previous pin set outright. Bumped transformers to 5.0.0 and safetensors to 0.8.0, verified installable with pip's real resolver."
 }
