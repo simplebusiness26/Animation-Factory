@@ -23,8 +23,13 @@ REPORT = WORK / 'animation-factory-image-report.json'
 
 
 def install_runtime() -> None:
-    subprocess.run([sys.executable, '-m', 'pip', 'install', '-q', '-r',
-                    str(SOURCE_ROOT / 'kernels/reference-still-runner/requirements.txt')], check=True)
+    proc = subprocess.run(
+        [sys.executable, '-m', 'pip', 'install', '-r',
+         str(SOURCE_ROOT / 'kernels/reference-still-runner/requirements.txt')],
+        text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, check=False,
+    )
+    if proc.returncode != 0:
+        raise RuntimeError(f'pip install failed ({proc.returncode}):\n{proc.stdout[-4000:]}')
 
 
 def write_report(payload: dict) -> None:

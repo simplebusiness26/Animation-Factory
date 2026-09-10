@@ -45,9 +45,9 @@ PROMPT = (
 
 PINNED_PACKAGES = [
     'diffusers==0.40.0',
-    'transformers==4.57.6',
+    'transformers==5.0.0',
     'accelerate==1.12.0',
-    'safetensors==0.7.0',
+    'safetensors==0.8.0',
     'sentencepiece==0.2.1',
     'protobuf==6.33.5',
     'Pillow==12.1.0',
@@ -67,10 +67,12 @@ def write_report(payload: dict) -> None:
 
 
 def install_runtime() -> None:
-    subprocess.run(
-        [sys.executable, '-m', 'pip', 'install', '-q', '--upgrade', *PINNED_PACKAGES],
-        check=True,
+    proc = subprocess.run(
+        [sys.executable, '-m', 'pip', 'install', '--upgrade', *PINNED_PACKAGES],
+        text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, check=False,
     )
+    if proc.returncode != 0:
+        raise RuntimeError(f'pip install failed ({proc.returncode}):\n{proc.stdout[-4000:]}')
 
 
 def load_refs(manifest: dict):
