@@ -80,7 +80,13 @@ jobs:
           path=Path('/tmp/flux2-smoke-kernel/kernel-metadata.json')
           meta=json.loads(path.read_text())
           owner=os.environ['KAGGLE_OWNER_RESOLVED'].strip()
-          meta['id']=meta['id'].replace('__OWNER__', owner)
+          run_id=os.environ['GITHUB_RUN_ID'].strip()
+          # Reusing one fixed kernel id across runs causes Kaggle to reject the
+          # push with "409 Conflict" once the account/token can no longer save
+          # a new version onto that slug. Mint a fresh, run-scoped slug instead,
+          # matching push_fresh() in automation/episode001_orchestrator_v2.py.
+          meta['id']=meta['id'].replace('__OWNER__', owner) + f'-{run_id}'
+          meta['title']=meta['title'] + f' {run_id}'
           path.write_text(json.dumps(meta, indent=2)+'\n')
           print('kernel='+meta['id'])
           with open(os.environ['GITHUB_OUTPUT'],'a') as fh:

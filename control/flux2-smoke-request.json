@@ -1,8 +1,8 @@
 {
   "action": "flux2_single_shot_smoke",
   "shot": "002",
-  "request_id": "earth-needs-help-e001-flux2-smoke-2026-09-10-r3",
+  "request_id": "earth-needs-help-e001-flux2-smoke-2026-09-10-r4",
   "production_episode_remains_paused": true,
   "purpose": "Validate FLUX.2 Klein 4B multi-reference character consistency on Kaggle before any Episode 001 production restart.",
-  "retry_reason": "diffusers==0.40.0 requires safetensors>=0.8.0 and huggingface-hub>=1.23,<2, which transformers==4.57.6 pinned below 1.0; pip's resolver rejected the previous pin set outright. Bumped transformers to 5.0.0 and safetensors to 0.8.0, verified installable with pip's real resolver."
+  "retry_reason": "kaggle kernels push returned 409 Conflict because every run reused the same fixed kernel slug. The workflow now mints a unique run-scoped kernel id (matching push_fresh() in the main controller), so this run targets a fresh kernel instead of colliding with the prior one."
 }
