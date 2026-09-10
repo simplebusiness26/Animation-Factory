@@ -86,7 +86,10 @@ jobs:
           # a new version onto that slug. Mint a fresh, run-scoped slug instead,
           # matching push_fresh() in automation/episode001_orchestrator_v2.py.
           meta['id']=meta['id'].replace('__OWNER__', owner) + f'-{run_id}'
-          meta['title']=meta['title'] + f' {run_id}'
+          # Leave title untouched: the previous attempt appended run_id to the
+          # title too and Kaggle's SaveKernel rejected it with 400 Bad Request
+          # once it crossed Kaggle's kernel title length limit (58 vs the
+          # unmodified 46-character title that pushed fine in earlier runs).
           path.write_text(json.dumps(meta, indent=2)+'\n')
           print('kernel='+meta['id'])
           with open(os.environ['GITHUB_OUTPUT'],'a') as fh:

@@ -1,8 +1,8 @@
 {
   "action": "flux2_single_shot_smoke",
   "shot": "002",
-  "request_id": "earth-needs-help-e001-flux2-smoke-2026-09-10-r4",
+  "request_id": "earth-needs-help-e001-flux2-smoke-2026-09-10-r5",
   "production_episode_remains_paused": true,
   "purpose": "Validate FLUX.2 Klein 4B multi-reference character consistency on Kaggle before any Episode 001 production restart.",
-  "retry_reason": "kaggle kernels push returned 409 Conflict because every run reused the same fixed kernel slug. The workflow now mints a unique run-scoped kernel id (matching push_fresh() in the main controller), so this run targets a fresh kernel instead of colliding with the prior one."
+  "retry_reason": "Run r4's unique-slug fix hit 400 Bad Request because it also appended the run id to the kernel title, pushing it past Kaggle's title length limit (58 chars vs a 46-char title that pushed fine before). Reverted the title change; only the id is made unique now."
 }
