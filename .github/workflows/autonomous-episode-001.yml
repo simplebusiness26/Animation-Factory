@@ -13,6 +13,12 @@ on:
       - automation/episode001_orchestrator_v6.py
       - automation/render_episode001.py
       - kernels/earth-needs-help-e001-stills/main.py
+      - kernels/reference-still-runner/**
+      - pipeline/image-generation.json
+      - pipeline/image_router.py
+      - pipeline/kaggle_packaging.py
+      - shows/earth-needs-help/episodes/001-great-earth-emergency/production.json
+      - shows/earth-needs-help/episodes/001-great-earth-emergency/episode001-image-job.json
       - kernels/episode-motion-runner/main.py
       - shows/earth-needs-help/character-bible.md
       - shows/earth-needs-help/continuity-manifest.json
