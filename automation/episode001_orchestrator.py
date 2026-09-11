@@ -153,8 +153,8 @@ def make_shot1_still() -> Path:
 
 def stage_generated_stills(downloaded: Path) -> list[Path]:
     STILLS_DIR.mkdir(parents=True, exist_ok=True)
-    staged = [make_shot1_still()]
-    for shot in SHOTS[1:]:
+    staged = []
+    for shot in SHOTS:
         sid = shot["id"]
         candidates = list(downloaded.rglob(f"*s{sid}.png")) + list(downloaded.rglob(f"*s{sid}.jpg"))
         if not candidates:
