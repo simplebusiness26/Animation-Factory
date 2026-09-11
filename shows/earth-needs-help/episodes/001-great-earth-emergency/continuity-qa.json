@@ -1,7 +1,7 @@
 {
   "show": "Earth Needs Help",
   "episode": "001",
-  "status": "rejected",
+  "status": "pending_review",
   "review_policy": "Approve only when every recurring character visibly matches the locked reference pack. File hashes bind this approval to this exact still batch.",
   "required_checks": [
     "character identity matches locked visual refs",
@@ -13,17 +13,57 @@
     "no text/watermark or malformed anatomy"
   ],
   "shots": [
-    {"id":"001","file":"shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/earth-needs-help-e001-s001.png","sha256":"5da0f3f7c8ea9c155c6b13bedc33f852bc0e608294f92040baf13acbf8ff2b3f"},
-    {"id":"002","file":"shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/earth-needs-help-e001-s002.png","sha256":"be6bec7cf4de46b1205acd13c07e870d3a4368414674f44c675cf79a7a80e323"},
-    {"id":"003","file":"shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/earth-needs-help-e001-s003.png","sha256":"409b033c3ee82904581d2223764f079bcd5d18e86bd1adcc349ee746c170f645"},
-    {"id":"004","file":"shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/earth-needs-help-e001-s004.png","sha256":"c99d1fce651a232cb6b37c405c1c4699fe5c0752a4340620d204f79e0d38ca95"},
-    {"id":"005","file":"shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/earth-needs-help-e001-s005.png","sha256":"dc9fa4cf50dc2f7cd60d67956de65b1b9cec1cc7a8b9d933596eec4decad1644"},
-    {"id":"006a","file":"shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/earth-needs-help-e001-s006a.png","sha256":"4316db80e988746cb73b2d7dcf0b8b2f910cbef83edd67999eb162c2a7d2b525"},
-    {"id":"006b","file":"shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/earth-needs-help-e001-s006b.png","sha256":"ace840be615ca61955ec18ddb162a84bd301c356a84152d9139e21191c89df6a"},
-    {"id":"007","file":"shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/earth-needs-help-e001-s007.png","sha256":"a766bd9f0bba16021c39560833c811f9f973c1f599300d4de4155a0899fb2a79"},
-    {"id":"008","file":"shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/earth-needs-help-e001-s008.png","sha256":"9ccbd8ef70cbd1e876975723930d2d38c3538d874cd27a73d436c257cca487de"},
-    {"id":"009","file":"shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/earth-needs-help-e001-s009.png","sha256":"cb4055b2e574652750268d161ff6da89683dafe35b98abf73403ea06e2386a4b"}
+    {
+      "id": "001",
+      "file": "shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/earth-needs-help-e001-s001.png",
+      "sha256": "5da0f3f7c8ea9c155c6b13bedc33f852bc0e608294f92040baf13acbf8ff2b3f"
+    },
+    {
+      "id": "002",
+      "file": "shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/earth-needs-help-e001-s002.png",
+      "sha256": "dbf90d6c8a801d4e639e31bee2be525e883989628b5737efc4a21646ed59a6a3"
+    },
+    {
+      "id": "003",
+      "file": "shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/earth-needs-help-e001-s003.png",
+      "sha256": "fdba3c9bdb0932a015f07acc8c248c07cdb0e2ab915ede8e4a778f10226edaab"
+    },
+    {
+      "id": "004",
+      "file": "shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/earth-needs-help-e001-s004.png",
+      "sha256": "10bd2cce636bce4a8e71482163fbfe95ba58a3d0d02ee38c189741acc08ed126"
+    },
+    {
+      "id": "005",
+      "file": "shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/earth-needs-help-e001-s005.png",
+      "sha256": "58f27722e31c048be05561f1fe0b0dfd156137634afd5d23a39950c4d232c31f"
+    },
+    {
+      "id": "006a",
+      "file": "shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/earth-needs-help-e001-s006a.png",
+      "sha256": "0e419efab679d992f49e831d65a4693d75b8c5b50366fb925aa2c32c35dcab24"
+    },
+    {
+      "id": "006b",
+      "file": "shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/earth-needs-help-e001-s006b.png",
+      "sha256": "c1b1bfddc56939ede886c9eb4b7320b3fca245dc584acb42f17f4b6d19f9cdcc"
+    },
+    {
+      "id": "007",
+      "file": "shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/earth-needs-help-e001-s007.png",
+      "sha256": "6885f6ceb115f10b8eb79672a29b27c745e69771a4e013a14f9737abfd4ee51c"
+    },
+    {
+      "id": "008",
+      "file": "shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/earth-needs-help-e001-s008.png",
+      "sha256": "48cc99d9169058afb1b8f2498b1557569804d532f3ef919a5abf3afb53aa1f47"
+    },
+    {
+      "id": "009",
+      "file": "shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/earth-needs-help-e001-s009.png",
+      "sha256": "a670879c90152393a92c8f5fb11edd5fc432dadfa7f276654a8950eb1b116cba"
+    }
   ],
-  "reviewed_by": "user",
-  "review_notes": "Rejected for visual quality/continuity. Superseded by the layered 2.5D still-production pipeline; do not send this batch to motion."
+  "reviewed_by": null,
+  "review_notes": null
 }
