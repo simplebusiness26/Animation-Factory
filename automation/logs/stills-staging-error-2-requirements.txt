@@ -1,0 +1,9 @@
+# Pin the model-facing stack; preserve Kaggle's matched torch/CUDA installation.
+diffusers==0.40.0
+transformers==5.0.0
+accelerate==1.12.0
+safetensors==0.8.0
+sentencepiece==0.2.1
+protobuf==6.33.5
+Pillow==12.1.0
+
