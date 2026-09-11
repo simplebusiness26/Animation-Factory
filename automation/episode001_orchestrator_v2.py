@@ -36,6 +36,31 @@ def current_kernel(state: dict, key: str, fallback: str) -> str:
     return value or fallback
 
 
+OUTPUT_STATUS_REPORTS = (
+    "animation-factory-image-report.json",
+    "earth-needs-help-e001-motion-manifest.json",
+)
+
+
+def downloadable_output_status(kernel: str) -> str | None:
+    """Infer terminal state from Kaggle output when private status returns 403."""
+    try:
+        with tempfile.TemporaryDirectory(prefix="e001-status-output-") as td:
+            root = Path(td)
+            base.download_output(kernel, root)
+            for name in OUTPUT_STATUS_REPORTS:
+                for path in root.rglob(name):
+                    try:
+                        payload = json.loads(path.read_text(encoding="utf-8"))
+                    except (OSError, ValueError):
+                        continue
+                    if isinstance(payload, dict) and isinstance(payload.get("success"), bool):
+                        return "COMPLETE" if payload["success"] else "ERROR"
+    except Exception:
+        return None
+    return None
+
+
 def safe_status(kernel: str) -> str:
     try:
         return base.status_of(kernel)
@@ -44,6 +69,10 @@ def safe_status(kernel: str) -> str:
         base.log("latest-status-error.txt", text)
         if "404" in text or "not found" in text.lower():
             return "MISSING"
+        output_status = downloadable_output_status(kernel)
+        if output_status:
+            base.log("latest-status-output-fallback.txt", f"{kernel}: {output_status}")
+            return output_status
         return "STATUS_ERROR"
 
 
