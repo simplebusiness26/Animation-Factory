@@ -30,6 +30,15 @@ def install_runtime() -> None:
     )
     if proc.returncode != 0:
         raise RuntimeError(f'pip install failed ({proc.returncode}):\n{proc.stdout[-4000:]}')
+    # Verify the freshly installed Pillow/diffusers stack in a clean interpreter.
+    # This catches partial upgrades before a model download consumes GPU time.
+    probe = subprocess.run(
+        [sys.executable, '-c',
+         'from PIL import Image, ImageDraw; from diffusers import Flux2KleinPipeline; print("runtime-ok")'],
+        text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, check=False,
+    )
+    if probe.returncode != 0:
+        raise RuntimeError(f'runtime compatibility check failed ({probe.returncode}):\n{probe.stdout[-4000:]}')
 
 
 def write_report(payload: dict) -> None:
@@ -73,7 +82,6 @@ def load_pipeline(job: dict, revision: str):
     import torch
     if not torch.cuda.is_available():
         raise RuntimeError('GPU_BLOCK: CUDA GPU is required')
-    install_runtime()
     from diffusers import Flux2KleinPipeline
     major, _minor = torch.cuda.get_device_capability(0)
     dtype = torch.bfloat16 if major >= 8 else torch.float16
@@ -94,6 +102,9 @@ def main() -> int:
     }
     try:
         require_launch_allowed(SOURCE_ROOT)
+        # Install before plan_job/verified_image can import Pillow. Upgrading
+        # Pillow after those imports caused a mixed module cache on Kaggle.
+        install_runtime()
         job = load_json(JOB)
         config = load_json(SOURCE_ROOT / 'pipeline/image-generation.json')
         plan = plan_job(job, config, root=SOURCE_ROOT)
