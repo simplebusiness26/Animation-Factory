@@ -84,8 +84,8 @@ class RoutingTests(Fixture):
         plan = router.plan_job(self.job, self.config, root=self.root)
         self.assertEqual(plan['status'], 'ready')
         self.assertEqual(len(plan['shots']), len(base.SHOTS))
-        generated = [x for x in plan['shots'] if not x.get('reused_approved_input')]
-        reused = [x for x in plan['shots'] if x.get('reused_approved_input')]
+        generated = [x for x in plan['shots'] if x['automated']]
+        reused = [x for x in plan['shots'] if not x['automated']]
         self.assertEqual([x['id'] for x in generated], ['001'])
         self.assertEqual(len(reused), len(base.SHOTS) - 1)
         self.assertEqual(sum(x['reference_count'] for x in generated), 4)
