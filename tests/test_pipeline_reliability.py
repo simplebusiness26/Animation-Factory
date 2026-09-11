@@ -326,24 +326,24 @@ class StagingTests(Fixture):
             archive.assert_not_called()
             stage.assert_not_called()
 
-    def test_staging_keeps_shot001_and_invalidates_prior_batch_qa(self):
+    def test_staging_replaces_legacy_shot001_and_invalidates_prior_batch_qa(self):
         output = self.root / 'download'
         output.mkdir()
         rows = []
-        for shot in base.SHOTS[1:]:
+        for shot in base.SHOTS:
             name = f"earth-needs-help-e001-s{shot['id']}.png"
             path = self.image('download/' + name)
             rows.append({'id': shot['id'], 'file': name, 'success': True, 'sha256': hashlib.sha256(path.read_bytes()).hexdigest()})
         (output / 'animation-factory-image-report.json').write_text(json.dumps({'success': True, 'shots': rows}))
         current = self.root / 'stills'
         current.mkdir()
-        path = self.image('stills/earth-needs-help-e001-s001.png')
-        before = path.read_bytes()
-        with patch.object(v3, 'continuity_preflight', return_value=(True, 'ok')), patch.object(base, 'STILLS_DIR', current), patch.object(v3, 'reset_continuity_review') as reset, patch.object(base, 'make_shot1_still', side_effect=AssertionError('old thumbnail')):
+        legacy = self.image('stills/earth-needs-help-e001-s001.png')
+        before = legacy.read_bytes()
+        with patch.object(v3, 'continuity_preflight', return_value=(True, 'ok')), patch.object(base, 'STILLS_DIR', current), patch.object(v3, 'reset_continuity_review') as reset:
             staged = v3.robust_stage_generated_stills(output)
-            self.assertEqual(len(staged), 10)
+            self.assertEqual(len(staged), len(base.SHOTS))
             reset.assert_called_once()
-        self.assertEqual(path.read_bytes(), before)
+        self.assertNotEqual(legacy.read_bytes(), before)
 
 class SnapshotTests(Fixture):
     def commit_fixture(self):
