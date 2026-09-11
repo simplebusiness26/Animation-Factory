@@ -134,7 +134,7 @@ def validate_still_batch(downloaded: Path) -> None:
     if len(reports) != 1:
         raise RuntimeError('Expected exactly one hybrid image report')
     report = json.loads(reports[0].read_text(encoding='utf-8'))
-    expected = {shot['id'] for shot in base.SHOTS[1:]}
+    expected = {shot['id'] for shot in base.SHOTS}
     rows = report.get('shots') or []
     if report.get('success') is not True or len(rows) != len(expected) or {row.get('id') for row in rows} != expected:
         raise RuntimeError('Image batch is incomplete or failed')
@@ -157,20 +157,7 @@ def robust_stage_generated_stills(downloaded: Path) -> list[Path]:
     base.STILLS_DIR.mkdir(parents=True, exist_ok=True)
     staged: list[Path] = []
 
-    shot1_target = base.STILLS_DIR / "earth-needs-help-e001-s001.png"
-    repaired_refs = list(downloaded.rglob("reference.jpg")) + list(downloaded.rglob("reference.png"))
-    if repaired_refs:
-        base.normalize_image(repaired_refs[0], shot1_target)
-        if not base.valid_image(shot1_target):
-            raise RuntimeError("Repaired canonical Shot 001 bridge failed validation")
-        staged.append(shot1_target)
-    elif shot1_target.is_file() and base.valid_image(shot1_target):
-        # Preserve the current accepted Shot 001; never overwrite it with an old embedded thumbnail.
-        staged.append(shot1_target)
-    else:
-        raise RuntimeError('Current Shot 001 is missing or invalid; restore it before staging')
-
-    for shot in base.SHOTS[1:]:
+    for shot in base.SHOTS:
         sid = shot["id"]
         candidates = list(downloaded.rglob(f"*s{sid}.png")) + list(downloaded.rglob(f"*s{sid}.jpg"))
         if not candidates:
