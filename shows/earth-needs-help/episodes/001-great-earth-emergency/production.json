@@ -5,7 +5,7 @@
   "title": "The Great Earth Emergency",
   "target_runtime_seconds": 80,
   "aspect_ratio": "16:9",
-  "status": "blocked_continuity",
+  "status": "generating_stills",
   "generation_strategy": "hybrid-routed-locked-reference-to-scene-still-to-video-per-shot",
   "continuity": {
     "manifest": "shows/earth-needs-help/continuity-manifest.json",
@@ -13,7 +13,7 @@
     "reference_pack_status": "locked",
     "text_only_identity_generation_allowed": false,
     "qa_required_before_motion": true,
-    "current_stills_002_009": "rejected_continuity"
+    "current_stills_002_009": "approved_by_user"
   },
   "image_backend": {
     "router_config": "pipeline/image-generation.json",
@@ -33,8 +33,8 @@
     "quality_gates": "pipeline/quality-gates.json",
     "auto_repair": true,
     "max_attempts_per_shot": 3,
-    "active_stage": "character-continuity",
-    "active_shot": "002",
+    "active_stage": "reference-still-generation",
+    "active_shot": "001",
     "release_requires": "episode_qa_pass"
   },
   "video_backend": {
@@ -48,23 +48,178 @@
   },
   "global_negative_prompt": "blurry, distorted, deformed, extra limbs, duplicate characters, wrong character identity, wrong colours, changed costume, changed silhouette, changed face, text, watermark, scary, horror, violent, inconsistent face, melted anatomy, extreme camera motion, background morphing",
   "shots": [
-    {"id":"001","duration_seconds":7,"location":"spaceship-bridge","still_status":"ready_canonical_bridge","motion_status":"blocked_continuity","qa_status":"reference_accepted","attempts":0,"characters":["captain-pip","bloop","zig","momo"]},
-    {"id":"002","duration_seconds":7,"location":"spaceship-bridge","still_status":"rejected_continuity","motion_status":"blocked_continuity","qa_status":"failed_continuity","attempts":0,"characters":["captain-pip","bloop","zig","momo"]},
-    {"id":"003","duration_seconds":8,"location":"park","still_status":"rejected_continuity","motion_status":"blocked_continuity","qa_status":"failed_continuity","attempts":0,"characters":["captain-pip","bloop","zig","momo"]},
-    {"id":"004","duration_seconds":9,"location":"park","still_status":"rejected_continuity","motion_status":"blocked_continuity","qa_status":"failed_continuity","attempts":0,"characters":["captain-pip","bloop","zig","momo","human-child"]},
-    {"id":"005","duration_seconds":8,"location":"park-tree","still_status":"rejected_continuity","motion_status":"blocked_continuity","qa_status":"failed_continuity","attempts":0,"characters":["captain-pip","bloop","zig","momo","human-child"]},
-    {"id":"006a","duration_seconds":6,"location":"park-tree","still_status":"rejected_continuity","motion_status":"blocked_continuity","qa_status":"failed_continuity","attempts":0,"characters":["captain-pip","bloop","zig","momo","human-child"]},
-    {"id":"006b","duration_seconds":7,"location":"park-tree","still_status":"rejected_continuity","motion_status":"blocked_continuity","qa_status":"failed_continuity","attempts":0,"characters":["captain-pip","bloop","zig","momo","human-child"]},
-    {"id":"007","duration_seconds":10,"location":"park-tree","still_status":"rejected_continuity","motion_status":"blocked_continuity","qa_status":"failed_continuity","attempts":0,"characters":["captain-pip","bloop","zig","momo","human-child"]},
-    {"id":"008","duration_seconds":10,"location":"park","still_status":"rejected_continuity","motion_status":"blocked_continuity","qa_status":"failed_continuity","attempts":0,"characters":["captain-pip","bloop","zig","momo","human-child"]},
-    {"id":"009","duration_seconds":8,"location":"park","still_status":"rejected_continuity","motion_status":"blocked_continuity","qa_status":"failed_continuity","attempts":0,"characters":["captain-pip","bloop","zig","momo","human-child","pigeon"]}
+    {
+      "id": "001",
+      "duration_seconds": 7,
+      "location": "spaceship-bridge",
+      "still_status": "replacement_requested",
+      "motion_status": "blocked_continuity",
+      "qa_status": "pending_replacement_review",
+      "attempts": 1,
+      "characters": [
+        "captain-pip",
+        "bloop",
+        "zig",
+        "momo"
+      ]
+    },
+    {
+      "id": "002",
+      "duration_seconds": 7,
+      "location": "spaceship-bridge",
+      "still_status": "approved_continuity",
+      "motion_status": "blocked_continuity",
+      "qa_status": "approved",
+      "attempts": 0,
+      "characters": [
+        "captain-pip",
+        "bloop",
+        "zig",
+        "momo"
+      ]
+    },
+    {
+      "id": "003",
+      "duration_seconds": 8,
+      "location": "park",
+      "still_status": "approved_continuity",
+      "motion_status": "blocked_continuity",
+      "qa_status": "approved",
+      "attempts": 0,
+      "characters": [
+        "captain-pip",
+        "bloop",
+        "zig",
+        "momo"
+      ]
+    },
+    {
+      "id": "004",
+      "duration_seconds": 9,
+      "location": "park",
+      "still_status": "approved_continuity",
+      "motion_status": "blocked_continuity",
+      "qa_status": "approved",
+      "attempts": 0,
+      "characters": [
+        "captain-pip",
+        "bloop",
+        "zig",
+        "momo",
+        "human-child"
+      ]
+    },
+    {
+      "id": "005",
+      "duration_seconds": 8,
+      "location": "park-tree",
+      "still_status": "approved_continuity",
+      "motion_status": "blocked_continuity",
+      "qa_status": "approved",
+      "attempts": 0,
+      "characters": [
+        "captain-pip",
+        "bloop",
+        "zig",
+        "momo",
+        "human-child"
+      ]
+    },
+    {
+      "id": "006a",
+      "duration_seconds": 6,
+      "location": "park-tree",
+      "still_status": "approved_continuity",
+      "motion_status": "blocked_continuity",
+      "qa_status": "approved",
+      "attempts": 0,
+      "characters": [
+        "captain-pip",
+        "bloop",
+        "zig",
+        "momo",
+        "human-child"
+      ]
+    },
+    {
+      "id": "006b",
+      "duration_seconds": 7,
+      "location": "park-tree",
+      "still_status": "approved_continuity",
+      "motion_status": "blocked_continuity",
+      "qa_status": "approved",
+      "attempts": 0,
+      "characters": [
+        "captain-pip",
+        "bloop",
+        "zig",
+        "momo",
+        "human-child"
+      ]
+    },
+    {
+      "id": "007",
+      "duration_seconds": 10,
+      "location": "park-tree",
+      "still_status": "approved_continuity",
+      "motion_status": "blocked_continuity",
+      "qa_status": "approved",
+      "attempts": 0,
+      "characters": [
+        "captain-pip",
+        "bloop",
+        "zig",
+        "momo",
+        "human-child"
+      ]
+    },
+    {
+      "id": "008",
+      "duration_seconds": 10,
+      "location": "park",
+      "still_status": "approved_continuity",
+      "motion_status": "blocked_continuity",
+      "qa_status": "approved",
+      "attempts": 0,
+      "characters": [
+        "captain-pip",
+        "bloop",
+        "zig",
+        "momo",
+        "human-child"
+      ]
+    },
+    {
+      "id": "009",
+      "duration_seconds": 8,
+      "location": "park",
+      "still_status": "approved_continuity",
+      "motion_status": "blocked_continuity",
+      "qa_status": "approved",
+      "attempts": 0,
+      "characters": [
+        "captain-pip",
+        "bloop",
+        "zig",
+        "momo",
+        "human-child",
+        "pigeon"
+      ]
+    }
   ],
   "audio": {
     "strategy": "narrator-led-with-short-character-lines",
     "tts": "open-source/free",
     "lip_sync_required": false,
     "music": "light-heroic-to-playful",
-    "sfx": ["alarm","spaceship-whoosh","boing","leaf-rustle","gadget-whirr","comic-sting"]
+    "sfx": [
+      "alarm",
+      "spaceship-whoosh",
+      "boing",
+      "leaf-rustle",
+      "gadget-whirr",
+      "comic-sting"
+    ]
   },
-  "next_action": "regenerate shots 002-009 through the hybrid image router with locked references, run continuity QA on each still, and only then resume motion generation"
+  "next_action": "Generate replacement Shot 001 from the locked character references while reusing the approved Shot 002–009 stills unchanged; then review the resulting full ten-shot batch before motion generation."
 }
