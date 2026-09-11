@@ -1,14 +1,14 @@
 {
   "episode": "001",
   "title": "The Great Earth Emergency",
-  "phase": "blocked_continuity",
-  "stills_kernel": "simplebusiness/enh-e001-stills-r1-9088903",
+  "phase": "awaiting_stills",
+  "stills_kernel": "simplebusiness/enh-e001-stills-r1-9089327",
   "stills_attempts": 1,
   "motion_kernel": "simplebusiness/enh-e001-motion-r5-7908633-0",
   "motion_attempts": 0,
-  "last_status": "STILLS_CODE_REPAIR_READY",
-  "last_error": "Confirmed FLUX2 still runner failure repaired: install the pinned Pillow/diffusers stack before loading reference images.",
-  "updated_at": "2026-09-11T01:20:00Z",
+  "last_status": "STILLS_RETRY_1_SUBMITTED",
+  "last_error": null,
+  "updated_at": "2026-09-11T01:15:29Z",
   "release_tag": "earth-needs-help-e001",
   "stills_submit_failures": 0,
   "motion_submit_failures": 0,
@@ -23,7 +23,7 @@
   "single_active_submission_per_stage": true,
   "transient_status_backoff": true,
   "repeated_failure_repair_gate": true,
-  "stills_submitted_at_epoch": 1789088905,
+  "stills_submitted_at_epoch": 1789089329,
   "stills_missing_checks": 0,
-  "force_repaired_stills_retry": true
+  "stills_active_kernel": "simplebusiness/enh-e001-stills-r1-9089327"
 }
