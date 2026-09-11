@@ -1,0 +1,110 @@
+{
+  "success": true,
+  "pipeline": "hybrid-image-v1/flux2-klein-4b",
+  "provider": "kaggle",
+  "shots": [
+    {
+      "id": "001",
+      "success": true,
+      "file": "earth-needs-help-e001-s001.png",
+      "characters": [
+        "captain-pip",
+        "bloop",
+        "zig",
+        "momo"
+      ],
+      "reference_count": 4,
+      "seed": 12001,
+      "qa_status": "pending",
+      "sha256": "1344182b06cd92cbcfdec9e45fe50241aeddfb6d994f39b2676aea68f50014fc"
+    },
+    {
+      "id": "002",
+      "success": true,
+      "file": "earth-needs-help-e001-s002.png",
+      "qa_status": "pending",
+      "reused_approved_input": true,
+      "source_sha256": "dbf90d6c8a801d4e639e31bee2be525e883989628b5737efc4a21646ed59a6a3",
+      "sha256": "987828f4068b1d6541f04de22e8dbe8c814cb7dfb2ebe36425063f56f0d74257"
+    },
+    {
+      "id": "003",
+      "success": true,
+      "file": "earth-needs-help-e001-s003.png",
+      "qa_status": "pending",
+      "reused_approved_input": true,
+      "source_sha256": "fdba3c9bdb0932a015f07acc8c248c07cdb0e2ab915ede8e4a778f10226edaab",
+      "sha256": "2a64651df9346b4da80f0c24bcaee153dbfe2e30d3c6a3339cc9d8bd10543cf4"
+    },
+    {
+      "id": "004",
+      "success": true,
+      "file": "earth-needs-help-e001-s004.png",
+      "qa_status": "pending",
+      "reused_approved_input": true,
+      "source_sha256": "10bd2cce636bce4a8e71482163fbfe95ba58a3d0d02ee38c189741acc08ed126",
+      "sha256": "63e9f399773288177dd513a98d30f0883ed581fdb9428f69f1b66a1b74a8dda7"
+    },
+    {
+      "id": "005",
+      "success": true,
+      "file": "earth-needs-help-e001-s005.png",
+      "qa_status": "pending",
+      "reused_approved_input": true,
+      "source_sha256": "58f27722e31c048be05561f1fe0b0dfd156137634afd5d23a39950c4d232c31f",
+      "sha256": "38f779b638bd7b66ac06f3619c8c76cb0d2eae80d157db72495a3ccdf641d1bf"
+    },
+    {
+      "id": "006a",
+      "success": true,
+      "file": "earth-needs-help-e001-s006a.png",
+      "qa_status": "pending",
+      "reused_approved_input": true,
+      "source_sha256": "0e419efab679d992f49e831d65a4693d75b8c5b50366fb925aa2c32c35dcab24",
+      "sha256": "3f2e485841bd5d53fc054c6417d8c85eda68d3c939a93dbcee5e4942ddb4fc4e"
+    },
+    {
+      "id": "006b",
+      "success": true,
+      "file": "earth-needs-help-e001-s006b.png",
+      "qa_status": "pending",
+      "reused_approved_input": true,
+      "source_sha256": "c1b1bfddc56939ede886c9eb4b7320b3fca245dc584acb42f17f4b6d19f9cdcc",
+      "sha256": "904eff9852487067346c1bad4bcc65ed36f611fff4015484fd331608f75828b4"
+    },
+    {
+      "id": "007",
+      "success": true,
+      "file": "earth-needs-help-e001-s007.png",
+      "qa_status": "pending",
+      "reused_approved_input": true,
+      "source_sha256": "6885f6ceb115f10b8eb79672a29b27c745e69771a4e013a14f9737abfd4ee51c",
+      "sha256": "2cd0d3a4e584e18b7fc26af26745900ba5f10d0ea0d2812835186ae7fbfdd15e"
+    },
+    {
+      "id": "008",
+      "success": true,
+      "file": "earth-needs-help-e001-s008.png",
+      "qa_status": "pending",
+      "reused_approved_input": true,
+      "source_sha256": "48cc99d9169058afb1b8f2498b1557569804d532f3ef919a5abf3afb53aa1f47",
+      "sha256": "5d718570eb967fba7e3703dc733bfdfc2b347ef5af3b190568f0f0bc17fc1081"
+    },
+    {
+      "id": "009",
+      "success": true,
+      "file": "earth-needs-help-e001-s009.png",
+      "qa_status": "pending",
+      "reused_approved_input": true,
+      "source_sha256": "a670879c90152393a92c8f5fb11edd5fc432dadfa7f276654a8950eb1b116cba",
+      "sha256": "f695bdf2f88eedcb36b34e1ac3283a9a4a8d78bdb0d09085ae0a23d3dce1e5db"
+    }
+  ],
+  "source_commit": "0e7121f7dc3a05710c40d0226e1a05abf3f659de",
+  "model_revision": "e7b7dc27f91deacad38e78976d1f2b499d76a294",
+  "gpu": "Tesla T4",
+  "dtype": "torch.float16",
+  "model": "black-forest-labs/FLUX.2-klein-4B",
+  "elapsed_seconds": 204.3
+}
+

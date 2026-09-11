@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "goal": "Use the best zero-cost image route by default while reserving ChatGPT-created images for master references, hero keyframes and continuity rescue.",
+  "paid_api_policy": "disabled_without_explicit_user_approval",
+  "default_route": "flux2-klein-kaggle",
+  "providers": {
+    "flux2-klein-kaggle": {
+      "type": "automated",
+      "provider": "kaggle",
+      "model": "black-forest-labs/FLUX.2-klein-4B",
+      "license": "Apache-2.0",
+      "revision": "e7b7dc27f91deacad38e78976d1f2b499d76a294",
+      "accelerator": "NvidiaTeslaT4",
+      "approx_vram_gb": 13,
+      "supports": ["text-to-image", "image-to-image", "multi-reference"],
+      "purpose": ["bulk-stills", "backgrounds", "routine-keyframes", "automatic-retries"],
+      "cost_policy": "free-compute-route"
+    },
+    "chatgpt-image-account": {
+      "type": "manual-import",
+      "provider": "chatgpt",
+      "automated_api": false,
+      "purpose": ["master-character-references", "hero-keyframes", "difficult-continuity-repairs", "style-locks"],
+      "activation": "An image created in the user's ChatGPT account is committed into the approved asset path and marked approved. The factory never pretends the ChatGPT subscription is an API entitlement.",
+      "cost_policy": "uses-existing-chatgpt-plan-subject-to-plan-limits"
+    },
+    "sdxl-layered-fallback": {
+      "type": "automated-fallback",
+      "provider": "kaggle",
+      "model": "stabilityai/stable-diffusion-xl-base-1.0 + IP-Adapter",
+      "purpose": ["fallback-only"],
+      "cost_policy": "free-compute-route"
+    }
+  },
+  "routing": {
+    "master_reference": "chatgpt-image-account",
+    "hero": "chatgpt-image-account",
+    "continuity_rescue": "chatgpt-image-account",
+    "routine": "flux2-klein-kaggle",
+    "background": "flux2-klein-kaggle",
+    "bulk": "flux2-klein-kaggle",
+    "automatic_retry": "flux2-klein-kaggle"
+  },
+  "continuity_rules": {
+    "recurring_characters_require_locked_references": true,
+    "reference_images_override_prompt_prose": true,
+    "text_only_recurring_character_identity": false,
+    "generated_image_requires_qa_before_video": true,
+    "failed_still_is_regenerated_before_motion": true
+  }
+}
+

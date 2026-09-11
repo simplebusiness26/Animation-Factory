@@ -6,15 +6,15 @@
   "stills_attempts": 1,
   "motion_kernel": "simplebusiness/enh-e001-motion-r5-7908633-0",
   "motion_attempts": 0,
-  "last_status": "STILLS_RETRY_1_SUBMITTED",
-  "last_error": null,
-  "updated_at": "2026-09-11T01:36:48Z",
+  "last_status": "STILLS_STAGING_ERROR_1",
+  "last_error": "Completed Kaggle batch retained; staging failed: RuntimeError: Invalid image report for earth-needs-help-e001-s002.png",
+  "updated_at": "2026-09-11T01:46:03Z",
   "release_tag": "earth-needs-help-e001",
   "stills_submit_failures": 0,
   "motion_submit_failures": 0,
   "assembly_attempts": 0,
   "continuity_gate": "passed",
-  "stills_staging_failures": 0,
+  "stills_staging_failures": 1,
   "paused_by_user": false,
   "pause_reason": null,
   "controller_version": 6,
@@ -24,6 +24,5 @@
   "transient_status_backoff": true,
   "repeated_failure_repair_gate": true,
   "stills_submitted_at_epoch": 1789090608,
-  "stills_missing_checks": 0,
-  "stills_active_kernel": "simplebusiness/enh-e001-stills-r1-9090606"
+  "stills_missing_checks": 0
 }
