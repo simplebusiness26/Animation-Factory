@@ -218,6 +218,14 @@ class ControllerTests(unittest.TestCase):
         self.assertEqual(push.call_args.args[0], ROOT / 'kernels/reference-still-runner')
         self.assertEqual(state['stills_attempts'], 1)
 
+    def test_confirmed_repair_retry_bypasses_stale_private_status_once(self):
+        state = {'phase': 'blocked_continuity', 'force_repaired_stills_retry': True}
+        with patch.object(v2, 'safe_status', return_value='STATUS_ERROR') as status, patch.object(v6, '_ORIGINAL_RETRY_STILLS') as submit:
+            v6.safe_retry_stills(state, 'confirmed Pillow repair')
+            submit.assert_called_once_with(state, 'confirmed Pillow repair')
+            status.assert_not_called()
+        self.assertNotIn('force_repaired_stills_retry', state)
+
     def test_running_and_unknown_status_never_submit_replacement(self):
         for status in ('RUNNING', 'API_STATUS_CHANGED', 'STATUS_ERROR'):
             state = {'phase': 'awaiting_stills'}
@@ -262,7 +270,7 @@ class RunnerTests(Fixture):
         if pixels is None:
             pixels = np.linspace(0, 1, self.job['width'] * self.job['height'] * 3).reshape(self.job['height'], self.job['width'], 3)
         pipe = Mock(return_value=types.SimpleNamespace(images=[pixels]))
-        with patch.object(runner, 'SOURCE_ROOT', self.root), patch.object(runner, 'WORK', self.work), patch.object(runner, 'JOB', self.root / packaging.EPISODE / 'episode001-image-job.json'), patch.object(runner, 'REPORT', self.work / 'animation-factory-image-report.json'), patch.object(runner, 'load_pipeline', loader or Mock(return_value=(pipe, torch, 'test'))), contextlib.redirect_stderr(io.StringIO()):
+        with patch.object(runner, 'SOURCE_ROOT', self.root), patch.object(runner, 'WORK', self.work), patch.object(runner, 'JOB', self.root / packaging.EPISODE / 'episode001-image-job.json'), patch.object(runner, 'REPORT', self.work / 'animation-factory-image-report.json'), patch.object(runner, 'install_runtime'), patch.object(runner, 'load_pipeline', loader or Mock(return_value=(pipe, torch, 'test'))), contextlib.redirect_stderr(io.StringIO()):
             code = runner.main()
         return code, router.load_json(self.work / 'animation-factory-image-report.json'), pipe
 
@@ -401,6 +409,13 @@ class PinnedModelStackTests(unittest.TestCase):
         pins = self._pins((ROOT / 'kernels/reference-still-runner/requirements.txt').read_text())
         self.assertGreaterEqual(tuple(map(int, pins['safetensors'].split('.'))), (0, 8, 0))
         self.assertGreaterEqual(int(pins['transformers'].split('.')[0]), 5)
+
+    def test_still_runner_installs_before_reference_preflight(self):
+        source = (ROOT / 'kernels/reference-still-runner/main.py').read_text()
+        main_body = source.split('def main() -> int:', 1)[1]
+        self.assertLess(main_body.index('install_runtime()'), main_body.index('plan = plan_job('))
+        load_body = source.split('def load_pipeline(', 1)[1].split('def main()', 1)[0]
+        self.assertNotIn('install_runtime()', load_body)
 
     def test_smoke_test_requirements_are_pip_installable_together(self):
         pins = self._pins((ROOT / 'kernels/flux2-smoke-test/main.py').read_text())
