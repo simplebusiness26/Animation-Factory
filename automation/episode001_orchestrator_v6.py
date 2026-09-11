@@ -138,10 +138,18 @@ def _record_successful_submit(state: dict, family: str) -> None:
 
 
 def safe_retry_stills(state: dict, reason: str) -> None:
-    if _quota_wait_active(state, "stills") or _transient_wait_active(state, "stills"):
-        return
-    if _hold_existing_submission(state, "stills"):
-        return
+    # A confirmed failed notebook may be replaced once after its code is
+    # repaired, even when Kaggle's private status endpoint is unavailable.
+    forced_repair_retry = bool(state.pop("force_repaired_stills_retry", False))
+    if not forced_repair_retry:
+        if _quota_wait_active(state, "stills") or _transient_wait_active(state, "stills"):
+            return
+        if _hold_existing_submission(state, "stills"):
+            return
+    else:
+        state.pop(_active_key("stills"), None)
+        state.pop(_transient_until_key("stills"), None)
+        state[_missing_checks_key("stills")] = 0
     _ORIGINAL_RETRY_STILLS(state, reason)
     _record_successful_submit(state, "stills")
 
