@@ -80,11 +80,15 @@ class Fixture(unittest.TestCase):
         return path
 
 class RoutingTests(Fixture):
-    def test_real_episode_validates_all_nine_shots_and_forty_reference_uses(self):
+    def test_shot001_replacement_generates_only_that_shot_and_reuses_approved_stills(self):
         plan = router.plan_job(self.job, self.config, root=self.root)
         self.assertEqual(plan['status'], 'ready')
-        self.assertEqual(len(plan['shots']), 9)
-        self.assertEqual(sum(x['reference_count'] for x in plan['shots']), 40)
+        self.assertEqual(len(plan['shots']), len(base.SHOTS))
+        generated = [x for x in plan['shots'] if not x.get('reused_approved_input')]
+        reused = [x for x in plan['shots'] if x.get('reused_approved_input')]
+        self.assertEqual([x['id'] for x in generated], ['001'])
+        self.assertEqual(len(reused), len(base.SHOTS) - 1)
+        self.assertEqual(sum(x['reference_count'] for x in generated), 4)
 
     def test_missing_character_reference_blocks_batch(self):
         (self.root / MANIFEST['canonical_cast']['zig']['reference']).unlink()
@@ -280,17 +284,19 @@ class RunnerTests(Fixture):
 
     def test_success_records_all_files_hashes_and_pending_qa(self):
         self.job['shots'] = self.job['shots'][:2]
+        for key in ('approved_input_path', 'approved_input_sha256', 'qa_status'):
+            self.job['shots'][1].pop(key, None)
         code, report, pipe = self.run_image_job()
         self.assertEqual(code, 0)
         self.assertTrue(report['success'])
         self.assertEqual(pipe.call_count, 2)
-        self.assertEqual([len(call.kwargs['image']) for call in pipe.call_args_list], [4, 1])
+        self.assertEqual([len(call.kwargs['image']) for call in pipe.call_args_list], [4, 4])
         for row in report['shots']:
             self.assertEqual(row['qa_status'], 'pending')
             self.assertEqual(row['sha256'], hashlib.sha256((self.work / row['file']).read_bytes()).hexdigest())
 
-    def test_bad_last_shot_reference_prevents_entire_gpu_load(self):
-        self.job['shots'][-1]['characters'] = ['not-locked']
+    def test_bad_generated_shot_reference_prevents_entire_gpu_load(self):
+        self.job['shots'][0]['characters'] = ['not-locked']
         load = Mock()
         code, report, _ = self.run_image_job(loader=load)
         self.assertEqual(code, 2)
