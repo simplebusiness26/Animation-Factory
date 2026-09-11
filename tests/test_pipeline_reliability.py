@@ -233,6 +233,10 @@ class ControllerTests(unittest.TestCase):
                 v6.safe_retry_stills(state, 'retry')
                 submit.assert_not_called()
 
+    def test_private_status_uses_downloaded_terminal_report(self):
+        with patch.object(base, 'status_of', side_effect=RuntimeError('403 Forbidden')), patch.object(v2, 'downloadable_output_status', return_value='COMPLETE'):
+            self.assertEqual(v2.safe_status('owner/kernel'), 'COMPLETE')
+
     def test_single_status_sample_per_poll(self):
         state = {'phase': 'awaiting_stills'}
         with patch.object(v2, 'safe_status', return_value='RUNNING') as status, patch.object(v2, 'retry_stills') as retry:
