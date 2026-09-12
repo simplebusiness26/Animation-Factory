@@ -8,7 +8,7 @@
   "motion_attempts": 0,
   "last_status": "STILLS_STAGING_ERROR_2",
   "last_error": "Completed Kaggle batch retained; staging failed: RuntimeError: Invalid image report for earth-needs-help-e001-s002.png",
-  "updated_at": "2026-09-12T05:54:47Z",
+  "updated_at": "2026-09-12T06:03:30Z",
   "release_tag": "earth-needs-help-e001",
   "stills_submit_failures": 0,
   "motion_submit_failures": 0,
