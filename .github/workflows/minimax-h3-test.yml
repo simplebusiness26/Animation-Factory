@@ -1,0 +1,75 @@
+name: MiniMax H3 Experiment
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - control/minimax-command.json
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: minimax-h3-experiment
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+      KAGGLE_OWNER: ${{ vars.KAGGLE_OWNER }}
+
+    steps:
+      - name: Checkout bridge
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install Kaggle CLI
+        run: pip install -r requirements.txt
+
+      - name: Execute isolated MiniMax command
+        id: minimax
+        continue-on-error: true
+        run: python minimax_worker.py
+
+      - name: Upload retrieved MiniMax output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: minimax-h3-output
+          path: artifacts/
+          if-no-files-found: ignore
+          retention-days: 7
+
+      - name: Record latest MiniMax result
+        if: always()
+        run: |
+          mkdir -p results
+          if [ -f result.md ]; then
+            cp result.md results/minimax-latest.md
+          else
+            printf '## ❌ MiniMax H3 Experiment\n\nThe worker stopped before producing a result file.\n' > results/minimax-latest.md
+          fi
+          cp results/minimax-latest.md /tmp/minimax-latest.md
+          git config user.name "animation-factory-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin main
+          git reset --hard origin/main
+          cp /tmp/minimax-latest.md results/minimax-latest.md
+          git add results/minimax-latest.md
+          if ! git diff --cached --quiet; then
+            git commit -m "Record MiniMax H3 experiment result [skip ci]"
+            git push origin HEAD:main
+          fi
+
+      - name: Fail workflow when experiment worker failed
+        if: steps.minimax.outcome == 'failure'
+        run: exit 1
