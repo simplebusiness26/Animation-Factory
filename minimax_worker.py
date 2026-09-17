@@ -69,7 +69,14 @@ def _render_self_contained_script(job: dict[str, Any], still: Path) -> str:
     return rendered
 
 
-def _build_kernel(shot_id: str, owner: str) -> tuple[Path, str]:
+def _safe_run_token(request_id: str) -> str:
+    """Return a short token that makes every GitHub-triggered Kaggle kernel unique."""
+    raw = str(os.getenv("GITHUB_RUN_ID") or request_id or "manual").lower()
+    token = re.sub(r"[^a-z0-9]+", "-", raw).strip("-")
+    return (token[-24:] or "manual")
+
+
+def _build_kernel(shot_id: str, owner: str, request_id: str) -> tuple[Path, str]:
     motion, shot = _shot_record(shot_id)
     still_name = Path(str(shot["still"])).name
     still = (STILLS_DIR / still_name).resolve()
@@ -92,16 +99,21 @@ def _build_kernel(shot_id: str, owner: str) -> tuple[Path, str]:
         "fps": 24,
         "model_repo": "ewin-reg/MiniMax-H3-Turbo-FP8-ComfyUI",
         "workflow": "fl2va",
-        "experiment": "minimax-h3-isolated-v2-self-contained",
+        "experiment": "minimax-h3-isolated-v3-unique-kernel",
     }
 
     temp_root = Path(tempfile.mkdtemp(prefix="animation-factory-minimax-h3-"))
     (temp_root / "main.py").write_text(_render_self_contained_script(job, still), encoding="utf-8")
 
-    slug = re.sub(r"[^a-z0-9-]+", "-", f"minimax-h3-e001-s{shot_id}".lower()).strip("-")
+    run_token = _safe_run_token(request_id)
+    slug = re.sub(
+        r"[^a-z0-9-]+",
+        "-",
+        f"minimax-h3-e001-s{shot_id}-{run_token}".lower(),
+    ).strip("-")[:80]
     metadata = {
         "id": f"{owner}/{slug}",
-        "title": f"Animation Factory MiniMax H3 E001 Shot {shot_id}",
+        "title": slug,
         "code_file": "main.py",
         "language": "python",
         "kernel_type": "script",
@@ -138,7 +150,7 @@ def execute(command: dict[str, Any]) -> tuple[str, list[str]]:
     if not re.fullmatch(r"(?:00[1-9]|006[ab])", shot_id):
         raise ValueError("shot must be one of 001-005, 006a, 006b, 007-009")
 
-    folder, kernel = _build_kernel(shot_id, owner)
+    folder, kernel = _build_kernel(shot_id, owner, request_id)
     try:
         push = worker.run(["kaggle", "kernels", "push", "-p", str(folder), "--accelerator", "NvidiaTeslaT4"])
         try:
@@ -151,7 +163,7 @@ def execute(command: dict[str, Any]) -> tuple[str, list[str]]:
     return (
         f"Submitted isolated MiniMax H3 test **{kernel}** for Episode 001 shot **{shot_id}**.\n\n"
         f"Push response:\n```text\n{push[:6000]}\n```\n\nStatus:\n```text\n{status[:3000]}\n```\n\n"
-        "The approved still and job are embedded directly in the Kaggle script, so Kaggle cannot lose sibling input files. "
+        "The approved still and job are embedded directly in the Kaggle script, and each retry uses a unique Kaggle kernel ID. "
         "Use `kernel_output` after completion to retrieve `minimax-h3-test.mp4` and `minimax-h3-report.json`.",
         [],
     )
