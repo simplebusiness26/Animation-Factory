@@ -7,6 +7,7 @@ and its motion prompt, and submits a dedicated MiniMax H3 test kernel.
 """
 from __future__ import annotations
 
+import base64
 import json
 import os
 import re
@@ -33,13 +34,6 @@ def parse_command() -> dict[str, Any]:
 
 
 def resolve_owner(explicit: Any = None) -> str:
-    """Resolve the Kaggle owner without requiring a separate repo variable.
-
-    Modern `KAGGLE_API_TOKEN` auth does not necessarily expose a username env
-    variable. If no owner is configured, infer it from the authenticated user's
-    existing kernel list. Animation Factory already has Kaggle kernels, making
-    this a reliable zero-touch fallback for the current bridge.
-    """
     configured = str(explicit or os.getenv("KAGGLE_OWNER") or os.getenv("KAGGLE_USERNAME") or "").strip()
     if configured:
         return configured
@@ -58,16 +52,29 @@ def _shot_record(shot_id: str) -> tuple[dict[str, Any], dict[str, Any]]:
     raise ValueError(f"Unknown Episode 001 shot: {shot_id}")
 
 
+def _render_self_contained_script(job: dict[str, Any], still: Path) -> str:
+    template = TEMPLATE.read_text(encoding="utf-8")
+    if "EMBEDDED_JOB_JSON = None" not in template or "EMBEDDED_STILL_B64 = None" not in template:
+        raise RuntimeError("MiniMax kernel template is missing self-contained input markers")
+
+    job_json = json.dumps(job, separators=(",", ":"), ensure_ascii=False)
+    still_b64 = base64.b64encode(still.read_bytes()).decode("ascii")
+    rendered = template.replace("EMBEDDED_JOB_JSON = None", f"EMBEDDED_JOB_JSON = {job_json!r}", 1)
+    rendered = rendered.replace("EMBEDDED_STILL_B64 = None", f"EMBEDDED_STILL_B64 = {still_b64!r}", 1)
+    rendered = rendered.replace(
+        'EMBEDDED_STILL_SUFFIX = ".png"',
+        f"EMBEDDED_STILL_SUFFIX = {still.suffix.lower()!r}",
+        1,
+    )
+    return rendered
+
+
 def _build_kernel(shot_id: str, owner: str) -> tuple[Path, str]:
     motion, shot = _shot_record(shot_id)
     still_name = Path(str(shot["still"])).name
     still = (STILLS_DIR / still_name).resolve()
     if STILLS_DIR.resolve() not in still.parents or not still.is_file():
         raise ValueError(f"Approved still not found: {still_name}")
-
-    temp_root = Path(tempfile.mkdtemp(prefix="animation-factory-minimax-h3-"))
-    shutil.copy2(TEMPLATE, temp_root / "main.py")
-    shutil.copy2(still, temp_root / f"input-still{still.suffix.lower()}")
 
     duration = max(2.0, min(float(shot.get("duration_seconds", 5)), 15.0))
     requested = max(22, round(duration * 24))
@@ -85,9 +92,11 @@ def _build_kernel(shot_id: str, owner: str) -> tuple[Path, str]:
         "fps": 24,
         "model_repo": "ewin-reg/MiniMax-H3-Turbo-FP8-ComfyUI",
         "workflow": "fl2va",
-        "experiment": "minimax-h3-isolated-v1",
+        "experiment": "minimax-h3-isolated-v2-self-contained",
     }
-    (temp_root / "job.json").write_text(json.dumps(job, indent=2) + "\n", encoding="utf-8")
+
+    temp_root = Path(tempfile.mkdtemp(prefix="animation-factory-minimax-h3-"))
+    (temp_root / "main.py").write_text(_render_self_contained_script(job, still), encoding="utf-8")
 
     slug = re.sub(r"[^a-z0-9-]+", "-", f"minimax-h3-e001-s{shot_id}".lower()).strip("-")
     metadata = {
@@ -142,8 +151,8 @@ def execute(command: dict[str, Any]) -> tuple[str, list[str]]:
     return (
         f"Submitted isolated MiniMax H3 test **{kernel}** for Episode 001 shot **{shot_id}**.\n\n"
         f"Push response:\n```text\n{push[:6000]}\n```\n\nStatus:\n```text\n{status[:3000]}\n```\n\n"
-        "This does not alter the production video backend. Use `kernel_output` after completion to retrieve "
-        "`minimax-h3-test.mp4` and `minimax-h3-report.json`.",
+        "The approved still and job are embedded directly in the Kaggle script, so Kaggle cannot lose sibling input files. "
+        "Use `kernel_output` after completion to retrieve `minimax-h3-test.mp4` and `minimax-h3-report.json`.",
         [],
     )
 
