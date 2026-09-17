@@ -1,23 +1,53 @@
 #!/usr/bin/env python3
 """MiniMax H3 isolated image-to-video experiment for Animation Factory.
 
-The kernel is intentionally self-contained and writes a machine-readable report
-whether generation succeeds or fails. It never changes production state.
+The Kaggle CLI turns the configured code file into /kaggle/src/script.py and
+may not preserve arbitrary sibling files beside it. To make the experiment
+reliable, minimax_worker.py embeds the approved shot job and still directly in
+this script before upload. File-based lookup remains as a development fallback.
 """
 from __future__ import annotations
 
+import base64
 import json
-import os
 import subprocess
 import sys
 import time
 import traceback
 from pathlib import Path
 
+# These three values are rendered by minimax_worker.py in the temporary kernel
+# copy. Keep the exact assignment text because the worker replaces it safely.
+EMBEDDED_JOB_JSON = None
+EMBEDDED_STILL_B64 = None
+EMBEDDED_STILL_SUFFIX = ".png"
+
 ROOT = Path(__file__).resolve().parent
-JOB = json.loads((ROOT / "job.json").read_text(encoding="utf-8"))
-REPORT = Path("/kaggle/working/minimax-h3-report.json")
-OUTPUT = Path("/kaggle/working/minimax-h3-test.mp4")
+WORK = Path("/kaggle/working")
+REPORT = WORK / "minimax-h3-report.json"
+OUTPUT = WORK / "minimax-h3-test.mp4"
+
+
+def load_job() -> dict:
+    if EMBEDDED_JOB_JSON:
+        value = json.loads(EMBEDDED_JOB_JSON)
+        if not isinstance(value, dict):
+            raise RuntimeError("Embedded MiniMax job is not a JSON object")
+        return value
+
+    candidates = [
+        ROOT / "job.json",
+        Path.cwd() / "job.json",
+        WORK / "job.json",
+        Path("/kaggle/src/job.json"),
+    ]
+    for path in candidates:
+        if path.is_file():
+            return json.loads(path.read_text(encoding="utf-8"))
+    raise FileNotFoundError("MiniMax job.json was not embedded and was not found in Kaggle runtime paths")
+
+
+JOB = load_job()
 
 
 def sh(args: list[str]) -> str:
@@ -47,8 +77,6 @@ def write_report(**extra):
 
 
 def install_runtime():
-    # H3 support landed in recent Modular Diffusers. Install from upstream so a
-    # stale Kaggle image cannot silently select an older incompatible pipeline.
     sh([
         sys.executable, "-m", "pip", "install", "-q", "--upgrade",
         "git+https://github.com/huggingface/diffusers.git",
@@ -58,10 +86,21 @@ def install_runtime():
 
 
 def find_still() -> Path:
-    matches = list(ROOT.glob("input-still.*"))
-    if len(matches) != 1:
-        raise RuntimeError(f"Expected exactly one input still, found {len(matches)}")
-    return matches[0]
+    if EMBEDDED_STILL_B64:
+        suffix = str(EMBEDDED_STILL_SUFFIX or ".png")
+        if suffix.lower() not in {".png", ".jpg", ".jpeg", ".webp"}:
+            raise RuntimeError(f"Unsupported embedded still suffix: {suffix}")
+        target = WORK / f"minimax-input-still{suffix.lower()}"
+        target.write_bytes(base64.b64decode(EMBEDDED_STILL_B64, validate=True))
+        return target
+
+    roots = [ROOT, Path.cwd(), WORK, Path("/kaggle/src")]
+    for root in roots:
+        for name in ("input-still.png", "input-still.jpg", "input-still.jpeg", "input-still.webp"):
+            path = root / name
+            if path.is_file():
+                return path
+    raise FileNotFoundError("No embedded or file-based input still was supplied to the MiniMax Kaggle kernel")
 
 
 def main():
@@ -82,8 +121,6 @@ def main():
 
         still = find_still()
         image = load_image(str(still))
-        # Preserve the approved composition but keep the experiment canvas small
-        # enough to make the free Kaggle path practical.
         image.thumbnail((960, 544))
         width = max(256, (image.width // 32) * 32)
         height = max(256, (image.height // 32) * 32)
@@ -94,9 +131,6 @@ def main():
         seed = int(JOB.get("seed", 6100))
         frames = int(JOB.get("num_frames", 124))
 
-        # The experimental FP8 package is intended for free-cloud T4 use. Its
-        # layout has changed during early H3 releases, so support both the
-        # packaged FL2VA layout and the standard Modular Diffusers workflow.
         load_errors = []
         pipe = None
         try:
@@ -121,9 +155,6 @@ def main():
                 raise RuntimeError("MiniMax H3 model could not be loaded: " + " | ".join(load_errors))
 
         if gpu_count == 1:
-            # Not every early ModularPipeline build exposes this helper. Use it
-            # when present; otherwise the quantized checkpoint remains the low-
-            # VRAM mechanism and any OOM is captured in the report.
             offload = getattr(pipe, "enable_sequential_cpu_offload", None)
             if callable(offload):
                 offload()
