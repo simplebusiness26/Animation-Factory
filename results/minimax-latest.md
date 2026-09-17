@@ -1,6 +1,17 @@
-## ❌ MiniMax H3 Experiment
+## ✅ MiniMax H3 Experiment
 
-`RuntimeError`: Command failed (1): kaggle kernels push
+Submitted isolated MiniMax H3 test **simplebusiness/minimax-h3-e001-s001-35171992030** for Episode 001 shot **001**.
+
+Push response:
+```text
 Warning: Looks like you're using an outdated `kaggle`` version (installed: {current_version}), please consider upgrading to the latest version ({latest_version_str})
-Your kernel title does not resolve to the specified id. This may result in surprising behavior. We suggest making your title something that resolves to the specified id. See https://en.wikipedia.org/wiki/Clean_URL#Slug for more information on how slugs are determined.
-409 Client Error: Conflict for url: https://api.kaggle.com/v1/kernels.KernelsApiService/SaveKernel
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/simplebusiness/minimax-h3-e001-s001-35171992030
+```
+
+Status:
+```text
+Warning: Looks like you're using an outdated `kaggle`` version (installed: {current_version}), please consider upgrading to the latest version ({latest_version_str})
+simplebusiness/minimax-h3-e001-s001-35171992030 has status "KernelWorkerStatus.QUEUED"
+```
+
+The approved still and job are embedded directly in the Kaggle script, and each retry uses a unique Kaggle kernel ID. Use `kernel_output` after completion to retrieve `minimax-h3-test.mp4` and `minimax-h3-report.json`.
