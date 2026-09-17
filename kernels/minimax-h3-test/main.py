@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import base64
 import json
+import re
 import subprocess
 import sys
 import time
@@ -76,13 +77,50 @@ def write_report(**extra):
     REPORT.write_text(json.dumps(data, indent=2, default=str) + "\n", encoding="utf-8")
 
 
-def install_runtime():
+def install_runtime() -> dict:
+    """Install a Diffusers/TorchAO pair compatible with Kaggle's existing torch.
+
+    Diffusers main currently imports FqnToConfig from torchao. Kaggle images can
+    ship an older torchao that predates that API, so choose a torchao release
+    from the published compatibility window instead of blindly keeping the
+    preinstalled package. Avoid upgrading torch itself because that is large and
+    can disturb Kaggle's CUDA build.
+    """
+    import torch
+
+    match = re.match(r"(\d+)\.(\d+)", str(torch.__version__))
+    if not match:
+        raise RuntimeError(f"Could not parse Kaggle torch version: {torch.__version__}")
+    major, minor = int(match.group(1)), int(match.group(2))
+    if major != 2:
+        raise RuntimeError(f"Unsupported Kaggle torch major version: {torch.__version__}")
+
+    if minor >= 11:
+        torchao_version = "0.17.0"
+    elif minor >= 8:
+        torchao_version = "0.16.0"
+    elif minor >= 7:
+        torchao_version = "0.15.0"
+    else:
+        torchao_version = "0.12.0"
+
     sh([
         sys.executable, "-m", "pip", "install", "-q", "--upgrade",
+        f"torchao=={torchao_version}",
         "git+https://github.com/huggingface/diffusers.git",
         "transformers", "accelerate", "safetensors", "sentencepiece",
         "huggingface_hub", "imageio", "imageio-ffmpeg", "pillow",
     ])
+
+    # Validate the exact API that caused the previous Kaggle failure in a fresh
+    # interpreter so a stale module cache cannot hide an incompatible install.
+    sh([
+        sys.executable,
+        "-c",
+        "from torchao.quantization import FqnToConfig; "
+        "from diffusers import ModularPipeline; print('H3 runtime imports OK')",
+    ])
+    return {"torch": str(torch.__version__), "torchao": torchao_version}
 
 
 def find_still() -> Path:
@@ -107,8 +145,9 @@ def main():
     started = time.time()
     gpu_count = 0
     gpu_name = "none"
+    runtime = {}
     try:
-        install_runtime()
+        runtime = install_runtime()
         import torch
         from diffusers import ModularPipeline
         from diffusers.utils import load_image
@@ -186,6 +225,7 @@ def main():
             success=True,
             gpu_count=gpu_count,
             gpu_name=gpu_name,
+            runtime=runtime,
             width=width,
             height=height,
             runtime_seconds=round(time.time() - started, 2),
@@ -199,6 +239,7 @@ def main():
             success=False,
             gpu_count=gpu_count,
             gpu_name=gpu_name,
+            runtime=runtime,
             runtime_seconds=round(time.time() - started, 2),
             error_type=type(exc).__name__,
             error=str(exc),
