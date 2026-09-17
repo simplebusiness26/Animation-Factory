@@ -32,6 +32,24 @@ def parse_command() -> dict[str, Any]:
     return value
 
 
+def resolve_owner(explicit: Any = None) -> str:
+    """Resolve the Kaggle owner without requiring a separate repo variable.
+
+    Modern `KAGGLE_API_TOKEN` auth does not necessarily expose a username env
+    variable. If no owner is configured, infer it from the authenticated user's
+    existing kernel list. Animation Factory already has Kaggle kernels, making
+    this a reliable zero-touch fallback for the current bridge.
+    """
+    configured = str(explicit or os.getenv("KAGGLE_OWNER") or os.getenv("KAGGLE_USERNAME") or "").strip()
+    if configured:
+        return configured
+    listing = worker.run(["kaggle", "kernels", "list", "-m", "--page-size", "20"])
+    matches = re.findall(r"\b([A-Za-z0-9_.-]+)/[A-Za-z0-9_.-]+\b", listing)
+    if not matches:
+        raise ValueError("Could not infer Kaggle owner from the authenticated account")
+    return matches[0]
+
+
 def _shot_record(shot_id: str) -> tuple[dict[str, Any], dict[str, Any]]:
     motion = json.loads(MOTION_JOB.read_text(encoding="utf-8"))
     for shot in motion.get("shots", []):
@@ -52,7 +70,6 @@ def _build_kernel(shot_id: str, owner: str) -> tuple[Path, str]:
     shutil.copy2(still, temp_root / f"input-still{still.suffix.lower()}")
 
     duration = max(2.0, min(float(shot.get("duration_seconds", 5)), 15.0))
-    # H3 generates at a fixed 24 fps and its VAE expects 17*n+5 frames.
     requested = max(22, round(duration * 24))
     n = max(1, round((requested - 5) / 17))
     num_frames = 17 * n + 5
@@ -94,7 +111,6 @@ def _build_kernel(shot_id: str, owner: str) -> tuple[Path, str]:
 def execute(command: dict[str, Any]) -> tuple[str, list[str]]:
     action = str(command.get("action") or "").strip()
     request_id = str(command.get("request_id") or "unspecified").strip()
-    owner = str(command.get("owner") or os.getenv("KAGGLE_OWNER") or "").strip()
 
     if action == "idle":
         return f"MiniMax H3 experiment bridge is installed. Request ID: `{request_id}`.", []
@@ -107,9 +123,8 @@ def execute(command: dict[str, Any]) -> tuple[str, list[str]]:
 
     if action != "run_minimax_shot":
         raise ValueError("Supported MiniMax actions: idle, run_minimax_shot, kernel_status, kernel_files, kernel_output")
-    if not owner:
-        raise ValueError("KAGGLE_OWNER is not configured")
 
+    owner = resolve_owner(command.get("owner"))
     shot_id = str(command.get("shot") or "001").strip().lower()
     if not re.fullmatch(r"(?:00[1-9]|006[ab])", shot_id):
         raise ValueError("shot must be one of 001-005, 006a, 006b, 007-009")
