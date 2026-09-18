@@ -97,9 +97,9 @@ def _build_kernel(shot_id: str, owner: str, request_id: str) -> tuple[Path, str]
         "duration_seconds": duration,
         "num_frames": num_frames,
         "fps": 24,
-        "model_repo": "ewin-reg/MiniMax-H3-Turbo-FP8-ComfyUI",
-        "workflow": "fl2va",
-        "experiment": "minimax-h3-isolated-v3-unique-kernel",
+        "model_repo": "Comfy-Org/MiniMax-H3",
+        "workflow": "comfyui-fl2va-turbo8",
+        "experiment": "minimax-h3-isolated-v4-public-comfyui",
     }
 
     temp_root = Path(tempfile.mkdtemp(prefix="animation-factory-minimax-h3-"))
