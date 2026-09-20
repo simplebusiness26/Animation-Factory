@@ -140,7 +140,14 @@ def validate_still_batch(downloaded: Path) -> None:
         raise RuntimeError('Image batch is incomplete or failed')
     for row in rows:
         name = f"earth-needs-help-e001-s{row['id']}.png"
-        candidates = list(downloaded.rglob(name))
+        # Kaggle's downloaded working tree can also contain the immutable
+        # image-source snapshot used by the runner.  Those pinned inputs are
+        # not generated outputs and must not make an approved reused still
+        # look like a duplicate.
+        candidates = [
+            path for path in downloaded.rglob(name)
+            if 'image-source' not in path.relative_to(downloaded).parts
+        ]
         if row.get('success') is not True or row.get('file') != name or len(candidates) != 1:
             raise RuntimeError(f'Invalid image report for {name}')
         if sha256(candidates[0]) != row.get('sha256') or not base.valid_image(candidates[0]):
