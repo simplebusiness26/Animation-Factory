@@ -14,9 +14,9 @@
         "momo"
       ],
       "reference_count": 4,
-      "seed": 12001,
+      "seed": 12101,
       "qa_status": "pending",
-      "sha256": "1344182b06cd92cbcfdec9e45fe50241aeddfb6d994f39b2676aea68f50014fc"
+      "sha256": "bcde0d6c64165bb1916c364afac79db33a719aaa2f1d00f931b6d659eb39e542"
     },
     {
       "id": "002",
@@ -100,11 +100,11 @@
       "sha256": "f695bdf2f88eedcb36b34e1ac3283a9a4a8d78bdb0d09085ae0a23d3dce1e5db"
     }
   ],
-  "source_commit": "0e7121f7dc3a05710c40d0226e1a05abf3f659de",
+  "source_commit": "5bb6bfcf267a61f7426af594f81879bc5427b50a",
   "model_revision": "e7b7dc27f91deacad38e78976d1f2b499d76a294",
   "gpu": "Tesla T4",
   "dtype": "torch.float16",
   "model": "black-forest-labs/FLUX.2-klein-4B",
-  "elapsed_seconds": 204.3
+  "elapsed_seconds": 214.72
 }
 

@@ -1,7 +1,7 @@
 {
   "show": "Earth Needs Help",
   "episode": "001",
-  "status": "approved",
+  "status": "pending_review",
   "review_policy": "Approve only when every recurring character visibly matches the locked reference pack. File hashes bind this approval to this exact still batch.",
   "required_checks": [
     "character identity matches locked visual refs",
@@ -16,7 +16,7 @@
     {
       "id": "001",
       "file": "shows/earth-needs-help/episodes/001-great-earth-emergency/assets/stills/earth-needs-help-e001-s001.png",
-      "sha256": "8e9f15389bb3b24f50d384cec4e6ed9d41f20eb46bcdef318660218419efe066"
+      "sha256": "5da0f3f7c8ea9c155c6b13bedc33f852bc0e608294f92040baf13acbf8ff2b3f"
     },
     {
       "id": "002",
@@ -64,6 +64,6 @@
       "sha256": "a670879c90152393a92c8f5fb11edd5fc432dadfa7f276654a8950eb1b116cba"
     }
   ],
-  "reviewed_by": "user_pre_authorized_rerun",
-  "review_notes": "User explicitly requested: regenerate only Episode 001 Shot 001, reuse approved Shots 002-009 unchanged, then immediately run the full motion pass. Authorization is hash-bound to this exact batch."
+  "reviewed_by": null,
+  "review_notes": "Shots 002–009 were approved by the user and will be reused unchanged. Shot 001 is being regenerated from the locked character references; approve the complete hash-bound batch only after reviewing the new Shot 001."
 }
