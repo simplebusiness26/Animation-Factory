@@ -1,0 +1,274 @@
+{
+  "show": "Earth Needs Help",
+  "episode": "001",
+  "title": "The Great Earth Emergency",
+  "gpu": "Tesla T4",
+  "ltx_install_error": null,
+  "packaged_stills_bytes": null,
+  "started_at": "2026-09-22T02:04:21Z",
+  "shots": [
+    {
+      "id": "001",
+      "attempts": [
+        {
+          "profile": "ltx-primary",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'av'"
+        },
+        {
+          "profile": "ltx-reduced",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'av'"
+        },
+        {
+          "profile": "i2vgen-xl",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.i2vgen_xl because of the following error (look up to see its traceback):\nNo module named 'diffusers.pipelines.i2vgen_xl'"
+        },
+        {
+          "profile": "svd-xt",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\nFailed to import transformers.models.clip.image_processing_clip because of the following error (look up to see its traceback):\ncannot import name 'divide_to_patches' from 'transformers.image_transforms' (/usr/local/lib/python3.12/dist-packages/transformers/image_transforms.py)"
+        }
+      ],
+      "success": false
+    },
+    {
+      "id": "002",
+      "attempts": [
+        {
+          "profile": "ltx-primary",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'av'"
+        },
+        {
+          "profile": "ltx-reduced",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'av'"
+        },
+        {
+          "profile": "i2vgen-xl",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.i2vgen_xl because of the following error (look up to see its traceback):\nNo module named 'diffusers.pipelines.i2vgen_xl'"
+        },
+        {
+          "profile": "svd-xt",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\nFailed to import transformers.models.clip.image_processing_clip because of the following error (look up to see its traceback):\ncannot import name 'divide_to_patches' from 'transformers.image_transforms' (/usr/local/lib/python3.12/dist-packages/transformers/image_transforms.py)"
+        }
+      ],
+      "success": false
+    },
+    {
+      "id": "003",
+      "attempts": [
+        {
+          "profile": "ltx-primary",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'av'"
+        },
+        {
+          "profile": "ltx-reduced",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'av'"
+        },
+        {
+          "profile": "i2vgen-xl",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.i2vgen_xl because of the following error (look up to see its traceback):\nNo module named 'diffusers.pipelines.i2vgen_xl'"
+        },
+        {
+          "profile": "svd-xt",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\nFailed to import transformers.models.clip.image_processing_clip because of the following error (look up to see its traceback):\ncannot import name 'divide_to_patches' from 'transformers.image_transforms' (/usr/local/lib/python3.12/dist-packages/transformers/image_transforms.py)"
+        }
+      ],
+      "success": false
+    },
+    {
+      "id": "004",
+      "attempts": [
+        {
+          "profile": "ltx-primary",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'av'"
+        },
+        {
+          "profile": "ltx-reduced",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'av'"
+        },
+        {
+          "profile": "i2vgen-xl",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.i2vgen_xl because of the following error (look up to see its traceback):\nNo module named 'diffusers.pipelines.i2vgen_xl'"
+        },
+        {
+          "profile": "svd-xt",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\nFailed to import transformers.models.clip.image_processing_clip because of the following error (look up to see its traceback):\ncannot import name 'divide_to_patches' from 'transformers.image_transforms' (/usr/local/lib/python3.12/dist-packages/transformers/image_transforms.py)"
+        }
+      ],
+      "success": false
+    },
+    {
+      "id": "005",
+      "attempts": [
+        {
+          "profile": "ltx-primary",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'av'"
+        },
+        {
+          "profile": "ltx-reduced",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'av'"
+        },
+        {
+          "profile": "i2vgen-xl",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.i2vgen_xl because of the following error (look up to see its traceback):\nNo module named 'diffusers.pipelines.i2vgen_xl'"
+        },
+        {
+          "profile": "svd-xt",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\nFailed to import transformers.models.clip.image_processing_clip because of the following error (look up to see its traceback):\ncannot import name 'divide_to_patches' from 'transformers.image_transforms' (/usr/local/lib/python3.12/dist-packages/transformers/image_transforms.py)"
+        }
+      ],
+      "success": false
+    },
+    {
+      "id": "006a",
+      "attempts": [
+        {
+          "profile": "ltx-primary",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'av'"
+        },
+        {
+          "profile": "ltx-reduced",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'av'"
+        },
+        {
+          "profile": "i2vgen-xl",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.i2vgen_xl because of the following error (look up to see its traceback):\nNo module named 'diffusers.pipelines.i2vgen_xl'"
+        },
+        {
+          "profile": "svd-xt",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\nFailed to import transformers.models.clip.image_processing_clip because of the following error (look up to see its traceback):\ncannot import name 'divide_to_patches' from 'transformers.image_transforms' (/usr/local/lib/python3.12/dist-packages/transformers/image_transforms.py)"
+        }
+      ],
+      "success": false
+    },
+    {
+      "id": "006b",
+      "attempts": [
+        {
+          "profile": "ltx-primary",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'av'"
+        },
+        {
+          "profile": "ltx-reduced",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'av'"
+        },
+        {
+          "profile": "i2vgen-xl",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.i2vgen_xl because of the following error (look up to see its traceback):\nNo module named 'diffusers.pipelines.i2vgen_xl'"
+        },
+        {
+          "profile": "svd-xt",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\nFailed to import transformers.models.clip.image_processing_clip because of the following error (look up to see its traceback):\ncannot import name 'divide_to_patches' from 'transformers.image_transforms' (/usr/local/lib/python3.12/dist-packages/transformers/image_transforms.py)"
+        }
+      ],
+      "success": false
+    },
+    {
+      "id": "007",
+      "attempts": [
+        {
+          "profile": "ltx-primary",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'av'"
+        },
+        {
+          "profile": "ltx-reduced",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'av'"
+        },
+        {
+          "profile": "i2vgen-xl",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.i2vgen_xl because of the following error (look up to see its traceback):\nNo module named 'diffusers.pipelines.i2vgen_xl'"
+        },
+        {
+          "profile": "svd-xt",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\nFailed to import transformers.models.clip.image_processing_clip because of the following error (look up to see its traceback):\ncannot import name 'divide_to_patches' from 'transformers.image_transforms' (/usr/local/lib/python3.12/dist-packages/transformers/image_transforms.py)"
+        }
+      ],
+      "success": false
+    },
+    {
+      "id": "008",
+      "attempts": [
+        {
+          "profile": "ltx-primary",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'av'"
+        },
+        {
+          "profile": "ltx-reduced",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'av'"
+        },
+        {
+          "profile": "i2vgen-xl",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.i2vgen_xl because of the following error (look up to see its traceback):\nNo module named 'diffusers.pipelines.i2vgen_xl'"
+        },
+        {
+          "profile": "svd-xt",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\nFailed to import transformers.models.clip.image_processing_clip because of the following error (look up to see its traceback):\ncannot import name 'divide_to_patches' from 'transformers.image_transforms' (/usr/local/lib/python3.12/dist-packages/transformers/image_transforms.py)"
+        }
+      ],
+      "success": false
+    },
+    {
+      "id": "009",
+      "attempts": [
+        {
+          "profile": "ltx-primary",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'av'"
+        },
+        {
+          "profile": "ltx-reduced",
+          "status": "failed",
+          "error": "ModuleNotFoundError: No module named 'av'"
+        },
+        {
+          "profile": "i2vgen-xl",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.i2vgen_xl because of the following error (look up to see its traceback):\nNo module named 'diffusers.pipelines.i2vgen_xl'"
+        },
+        {
+          "profile": "svd-xt",
+          "status": "failed",
+          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\nFailed to import transformers.models.clip.image_processing_clip because of the following error (look up to see its traceback):\ncannot import name 'divide_to_patches' from 'transformers.image_transforms' (/usr/local/lib/python3.12/dist-packages/transformers/image_transforms.py)"
+        }
+      ],
+      "success": false
+    }
+  ],
+  "elapsed_seconds": 187.54,
+  "success": false
+}
+
