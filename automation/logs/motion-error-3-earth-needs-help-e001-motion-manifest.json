@@ -5,7 +5,7 @@
   "gpu": "Tesla T4",
   "ltx_install_error": null,
   "packaged_stills_bytes": null,
-  "started_at": "2026-08-28T08:57:07Z",
+  "started_at": "2026-09-22T02:28:06Z",
   "shots": [
     {
       "id": "001",
@@ -13,22 +13,22 @@
         {
           "profile": "ltx-primary",
           "status": "failed",
-          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+          "error": "ModuleNotFoundError: No module named 'av'"
         },
         {
           "profile": "ltx-reduced",
           "status": "failed",
-          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+          "error": "ModuleNotFoundError: No module named 'av'"
         },
         {
           "profile": "i2vgen-xl",
           "status": "failed",
-          "error": "RuntimeError: Failed to import diffusers.pipelines.deprecated.i2vgen_xl.pipeline_i2vgen_xl because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+          "error": "RuntimeError: Failed to import diffusers.pipelines.i2vgen_xl because of the following error (look up to see its traceback):\nNo module named 'diffusers.pipelines.i2vgen_xl'"
         },
         {
           "profile": "svd-xt",
           "status": "failed",
-          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\nFailed to import transformers.models.clip.image_processing_clip because of the following error (look up to see its traceback):\ncannot import name 'divide_to_patches' from 'transformers.image_transforms' (/usr/local/lib/python3.12/dist-packages/transformers/image_transforms.py)"
         }
       ],
       "success": false
@@ -39,22 +39,22 @@
         {
           "profile": "ltx-primary",
           "status": "failed",
-          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+          "error": "ModuleNotFoundError: No module named 'av'"
         },
         {
           "profile": "ltx-reduced",
           "status": "failed",
-          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+          "error": "ModuleNotFoundError: No module named 'av'"
         },
         {
           "profile": "i2vgen-xl",
           "status": "failed",
-          "error": "RuntimeError: Failed to import diffusers.pipelines.deprecated.i2vgen_xl.pipeline_i2vgen_xl because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+          "error": "RuntimeError: Failed to import diffusers.pipelines.i2vgen_xl because of the following error (look up to see its traceback):\nNo module named 'diffusers.pipelines.i2vgen_xl'"
         },
         {
           "profile": "svd-xt",
           "status": "failed",
-          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\nFailed to import transformers.models.clip.image_processing_clip because of the following error (look up to see its traceback):\ncannot import name 'divide_to_patches' from 'transformers.image_transforms' (/usr/local/lib/python3.12/dist-packages/transformers/image_transforms.py)"
         }
       ],
       "success": false
@@ -65,22 +65,22 @@
         {
           "profile": "ltx-primary",
           "status": "failed",
-          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+          "error": "ModuleNotFoundError: No module named 'av'"
         },
         {
           "profile": "ltx-reduced",
           "status": "failed",
-          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+          "error": "ModuleNotFoundError: No module named 'av'"
         },
         {
           "profile": "i2vgen-xl",
           "status": "failed",
-          "error": "RuntimeError: Failed to import diffusers.pipelines.deprecated.i2vgen_xl.pipeline_i2vgen_xl because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+          "error": "RuntimeError: Failed to import diffusers.pipelines.i2vgen_xl because of the following error (look up to see its traceback):\nNo module named 'diffusers.pipelines.i2vgen_xl'"
         },
         {
           "profile": "svd-xt",
           "status": "failed",
-          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\nFailed to import transformers.models.clip.image_processing_clip because of the following error (look up to see its traceback):\ncannot import name 'divide_to_patches' from 'transformers.image_transforms' (/usr/local/lib/python3.12/dist-packages/transformers/image_transforms.py)"
         }
       ],
       "success": false
@@ -91,22 +91,22 @@
         {
           "profile": "ltx-primary",
           "status": "failed",
-          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+          "error": "ModuleNotFoundError: No module named 'av'"
         },
         {
           "profile": "ltx-reduced",
           "status": "failed",
-          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+          "error": "ModuleNotFoundError: No module named 'av'"
         },
         {
           "profile": "i2vgen-xl",
           "status": "failed",
-          "error": "RuntimeError: Failed to import diffusers.pipelines.deprecated.i2vgen_xl.pipeline_i2vgen_xl because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+          "error": "RuntimeError: Failed to import diffusers.pipelines.i2vgen_xl because of the following error (look up to see its traceback):\nNo module named 'diffusers.pipelines.i2vgen_xl'"
         },
         {
           "profile": "svd-xt",
           "status": "failed",
-          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\nFailed to import transformers.models.clip.image_processing_clip because of the following error (look up to see its traceback):\ncannot import name 'divide_to_patches' from 'transformers.image_transforms' (/usr/local/lib/python3.12/dist-packages/transformers/image_transforms.py)"
         }
       ],
       "success": false
@@ -117,22 +117,22 @@
         {
           "profile": "ltx-primary",
           "status": "failed",
-          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+          "error": "ModuleNotFoundError: No module named 'av'"
         },
         {
           "profile": "ltx-reduced",
           "status": "failed",
-          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+          "error": "ModuleNotFoundError: No module named 'av'"
         },
         {
           "profile": "i2vgen-xl",
           "status": "failed",
-          "error": "RuntimeError: Failed to import diffusers.pipelines.deprecated.i2vgen_xl.pipeline_i2vgen_xl because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+          "error": "RuntimeError: Failed to import diffusers.pipelines.i2vgen_xl because of the following error (look up to see its traceback):\nNo module named 'diffusers.pipelines.i2vgen_xl'"
         },
         {
           "profile": "svd-xt",
           "status": "failed",
-          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\nFailed to import transformers.models.clip.image_processing_clip because of the following error (look up to see its traceback):\ncannot import name 'divide_to_patches' from 'transformers.image_transforms' (/usr/local/lib/python3.12/dist-packages/transformers/image_transforms.py)"
         }
       ],
       "success": false
@@ -143,22 +143,22 @@
         {
           "profile": "ltx-primary",
           "status": "failed",
-          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+          "error": "ModuleNotFoundError: No module named 'av'"
         },
         {
           "profile": "ltx-reduced",
           "status": "failed",
-          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+          "error": "ModuleNotFoundError: No module named 'av'"
         },
         {
           "profile": "i2vgen-xl",
           "status": "failed",
-          "error": "RuntimeError: Failed to import diffusers.pipelines.deprecated.i2vgen_xl.pipeline_i2vgen_xl because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+          "error": "RuntimeError: Failed to import diffusers.pipelines.i2vgen_xl because of the following error (look up to see its traceback):\nNo module named 'diffusers.pipelines.i2vgen_xl'"
         },
         {
           "profile": "svd-xt",
           "status": "failed",
-          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\nFailed to import transformers.models.clip.image_processing_clip because of the following error (look up to see its traceback):\ncannot import name 'divide_to_patches' from 'transformers.image_transforms' (/usr/local/lib/python3.12/dist-packages/transformers/image_transforms.py)"
         }
       ],
       "success": false
@@ -169,22 +169,22 @@
         {
           "profile": "ltx-primary",
           "status": "failed",
-          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+          "error": "ModuleNotFoundError: No module named 'av'"
         },
         {
           "profile": "ltx-reduced",
           "status": "failed",
-          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+          "error": "ModuleNotFoundError: No module named 'av'"
         },
         {
           "profile": "i2vgen-xl",
           "status": "failed",
-          "error": "RuntimeError: Failed to import diffusers.pipelines.deprecated.i2vgen_xl.pipeline_i2vgen_xl because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+          "error": "RuntimeError: Failed to import diffusers.pipelines.i2vgen_xl because of the following error (look up to see its traceback):\nNo module named 'diffusers.pipelines.i2vgen_xl'"
         },
         {
           "profile": "svd-xt",
           "status": "failed",
-          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\nFailed to import transformers.models.clip.image_processing_clip because of the following error (look up to see its traceback):\ncannot import name 'divide_to_patches' from 'transformers.image_transforms' (/usr/local/lib/python3.12/dist-packages/transformers/image_transforms.py)"
         }
       ],
       "success": false
@@ -195,22 +195,22 @@
         {
           "profile": "ltx-primary",
           "status": "failed",
-          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+          "error": "ModuleNotFoundError: No module named 'av'"
         },
         {
           "profile": "ltx-reduced",
           "status": "failed",
-          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+          "error": "ModuleNotFoundError: No module named 'av'"
         },
         {
           "profile": "i2vgen-xl",
           "status": "failed",
-          "error": "RuntimeError: Failed to import diffusers.pipelines.deprecated.i2vgen_xl.pipeline_i2vgen_xl because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+          "error": "RuntimeError: Failed to import diffusers.pipelines.i2vgen_xl because of the following error (look up to see its traceback):\nNo module named 'diffusers.pipelines.i2vgen_xl'"
         },
         {
           "profile": "svd-xt",
           "status": "failed",
-          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\nFailed to import transformers.models.clip.image_processing_clip because of the following error (look up to see its traceback):\ncannot import name 'divide_to_patches' from 'transformers.image_transforms' (/usr/local/lib/python3.12/dist-packages/transformers/image_transforms.py)"
         }
       ],
       "success": false
@@ -221,22 +221,22 @@
         {
           "profile": "ltx-primary",
           "status": "failed",
-          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+          "error": "ModuleNotFoundError: No module named 'av'"
         },
         {
           "profile": "ltx-reduced",
           "status": "failed",
-          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+          "error": "ModuleNotFoundError: No module named 'av'"
         },
         {
           "profile": "i2vgen-xl",
           "status": "failed",
-          "error": "RuntimeError: Failed to import diffusers.pipelines.deprecated.i2vgen_xl.pipeline_i2vgen_xl because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+          "error": "RuntimeError: Failed to import diffusers.pipelines.i2vgen_xl because of the following error (look up to see its traceback):\nNo module named 'diffusers.pipelines.i2vgen_xl'"
         },
         {
           "profile": "svd-xt",
           "status": "failed",
-          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\nFailed to import transformers.models.clip.image_processing_clip because of the following error (look up to see its traceback):\ncannot import name 'divide_to_patches' from 'transformers.image_transforms' (/usr/local/lib/python3.12/dist-packages/transformers/image_transforms.py)"
         }
       ],
       "success": false
@@ -247,28 +247,28 @@
         {
           "profile": "ltx-primary",
           "status": "failed",
-          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+          "error": "ModuleNotFoundError: No module named 'av'"
         },
         {
           "profile": "ltx-reduced",
           "status": "failed",
-          "error": "ModuleNotFoundError: No module named 'ltx_video'"
+          "error": "ModuleNotFoundError: No module named 'av'"
         },
         {
           "profile": "i2vgen-xl",
           "status": "failed",
-          "error": "RuntimeError: Failed to import diffusers.pipelines.deprecated.i2vgen_xl.pipeline_i2vgen_xl because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+          "error": "RuntimeError: Failed to import diffusers.pipelines.i2vgen_xl because of the following error (look up to see its traceback):\nNo module named 'diffusers.pipelines.i2vgen_xl'"
         },
         {
           "profile": "svd-xt",
           "status": "failed",
-          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)"
+          "error": "RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\nFailed to import transformers.models.clip.image_processing_clip because of the following error (look up to see its traceback):\ncannot import name 'divide_to_patches' from 'transformers.image_transforms' (/usr/local/lib/python3.12/dist-packages/transformers/image_transforms.py)"
         }
       ],
       "success": false
     }
   ],
-  "elapsed_seconds": 160.81,
+  "elapsed_seconds": 206.89,
   "success": false
 }
 

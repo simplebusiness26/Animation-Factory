@@ -1,0 +1,282 @@
+[{"stream_name":"stderr","time":90.107601834,"data":"Flax classes are deprecated and will be removed in Diffusers v1.0.0. We recommend migrating to PyTorch classes or pinning your version of Diffusers.\n"}
+,{"stream_name":"stderr","time":90.108448839,"data":"Flax classes are deprecated and will be removed in Diffusers v1.0.0. We recommend migrating to PyTorch classes or pinning your version of Diffusers.\n"}
+,{"stream_name":"stdout","time":212.292745855,"data":"{\n"}
+,{"stream_name":"stdout","time":212.292799704,"data":"  \"show\": \"Earth Needs Help\",\n"}
+,{"stream_name":"stdout","time":212.29280467,"data":"  \"episode\": \"001\",\n"}
+,{"stream_name":"stdout","time":212.292808405,"data":"  \"title\": \"The Great Earth Emergency\",\n"}
+,{"stream_name":"stdout","time":212.292811788,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":212.292815058,"data":"  \"ltx_install_error\": null,\n"}
+,{"stream_name":"stdout","time":212.292818644,"data":"  \"packaged_stills_bytes\": null,\n"}
+,{"stream_name":"stdout","time":212.292821765,"data":"  \"started_at\": \"2026-09-22T02:28:06Z\",\n"}
+,{"stream_name":"stdout","time":212.292825072,"data":"  \"shots\": [\n"}
+,{"stream_name":"stdout","time":212.292828234,"data":"    {\n"}
+,{"stream_name":"stdout","time":212.292831399,"data":"      \"id\": \"001\",\n"}
+,{"stream_name":"stdout","time":212.2928346,"data":"      \"attempts\": [\n"}
+,{"stream_name":"stdout","time":212.292837788,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.292840872,"data":"          \"profile\": \"ltx-primary\",\n"}
+,{"stream_name":"stdout","time":212.292844162,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.292847368,"data":"          \"error\": \"ModuleNotFoundError: No module named 'av'\"\n"}
+,{"stream_name":"stdout","time":212.292850672,"data":"        },\n"}
+,{"stream_name":"stdout","time":212.292853766,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.292856847,"data":"          \"profile\": \"ltx-reduced\",\n"}
+,{"stream_name":"stdout","time":212.29286003,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.292863221,"data":"          \"error\": \"ModuleNotFoundError: No module named 'av'\"\n"}
+,{"stream_name":"stdout","time":212.292866435,"data":"        },\n"}
+,{"stream_name":"stdout","time":212.292869472,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.292872518,"data":"          \"profile\": \"i2vgen-xl\",\n"}
+,{"stream_name":"stdout","time":212.292875814,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.292879156,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.i2vgen_xl because of the following error (look up to see its traceback):\\nNo module named 'diffusers.pipelines.i2vgen_xl'\"\n"}
+,{"stream_name":"stdout","time":212.292883857,"data":"        },\n"}
+,{"stream_name":"stdout","time":212.292887059,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.292890168,"data":"          \"profile\": \"svd-xt\",\n"}
+,{"stream_name":"stdout","time":212.292893307,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.292896665,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\\nFailed to import transformers.models.clip.image_processing_clip because of the following error (look up to see its traceback):\\ncannot import name 'divide_to_patches' from 'transformers.image_transforms' (/usr/local/lib/python3.12/dist-packages/transformers/image_transforms.py)\"\n"}
+,{"stream_name":"stdout","time":212.292901204,"data":"        }\n"}
+,{"stream_name":"stdout","time":212.29291292,"data":"      ],\n"}
+,{"stream_name":"stdout","time":212.292915539,"data":"      \"success\": false\n"}
+,{"stream_name":"stdout","time":212.292918084,"data":"    },\n"}
+,{"stream_name":"stdout","time":212.29292044,"data":"    {\n"}
+,{"stream_name":"stdout","time":212.292922756,"data":"      \"id\": \"002\",\n"}
+,{"stream_name":"stdout","time":212.292925157,"data":"      \"attempts\": [\n"}
+,{"stream_name":"stdout","time":212.292927624,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.292929952,"data":"          \"profile\": \"ltx-primary\",\n"}
+,{"stream_name":"stdout","time":212.292932372,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.292934763,"data":"          \"error\": \"ModuleNotFoundError: No module named 'av'\"\n"}
+,{"stream_name":"stdout","time":212.292937392,"data":"        },\n"}
+,{"stream_name":"stdout","time":212.292939722,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.29294201,"data":"          \"profile\": \"ltx-reduced\",\n"}
+,{"stream_name":"stdout","time":212.292944428,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.292946912,"data":"          \"error\": \"ModuleNotFoundError: No module named 'av'\"\n"}
+,{"stream_name":"stdout","time":212.292949365,"data":"        },\n"}
+,{"stream_name":"stdout","time":212.292951642,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.292953927,"data":"          \"profile\": \"i2vgen-xl\",\n"}
+,{"stream_name":"stdout","time":212.292956401,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.292960231,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.i2vgen_xl because of the following error (look up to see its traceback):\\nNo module named 'diffusers.pipelines.i2vgen_xl'\"\n"}
+,{"stream_name":"stdout","time":212.292963046,"data":"        },\n"}
+,{"stream_name":"stdout","time":212.292965342,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.292967616,"data":"          \"profile\": \"svd-xt\",\n"}
+,{"stream_name":"stdout","time":212.292993041,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.292995881,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\\nFailed to import transformers.models.clip.image_processing_clip because of the following error (look up to see its traceback):\\ncannot import name 'divide_to_patches' from 'transformers.image_transforms' (/usr/local/lib/python3.12/dist-packages/transformers/image_transforms.py)\"\n"}
+,{"stream_name":"stdout","time":212.292999455,"data":"        }\n"}
+,{"stream_name":"stdout","time":212.293001883,"data":"      ],\n"}
+,{"stream_name":"stdout","time":212.293004483,"data":"      \"success\": false\n"}
+,{"stream_name":"stdout","time":212.293007026,"data":"    },\n"}
+,{"stream_name":"stdout","time":212.293009466,"data":"    {\n"}
+,{"stream_name":"stdout","time":212.293011934,"data":"      \"id\": \"003\",\n"}
+,{"stream_name":"stdout","time":212.293014482,"data":"      \"attempts\": [\n"}
+,{"stream_name":"stdout","time":212.293017013,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.293019495,"data":"          \"profile\": \"ltx-primary\",\n"}
+,{"stream_name":"stdout","time":212.293022161,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.293024797,"data":"          \"error\": \"ModuleNotFoundError: No module named 'av'\"\n"}
+,{"stream_name":"stdout","time":212.293030295,"data":"        },\n"}
+,{"stream_name":"stdout","time":212.293032898,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.293035453,"data":"          \"profile\": \"ltx-reduced\",\n"}
+,{"stream_name":"stdout","time":212.293038058,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.293040673,"data":"          \"error\": \"ModuleNotFoundError: No module named 'av'\"\n"}
+,{"stream_name":"stdout","time":212.293043336,"data":"        },\n"}
+,{"stream_name":"stdout","time":212.293045874,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.293048388,"data":"          \"profile\": \"i2vgen-xl\",\n"}
+,{"stream_name":"stdout","time":212.293051021,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.293053768,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.i2vgen_xl because of the following error (look up to see its traceback):\\nNo module named 'diffusers.pipelines.i2vgen_xl'\"\n"}
+,{"stream_name":"stdout","time":212.293056673,"data":"        },\n"}
+,{"stream_name":"stdout","time":212.293059141,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.293061702,"data":"          \"profile\": \"svd-xt\",\n"}
+,{"stream_name":"stdout","time":212.293064358,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.293067022,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\\nFailed to import transformers.models.clip.image_processing_clip because of the following error (look up to see its traceback):\\ncannot import name 'divide_to_patches' from 'transformers.image_transforms' (/usr/local/lib/python3.12/dist-packages/transformers/image_transforms.py)\"\n"}
+,{"stream_name":"stdout","time":212.293070519,"data":"        }\n"}
+,{"stream_name":"stdout","time":212.293072994,"data":"      ],\n"}
+,{"stream_name":"stdout","time":212.293075463,"data":"      \"success\": false\n"}
+,{"stream_name":"stdout","time":212.293078018,"data":"    },\n"}
+,{"stream_name":"stdout","time":212.29308046,"data":"    {\n"}
+,{"stream_name":"stdout","time":212.293082925,"data":"      \"id\": \"004\",\n"}
+,{"stream_name":"stdout","time":212.293085493,"data":"      \"attempts\": [\n"}
+,{"stream_name":"stdout","time":212.293088058,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.293090548,"data":"          \"profile\": \"ltx-primary\",\n"}
+,{"stream_name":"stdout","time":212.293093154,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.293095763,"data":"          \"error\": \"ModuleNotFoundError: No module named 'av'\"\n"}
+,{"stream_name":"stdout","time":212.293098431,"data":"        },\n"}
+,{"stream_name":"stdout","time":212.293100997,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.293103763,"data":"          \"profile\": \"ltx-reduced\",\n"}
+,{"stream_name":"stdout","time":212.293106418,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.293109062,"data":"          \"error\": \"ModuleNotFoundError: No module named 'av'\"\n"}
+,{"stream_name":"stdout","time":212.293111781,"data":"        },\n"}
+,{"stream_name":"stdout","time":212.293114255,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.293116708,"data":"          \"profile\": \"i2vgen-xl\",\n"}
+,{"stream_name":"stdout","time":212.293119291,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.293121948,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.i2vgen_xl because of the following error (look up to see its traceback):\\nNo module named 'diffusers.pipelines.i2vgen_xl'\"\n"}
+,{"stream_name":"stdout","time":212.293127015,"data":"        },\n"}
+,{"stream_name":"stdout","time":212.293129617,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.293132063,"data":"          \"profile\": \"svd-xt\",\n"}
+,{"stream_name":"stdout","time":212.293134695,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.293137303,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\\nFailed to import transformers.models.clip.image_processing_clip because of the following error (look up to see its traceback):\\ncannot import name 'divide_to_patches' from 'transformers.image_transforms' (/usr/local/lib/python3.12/dist-packages/transformers/image_transforms.py)\"\n"}
+,{"stream_name":"stdout","time":212.293140748,"data":"        }\n"}
+,{"stream_name":"stdout","time":212.293143188,"data":"      ],\n"}
+,{"stream_name":"stdout","time":212.293145647,"data":"      \"success\": false\n"}
+,{"stream_name":"stdout","time":212.293148155,"data":"    },\n"}
+,{"stream_name":"stdout","time":212.293150585,"data":"    {\n"}
+,{"stream_name":"stdout","time":212.293153025,"data":"      \"id\": \"005\",\n"}
+,{"stream_name":"stdout","time":212.293155646,"data":"      \"attempts\": [\n"}
+,{"stream_name":"stdout","time":212.293158188,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.293160651,"data":"          \"profile\": \"ltx-primary\",\n"}
+,{"stream_name":"stdout","time":212.293163208,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.293165795,"data":"          \"error\": \"ModuleNotFoundError: No module named 'av'\"\n"}
+,{"stream_name":"stdout","time":212.293168448,"data":"        },\n"}
+,{"stream_name":"stdout","time":212.293170913,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.293173379,"data":"          \"profile\": \"ltx-reduced\",\n"}
+,{"stream_name":"stdout","time":212.293175978,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.2931786,"data":"          \"error\": \"ModuleNotFoundError: No module named 'av'\"\n"}
+,{"stream_name":"stdout","time":212.293181239,"data":"        },\n"}
+,{"stream_name":"stdout","time":212.293183673,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.29318613,"data":"          \"profile\": \"i2vgen-xl\",\n"}
+,{"stream_name":"stdout","time":212.293188712,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.29319132,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.i2vgen_xl because of the following error (look up to see its traceback):\\nNo module named 'diffusers.pipelines.i2vgen_xl'\"\n"}
+,{"stream_name":"stdout","time":212.293194297,"data":"        },\n"}
+,{"stream_name":"stdout","time":212.293196907,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.29319937,"data":"          \"profile\": \"svd-xt\",\n"}
+,{"stream_name":"stdout","time":212.29320196,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.293205168,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\\nFailed to import transformers.models.clip.image_processing_clip because of the following error (look up to see its traceback):\\ncannot import name 'divide_to_patches' from 'transformers.image_transforms' (/usr/local/lib/python3.12/dist-packages/transformers/image_transforms.py)\"\n"}
+,{"stream_name":"stdout","time":212.293210811,"data":"        }\n"}
+,{"stream_name":"stdout","time":212.293213387,"data":"      ],\n"}
+,{"stream_name":"stdout","time":212.293215867,"data":"      \"success\": false\n"}
+,{"stream_name":"stdout","time":212.293218406,"data":"    },\n"}
+,{"stream_name":"stdout","time":212.293220917,"data":"    {\n"}
+,{"stream_name":"stdout","time":212.293225677,"data":"      \"id\": \"006a\",\n"}
+,{"stream_name":"stdout","time":212.29322838,"data":"      \"attempts\": [\n"}
+,{"stream_name":"stdout","time":212.293230907,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.293233358,"data":"          \"profile\": \"ltx-primary\",\n"}
+,{"stream_name":"stdout","time":212.293235938,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.293238538,"data":"          \"error\": \"ModuleNotFoundError: No module named 'av'\"\n"}
+,{"stream_name":"stdout","time":212.293241168,"data":"        },\n"}
+,{"stream_name":"stdout","time":212.293243673,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.293246149,"data":"          \"profile\": \"ltx-reduced\",\n"}
+,{"stream_name":"stdout","time":212.293248725,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.293251325,"data":"          \"error\": \"ModuleNotFoundError: No module named 'av'\"\n"}
+,{"stream_name":"stdout","time":212.293253946,"data":"        },\n"}
+,{"stream_name":"stdout","time":212.293256399,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.293258841,"data":"          \"profile\": \"i2vgen-xl\",\n"}
+,{"stream_name":"stdout","time":212.293261438,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.293264145,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.i2vgen_xl because of the following error (look up to see its traceback):\\nNo module named 'diffusers.pipelines.i2vgen_xl'\"\n"}
+,{"stream_name":"stdout","time":212.293267088,"data":"        },\n"}
+,{"stream_name":"stdout","time":212.293269534,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.293271968,"data":"          \"profile\": \"svd-xt\",\n"}
+,{"stream_name":"stdout","time":212.293274539,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.293277146,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\\nFailed to import transformers.models.clip.image_processing_clip because of the following error (look up to see its traceback):\\ncannot import name 'divide_to_patches' from 'transformers.image_transforms' (/usr/local/lib/python3.12/dist-packages/transformers/image_transforms.py)\"\n"}
+,{"stream_name":"stdout","time":212.293280738,"data":"        }\n"}
+,{"stream_name":"stdout","time":212.293283204,"data":"      ],\n"}
+,{"stream_name":"stdout","time":212.293285708,"data":"      \"success\": false\n"}
+,{"stream_name":"stdout","time":212.29328826,"data":"    },\n"}
+,{"stream_name":"stdout","time":212.2932907,"data":"    {\n"}
+,{"stream_name":"stdout","time":212.293293236,"data":"      \"id\": \"006b\",\n"}
+,{"stream_name":"stdout","time":212.293295799,"data":"      \"attempts\": [\n"}
+,{"stream_name":"stdout","time":212.293298312,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.293300779,"data":"          \"profile\": \"ltx-primary\",\n"}
+,{"stream_name":"stdout","time":212.29330335,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.293306059,"data":"          \"error\": \"ModuleNotFoundError: No module named 'av'\"\n"}
+,{"stream_name":"stdout","time":212.293311022,"data":"        },\n"}
+,{"stream_name":"stdout","time":212.29331357,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.293316027,"data":"          \"profile\": \"ltx-reduced\",\n"}
+,{"stream_name":"stdout","time":212.293318591,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.293321185,"data":"          \"error\": \"ModuleNotFoundError: No module named 'av'\"\n"}
+,{"stream_name":"stdout","time":212.29332385,"data":"        },\n"}
+,{"stream_name":"stdout","time":212.293326301,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.293328802,"data":"          \"profile\": \"i2vgen-xl\",\n"}
+,{"stream_name":"stdout","time":212.293331406,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.293334063,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.i2vgen_xl because of the following error (look up to see its traceback):\\nNo module named 'diffusers.pipelines.i2vgen_xl'\"\n"}
+,{"stream_name":"stdout","time":212.293336971,"data":"        },\n"}
+,{"stream_name":"stdout","time":212.293339409,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.293342046,"data":"          \"profile\": \"svd-xt\",\n"}
+,{"stream_name":"stdout","time":212.293344989,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.293347721,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\\nFailed to import transformers.models.clip.image_processing_clip because of the following error (look up to see its traceback):\\ncannot import name 'divide_to_patches' from 'transformers.image_transforms' (/usr/local/lib/python3.12/dist-packages/transformers/image_transforms.py)\"\n"}
+,{"stream_name":"stdout","time":212.293351219,"data":"        }\n"}
+,{"stream_name":"stdout","time":212.293353684,"data":"      ],\n"}
+,{"stream_name":"stdout","time":212.293356131,"data":"      \"success\": false\n"}
+,{"stream_name":"stdout","time":212.293358659,"data":"    },\n"}
+,{"stream_name":"stdout","time":212.293361095,"data":"    {\n"}
+,{"stream_name":"stdout","time":212.293363674,"data":"      \"id\": \"007\",\n"}
+,{"stream_name":"stdout","time":212.293366246,"data":"      \"attempts\": [\n"}
+,{"stream_name":"stdout","time":212.293369025,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.293371526,"data":"          \"profile\": \"ltx-primary\",\n"}
+,{"stream_name":"stdout","time":212.293374103,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.293376736,"data":"          \"error\": \"ModuleNotFoundError: No module named 'av'\"\n"}
+,{"stream_name":"stdout","time":212.293379382,"data":"        },\n"}
+,{"stream_name":"stdout","time":212.293381815,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.293384274,"data":"          \"profile\": \"ltx-reduced\",\n"}
+,{"stream_name":"stdout","time":212.293386835,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.29338952,"data":"          \"error\": \"ModuleNotFoundError: No module named 'av'\"\n"}
+,{"stream_name":"stdout","time":212.293392295,"data":"        },\n"}
+,{"stream_name":"stdout","time":212.293394748,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.293397185,"data":"          \"profile\": \"i2vgen-xl\",\n"}
+,{"stream_name":"stdout","time":212.293399768,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.293402362,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.i2vgen_xl because of the following error (look up to see its traceback):\\nNo module named 'diffusers.pipelines.i2vgen_xl'\"\n"}
+,{"stream_name":"stdout","time":212.293407319,"data":"        },\n"}
+,{"stream_name":"stdout","time":212.293409876,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.293413478,"data":"          \"profile\": \"svd-xt\",\n"}
+,{"stream_name":"stdout","time":212.293416206,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.293418846,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\\nFailed to import transformers.models.clip.image_processing_clip because of the following error (look up to see its traceback):\\ncannot import name 'divide_to_patches' from 'transformers.image_transforms' (/usr/local/lib/python3.12/dist-packages/transformers/image_transforms.py)\"\n"}
+,{"stream_name":"stdout","time":212.293422429,"data":"        }\n"}
+,{"stream_name":"stdout","time":212.293424906,"data":"      ],\n"}
+,{"stream_name":"stdout","time":212.293427447,"data":"      \"success\": false\n"}
+,{"stream_name":"stdout","time":212.29342998,"data":"    },\n"}
+,{"stream_name":"stdout","time":212.293432422,"data":"    {\n"}
+,{"stream_name":"stdout","time":212.293434879,"data":"      \"id\": \"008\",\n"}
+,{"stream_name":"stdout","time":212.293437457,"data":"      \"attempts\": [\n"}
+,{"stream_name":"stdout","time":212.293440005,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.293442453,"data":"          \"profile\": \"ltx-primary\",\n"}
+,{"stream_name":"stdout","time":212.293445036,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.293447705,"data":"          \"error\": \"ModuleNotFoundError: No module named 'av'\"\n"}
+,{"stream_name":"stdout","time":212.293450524,"data":"        },\n"}
+,{"stream_name":"stdout","time":212.293452994,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.293455441,"data":"          \"profile\": \"ltx-reduced\",\n"}
+,{"stream_name":"stdout","time":212.293458177,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.293461001,"data":"          \"error\": \"ModuleNotFoundError: No module named 'av'\"\n"}
+,{"stream_name":"stdout","time":212.293463659,"data":"        },\n"}
+,{"stream_name":"stdout","time":212.293466119,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.293468569,"data":"          \"profile\": \"i2vgen-xl\",\n"}
+,{"stream_name":"stdout","time":212.293471153,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.293473812,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.i2vgen_xl because of the following error (look up to see its traceback):\\nNo module named 'diffusers.pipelines.i2vgen_xl'\"\n"}
+,{"stream_name":"stdout","time":212.293507969,"data":"        },\n"}
+,{"stream_name":"stdout","time":212.293515534,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.293520098,"data":"          \"profile\": \"svd-xt\",\n"}
+,{"stream_name":"stdout","time":212.293524245,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.293528117,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\\nFailed to import transformers.models.clip.image_processing_clip because of the following error (look up to see its traceback):\\ncannot import name 'divide_to_patches' from 'transformers.image_transforms' (/usr/local/lib/python3.12/dist-packages/transformers/image_transforms.py)\"\n"}
+,{"stream_name":"stdout","time":212.293539366,"data":"        }\n"}
+,{"stream_name":"stdout","time":212.293546872,"data":"      ],\n"}
+,{"stream_name":"stdout","time":212.293549471,"data":"      \"success\": false\n"}
+,{"stream_name":"stdout","time":212.293552041,"data":"    },\n"}
+,{"stream_name":"stdout","time":212.293554566,"data":"    {\n"}
+,{"stream_name":"stdout","time":212.293557051,"data":"      \"id\": \"009\",\n"}
+,{"stream_name":"stdout","time":212.293559652,"data":"      \"attempts\": [\n"}
+,{"stream_name":"stdout","time":212.293562192,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.293564662,"data":"          \"profile\": \"ltx-primary\",\n"}
+,{"stream_name":"stdout","time":212.293567329,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.293569951,"data":"          \"error\": \"ModuleNotFoundError: No module named 'av'\"\n"}
+,{"stream_name":"stdout","time":212.293572671,"data":"        },\n"}
+,{"stream_name":"stdout","time":212.293575177,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.293577686,"data":"          \"profile\": \"ltx-reduced\",\n"}
+,{"stream_name":"stdout","time":212.293580395,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.293583019,"data":"          \"error\": \"ModuleNotFoundError: No module named 'av'\"\n"}
+,{"stream_name":"stdout","time":212.293585671,"data":"        },\n"}
+,{"stream_name":"stdout","time":212.29358822,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.293590688,"data":"          \"profile\": \"i2vgen-xl\",\n"}
+,{"stream_name":"stdout","time":212.293593366,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.29359614,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.i2vgen_xl because of the following error (look up to see its traceback):\\nNo module named 'diffusers.pipelines.i2vgen_xl'\"\n"}
+,{"stream_name":"stdout","time":212.293599066,"data":"        },\n"}
+,{"stream_name":"stdout","time":212.293601534,"data":"        {\n"}
+,{"stream_name":"stdout","time":212.293603993,"data":"          \"profile\": \"svd-xt\",\n"}
+,{"stream_name":"stdout","time":212.293606623,"data":"          \"status\": \"failed\",\n"}
+,{"stream_name":"stdout","time":212.293609696,"data":"          \"error\": \"RuntimeError: Failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\\nFailed to import transformers.models.clip.image_processing_clip because of the following error (look up to see its traceback):\\ncannot import name 'divide_to_patches' from 'transformers.image_transforms' (/usr/local/lib/python3.12/dist-packages/transformers/image_transforms.py)\"\n"}
+,{"stream_name":"stdout","time":212.293613227,"data":"        }\n"}
+,{"stream_name":"stdout","time":212.293615699,"data":"      ],\n"}
+,{"stream_name":"stdout","time":212.293618216,"data":"      \"success\": false\n"}
+,{"stream_name":"stdout","time":212.293620753,"data":"    }\n"}
+,{"stream_name":"stdout","time":212.293623236,"data":"  ],\n"}
+,{"stream_name":"stdout","time":212.293625726,"data":"  \"elapsed_seconds\": 206.89,\n"}
+,{"stream_name":"stdout","time":212.293628379,"data":"  \"success\": false\n"}
+,{"stream_name":"stdout","time":212.293630997,"data":"}\n"}
+,{"stream_name":"stderr","time":218.57408594,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":218.574139558,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":218.836653666,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":218.836689743,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":219.535328372,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":220.39925826,"data":"[NbConvertApp] Writing 287929 bytes to __results__.html\n"}
+]
