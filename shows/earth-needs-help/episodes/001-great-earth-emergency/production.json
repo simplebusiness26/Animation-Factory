@@ -5,7 +5,7 @@
   "title": "The Great Earth Emergency",
   "target_runtime_seconds": 80,
   "aspect_ratio": "16:9",
-  "status": "generating_stills",
+  "status": "generating_motion",
   "generation_strategy": "hybrid-routed-locked-reference-to-scene-still-to-video-per-shot",
   "continuity": {
     "manifest": "shows/earth-needs-help/continuity-manifest.json",
@@ -13,7 +13,7 @@
     "reference_pack_status": "locked",
     "text_only_identity_generation_allowed": false,
     "qa_required_before_motion": true,
-    "current_stills_002_009": "approved_by_user"
+    "current_stills_full_batch": "approved_by_user"
   },
   "image_backend": {
     "router_config": "pipeline/image-generation.json",
@@ -33,8 +33,8 @@
     "quality_gates": "pipeline/quality-gates.json",
     "auto_repair": true,
     "max_attempts_per_shot": 3,
-    "active_stage": "reference-still-generation",
-    "active_shot": "001",
+    "active_stage": "full-motion-generation",
+    "active_shot": "001-009",
     "release_requires": "episode_qa_pass"
   },
   "video_backend": {
@@ -52,9 +52,9 @@
       "id": "001",
       "duration_seconds": 7,
       "location": "spaceship-bridge",
-      "still_status": "replacement_requested",
-      "motion_status": "blocked_continuity",
-      "qa_status": "pending_replacement_review",
+      "still_status": "approved_continuity",
+      "motion_status": "queued_full_motion",
+      "qa_status": "approved",
       "attempts": 1,
       "characters": [
         "captain-pip",
@@ -221,5 +221,5 @@
       "comic-sting"
     ]
   },
-  "next_action": "Generate replacement Shot 001 from the locked character references while reusing the approved Shot 002–009 stills unchanged; then review the resulting full ten-shot batch before motion generation."
+  "next_action": "Generate the full 10-shot LTX motion pass from the user-approved, hash-bound still batch; do not change any stills."
 }
