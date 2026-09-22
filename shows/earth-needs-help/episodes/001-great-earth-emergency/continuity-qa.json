@@ -1,7 +1,7 @@
 {
   "show": "Earth Needs Help",
   "episode": "001",
-  "status": "approved",
+  "status": "pending_review",
   "review_policy": "Approve only when every recurring character visibly matches the locked reference pack. File hashes bind this approval to this exact still batch.",
   "required_checks": [
     "character identity matches locked visual refs",
@@ -64,6 +64,6 @@
       "sha256": "a670879c90152393a92c8f5fb11edd5fc432dadfa7f276654a8950eb1b116cba"
     }
   ],
-  "reviewed_by": "Craig",
-  "review_notes": "User approved the corrected Shot 001 and the full hash-bound Episode 001 still batch on 2026-09-22; authorised the full motion pass."
+  "reviewed_by": null,
+  "review_notes": null
 }
