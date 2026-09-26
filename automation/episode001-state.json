@@ -8,7 +8,7 @@
   "motion_attempts": 3,
   "last_status": "MOTION_REPAIR_REQUIRED",
   "last_error": "Repeated identical Kaggle failure (f9d811167627395d9c2d) detected 2 times. Automatic GPU resubmission is stopped until the runner/dependencies are changed. Latest diagnostic: ,{\"stream_name\":\"stdout\",\"time\":164.046505012,\"data\":\"          \\\"error\\\": \\\"runtimeerror: failed to import diffusers.pipelines.stable_video_diffusion.pipeline_stable_video_diffusion because of the following error (look up to see its traceback):\\\\ncannot import name 'is_offline_mode' from 'huggingface_hub' (/usr/local/lib/python3.12/dist-packages/huggingface_hub/__init__.py)\\\"\\n\"}",
-  "updated_at": "2026-09-26T02:11:52Z",
+  "updated_at": "2026-09-26T02:20:50Z",
   "release_tag": "earth-needs-help-e001",
   "stills_submit_failures": 0,
   "motion_submit_failures": 0,
