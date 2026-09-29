@@ -30,6 +30,16 @@ JOB_PATH = ROOT / 'episode-job.json'
 MANIFEST_PATH = WORK / 'earth-needs-help-e001-motion-manifest.json'
 _I2V_PIPE = None
 _SVD_PIPE = None
+MOTION_DEPENDENCIES = (
+    'diffusers==0.31.0',
+    'transformers==4.49.0',
+    'huggingface-hub==0.30.2',
+    'accelerate>=1.1,<2',
+    'safetensors>=0.4,<1',
+    'Pillow<12',
+    'imageio[ffmpeg]',
+    'av>=12,<16',
+)
 
 
 def run(args: list[str], cwd: Path | None = None) -> str:
@@ -40,16 +50,18 @@ def run(args: list[str], cwd: Path | None = None) -> str:
     return out
 
 
-def pip_install(*packages: str) -> None:
-    run([sys.executable, '-m', 'pip', 'install', '-q', '--upgrade', *packages])
-
-
 def install_ltx() -> Path:
     repo = WORK / 'LTX-Video'
     if not repo.exists():
         run(['git', 'clone', '--depth', '1', 'https://github.com/Lightricks/LTX-Video.git', str(repo)])
-    run([sys.executable, '-m', 'pip', 'install', '-q', '-e', f'{repo}[inference-script]'])
+    # Resolve the LTX inference extra and the compatible fallback stack in one
+    # transaction. Installing/upgrading fallback packages after importing LTX
+    # leaves old modules in memory and breaks both backends.
+    run([sys.executable, '-m', 'pip', 'install', '-q', '-e', f'{repo}[inference]', *MOTION_DEPENDENCIES])
     sys.path.insert(0, str(repo))
+    run([sys.executable, '-c',
+         'import av; from ltx_video.inference import infer, InferenceConfig; '
+         'print("motion-imports-ok")'])
     return repo
 
 
@@ -109,7 +121,6 @@ def get_i2v_pipe():
     global _I2V_PIPE
     if _I2V_PIPE is not None:
         return _I2V_PIPE
-    pip_install('diffusers', 'transformers', 'accelerate', 'imageio[ffmpeg]', 'safetensors', 'Pillow')
     import torch
     from diffusers import I2VGenXLPipeline
     pipe = I2VGenXLPipeline.from_pretrained('ali-vilab/i2vgen-xl', torch_dtype=torch.float16, variant='fp16')
@@ -147,7 +158,6 @@ def get_svd_pipe():
     global _SVD_PIPE
     if _SVD_PIPE is not None:
         return _SVD_PIPE
-    pip_install('diffusers', 'transformers', 'accelerate', 'imageio[ffmpeg]', 'safetensors', 'Pillow')
     import torch
     from diffusers import StableVideoDiffusionPipeline
     pipe = StableVideoDiffusionPipeline.from_pretrained(
