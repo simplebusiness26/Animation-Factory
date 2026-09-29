@@ -1,14 +1,14 @@
 {
   "episode": "001",
   "title": "The Great Earth Emergency",
-  "phase": "awaiting_continuity_review",
+  "phase": "awaiting_motion",
   "stills_kernel": "simplebusiness/enh-e001-stills-r1-9948698",
   "stills_attempts": 0,
-  "motion_kernel": "simplebusiness/enh-e001-motion-r3-0044037-0",
-  "motion_attempts": 0,
-  "last_status": "MOTION_DEPENDENCY_REPAIR_READY",
+  "motion_kernel": "simplebusiness/enh-e001-motion-r1-0644593-0",
+  "motion_attempts": 1,
+  "last_status": "MOTION_ATTEMPT_1_SUBMITTED",
   "last_error": null,
-  "updated_at": "2026-09-29T01:15:45Z",
+  "updated_at": "2026-09-29T01:16:35Z",
   "release_tag": "earth-needs-help-e001",
   "stills_submit_failures": 0,
   "motion_submit_failures": 0,
@@ -26,5 +26,7 @@
   "stills_submitted_at_epoch": 1789948700,
   "stills_missing_checks": 0,
   "shot001_regen_seed": 12101,
-  "motion_missing_checks": 0
+  "motion_missing_checks": 0,
+  "motion_submitted_at_epoch": 1790644595,
+  "motion_active_kernel": "simplebusiness/enh-e001-motion-r1-0644593-0"
 }
