@@ -1,0 +1,8 @@
+{
+  "duration_seconds": 80.0,
+  "size_bytes": 37012030,
+  "technical_pass": true,
+  "visual_review": "pending",
+  "audio_review": "pending",
+  "sha256": "fc11736302e0f295419dbfe5b81667781fdb869bc496858213418a5458c8ec5a"
+}
